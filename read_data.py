@@ -11,7 +11,7 @@ from os import listdir
 from os.path import isfile, join
 import string
 
-#%% set path to speech files and read look-up file for elelction dates
+#%% set path to speech files, read look-up file for elelction dates
 path = 'SwissParliament/'
 elections = pd.read_csv('federal_election_dates.csv')
 
@@ -155,8 +155,9 @@ dfbyparty5 = collect_by(data5,'Speaker Party')
 dfbypartyspeaker5 = collect_by(data5,['Speaker Party','Speaker'])
 #%%
 dfbypartyspeaker5.to_csv('./term5/dfbypartyspeaker5.csv')
-
-
+#%%
+partyfreq = data5.groupby('Speaker Party').size()
+partyfreq.to_csv('./term5/partyfreq.csv')
 
 
 #%% term frequency - inverse document frequency (tf-idf)
