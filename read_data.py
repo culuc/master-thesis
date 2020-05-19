@@ -13,7 +13,7 @@ import string
 
 #%% set path to speech files, read look-up file for elelction dates
 path = 'SwissParliament/'
-elections = pd.read_csv('federal_election_dates.csv')
+elections = pd.read_csv('./lookup_files/federal_election_dates.csv')
 
 #%% read in all session files, keep session name
 def read_data(path):
