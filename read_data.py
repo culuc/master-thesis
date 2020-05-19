@@ -10,11 +10,12 @@ import spacy
 from os import listdir
 from os.path import isfile, join
 import string
-#%%
+
+#%% set path to speech files and read look-up file for elelction dates
 path = 'SwissParliament/'
 elections = pd.read_csv('federal_election_dates.csv')
 
-#%%
+#%% read in all session files, keep session name
 def read_data(path):
 
     allfiles = [f for f in listdir(path) if (isfile(join(path, f)) and f.endswith(".csv"))]
@@ -29,11 +30,10 @@ def read_data(path):
         d['Session'] = str.split(file,'.')[0]
         alldata = alldata.append(d, ignore_index = True)
 
-    
-
     return alldata
 
 
+# lookup term from dates
 def compute_term(df,dates_lookup):
     df['Term'] = 0
     i = 1
@@ -51,18 +51,15 @@ alldata = compute_term(alldata, elections)
 alldata.Date.min()
 alldata.Date.max()
 
-#%%
-# file1 = pd.read_csv(join(path,allfiles[0]))
-# fileger = file1[file1.Language == "DE"]
-# fileger
-
-# fileg5 = alldata[(alldata.Language == 'DE') & (alldata.Term == 5)]
+# load stemmer for German
 stemmer = GermanStemmer()
 
-#%%
+#%% compute bi-grams from speech
 def preprocess_speech(speech):
-    # remove words in brackets and parentheses
+
+    # remove non-spoken part of speeches
     speech = re.sub('((\[VS\]|\[GZ\])(.|\n)*)', '', speech)
+    # remove words in brackets and parentheses
     speech = re.sub('\[.*\]', '', speech)
     speech = re.sub('\(.*\)', '', speech)
 
@@ -102,8 +99,9 @@ def preprocess_speech(speech):
     countdict = dict(Counter(bigrams).most_common())
 
     return countdict
-#%%
 
+
+#%% collect dict-counts
 def collect_counts(series):
     counter = Counter()
     for d in series:
@@ -114,59 +112,16 @@ def collect_counts(series):
     return result
 
 #%%
-def run(alldata, filtervar, criterion, topn):
-    # filter data
-    print('preprocessing data')
-    data = alldata[(alldata.Language == 'DE') & (alldata[filtervar] == criterion)]
-    data['Speech'] = data['Speech'].map(preprocess_speech)
-
-    # overall
-    print('collecting overall counts')
-    overall = collect_counts(data.Speech)
-    dfoverall = pd.DataFrame.from_dict(overall, orient = 'index')
-
-    dfoverall = dfoverall.reset_index()
-    dfoverall.columns = ['Phrase','Counts']
-
-    # by party
-    print('collecting by party counts')
-    byparty = data.groupby('Speaker Party').Speech.apply(collect_counts)
-    dfbyparty = pd.DataFrame(byparty)
-    dfbyparty.index.rename(['Speaker Party','Phrase'],inplace=True)
-    dfbyparty.columns = ['Counts']
-    dfbypartylong = dfbyparty.reset_index()
-    dfbypartylong_nona = dfbypartylong.dropna()
-    
-    print('Compute Frequency')
-    byparty_counts = dfbypartylong_nona.groupby('Phrase').size()
-    dfbyparty_counts = byparty_counts.to_frame()
-    dfbyparty_counts = dfbyparty_counts.reset_index()
-    dfbyparty_counts.columns = ['Phrase','Freq']
-
-    new = pd.merge(dfoverall,dfbyparty_counts,'left','Phrase')
-    N = dfbypartylong_nona['Speaker Party'].nunique()
-    new['N'] = N
-    new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
-    
-    newtop500 = new.nlargest(topn,'tf_idf')
-    top500 = pd.merge(dfbypartylong_nona,newtop500,'inner','Phrase',suffixes=('_byparty',''))
-    top500_2 = top500.pivot(index='Speaker Party', columns='Phrase',values='Counts_byparty').fillna(0)
-
-    return data,dfoverall,dfbypartylong_nona,new,newtop500,top500_2
-
-#%%
 # filter data
-def preproc(alldata, filtervar, criterion):
+def preprocess_data(alldata, filtervar, criterion, lang='DE'):
     print('preprocessing data')
-    data = alldata[(alldata.Language == 'DE') & (alldata[filtervar] == criterion)]
+    data = alldata[(alldata.Language == lang) & (alldata[filtervar] == criterion)]
     data['Speech'] = data['Speech'].map(preprocess_speech)
 
     return data
 
-data5 = preproc(alldata, 'Term', 5)
-
 #%%
-# overall
+# collect bi-gram counts overall
 def collect_all(data):
     print('collecting overall counts')
     overall = collect_counts(data.Speech)
@@ -177,8 +132,7 @@ def collect_all(data):
 
     return dfoverall
 
-dfoverall5 = collect_all(data5)
-#%%
+#%% collect bi-gram counts by columns
 def collect_by(data, columns):
     print('collecting by ', columns)
     byc = data.groupby(columns).Speech.apply(collect_counts)
@@ -190,34 +144,46 @@ def collect_by(data, columns):
 
     return dfbyclong_nona
 
-#%%
-dfbyparty = collect_by(data5,'Speaker Party')
 
 #%%
-dfbypartyspeaker = collect_by(data5,['Speaker Party','Speaker'])
+data5 = preprocess_data(alldata, 'Term', 5)
 #%%
-dfbypartyspeaker.to_csv('./term5/dfbypartyspeaker5.csv')
+dfoverall5 = collect_all(data5)
 #%%
+dfbyparty5 = collect_by(data5,'Speaker Party')
+#%%
+dfbypartyspeaker5 = collect_by(data5,['Speaker Party','Speaker'])
+#%%
+dfbypartyspeaker5.to_csv('./term5/dfbypartyspeaker5.csv')
+
+
+
+
+#%% term frequency - inverse document frequency (tf-idf)
 def compute_tf_idf(dfoverall, dfbypartylong_nona,topn):
-    print('Compute Frequency')
+
+    # how many parties have used a particular phrase
     byparty_counts = dfbypartylong_nona.groupby('Phrase').size()
     dfbyparty_counts = byparty_counts.to_frame()
     dfbyparty_counts = dfbyparty_counts.reset_index()
     dfbyparty_counts.columns = ['Phrase','Freq']
 
+    # merge with overall counts to compute tf-idf
     new = pd.merge(dfoverall,dfbyparty_counts,'left','Phrase')
     N = dfbypartylong_nona['Speaker Party'].nunique()
     new['N'] = N
     new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
+
+    # select phrases with n-largest tf-idf metric
     newtop500 = new.nlargest(topn,'tf_idf')
 
     return new, newtop500
 
 
-#%%
-def select_phrases_from_df(df,newtop500,by_index,dropna=True):
+#%% filter the top phrase counts for each speaker
+def select_phrases_from_df(df,newtop500,by_index,dropna=False):
     name0 = '_'.join(by_index)
-    name1 = 'Counts' + name0 
+    name1 = 'Counts' + name0
     top500 = pd.merge(df,newtop500,'inner', 'Phrase',suffixes=(name0,''))
     term5_top500_byindex = pd.pivot_table(top500, values = name1, index=by_index, columns = 'Phrase',fill_value = 0, dropna=dropna).reset_index()
 
@@ -225,73 +191,18 @@ def select_phrases_from_df(df,newtop500,by_index,dropna=True):
 
 
 #%%
-new5, new5top500 = compute_tf_idf(dfoverall5,dfbyparty,500)
+term5_tf, term5top500_tf = compute_tf_idf(dfoverall5,dfbyparty,500)
 
 # %%
-dfbypartyspeaker_top500 = select_phrases_from_df(dfbypartyspeaker,new5top500)
+term5_top500_bySpeakerParty = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'],dropna=True)
+term5_top500_bySpeakerParty.shape
 
-# %%
-term5_top500_byspeakerparty = pd.pivot_table(top500, values = 'Counts_byparty', index=['Speaker Party','Speaker'], columns = 'Phrase',fill_value = 0 ).reset_index()
-
-# %%
-term5_top500_byspeakerparty.to_csv('./term5/term5_top500_bySpeakerParty.csv')
-
-
-#%%
-new5top10 = new5top500.head(10)
-
-# %%
-dfbypartyspeaker_top10 = select_phrases_from_df(dfbypartyspeaker,new5top10,['Speaker Party','Speaker'])
+# %% keep all speakers, even if they never say any of the words
+term5_top500_bySpeakerParty_long = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'],dropna=False)
+term5_top500_bySpeakerParty_long.shape
+dfbypartyspeaker_top500.shape
 
 
-# %%
-dfbypartyspeaker_top10.to_csv('./term5/term5_top10_bySpeakerParty.csv')
-
-
-
-#%%
-new5top100 = new5top500.head(100)
-
-# %%
-dfbypartyspeaker_top100 = select_phrases_from_df(dfbypartyspeaker,new5top100,['Speaker Party','Speaker'])
-
-
-# %%
-dfbypartyspeaker_top100.to_csv('./term5/term5_top100_bySpeakerParty.csv')
-
-
-
-#%%
-new5top15 = new5top500.head(15)
-
-# %%
-dfbypartyspeaker_top15 = select_phrases_from_df(dfbypartyspeaker,new5top15,['Speaker Party','Speaker'])
-
-
-# %%
-dfbypartyspeaker_top15.to_csv('./term5/term5_top15_bySpeakerParty.csv')
-
-
-
-
-# %%
-dfbypartyspeaker_top500 = select_phrases_from_df(dfbypartyspeaker,new5top500,['Speaker Party','Speaker'],dropna=False)
-
-
-# %%
-dfbypartyspeaker_top500.to_csv('./term5/term5_top500_bySpeakerParty_long.csv')
-
-# %%
-dfbypartyspeaker = pd.read_csv('./term5/dfbypartyspeaker5.csv')
-
-# %%
-dfbypartyspeaker = pd.read_csv('./term5/dfbypartyspeaker5.csv')
-
-
-# %%
-term5_all = pd.pivot_table(dfbypartyspeaker, values = 'Counts', index=['Speaker Party','Speaker'], columns = 'Phrase',fill_value = 0, dropna=False).reset_index()
-
-# %%
-term5_all
-
-# %%
+# %% save results
+term5_top500_bySpeakerParty.to_csv('./term5/term5_top500_bySpeakerParty.csv')
+term5_top500_bySpeakerParty_long.to_csv('./term5/term5_top500_bySpeakerParty_long.csv')
