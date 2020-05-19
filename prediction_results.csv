@@ -1,0 +1,2 @@
+res.lda,res.logistic,res.lasso,res.lasso.cv,res.randomForest,res.svm
+0.2692,0.34619999999999995,0.057699999999999994,0.0385,0.5,0.1923

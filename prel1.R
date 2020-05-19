@@ -3,8 +3,7 @@ library(MASS)
 library(dplyr)
 library(magrittr)
 
-data = read.csv('term5/term5_top15_bySpeakerParty.csv')
-data = read.csv('term5/term5_top500_bySpeakerParty2.csv')
+data = read.csv('term5/term5_top500_bySpeakerParty.csv')
 data = read.csv('term5/term5_top500_bySpeakerParty_long.csv')
 
 data2 <- data%>%select(-c('Speaker','X'))
@@ -33,13 +32,14 @@ pr.lda$class
 ctable.lda <- table(to_predict$Speaker.Party, pr.lda$class)
 ctable.lda
 diag(ctable.lda)
-round((sum(diag(ctable.lda))/sum(ctable.lda))*100,2)
+res.lda <- round((sum(diag(ctable.lda))/sum(ctable.lda))*100,2)
+res.lda
 
 
 ## multinomial logisitc regression
 
 library(nnet)
-multinom.fit <- multinom(Speaker.Party~., data = df.train)
+multinom.fit <- multinom(Speaker.Party~., data = df.train, MaxNWts = 10000000)
 summary(multinom.fit)
 multinom.fit
 
@@ -48,7 +48,8 @@ pr.multinom
 
 ctable.multinom <- table(to_predict$Speaker.Party, pr.multinom)
 ctable.multinom
-round((sum(diag(ctable.multinom))/sum(ctable.multinom))*100,2)
+res.logistic <- round((sum(diag(ctable.multinom))/sum(ctable.multinom))*100,2)
+res.logistic
 
 
 ## multinomial lasso regression
@@ -70,24 +71,20 @@ lasso.fit.cv = cv.glmnet(x, y, family = "multinomial", type.measure="class", kee
 
 lam.min <- lasso.fit.cv$lambda.min
 
-lasso.fit.min <- glmnet(x,y,family="multinomial", lambda=lam.min)
-lasso.fit.min
-
 plot(lasso.fit.cv)
 
 
-lasso.pred <- predict(lasso.fit,as.matrix(df.test))
-lasso.pred2 <- predict(lasso.fit, newx = as.matrix(df.test), type = "class",s=0.001,lambda=lam.min)
+lasso.pred <- predict(lasso.fit, newx = as.matrix(df.test), type = "class",s=0.001,lambda=lam.min)
 lasso.pred2 <- predict(lasso.fit.cv$glmnet.fit, newx = as.matrix(df.test), type = "class",s=0.001,lambda=lam.min)
 
 lasso.pred2
 lasso.pred
 
+ctable.lasso <- table(to_predict$Speaker.Party, lasso.pred)
+res.lasso <- round((sum(diag(ctable.lasso))/sum(ctable.lasso))*100,2)
 ctable.lasso <- table(to_predict$Speaker.Party, lasso.pred2)
-ctable.lasso
-round((sum(diag(ctable.lasso))/sum(ctable.lasso))*100,2)
-
-
+res.lasso.cv <- round((sum(diag(ctable.lasso))/sum(ctable.lasso))*100,2)
+res.lasso.cv
 
 ## random forest
 
@@ -103,14 +100,6 @@ yhat.bag = predict(rf1 ,newdata=data2)
 yhat.bag
 
 
-
-data2[,sample(ncol(data2), 3)]
-
-
-sample(ncol(data2[1:ncol(data)]), 3)
-
-SP <- df.test$Speaker.Party
-
 df.test%>%dplyr::select(-c('Speaker.Party'))
 df.train
 
@@ -118,7 +107,6 @@ rf=ranger::ranger(Speaker.Party~.,data=data2,mtry=500)
 rf$predictions
 ctable <- table(data2$Speaker.Party, rf$predictions)
 ctable
-bag.boston$predicted
 round((sum(diag(ctable))/sum(ctable))*100,2)
 sum(diag(ctable))
 sum(ctable)
@@ -130,12 +118,7 @@ pr <- predict(rf2,data=df.test)
 
 
 ctable <- table(to_predict$Speaker.Party, pr$predictions)
-ctable
-bag.boston$predicted
-round((sum(diag(ctable))/sum(ctable))*100,2)
-
-
-
+res.randomForest <- round((sum(diag(ctable))/sum(ctable))*100,2)
 
 
 # vector support machine
@@ -160,4 +143,9 @@ pr.svm <- predict(fit.svm, df.test)
 ctable.svm <- table(to_predict$Speaker.Party, pr.svm)
 ctable.svm
 
-round((sum(diag(ctable.svm))/sum(ctable.svm))*100,2)
+res.svm <- round((sum(diag(ctable.svm))/sum(ctable.svm))*100,2)
+
+
+res <- data.frame(res.lda,res.logistic,res.lasso,res.lasso.cv,res.randomForest,res.svm)
+res <- res/100
+readr::write_csv(res,"prediction_results.csv")
