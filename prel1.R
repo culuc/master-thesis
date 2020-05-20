@@ -66,15 +66,19 @@ df.train$Speaker.Party
 lasso.fit <- glmnet(x,y,family="multinomial", alpha = 0)
 coef(lasso.fit)
 
+ridge.fit <- glmnet(x,y,family="multinomial", alpha = 1)
+coef(ridge.fit)
+
 # cross-validate optimal lambda
-lasso.fit.cv = cv.glmnet(x, y, family = "multinomial", type.measure="class", keep=TRUE,nfolds=10)
+lasso.fit.cv = cv.glmnet(x, y, family = "multinomial", type.measure="class", keep=TRUE,nfolds=10,alpha=0)
 
 lam.min <- lasso.fit.cv$lambda.min
 
 plot(lasso.fit.cv)
 
 
-lasso.pred <- predict(lasso.fit, newx = as.matrix(df.test), type = "class",s=0.001,lambda=lam.min)
+lasso.pred <- predict(lasso.fit, newx = as.matrix(df.test), type = "class",s=0.001)
+ridge.pred <- predict(ridge.fit, newx = as.matrix(df.test), type = "class",s=0.001)
 lasso.pred2 <- predict(lasso.fit.cv$glmnet.fit, newx = as.matrix(df.test), type = "class",s=0.001,lambda=lam.min)
 
 lasso.pred2
@@ -82,10 +86,13 @@ lasso.pred
 
 ctable.lasso <- table(to_predict$Speaker.Party, lasso.pred)
 res.lasso <- round((sum(diag(ctable.lasso))/sum(ctable.lasso))*100,2)
-ctable.lasso <- table(to_predict$Speaker.Party, lasso.pred2)
-res.lasso.cv <- round((sum(diag(ctable.lasso))/sum(ctable.lasso))*100,2)
+ctable.ridge <- table(to_predict$Speaker.Party, ridge.pred)
+res.ridge <- round((sum(diag(ctable.ridge))/sum(ctable.ridge))*100,2)
+ctable.lasso.cv <- table(to_predict$Speaker.Party, lasso.pred2)
+res.lasso.cv <- round((sum(diag(ctable.lasso.cv))/sum(ctable.lasso.cv))*100,2)
+res.lasso
 res.lasso.cv
-
+res.ridge
 ## random forest
 
 library(randomForest)
@@ -146,6 +153,6 @@ ctable.svm
 res.svm <- round((sum(diag(ctable.svm))/sum(ctable.svm))*100,2)
 
 
-res <- data.frame(res.lda,res.logistic,res.lasso,res.lasso.cv,res.randomForest,res.svm)
+res <- data.frame(res.lda,res.logistic,res.lasso,res.ridge,res.lasso.cv,res.randomForest,res.svm)
 res <- res/100
 readr::write_csv(res,"prediction_results.csv")
