@@ -63,13 +63,15 @@ y <- df.train$Speaker.Party
 
 df.train$Speaker.Party
 
+
 lasso.fit <- glmnet(x,y,family="multinomial", alpha = 0)
 coef(lasso.fit)
 
+# ridge resgression
 ridge.fit <- glmnet(x,y,family="multinomial", alpha = 1)
 coef(ridge.fit)
 
-# cross-validate optimal lambda
+# cross-validate optimal lambda for lasso
 lasso.fit.cv = cv.glmnet(x, y, family = "multinomial", type.measure="class", keep=TRUE,nfolds=10,alpha=0)
 
 lam.min <- lasso.fit.cv$lambda.min
@@ -93,6 +95,8 @@ res.lasso.cv <- round((sum(diag(ctable.lasso.cv))/sum(ctable.lasso.cv))*100,2)
 res.lasso
 res.lasso.cv
 res.ridge
+
+
 ## random forest
 
 library(randomForest)
