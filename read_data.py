@@ -35,6 +35,7 @@ def read_data(path):
 
 # lookup term from dates
 def compute_term(df,dates_lookup):
+
     df['Term'] = 0
     i = 1
     for n in range(len(dates_lookup)-1):
@@ -103,6 +104,7 @@ def preprocess_speech(speech):
 
 #%% collect dict-counts
 def collect_counts(series):
+
     counter = Counter()
     for d in series:
         counter.update(d)
@@ -111,19 +113,19 @@ def collect_counts(series):
 
     return result
 
-#%%
-# filter data
+
+#%% filter data
 def preprocess_data(alldata, filtervar, criterion, lang='DE'):
-    print('preprocessing data')
+
     data = alldata[(alldata.Language == lang) & (alldata[filtervar] == criterion)]
     data['Speech'] = data['Speech'].map(preprocess_speech)
 
     return data
 
-#%%
-# collect bi-gram counts overall
+
+#%% collect bi-gram counts overall
 def collect_all(data):
-    print('collecting overall counts')
+
     overall = collect_counts(data.Speech)
     dfoverall = pd.DataFrame.from_dict(overall, orient = 'index')
 
@@ -132,8 +134,10 @@ def collect_all(data):
 
     return dfoverall
 
+
 #%% collect bi-gram counts by columns
 def collect_by(data, columns):
+
     print('collecting by ', columns)
     byc = data.groupby(columns).Speech.apply(collect_counts)
     dfbyc = pd.DataFrame(byc)
@@ -161,17 +165,17 @@ partyfreq.to_csv('./term5/partyfreq.csv')
 
 
 #%% term frequency - inverse document frequency (tf-idf)
-def compute_tf_idf(dfoverall, dfbypartylong_nona,topn):
+def compute_tf_idf(dfoverall,dfbyparty,topn):
 
     # how many parties have used a particular phrase
-    byparty_counts = dfbypartylong_nona.groupby('Phrase').size()
+    byparty_counts = dfbyparty.groupby('Phrase').size()
     dfbyparty_counts = byparty_counts.to_frame()
     dfbyparty_counts = dfbyparty_counts.reset_index()
     dfbyparty_counts.columns = ['Phrase','Freq']
 
     # merge with overall counts to compute tf-idf
     new = pd.merge(dfoverall,dfbyparty_counts,'left','Phrase')
-    N = dfbypartylong_nona['Speaker Party'].nunique()
+    N = dfbyparty['Speaker Party'].nunique()
     new['N'] = N
     new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
 
@@ -183,9 +187,12 @@ def compute_tf_idf(dfoverall, dfbypartylong_nona,topn):
 
 #%% filter the top phrase counts for each speaker
 def select_phrases_from_df(df,newtop500,by_index,dropna=False):
+
     name0 = '_'.join(by_index)
     name1 = 'Counts' + name0
     top500 = pd.merge(df,newtop500,'inner', 'Phrase',suffixes=(name0,''))
+
+    # restructure table with phrase counts as columns and index set by 'by_index'
     term5_top500_byindex = pd.pivot_table(top500, values = name1, index=by_index, columns = 'Phrase',fill_value = 0, dropna=dropna).reset_index()
 
     return term5_top500_byindex
