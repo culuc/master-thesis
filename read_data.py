@@ -12,7 +12,7 @@ from os.path import isfile, join
 import string
 
 #%% set path to speech files, read look-up file for elelction dates
-path = 'SwissParliament/'
+path = '../SwissParliament/'
 elections = pd.read_csv('./lookup_files/federal_election_dates.csv')
 
 #%% read in all session files, keep session name
@@ -154,7 +154,7 @@ data5 = preprocess_data(alldata, 'Term', 5)
 #%%
 dfoverall5 = collect_all(data5)
 #%%
-dfbyparty5 = collect_by(data5,'Speaker Party')
+dfbyparty5 = collect_by(data5,['Speaker Party'])
 #%%
 dfbypartyspeaker5 = collect_by(data5,['Speaker Party','Speaker'])
 #%%
