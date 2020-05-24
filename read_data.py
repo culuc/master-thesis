@@ -186,7 +186,7 @@ def compute_tf_idf(dfoverall,dfbyparty,topn):
 
 
 #%% filter the top phrase counts for each speaker
-def select_phrases_from_df(df,newtop500,by_index,dropna=False):
+def select_phrases_from_df(df,newtop500,by_index,dropna=True):
 
     name0 = '_'.join(by_index)
     name1 = 'Counts' + name0
@@ -202,15 +202,10 @@ def select_phrases_from_df(df,newtop500,by_index,dropna=False):
 term5_tf, term5top500_tf = compute_tf_idf(dfoverall5,dfbyparty,500)
 
 # %%
-term5_top500_bySpeakerParty = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'],dropna=True)
+term5_top500_bySpeakerParty = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'])
 term5_top500_bySpeakerParty.shape
 
-# %% keep all speakers, even if they never say any of the words
-term5_top500_bySpeakerParty_long = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'],dropna=False)
-term5_top500_bySpeakerParty_long.shape
-dfbypartyspeaker_top500.shape
 
 
 # %% save results
 term5_top500_bySpeakerParty.to_csv('./term5/term5_top500_bySpeakerParty.csv')
-term5_top500_bySpeakerParty_long.to_csv('./term5/term5_top500_bySpeakerParty_long.csv')
