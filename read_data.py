@@ -10,9 +10,10 @@ import spacy
 from os import listdir
 from os.path import isfile, join
 import string
+from sklearn.preprocessing import StandardScaler
 
 #%% set path to speech files, read look-up file for elelction dates
-path = 'SwissParliament/'
+path = '../SwissParliament/'
 elections = pd.read_csv('./lookup_files/federal_election_dates.csv')
 
 #%% read in all session files, keep session name
@@ -154,7 +155,7 @@ data5 = preprocess_data(alldata, 'Term', 5)
 #%%
 dfoverall5 = collect_all(data5)
 #%%
-dfbyparty5 = collect_by(data5,'Speaker Party')
+dfbyparty5 = collect_by(data5,['Speaker Party'])
 #%%
 dfbypartyspeaker5 = collect_by(data5,['Speaker Party','Speaker'])
 #%%
@@ -186,7 +187,7 @@ def compute_tf_idf(dfoverall,dfbyparty,topn):
 
 
 #%% filter the top phrase counts for each speaker
-def select_phrases_from_df(df,newtop500,by_index,dropna=False):
+def select_phrases_from_df(df,newtop500,by_index,dropna=True):
 
     name0 = '_'.join(by_index)
     name1 = 'Counts' + name0
@@ -202,15 +203,62 @@ def select_phrases_from_df(df,newtop500,by_index,dropna=False):
 term5_tf, term5top500_tf = compute_tf_idf(dfoverall5,dfbyparty,500)
 
 # %%
-term5_top500_bySpeakerParty = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'],dropna=True)
+term5_top500_bySpeakerParty = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'])
 term5_top500_bySpeakerParty.shape
 
-# %% keep all speakers, even if they never say any of the words
-term5_top500_bySpeakerParty_long = select_phrases_from_df(dfbypartyspeaker5,term5top500_tf,['Speaker Party','Speaker'],dropna=False)
-term5_top500_bySpeakerParty_long.shape
-dfbypartyspeaker_top500.shape
 
+# %% include phrases mentioned at least 20 times
+dfoverall5cap20 = dfoverall5[dfoverall5.Counts >= 20]
+
+# %% include phrases mentioned at least 20 times
+dfoverall5cap100 = dfoverall5[dfoverall5.Counts >= 100]
+#%%
+term5_cap20_bySpeakerParty_long = select_phrases_from_df(dfbypartyspeaker5,dfoverall5cap20,['Speaker Party','Speaker'],dropna=False)
+
+# %%
+term5_cap20_bySpeakerParty_short = select_phrases_from_df(dfbypartyspeaker5,dfoverall5cap20,['Speaker Party','Speaker'],dropna=True)
 
 # %% save results
 term5_top500_bySpeakerParty.to_csv('./term5/term5_top500_bySpeakerParty.csv')
-term5_top500_bySpeakerParty_long.to_csv('./term5/term5_top500_bySpeakerParty_long.csv')
+
+# %% save results 2
+term5_cap20_bySpeakerParty_short.to_csv('./term5/term5_cap20_bySpeakerParty_short.csv')
+term5_cap20_bySpeakerParty_long.to_csv('./term5/term5_cap20_bySpeakerParty_long.csv')
+
+
+# %%
+term5_cap20_bySpeakerParty_short.sum(axis=1).to_csv('./term5_test.csv')
+
+# %%
+def share(series):
+    integer_part = series.drop(['Speaker','Speaker Party'])
+    m = integer_part.sum()
+    if m > 0:
+        integer_part = integer_part /m
+    return series[['Speaker','Speaker Party']].append(integer_part)
+
+# %%
+term5_cap20_bySpeakerParty_long.apply(share, axis=1)
+
+# %%
+def make_share(df,scale=True):
+    df2 = df.drop(['Speaker','Speaker Party'],axis=1)
+    df2 = df2.div(df2.sum(axis=1), axis=0).fillna(0)
+
+    if scale:
+        scaler = StandardScaler()
+        df2[df2.columns] = scaler.fit_transform(df2)
+
+    df_final = pd.concat([df[['Speaker','Speaker Party']],df2],axis=1)
+
+    return df_final
+#%%
+term5_cap20_scaled_long = make_share(term5_cap20_bySpeakerParty_long)
+
+#%%
+term5_cap20_scaled_short = make_share(term5_cap20_bySpeakerParty_short)
+
+# %%
+term5_cap20_scaled_short.to_csv('./term5/term5_cap20_scaled_short.csv')
+
+# %%
