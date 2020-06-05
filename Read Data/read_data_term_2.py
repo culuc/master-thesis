@@ -44,33 +44,3 @@ by_party.to_json('../../interim/t2_byParty.json')
 by_party_speaker.to_csv('../../interim/t2_byPartySpeaker.csv')
 by_party_speaker.to_pickle('../../interim/t2_byPartySpeaker.pkl')
 by_party_speaker.to_json('../../interim/t2_byPartySpeaker.json')
-
-# %%
-data2test = data2.sample(100)
-# %%
-groups = data2test.groupby(['Speaker Party','Speaker'])
-#%%
-chunk_dict = {} # append each chunk df here
-
-# Each chunk is in df format
-for name, grp in groups:
-    # perform data filtering
-    chunk_filter = grp.Speech.apply(m.collect_counts2)
-
-    # Once the data filtering is done, append the chunk to list
-    chunk_dict[name] = chunk_filter
-
-# concat the list into dataframe
-df_concat = pd.concat(chunk_dict)
-
-# %%
-
-
-# %%
-df_concat.to_frame()
-
-# %%
-
-
-# %%
-filtered_dict = {k:v for (k,v) in d.items() if filter_string in k}

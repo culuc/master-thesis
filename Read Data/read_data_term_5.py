@@ -44,5 +44,3 @@ by_party.to_json('../../interim/t1_byParty.json')
 by_party_speaker.to_csv('../../interim/t1_byPartySpeaker.csv')
 by_party_speaker.to_pickle('../../interim/t1_byPartySpeaker.pkl')
 by_party_speaker.to_json('../../interim/t1_byPartySpeaker.json')
-
-# %%
