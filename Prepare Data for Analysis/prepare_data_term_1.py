@@ -5,7 +5,6 @@ import modules as m
 import pandas as pd
 # 1(?!\d)
 #%% works only for jupyter noteoooks
-%mkdir
 %mkdir ../Data/term1
 %mkdir ../Data/term1/tfidf
 %mkdir ../Data/term1/cap
@@ -89,6 +88,3 @@ term1_cap50_share.to_csv('../Data/term1/cap/term1_cap50_share.csv')
 term1_cap100_bySpeakerParty.to_csv('../Data/term1/cap/term1_cap100_bySpeakerParty.csv')
 term1_cap100_scaled.to_csv('../Data/term1/cap/term1_cap100_scaled.csv')
 term1_cap100_share.to_csv('../Data/term1/cap/term1_cap100_share.csv')
-
-
-# %%

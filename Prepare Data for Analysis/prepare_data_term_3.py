@@ -87,6 +87,3 @@ term3_cap50_share.to_csv('../Data/term3/cap/term3_cap50_share.csv')
 term3_cap100_bySpeakerParty.to_csv('../Data/term3/cap/term3_cap100_bySpeakerParty.csv')
 term3_cap100_scaled.to_csv('../Data/term3/cap/term3_cap100_scaled.csv')
 term3_cap100_share.to_csv('../Data/term3/cap/term3_cap100_share.csv')
-
-
-# %%
