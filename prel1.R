@@ -3,15 +3,17 @@ library(MASS)
 library(dplyr)
 library(magrittr)
 library(caret)
+library(stepPlr)
+library(LiblineaR)
 
 data = read.csv('term5/term5_top500_bySpeakerParty.csv')
 data = read.csv('term5/tfidf/term5_top500_scaled.csv')
 data = read.csv('term1/tfidf/term1_top500_scaled.csv')
-data1 = read.csv('term1/tfidf/term1_top500_scaled.csv')%>%select(-c('Speaker','X'))
-data2 = read.csv('term2/tfidf/term2_top500_scaled.csv')%>%select(-c('Speaker','X'))
-data3 = read.csv('term3/tfidf/term3_top500_scaled.csv')%>%select(-c('Speaker','X'))
-data4 = read.csv('term4/tfidf/term4_top500_scaled.csv')%>%select(-c('Speaker','X'))
-data5 = read.csv('term5/tfidf/term5_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data1 = read.csv('Data/term1/tfidf/term1_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data2 = read.csv('Data/term2/tfidf/term2_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data3 = read.csv('Data/term3/tfidf/term3_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data4 = read.csv('Data/term4/tfidf/term4_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data5 = read.csv('Data/term5/tfidf/term5_top500_scaled.csv')%>%select(-c('Speaker','X'))
 
 data5 = read.csv('term5/cap/term5_cap20_scaled.csv')%>%select(-c('Speaker','X'))
 
@@ -35,7 +37,6 @@ df.test_all <- data5%>%select(-c('Speaker.Party'))
 
 ## linear discriminant analysis
 
-lda.fit=lda(Speaker.Party~.,data=df.train)
 
 lda.fit
 
@@ -252,28 +253,41 @@ model.multi4 <- train(
     # verboseIter = TRUE
   )
 )
-model.multi1$results
+model.multi5 <- train(
+  Speaker.Party ~ .,
+  data5,
+  method = "plr",
+  MaxNWts = 10000000,
+  # tuneGrid = expand.grid(decay = 1e-04),
+  trControl = trainControl(
+    method = "cv",
+    number = 5,
+    verbose = TRUE
+    # verboseIter = TRUE
+  )
+)
+
+model.multi5$results
 
 decay <- model.multi1$results$decay
 term1.multinom<-model.multi1$results$Accuracy
 term2.multinom<-model.multi2$results$Accuracy
 term3.multinom<-model.multi3$results$Accuracy
 term4.multinom<-model.multi4$results$Accuracy
-term5.multinom<-model$results$Accuracy
+term5.multinom<-model.multi5$results$Accuracy
 
 res.multinom.top500.scaled <- tibble(decay,term1.multinom,term2.multinom,term3.multinom,term4.multinom,term5.multinom)
 res.multinom.top500.scaled
 readr::write_csv(res.multinom.top500.scaled,'./result_terms_multinom_top500scaled.csv')
 
-
 model.rf5 <- train(
   Speaker.Party ~ .,
   data5,
-  method = "ranger",
   trControl = trainControl(
     method = "cv",
-    number = 10,
+    summaryFunction = multiClassSummary,
     verboseIter = TRUE
   )
 )
-model.rf5
+mean(model.rf5$resample$Accuracy)
+model.rf5$results
