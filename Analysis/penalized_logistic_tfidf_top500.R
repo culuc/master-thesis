@@ -9,13 +9,16 @@ data3 = read.csv('../Data/term3/tfidf/term3_top500_scaled.csv')%>%select(-c('Spe
 data4 = read.csv('../Data/term4/tfidf/term4_top500_scaled.csv')%>%select(-c('Speaker','X'))
 data5 = read.csv('../Data/term5/tfidf/term5_top500_scaled.csv')%>%select(-c('Speaker','X'))
 
+# tuneGrid <- expand.grid(cost=10e10, loss='L1', epsilon = 0.001)
+tuneGrid <- NULL
+
 
 model.p.log1 <- train(
   Speaker.Party ~ .,
   data1,
   method = "regLogistic",
   MaxNWts = 10000000,
-  tuneGrid = expand.grid(cost=10e10, loss='L1', epsilon = 0.001),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -27,7 +30,7 @@ model.p.log2 <- train(
   data2,
   method = "regLogistic",
   MaxNWts = 10000000,
-  tuneGrid = expand.grid(cost=10e10, loss='L1', epsilon = 0.001),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -39,7 +42,7 @@ model.p.log3 <- train(
   data3,
   method = "regLogistic",
   MaxNWts = 10000000,
-  tuneGrid = expand.grid(cost=10e10, loss='L1', epsilon = 0.001),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -53,7 +56,7 @@ model.p.log4 <- train(
   data4,
   method = "regLogistic",
   MaxNWts = 10000000,
-  tuneGrid = expand.grid(cost=10e10, loss='L1', epsilon = 0.001),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -67,7 +70,7 @@ model.p.log5 <- train(
   data5,
   method = "regLogistic",
   MaxNWts = 10000000,
-  tuneGrid = expand.grid(cost=10e10, loss='L1', epsilon = 0.001),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -89,7 +92,7 @@ term5.p.log<-cbind(term=5,'bestTune'=model.p.log5$bestTune,'Accuracy CV-10Fold'=
 # term5.p.log<-cbind(term=5,'Accuracy CV-10Fold'=mean(model.p.log5$resample$Accuracy))
 
 res.p.log.top500.scaled <- rbind(term1.p.log,term2.p.log,term3.p.log,term4.p.log,term5.p.log)
-readr::write_csv(data.frame(res.p.log.top500.scaled),'../Results/result_terms_regLogistic_top500_scaled2.csv')
+readr::write_csv(data.frame(res.p.log.top500.scaled),'../Results/result_terms_regLogistic_top500_scaled.csv')
 
 
 # saveRDS(model.p.log1, "model_p.log1_top500.rds")

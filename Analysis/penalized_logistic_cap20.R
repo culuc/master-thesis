@@ -10,12 +10,17 @@ data3 = read.csv('../Data/term3/cap/term3_cap20_scaled.csv')%>%select(-c('Speake
 data4 = read.csv('../Data/term4/cap/term4_cap20_scaled.csv')%>%select(-c('Speaker','X'))
 data5 = read.csv('../Data/term5/cap/term5_cap20_scaled.csv')%>%select(-c('Speaker','X'))
 
+
+tuneGrid <- expand.grid(cost=10e10, loss='L1', epsilon = 0.001)
+# tuneGrid <- NULL
+
+
 model.p.log1 <- train(
   Speaker.Party ~ .,
   data1,
   method = "regLogistic",
   MaxNWts = 10000000,
-  # tuneGrid = expand.grid(decay = 1e-04),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -27,7 +32,7 @@ model.p.log2 <- train(
   data2,
   method = "regLogistic",
   MaxNWts = 10000000,
-  # tuneGrid = expand.grid(decay = 1e-04),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -39,7 +44,7 @@ model.p.log3 <- train(
   data3,
   method = "regLogistic",
   MaxNWts = 10000000,
-  # tuneGrid = expand.grid(decay = 1e-04),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -53,7 +58,7 @@ model.p.log4 <- train(
   data4,
   method = "regLogistic",
   MaxNWts = 10000000,
-  # tuneGrid = expand.grid(decay = 1e-04),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -67,7 +72,7 @@ model.p.log5 <- train(
   data5,
   method = "regLogistic",
   MaxNWts = 10000000,
-  # tuneGrid = expand.grid(decay = 1e-04),
+  tuneGrid = tuneGrid,
   trControl = trainControl(
     method = "cv",
     number = 10,
@@ -84,7 +89,7 @@ term4.p.log<-cbind(term=4,'bestTune'=model.p.log4$bestTune,'Accuracy CV-10Fold'=
 term5.p.log<-cbind(term=5,'bestTune'=model.p.log5$bestTune,'Accuracy CV-10Fold'=mean(model.p.log5$resample$Accuracy))
 
 res.p.log.cap20.scaled <- rbind(term1.p.log,term2.p.log,term3.p.log,term4.p.log,term5.p.log)
-readr::write_csv(res.p.log.cap20.scaled,'../Results/result_terms_regLogistic_cap20_scaled.csv')
+readr::write_csv(res.p.log.cap20.scaled,'../Results/result_terms_regLogistic_cap20_scaled2.csv')
 
 
 # saveRDS(model.p.log1, "model_p.log1_cap20.rds")
