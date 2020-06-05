@@ -3,7 +3,7 @@
 
 
 
-[Results for Random Forest](./Results/md_table_rf.md)
+[Results for Random Forest](Results/summary_result_terms_rf_scaled_best.csv)
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
 | tfidf top500 | 0.7060330371383003 | 0.7024822134387352 | 0.6639619800489366 | 0.7229813664596273 | 0.6859479578392622 |
