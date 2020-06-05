@@ -2,7 +2,7 @@
 
 
 
-
+[Results for Multinomial Logistic](Results/summary_result_terms_multinom_scaled.csv)
 [Results for Random Forest](Results/summary_result_terms_rf_scaled_best.csv)
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
