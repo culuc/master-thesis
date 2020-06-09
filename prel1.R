@@ -2,9 +2,20 @@ library(ISLR)
 library(MASS)
 library(dplyr)
 library(magrittr)
+library(caret)
+library(stepPlr)
+library(LiblineaR)
 
 data = read.csv('term5/term5_top500_bySpeakerParty.csv')
-data = read.csv('term5/term5_top500_bySpeakerParty_long.csv')
+data = read.csv('term5/tfidf/term5_top500_scaled.csv')
+data = read.csv('term1/tfidf/term1_top500_scaled.csv')
+data1 = read.csv('Data/term1/tfidf/term1_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data2 = read.csv('Data/term2/tfidf/term2_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data3 = read.csv('Data/term3/tfidf/term3_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data4 = read.csv('Data/term4/tfidf/term4_top500_scaled.csv')%>%select(-c('Speaker','X'))
+data5 = read.csv('Data/term5/tfidf/term5_top500_scaled.csv')%>%select(-c('Speaker','X'))
+
+data5 = read.csv('term5/cap/term5_cap20_scaled.csv')%>%select(-c('Speaker','X'))
 
 data2 <- data%>%select(-c('Speaker','X'))
 
@@ -19,12 +30,15 @@ df.test <- data2%>%
 to_predict <- df.test%>%select(c('Speaker.Party'))
 df.test <- df.test%>%select(-c('Speaker.Party'))
 
+# single-out prediction targets for all data
+to_predict_all <- data5%>%select(c('Speaker.Party'))
+df.test_all <- data5%>%select(-c('Speaker.Party'))
+
 
 ## linear discriminant analysis
 
-lda.fit=lda(Speaker.Party~.,data=df.train)
 
-lda.fit$prior
+lda.fit
 
 pr.lda <- predict(lda.fit,df.test)
 pr.lda$class
@@ -39,6 +53,11 @@ res.lda
 ## multinomial logisitc regression
 
 library(nnet)
+multinom.fit5 <- multinom(Speaker.Party~., data = data5, MaxNWts = 10000000)
+
+multinom.fit1 <- multinom(Speaker.Party~., data = data1, MaxNWts = 10000000)
+
+
 multinom.fit <- multinom(Speaker.Party~., data = df.train, MaxNWts = 10000000)
 summary(multinom.fit)
 multinom.fit
@@ -121,21 +140,27 @@ ctable
 round((sum(diag(ctable))/sum(ctable))*100,2)
 sum(diag(ctable))
 sum(ctable)
+rf1=ranger::ranger(Speaker.Party~.,data=data1,mtry=500)
+rf4=ranger::ranger(Speaker.Party~.,data=df.train,mtry=500)
+rf5=ranger::ranger(Speaker.Party~.,data=data5,mtry=500)
 
 
 rf2=ranger::ranger(Speaker.Party~.,data=df.train,mtry=500)
+rf1$prediction.error
+rf5$prediction.error
+rf4$prediction.error
 
-pr <- predict(rf2,data=df.test)
-
+rf2$prediction.error
+pr <- predict(rf5,data=df.test)
 
 ctable <- table(to_predict$Speaker.Party, pr$predictions)
 res.randomForest <- round((sum(diag(ctable))/sum(ctable))*100,2)
-
+res.randomForest
 
 # vector support machine
 library(e1071)
 
-fit.svm = svm(Speaker.Party ~ ., data = df.train, scale = FALSE, kernel = "radial", cost = 5)
+fit.svm = svm(Speaker.Party ~ ., data = df.train, scale = FALSE, kernel = "linear", cost = 5)
 
 # tune model to find optimal cost, gamma values
 tune.out <- tune(svm, Speaker.Party~., data = df.train, kernel = "radial",
@@ -155,8 +180,114 @@ ctable.svm <- table(to_predict$Speaker.Party, pr.svm)
 ctable.svm
 
 res.svm <- round((sum(diag(ctable.svm))/sum(ctable.svm))*100,2)
-
+res.svm
 
 res <- data.frame(res.lda,res.logistic,res.lasso,res.ridge,res.lasso.cv,res.randomForest,res.svm)
 res <- res/100
 readr::write_csv(res,"prediction_results.csv")
+
+
+# caret CV
+
+
+model <- train(
+  Speaker.Party ~ .,
+  data5,
+  method = "multinom",
+  MaxNWts = 10000000,
+  trControl = trainControl(
+    method = "cv",
+    number = 10,
+    verboseIter = TRUE
+  )
+)
+model
+model.multi1 <- train(
+  Speaker.Party ~ .,
+  data1,
+  method = "multinom",
+  MaxNWts = 10000000,
+  # tuneGrid = expand.grid(decay = 1e-04),
+  trControl = trainControl(
+    method = "cv",
+    number = 10,
+    verbose = TRUE
+  )
+)
+model.multi2 <- train(
+  Speaker.Party ~ .,
+  data2,
+  method = "multinom",
+  MaxNWts = 10000000,
+  # tuneGrid = expand.grid(decay = 1e-04),
+  trControl = trainControl(
+    method = "cv",
+    number = 10,
+    verbose = TRUE
+  )
+)
+model.multi3 <- train(
+  Speaker.Party ~ .,
+  data3,
+  method = "multinom",
+  MaxNWts = 10000000,
+  # tuneGrid = expand.grid(decay = 1e-04),
+  trControl = trainControl(
+    method = "cv",
+    number = 10,
+    verbose = TRUE
+    # verboseIter = TRUE
+  )
+)
+
+model.multi4 <- train(
+  Speaker.Party ~ .,
+  data4,
+  method = "multinom",
+  MaxNWts = 10000000,
+  # tuneGrid = expand.grid(decay = 1e-04),
+  trControl = trainControl(
+    method = "cv",
+    number = 10,
+    verbose = TRUE
+    # verboseIter = TRUE
+  )
+)
+model.multi5 <- train(
+  Speaker.Party ~ .,
+  data5,
+  method = "plr",
+  MaxNWts = 10000000,
+  # tuneGrid = expand.grid(decay = 1e-04),
+  trControl = trainControl(
+    method = "cv",
+    number = 5,
+    verbose = TRUE
+    # verboseIter = TRUE
+  )
+)
+
+model.multi5$results
+
+decay <- model.multi1$results$decay
+term1.multinom<-model.multi1$results$Accuracy
+term2.multinom<-model.multi2$results$Accuracy
+term3.multinom<-model.multi3$results$Accuracy
+term4.multinom<-model.multi4$results$Accuracy
+term5.multinom<-model.multi5$results$Accuracy
+
+res.multinom.top500.scaled <- tibble(decay,term1.multinom,term2.multinom,term3.multinom,term4.multinom,term5.multinom)
+res.multinom.top500.scaled
+readr::write_csv(res.multinom.top500.scaled,'./result_terms_multinom_top500scaled.csv')
+
+model.rf5 <- train(
+  Speaker.Party ~ .,
+  data5,
+  trControl = trainControl(
+    method = "cv",
+    summaryFunction = multiClassSummary,
+    verboseIter = TRUE
+  )
+)
+mean(model.rf5$resample$Accuracy)
+model.rf5$results
