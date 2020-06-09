@@ -1,6 +1,6 @@
 # master-thesis
 
-Prediction accuracy determined with 10-fold cross validation approach:
+Prediction accuracy determined with 10-fold cross-validation:
 
 [Results for Multinomial Logistic](Results/summary_result_terms_multinom_scaled.csv)
 
