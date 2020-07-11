@@ -1,0 +1,9 @@
+{
+    "tuneGrid" : {"decay" :0},
+    "method" : {"name":"multinom"},
+    "passed_through": {"MaxNWts" : 10000000},
+    "trC" : {"method" : "cv",
+            "number" : 10,
+            "verboseIter" : "TRUE",
+            "MaxNWts" : 10000000}
+}

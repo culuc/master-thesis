@@ -1,0 +1,4 @@
+{
+    "tuneGrid" : {"cost":100000000000,"loss":"L1","epsilon":0.001},
+    "method" : {"name":"regLogistic"}
+}
