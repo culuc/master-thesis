@@ -94,7 +94,7 @@ res.p.log.top500.scaled <- data.frame(rbind(term1.p.log,term2.p.log,term3.p.log,
 
 readr::write_csv(data.frame(res.p.log.top500.scaled),'../Results/result_terms_regLogistic_cap100_scaled2.csv')
 res.p.log.top500.scaled
-# 
+#
 # saveRDS(model.p.log1, "model_p.log1_cap100.rds")
 # saveRDS(model.p.log2, "model_p.log2_cap100.rds")
 # saveRDS(model.p.log3, "model_p.log3_cap100.rds")
