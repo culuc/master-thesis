@@ -103,7 +103,7 @@ def collect_counts(series):
     result = dict(counter.most_common())
 
     return result
-    
+
 
 #%% collect dict-counts
 def collect_counts2(series):
@@ -143,7 +143,7 @@ def collect_by(data, columns):
     dfbyc.columns = ['Counts']
     dfbyclong = dfbyc.reset_index()
 
-    return dfbyclong_nona
+    return dfbyclong
 
 
 #%% collect bi-gram counts by columns
@@ -193,8 +193,56 @@ def compute_tf_idf(dfoverall,dfbyparty,topn):
 
     return new, newtop500
 
+#%% term frequency - inverse document frequency (tf-idf)
+def compute_tf_idf2(dfoverall,dfbyparty,topn):
 
-#%% filter the top phrase counts for each speaker
+    # how many parties have used a particular phrase
+    byparty_freq = dfbyparty.groupby('Phrase').size()
+    dfbyparty_freq = byparty_freq.to_frame()
+    dfbyparty_freq = dfbyparty_freq.reset_index()
+    dfbyparty_freq.columns = ['Phrase','Freq']
+
+    # merge with byparty counts to compute tf-idf
+    new = pd.merge(dfbyparty,dfbyparty_freq,'left','Phrase')
+    N = dfbyparty['Speaker Party'].nunique()
+    new['N'] = N
+    new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
+    new.set_index(['Speaker Party','Phrase'],inplace=True)
+
+    # select phrases with n-largest tf-idf metric
+    newtop500 = new.groupby('Speaker Party')['tf_idf'].nlargest(topn).to_frame()
+    # somehow speaker party is contained twice in index, drop one and reset index
+    newtop500 = newtop500.reset_index(level=0,drop=True).reset_index() #level=1
+
+    return new, newtop500
+
+
+#%% term frequency - inverse document frequency (tf-idf)
+def compute_tf_idf_old(dfoverall,dfbyparty,topn):
+
+    # how many parties have used a particular phrase
+    byparty_freq = dfbyparty.groupby('Phrase').size()
+    dfbyparty_freq = byparty_freq.to_frame()
+    dfbyparty_freq = dfbyparty_freq.reset_index()
+    dfbyparty_freq.columns = ['Phrase','Freq']
+
+    # merge with byparty counts to compute tf-idf
+    new = pd.merge(dfbyparty,dfbyparty_freq,'left','Phrase')
+    N = dfbyparty['Speaker Party'].nunique()
+    new['N'] = N
+    new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
+    new.set_index(['Speaker Party','Phrase'],inplace=True)
+
+    # select phrases with n-largest tf-idf metric
+    newtop500 = new.nlargest(topn,'tf_idf')
+    # somehow speaker party is contained twice in index, drop one and reset index
+    newtop500 = newtop500.reset_index()
+
+
+    return new, newtop500
+
+
+#%% filter the top overall phrase counts for each speaker
 def select_phrases_from_df(df,newtop500,by_index,dropna=True):
 
     name0 = '_'.join(by_index)
@@ -204,8 +252,30 @@ def select_phrases_from_df(df,newtop500,by_index,dropna=True):
     # restructure table with phrase counts as columns and index set by 'by_index'
     term5_top500_byindex = pd.pivot_table(top500, values = name1, index=by_index, columns = 'Phrase',fill_value = 0, dropna=dropna).reset_index()
 
-    return term5_top500_byindex
+    return term5_top500_byindex, top500 
 
+#%% filter the top byparty phrase counts for each speaker, such that intersection between parties' phrases are allowed and counted
+def select_phrases_from_df2(df,newtop500,by_index,dropna=True):
+
+    top500 = pd.merge(df,newtop500.drop('Speaker Party',axis=1),'inner','Phrase',suffixes=('','_2'))
+
+    # restructure table with phrase counts as columns and index set by 'by_index'
+    term5_top500_byindex = pd.pivot_table(top500, values = 'Counts', index=by_index, columns = 'Phrase',dropna=dropna,fill_value = 0).reset_index()
+
+    return term5_top500_byindex, top500
+
+#%% filter the top byparty phrase counts for each speaker with only the own party phrases (each party has excactly e.g. 500 phrase counts)
+# makes no sense, can just map positve phrase count to party an perfectly predict party affiliation
+def select_phrases_from_df3(df,newtop500,by_index,dropna=True):
+
+    # name0 = '_'.join(by_index)
+    # name1 = 'Counts' + name0
+    top500 = pd.merge(df,newtop500,'inner', ['Speaker Party','Phrase'],suffixes=('','_2'))
+
+    # restructure table with phrase counts as columns and index set by 'by_index'
+    term5_top500_byindex = pd.pivot_table(top500, values = 'Counts', index=by_index, columns = 'Phrase',dropna=dropna,fill_value = 0).reset_index()
+
+    return term5_top500_byindex
 
 # %%
 def share(series):
@@ -227,3 +297,18 @@ def make_share(df,scale=True):
     df_final = pd.concat([df[['Speaker','Speaker Party']],df2],axis=1)
 
     return df_final
+
+
+
+# %% MAYBE filter bi-gram dicts before summing w.r.t speaker/party tp reduce memory space needed
+
+
+# phrases = set(overall.Phrase.head(100))
+
+def filter_dict(d,keys):
+    filtered_dict = {k:v for (k,v) in d.items() if k in keys}
+        
+    return Counter(filtered_dict)
+
+# filt_speech = test.apply(lambda x: filter_dict(x['Speech'], phrases), axis=1)
+# filt_speech.to_csv('./test_filt.csv')
