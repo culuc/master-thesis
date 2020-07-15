@@ -1,10 +1,5 @@
-#' post_opening_ols.R
-#'
-#' contributors: @lachlandeer
-#'
-#' - Combines the necessary data
-#' - Run an OLS regression on a (subset of) data
-#'
+#' - Collect results for a particular statistical model / folder
+
 
 library(dplyr)
 library(tidyr)

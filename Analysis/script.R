@@ -1,9 +1,4 @@
-#' post_opening_ols.R
-#'
-#' contributors: @lachlandeer
-#'
-#' - Combines the necessary data
-#' - Run an OLS regression on a (subset of) data
+#' - Run caret models for all 5 terms using 10-fold CV and the specified statistical model
 #'
 
 library(dplyr)
