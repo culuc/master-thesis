@@ -19,7 +19,7 @@ root = "../../"
 
 rule run_tfidf_indiv:
     input:
-        data = expand(root + "Data/{iKey}/tfidf_byparty/P2/{iKey}_top250each_normal_P2.csv", iKey = terms)
+        data = expand(root + "Data/{iKey}/tfidf_indiv/P2/{iKey}_top250each_normal_P2.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_term_1:
@@ -27,7 +27,7 @@ rule prepare_term_1:
         script = "script_prepare_data_P2.py",
         data   = expand(root+"../interim/t1_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand(root + "Data/term1/tfidf_byparty/P2/term1_top500each_{iKey}", iKey = files_o)),
+        files = protected(expand(root + "Data/term1/tfidf_indiv/P2/term1_top500each_{iKey}", iKey = files_o)),
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term1.log"
@@ -40,7 +40,7 @@ rule prepare_term_2:
         script = "script_prepare_data_P2.py",
         data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand(root + "Data/term2/tfidf_byparty/P2/term2_top500each_{iKey}", iKey = files_o))
+        files = protected(expand(root + "Data/term2/tfidf_indiv/P2/term2_top500each_{iKey}", iKey = files_o))
     log:
         "logs/prepare_term2.log"
     shell:
@@ -52,7 +52,7 @@ rule prepare_term_3:
         script = "script_prepare_data_P2.py",
         data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand(root + "Data/term3/tfidf_byparty/P2/term3_top500each_{iKey}", iKey = files_o))
+        files = protected(expand(root + "Data/term3/tfidf_indiv/P2/term3_top500each_{iKey}", iKey = files_o))
     log:
         "logs/prepare_term3.log"
     shell:
@@ -64,7 +64,7 @@ rule prepare_term_4:
         script = "script_prepare_data_P2.py",
         data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand(root + "Data/term4/tfidf_byparty/P2/term4_top500each_{iKey}", iKey = files_o))
+        files = protected(expand(root + "Data/term4/tfidf_indiv/P2/term4_top500each_{iKey}", iKey = files_o))
     log:
         "logs/prepare_term4.log"
     shell:
@@ -76,7 +76,7 @@ rule prepare_term_5:
         script = "script_prepare_data_P2.py",
         data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand(root + "Data/term5/tfidf_byparty/P2/term5_top500each_{iKey}", iKey = files_o))
+        files = protected(expand(root + "Data/term5/tfidf_indiv/P2/term5_top500each_{iKey}", iKey = files_o))
     log:
         "logs/prepare_term5.log"
     shell:

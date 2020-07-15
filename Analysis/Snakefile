@@ -53,7 +53,7 @@ rule multinom_top100each:
     input:
         script = "script_multinom.R",
         model  = "../Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_byparty/{iKey}_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/top100each.Rds",
@@ -135,7 +135,7 @@ rule multinom_top500each_P2:
     input:
         script = "script_multinom.R",
         model  = "../Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_byparty/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/top500each_P2.Rds",
@@ -151,7 +151,7 @@ rule multinom_top500each_P2_dist:
     input:
         script = "script_multinom.R",
         model  = "../Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_byparty/P2_dist/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/top500each_P2_dist.Rds",
@@ -218,7 +218,7 @@ rule glm_top500each_P2:
     input:
         script = "script.R",
         model  = "../Models/model_glm.json",
-        data   = expand("../Data/{iKey}/tfidf_byparty/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/glm/top500each_P2.Rds",
@@ -285,7 +285,7 @@ rule regLogistic_top500each_P2:
     input:
         script = "script.R",
         model  = "../Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf_byparty/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic/top500each_P2.Rds",
