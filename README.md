@@ -9,8 +9,14 @@ Prediction accuracy determined with 10-fold cross-validation:
 [Results for Random Forest](Results/summary_result_terms_randomForest_scaled_best.csv)
 
 
-
+## Results for Restricted Analysis on SP & SVP
 ![results P2](Analysis/Graphs/summary_plot_P2.png)
+
+
+### Some summary stats
+  |
+--|--
+ ![results P2](Analysis/Graphs/summary_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_speaker_plot_P2.png)
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
