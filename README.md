@@ -14,8 +14,9 @@ Prediction accuracy determined with 10-fold cross-validation:
 
 
 ### Some summary stats
-  |
---|--
+
+Distribution of Phrases  | Distribution of Speakers  
+:--:|:--:
  ![results P2](Analysis/Graphs/summary_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_speaker_plot_P2.png)
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
