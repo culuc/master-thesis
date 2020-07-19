@@ -9,13 +9,13 @@ Prediction accuracy determined with 10-fold cross-validation:
 [Results for Random Forest](Results/summary_result_terms_randomForest_scaled_best.csv)
 
 
-## Results for Restricted Analysis on SP & SVP
+## Results for Restricted Analysis: SP & SVP
 ![results P2](Analysis/Graphs/summary_plot_P2.png)
 
 
 ### Some summary stats
 
-Distribution of Phrases  | Distribution of Speakers  
+Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
  ![results P2](Analysis/Graphs/summary_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_speaker_plot_P2.png)
 
