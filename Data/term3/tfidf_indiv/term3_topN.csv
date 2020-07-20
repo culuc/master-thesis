@@ -1,0 +1,1415 @@
+,Speaker Party,Phrase,tf_idf
+0,Alternative Kanton Zug (Al),"('neu', 'kampfjet')",19.826337599734792
+1,Alternative Kanton Zug (Al),"('neu', 'kampfflieg')",14.484941211906902
+2,Alternative Kanton Zug (Al),"('rahm', 'nato')",14.104321143795852
+3,Alternative Kanton Zug (Al),"('sakular', 'staat')",13.54025100551105
+4,Alternative Kanton Zug (Al),"('geht', 'verdient')",13.54025100551105
+5,Alternative Kanton Zug (Al),"('verdient', 'reisespes')",13.54025100551105
+6,Alternative Kanton Zug (Al),"('bewilligungspflicht', 'waff')",12.089418123253587
+7,Alternative Kanton Zug (Al),"('inn', 'einsatz')",12.089418123253587
+8,Alternative Kanton Zug (Al),"('militar', 'auslandeinsatz')",11.266065387038703
+9,Alternative Kanton Zug (Al),"('kollega', 'buchl')",10.83220080440884
+10,Alternative Kanton Zug (Al),"('quartal', 'verkauft')",10.83220080440884
+11,Alternative Kanton Zug (Al),"('verkauft', 'autos')",10.83220080440884
+12,Alternative Kanton Zug (Al),"('erhoh', 'militarausgab')",10.83220080440884
+13,Alternative Kanton Zug (Al),"('zahl', 'kampfjet')",10.83220080440884
+14,Alternative Kanton Zug (Al),"('geschatzt', 'kollega')",10.83220080440884
+15,Alternative Kanton Zug (Al),"('zwang', 'weitermach')",10.83220080440884
+16,Alternative Kanton Zug (Al),"('nie', 'zulass')",10.074515102711324
+17,Alternative Kanton Zug (Al),"('statt', 'militar')",10.074515102711324
+18,Alternative Kanton Zug (Al),"('geschatzt', 'kolleg')",8.383540572515864
+19,Alternative Kanton Zug (Al),"('ruckgang', 'schusswaffensuizid')",8.12415060330663
+20,Alternative Kanton Zug (Al),"('schusswaffensuizid', 'prozent')",8.12415060330663
+21,Alternative Kanton Zug (Al),"('zivil', 'friedenshandwerk')",8.12415060330663
+22,Alternative Kanton Zug (Al),"('militar', 'kriegshandwerk')",8.12415060330663
+23,Alternative Kanton Zug (Al),"('soldat', 'zwei')",8.12415060330663
+24,Alternative Kanton Zug (Al),"('zusatz', 'soldat')",8.12415060330663
+25,Alternative Kanton Zug (Al),"('kollega', 'schwand')",8.12415060330663
+26,Alternative Kanton Zug (Al),"('artikel', 'erwerb')",8.12415060330663
+27,Alternative Kanton Zug (Al),"('besitz', 'bewilligungspflicht')",8.12415060330663
+28,Alternative Kanton Zug (Al),"('waffenerwerbsschein', 'verleih')",8.12415060330663
+29,Alternative Kanton Zug (Al),"('verleih', 'sportwaff')",8.12415060330663
+30,Alternative Kanton Zug (Al),"('sportwaff', 'schutzenverein')",8.12415060330663
+31,Alternative Kanton Zug (Al),"('schutzenverein', 'unterliegt')",8.12415060330663
+32,Alternative Kanton Zug (Al),"('unterliegt', 'bewilligungspflicht')",8.12415060330663
+33,Alternative Kanton Zug (Al),"('bewilligungspflicht', 'mittel')",8.12415060330663
+34,Alternative Kanton Zug (Al),"('a', 'geandert')",8.12415060330663
+35,Alternative Kanton Zug (Al),"('waffenrichtlini', 'regelt')",8.12415060330663
+36,Alternative Kanton Zug (Al),"('jahr', 'bewilligungspflicht')",8.12415060330663
+37,Alternative Kanton Zug (Al),"('besitz', 'durf')",8.12415060330663
+38,Alternative Kanton Zug (Al),"('prazisiert', 'gesetz')",8.12415060330663
+39,Alternative Kanton Zug (Al),"('mitglied', 'anerkannt')",8.12415060330663
+40,Alternative Kanton Zug (Al),"('schiessverein', 'gesagt')",8.12415060330663
+41,Alternative Kanton Zug (Al),"('ausnahm', 'einzufuhr')",8.12415060330663
+42,Alternative Kanton Zug (Al),"('kollega', 'loepf')",8.12415060330663
+43,Alternative Kanton Zug (Al),"('atalanta', 'heisst')",8.12415060330663
+44,Alternative Kanton Zug (Al),"('heisst', 'solidaritat')",8.12415060330663
+45,Alternative Kanton Zug (Al),"('regist', 'hatt')",8.12415060330663
+46,Alternative Kanton Zug (Al),"('schweiz', 'unsolidar')",8.12415060330663
+47,Alternative Kanton Zug (Al),"('zivil', 'solidaritat')",8.12415060330663
+48,Alternative Kanton Zug (Al),"('sakular', 'charakt')",8.12415060330663
+49,Alternative Kanton Zug (Al),"('gleichberecht', 'jud')",8.12415060330663
+50,Alternative Kanton Zug (Al),"('kollega', 'segmull')",8.12415060330663
+51,Alternative Kanton Zug (Al),"('kampfjet', 'neu')",8.12415060330663
+52,Alternative Kanton Zug (Al),"('siebzehn', 'mitglied')",8.12415060330663
+53,Alternative Kanton Zug (Al),"('freiwill', 'versproch')",8.12415060330663
+54,Alternative Kanton Zug (Al),"('word', 'versprech')",8.12415060330663
+55,Alternative Kanton Zug (Al),"('farb', 'gemalt')",8.12415060330663
+56,Alternative Kanton Zug (Al),"('nichteintret', 'rustungsprogramm')",8.12415060330663
+57,Alternative Kanton Zug (Al),"('mehrheit', 'bewaffnet')",8.12415060330663
+58,Alternative Kanton Zug (Al),"('auslandeinsatz', 'ausbildungseinsatz')",8.12415060330663
+59,Alternative Kanton Zug (Al),"('aussag', 'hoh')",8.12415060330663
+60,Alternative Kanton Zug (Al),"('zeit', 'panzerschlacht')",8.12415060330663
+61,Alternative Kanton Zug (Al),"('panzerschlacht', 'vorbei')",8.12415060330663
+62,Alternative Kanton Zug (Al),"('diesbezug', 'ubungsszenari')",8.12415060330663
+63,Alternative Kanton Zug (Al),"('ubungsszenari', 'anachronist')",8.12415060330663
+64,Alternative Kanton Zug (Al),"('nato', 'stattfind')",8.12415060330663
+65,Alternative Kanton Zug (Al),"('peruan', 'volk')",8.12415060330663
+66,Alternative Kanton Zug (Al),"('steckt', 'arme')",8.12415060330663
+67,Alternative Kanton Zug (Al),"('schweizer', 'militarzeitschrift')",8.12415060330663
+68,Alternative Kanton Zug (Al),"('auslandeinsatz', 'bedeutet')",8.12415060330663
+69,Alternative Kanton Zug (Al),"('mehr', 'gezog')",8.12415060330663
+70,Alternative Kanton Zug (Al),"('zulass', 'glied')",8.12415060330663
+71,Alternative Kanton Zug (Al),"('demokrat', 'gemeinwes')",8.12415060330663
+72,Alternative Kanton Zug (Al),"('kollega', 'morgeli')",8.12415060330663
+73,Alternative Kanton Zug (Al),"('verbrechensbekampf', 'sowohl')",8.12415060330663
+74,Alternative Kanton Zug (Al),"('kollegin', 'glanzmann')",8.059612082169059
+75,Alternative Kanton Zug (Al),"('kollega', 'fehr')",8.047189562170502
+76,Alternative Kanton Zug (Al),"('irak', 'afghanistan')",8.047189562170502
+77,Alternative Kanton Zug (Al),"('kollega', 'mull')",8.047189562170502
+78,Alternative Kanton Zug (Al),"('einzig', 'personenfreizug')",8.047189562170502
+79,Alternative Kanton Zug (Al),"('vierjahr', 'rahmenkredit')",7.9305350398939165
+80,Alternative Kanton Zug (Al),"('nichtmarkiert', 'waff')",7.9305350398939165
+81,Alternative Kanton Zug (Al),"('schweiz', 'schiesssportverband')",7.690286020676768
+82,Alternative Kanton Zug (Al),"('sicherheitspolit', 'kommission')",7.662384356489861
+83,Alternative Kanton Zug (Al),"('zentral', 'waffenregist')",7.330325854993241
+84,Alternative Kanton Zug (Al),"('grun', 'fraktion')",6.892906837838795
+85,Alternative Kanton Zug (Al),"('bewaffnet', 'auslandeinsatz')",6.608779199911598
+86,Alternative Kanton Zug (Al),"('folgend', 'les')",6.608779199911598
+87,Alternative Kanton Zug (Al),"('beschaff', 'neu')",6.591673732008658
+88,Alternative Kanton Zug (Al),"('revision', 'militargesetz')",6.591673732008658
+89,Alternative Kanton Zug (Al),"('folgend', 'satz')",6.591673732008658
+90,Alternative Kanton Zug (Al),"('hoch', 'heilig')",6.591673732008658
+91,Alternative Kanton Zug (Al),"('versproch', 'word')",6.591673732008658
+92,Alternative Kanton Zug (Al),"('milliard', 'frank')",6.471162988112083
+93,Alternative Kanton Zug (Al),"('militar', 'sinn')",6.437751649736401
+94,Alternative Kanton Zug (Al),"('arme', 'dienstpflicht')",6.437751649736401
+95,Alternative Kanton Zug (Al),"('zugun', 'volksinitiativ')",6.0447090616267936
+96,Alternative Kanton Zug (Al),"('gultig', 'unomandat')",6.0447090616267936
+97,Alternative Kanton Zug (Al),"('mitsprach', 'volk')",6.0447090616267936
+98,Alternative Kanton Zug (Al),"('widerspruch', 'egwaffenrichtlini')",6.0447090616267936
+99,Alternative Kanton Zug (Al),"('bewill', 'gemass')",6.0447090616267936
+100,Bürgerlich-Demokratische Partei Schweiz (BDP),"('nam', 'bdpfraktion')",230.18426709368785
+101,Bürgerlich-Demokratische Partei Schweiz (BDP),"('herr', 'standerat')",139.27619124487157
+102,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'beantrag')",129.98640965290608
+103,Bürgerlich-Demokratische Partei Schweiz (BDP),"('herr', 'nationalrat')",87.96391025991889
+104,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'unterstutzt')",72.53650873952152
+105,Bürgerlich-Demokratische Partei Schweiz (BDP),"('mocht', 'bitt')",72.07536707448975
+106,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bundesamt', 'migration')",63.2240604993167
+107,Bürgerlich-Demokratische Partei Schweiz (BDP),"('herrn', 'standerat')",61.522288165414146
+108,Bürgerlich-Demokratische Partei Schweiz (BDP),"('indirekt', 'gegenvorschlag')",59.766597980620915
+109,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'deshalb')",56.869054223146414
+110,Bürgerlich-Demokratische Partei Schweiz (BDP),"('vorlag', 'einzutret')",56.76511513514301
+111,Bürgerlich-Demokratische Partei Schweiz (BDP),"('kommission', 'rechtsfrag')",56.57477934801367
+112,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'vorlag')",54.72088902275941
+113,Bürgerlich-Demokratische Partei Schweiz (BDP),"('minderheitsantrag', 'abzulehn')",52.615039247897045
+114,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'bitt')",46.342769472472085
+115,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bundesrat', 'auffass')",44.96626307076691
+116,Bürgerlich-Demokratische Partei Schweiz (BDP),"('auffass', 'bundesrat')",44.8982458618336
+117,Bürgerlich-Demokratische Partei Schweiz (BDP),"('darauf', 'hingewies')",44.628710262841956
+118,Bürgerlich-Demokratische Partei Schweiz (BDP),"('million', 'frank')",44.07505984132736
+119,Bürgerlich-Demokratische Partei Schweiz (BDP),"('artikel', 'absatz')",43.50265646676466
+120,Bürgerlich-Demokratische Partei Schweiz (BDP),"('geltend', 'recht')",42.39852677257723
+121,Bürgerlich-Demokratische Partei Schweiz (BDP),"('biometr', 'dat')",41.74726696938817
+122,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'begrusst')",40.62075301653315
+123,Bürgerlich-Demokratische Partei Schweiz (BDP),"('sicht', 'bdp')",40.62075301653315
+124,Bürgerlich-Demokratische Partei Schweiz (BDP),"('direkt', 'gegenvorschlag')",39.84439865374728
+125,Bürgerlich-Demokratische Partei Schweiz (BDP),"('direkt', 'bundessteu')",39.602345543609566
+126,Bürgerlich-Demokratische Partei Schweiz (BDP),"('regional', 'erschopf')",39.40050147058867
+127,Bürgerlich-Demokratische Partei Schweiz (BDP),"('rechnung', 'trag')",37.801096158683315
+128,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bitt', 'minderheitsantrag')",37.302789945951126
+129,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bund', 'kanton')",36.598281539853055
+130,Bürgerlich-Demokratische Partei Schweiz (BDP),"('geh', 'davon')",35.75779366361935
+131,Bürgerlich-Demokratische Partei Schweiz (BDP),"('nam', 'bundesrat')",35.73533854309205
+132,Bürgerlich-Demokratische Partei Schweiz (BDP),"('national', 'erschopf')",35.73533854309205
+133,Bürgerlich-Demokratische Partei Schweiz (BDP),"('wurd', 'gesagt')",35.275464405410304
+134,Bürgerlich-Demokratische Partei Schweiz (BDP),"('mocht', 'beton')",35.05844239415725
+135,Bürgerlich-Demokratische Partei Schweiz (BDP),"('ganz', 'klar')",35.033537556330934
+136,Bürgerlich-Demokratische Partei Schweiz (BDP),"('mocht', 'dah')",34.73614241608737
+137,Bürgerlich-Demokratische Partei Schweiz (BDP),"('einseit', 'regional')",33.7981961611161
+138,Bürgerlich-Demokratische Partei Schweiz (BDP),"('too', 'big')",32.77202223801656
+139,Bürgerlich-Demokratische Partei Schweiz (BDP),"('big', 'to')",32.77202223801656
+140,Bürgerlich-Demokratische Partei Schweiz (BDP),"('to', 'fail')",32.77202223801656
+141,Bürgerlich-Demokratische Partei Schweiz (BDP),"('milliard', 'frank')",32.355814940560414
+142,Bürgerlich-Demokratische Partei Schweiz (BDP),"('wurd', 'heut')",32.18201429725742
+143,Bürgerlich-Demokratische Partei Schweiz (BDP),"('motion', 'abzulehn')",32.009882185969666
+144,Bürgerlich-Demokratische Partei Schweiz (BDP),"('mehrheit', 'kommission')",31.945957615295463
+145,Bürgerlich-Demokratische Partei Schweiz (BDP),"('eidgenoss', 'steuerverwalt')",31.153884883721275
+146,Bürgerlich-Demokratische Partei Schweiz (BDP),"('still', 'reserv')",30.761144082707073
+147,Bürgerlich-Demokratische Partei Schweiz (BDP),"('gemass', 'artikel')",30.40988310811233
+148,Bürgerlich-Demokratische Partei Schweiz (BDP),"('denk', 'richtig')",29.662531794038966
+149,Bürgerlich-Demokratische Partei Schweiz (BDP),"('heut', 'gesagt')",29.321303419972963
+150,Bürgerlich-Demokratische Partei Schweiz (BDP),"('frau', 'nationalratin')",29.321303419972963
+151,Bürgerlich-Demokratische Partei Schweiz (BDP),"('fakultativ', 'referendum')",28.19918192573518
+152,Bürgerlich-Demokratische Partei Schweiz (BDP),"('standerat', 'david')",27.75687263962871
+153,Bürgerlich-Demokratische Partei Schweiz (BDP),"('wurd', 'bereit')",27.57162735135518
+154,Bürgerlich-Demokratische Partei Schweiz (BDP),"('sri', 'lanka')",27.48872195622465
+155,Bürgerlich-Demokratische Partei Schweiz (BDP),"('artikel', 'stgb')",27.437041873688283
+156,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdp', 'unterstutzt')",27.0805020110221
+157,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdp', 'begrusst')",27.0805020110221
+158,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bundesamt', 'justiz')",27.030172355162087
+159,Bürgerlich-Demokratische Partei Schweiz (BDP),"('teil', 'auffass')",26.674901821641384
+160,Bürgerlich-Demokratische Partei Schweiz (BDP),"('klar', 'meinung')",26.674901821641384
+161,Bürgerlich-Demokratische Partei Schweiz (BDP),"('beantrag', 'vorlag')",26.40156369573971
+162,Bürgerlich-Demokratische Partei Schweiz (BDP),"('mehrheit', 'bdpfraktion')",26.19373926704944
+163,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bereit', 'heut')",26.053013977522514
+164,Bürgerlich-Demokratische Partei Schweiz (BDP),"('antrag', 'kommission')",25.772955036317338
+165,Bürgerlich-Demokratische Partei Schweiz (BDP),"('schweizer', 'recht')",25.656140492476343
+166,Bürgerlich-Demokratische Partei Schweiz (BDP),"('januar', 'kraft')",25.541281188299536
+167,Bürgerlich-Demokratische Partei Schweiz (BDP),"('antrag', 'abzulehn')",25.144346376894966
+168,Bürgerlich-Demokratische Partei Schweiz (BDP),"('kraft', 'gesetzt')",25.144346376894966
+169,Bürgerlich-Demokratische Partei Schweiz (BDP),"('entwurf', 'bundesrat')",24.768934195877282
+170,Bürgerlich-Demokratische Partei Schweiz (BDP),"('antrag', 'mind')",24.756445949836472
+171,Bürgerlich-Demokratische Partei Schweiz (BDP),"('sicherheitspolit', 'bericht')",24.51573771747259
+172,Bürgerlich-Demokratische Partei Schweiz (BDP),"('ausdruck', 'gebracht')",24.51573771747259
+173,Bürgerlich-Demokratische Partei Schweiz (BDP),"('d', 'h')",24.502239336003317
+174,Bürgerlich-Demokratische Partei Schweiz (BDP),"('besond', 'bedeut')",24.388481665500695
+175,Bürgerlich-Demokratische Partei Schweiz (BDP),"('international', 'erschopf')",24.388481665500695
+176,Bürgerlich-Demokratische Partei Schweiz (BDP),"('unterstutzt', 'bdpfraktion')",24.178836246507174
+177,Bürgerlich-Demokratische Partei Schweiz (BDP),"('patentiert', 'bestandteil')",24.178836246507174
+178,Bürgerlich-Demokratische Partei Schweiz (BDP),"('anlass', 'sportveranstalt')",24.178836246507174
+179,Bürgerlich-Demokratische Partei Schweiz (BDP),"('systemrelevant', 'teil')",24.141568686511505
+180,Bürgerlich-Demokratische Partei Schweiz (BDP),"('lex', 'koll')",23.887129058050217
+181,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bitt', 'vorlag')",23.516976270273535
+182,Bürgerlich-Demokratische Partei Schweiz (BDP),"('dah', 'bitt')",23.11151116216537
+183,Bürgerlich-Demokratische Partei Schweiz (BDP),"('frau', 'standeratin')",23.070858062030304
+184,Bürgerlich-Demokratische Partei Schweiz (BDP),"('frag', 'herrn')",22.90726829685388
+185,Bürgerlich-Demokratische Partei Schweiz (BDP),"('letzt', 'jahr')",22.896134982507718
+186,Bürgerlich-Demokratische Partei Schweiz (BDP),"('unternehmenssteuerreform', 'ii')",22.8642015614069
+187,Bürgerlich-Demokratische Partei Schweiz (BDP),"('gross', 'bedeut')",22.706046054057204
+188,Bürgerlich-Demokratische Partei Schweiz (BDP),"('darub', 'diskuti')",22.62991173920547
+189,Bürgerlich-Demokratische Partei Schweiz (BDP),"('fraktion', 'bdp')",22.16393322596491
+190,Bürgerlich-Demokratische Partei Schweiz (BDP),"('freihandelsabkomm', 'eu')",21.990977564979723
+191,Bürgerlich-Demokratische Partei Schweiz (BDP),"('herrn', 'nationalrat')",21.990977564979723
+192,Bürgerlich-Demokratische Partei Schweiz (BDP),"('darauf', 'wurd')",21.990977564979723
+193,Bürgerlich-Demokratische Partei Schweiz (BDP),"('art', 'weis')",21.895115837840876
+194,Bürgerlich-Demokratische Partei Schweiz (BDP),"('uns', 'sicht')",21.895115837840876
+195,Bürgerlich-Demokratische Partei Schweiz (BDP),"('bdpfraktion', 'beantragt')",21.66440160881768
+196,Bürgerlich-Demokratische Partei Schweiz (BDP),"('erteil', 'aufenthaltsbewill')",21.66440160881768
+197,Bürgerlich-Demokratische Partei Schweiz (BDP),"('alert', 'enlèvement')",21.66440160881768
+198,Bürgerlich-Demokratische Partei Schweiz (BDP),"('auffass', 'bdp')",21.66440160881768
+199,Bürgerlich-Demokratische Partei Schweiz (BDP),"('darauf', 'hinweis')",21.489650729732713
+200,Christlich-soziale Partei (CSP),"('group', 'vert')",37.91270281543094
+201,Christlich-soziale Partei (CSP),"('la', 'suva')",27.0805020110221
+202,Christlich-soziale Partei (CSP),"('fraktion', 'grun')",25.268082639366526
+203,Christlich-soziale Partei (CSP),"('grun', 'fraktion')",21.489650729732713
+204,Christlich-soziale Partei (CSP),"('de', 'la')",20.11547710151597
+205,Christlich-soziale Partei (CSP),"('le', 'group')",14.281959752685427
+206,Christlich-soziale Partei (CSP),"('bedingungslos', 'grundeinkomm')",14.104321143795852
+207,Christlich-soziale Partei (CSP),"('ausfall', 'marathon')",13.54025100551105
+208,Christlich-soziale Partei (CSP),"('claud', 'covassi')",12.875503299472802
+209,Christlich-soziale Partei (CSP),"('de', 'travail')",12.875503299472802
+210,Christlich-soziale Partei (CSP),"('grun', 'bittet')",12.089418123253587
+211,Christlich-soziale Partei (CSP),"('nam', 'grun')",11.895802559840876
+212,Christlich-soziale Partei (CSP),"('motto', 'einglieder')",10.83220080440884
+213,Christlich-soziale Partei (CSP),"('geschaftsprufungsdelegation', 'bundesrat')",10.83220080440884
+214,Christlich-soziale Partei (CSP),"('sozialversicher', 'schieflag')",10.83220080440884
+215,Christlich-soziale Partei (CSP),"('semain', 'de')",10.83220080440884
+216,Christlich-soziale Partei (CSP),"('de', 'vacanc')",10.83220080440884
+217,Christlich-soziale Partei (CSP),"('mes', 'enfant')",10.83220080440884
+218,Christlich-soziale Partei (CSP),"('la', 'santé')",10.074515102711324
+219,Christlich-soziale Partei (CSP),"('que', 'les')",8.788898309344878
+220,Christlich-soziale Partei (CSP),"('zweit', 'saul')",8.171912572490863
+221,Christlich-soziale Partei (CSP),"('geschaftsprufungsdelegation', 'stellt')",8.12415060330663
+222,Christlich-soziale Partei (CSP),"('motion', 'fasel')",8.12415060330663
+223,Christlich-soziale Partei (CSP),"('le', 'délai')",8.12415060330663
+224,Christlich-soziale Partei (CSP),"('weit', 'sozialversicher')",8.12415060330663
+225,Christlich-soziale Partei (CSP),"('degré', 'de')",8.12415060330663
+226,Christlich-soziale Partei (CSP),"('vert', 'vous')",8.12415060330663
+227,Christlich-soziale Partei (CSP),"('deuxièm', 'pili')",8.12415060330663
+228,Christlich-soziale Partei (CSP),"('francs', 'par')",8.12415060330663
+229,Christlich-soziale Partei (CSP),"('la', 'prévention')",8.12415060330663
+230,Christlich-soziale Partei (CSP),"('ver', 'le')",8.12415060330663
+231,Christlich-soziale Partei (CSP),"('leistungskurz', 'verbund')",8.12415060330663
+232,Christlich-soziale Partei (CSP),"('rechtskraft', 'zugesproch')",8.12415060330663
+233,Christlich-soziale Partei (CSP),"('zugesproch', 'iv')",8.12415060330663
+234,Christlich-soziale Partei (CSP),"('iv', 'bvgrent')",8.12415060330663
+235,Christlich-soziale Partei (CSP),"('bvgrent', 'verbesser')",8.12415060330663
+236,Christlich-soziale Partei (CSP),"('aufgehob', 'reduziert')",8.12415060330663
+237,Christlich-soziale Partei (CSP),"('eigenverantwort', 'lebensfuhr')",8.12415060330663
+238,Christlich-soziale Partei (CSP),"('société', 'en')",8.12415060330663
+239,Christlich-soziale Partei (CSP),"('les', 'salariés')",8.12415060330663
+240,Christlich-soziale Partei (CSP),"('acquis', 'soient')",8.12415060330663
+241,Christlich-soziale Partei (CSP),"('comm', 'le')",8.12415060330663
+242,Christlich-soziale Partei (CSP),"('de', 'biodiversité')",8.12415060330663
+243,Christlich-soziale Partei (CSP),"('diversité', 'biologiqu')",8.12415060330663
+244,Christlich-soziale Partei (CSP),"('trois', 'ans')",8.12415060330663
+245,Christlich-soziale Partei (CSP),"('la', 'révision')",8.059612082169059
+246,Christlich-soziale Partei (CSP),"('dap', 'snd')",8.047189562170502
+247,Christlich-soziale Partei (CSP),"('milliard', 'de')",8.047189562170502
+248,Christlich-soziale Partei (CSP),"('erwerbslos', 'mutt')",8.047189562170502
+249,Christlich-soziale Partei (CSP),"('paritat', 'finanzier')",7.690286020676768
+250,Christlich-soziale Partei (CSP),"('et', 'de')",7.690286020676768
+251,Christlich-soziale Partei (CSP),"('mangel', 'zusammenarbeit')",6.608779199911598
+252,Christlich-soziale Partei (CSP),"('de', 'leur')",6.608779199911598
+253,Christlich-soziale Partei (CSP),"('de', 'francs')",6.608779199911598
+254,Christlich-soziale Partei (CSP),"('einglieder', 'rent')",6.591673732008658
+255,Christlich-soziale Partei (CSP),"('à', 'ce')",6.437751649736401
+256,Christlich-soziale Partei (CSP),"('conseil', 'et')",6.437751649736401
+257,Christlich-soziale Partei (CSP),"('viel', 'betroff')",6.414035123119086
+258,Christlich-soziale Partei (CSP),"('alt', 'arbeitnehm')",6.414035123119086
+259,Christlich-soziale Partei (CSP),"('à', 'la')",6.129907485191889
+260,Christlich-soziale Partei (CSP),"('medizin', 'massnahm')",6.097120416375174
+261,Christlich-soziale Partei (CSP),"('zusammenarbeit', 'dap')",6.0447090616267936
+262,Christlich-soziale Partei (CSP),"('zusammenarbeit', 'nachrichtendien')",6.0447090616267936
+263,Christlich-soziale Partei (CSP),"('nam', 'geschaftsprufungsdelegation')",6.0447090616267936
+264,Christlich-soziale Partei (CSP),"('fuhrung', 'nachrichtendien')",6.0447090616267936
+265,Christlich-soziale Partei (CSP),"('bittet', 'grun')",6.0447090616267936
+266,Christlich-soziale Partei (CSP),"('neu', 'vorsorgeeinricht')",6.0447090616267936
+267,Christlich-soziale Partei (CSP),"('grun', 'vorlag')",6.0447090616267936
+268,Christlich-soziale Partei (CSP),"('le', 'degré')",6.0447090616267936
+269,Christlich-soziale Partei (CSP),"('révision', 'de')",6.0447090616267936
+270,Christlich-soziale Partei (CSP),"('les', 'assurés')",6.0447090616267936
+271,Christlich-soziale Partei (CSP),"('rent', 'erst')",6.0447090616267936
+272,Christlich-soziale Partei (CSP),"('massnahm', 'konfrontiert')",6.0447090616267936
+273,Christlich-soziale Partei (CSP),"('verbund', 'besond')",6.0447090616267936
+274,Christlich-soziale Partei (CSP),"('verbesser', 'gesundheitszustand')",6.0447090616267936
+275,Christlich-soziale Partei (CSP),"('lebensfuhr', 'mensch')",6.0447090616267936
+276,Christlich-soziale Partei (CSP),"('pour', 'léconomi')",6.0447090616267936
+277,Christlich-soziale Partei (CSP),"('léconomi', 'et')",6.0447090616267936
+278,Christlich-soziale Partei (CSP),"('la', 'société')",6.0447090616267936
+279,Christlich-soziale Partei (CSP),"('le', 'premi')",6.0447090616267936
+280,Christlich-soziale Partei (CSP),"('institutionell', 'aspekt')",6.0447090616267936
+281,Christlich-soziale Partei (CSP),"('la', 'diversité')",6.0447090616267936
+282,Christlich-soziale Partei (CSP),"('arbeitssich', 'gesundheitsschutz')",6.0447090616267936
+283,Christlich-soziale Partei (CSP),"('flexibl', 'rentenalt')",5.497744391244931
+284,Christlich-soziale Partei (CSP),"('dan', 'le')",5.497744391244931
+285,Christlich-soziale Partei (CSP),"('mind', 'rechstein')",5.497744391244931
+286,Christlich-soziale Partei (CSP),"('et', 'à')",5.493061443340549
+287,Christlich-soziale Partei (CSP),"('revision', 'motto')",5.41610040220442
+288,Christlich-soziale Partei (CSP),"('ahvrevision', 'marathon')",5.41610040220442
+289,Christlich-soziale Partei (CSP),"('marathon', 'derjen')",5.41610040220442
+290,Christlich-soziale Partei (CSP),"('geh', 'vorzeit')",5.41610040220442
+291,Christlich-soziale Partei (CSP),"('namlich', 'flexibilisier')",5.41610040220442
+292,Christlich-soziale Partei (CSP),"('einkommenskategori', 'berufsgrupp')",5.41610040220442
+293,Christlich-soziale Partei (CSP),"('berufsgrupp', 'vorh')",5.41610040220442
+294,Christlich-soziale Partei (CSP),"('leitsatz', 'einzeln')",5.41610040220442
+295,Christlich-soziale Partei (CSP),"('festgestellt', 'rechtlich')",5.41610040220442
+296,Christlich-soziale Partei (CSP),"('per', 'parlamentar')",5.41610040220442
+297,Christlich-soziale Partei (CSP),"('vorlag', 'beizutrag')",5.41610040220442
+298,Christlich-soziale Partei (CSP),"('ahv', 'basiert')",5.41610040220442
+299,Christlich-soziale Partei (CSP),"('bezahl', 'rentnerinn')",5.41610040220442
+300,Christlichdemokratische Volkspartei der Schweiz (CVP),"('million', 'frank')",253.57469493127297
+301,Christlichdemokratische Volkspartei der Schweiz (CVP),"('milliard', 'frank')",183.20085562896622
+302,Christlichdemokratische Volkspartei der Schweiz (CVP),"('stimm', 'enthalt')",155.69860151353512
+303,Christlichdemokratische Volkspartei der Schweiz (CVP),"('artikel', 'absatz')",141.66983520426652
+304,Christlichdemokratische Volkspartei der Schweiz (CVP),"('mehrheit', 'kommission')",133.36661917065095
+305,Christlichdemokratische Volkspartei der Schweiz (CVP),"('herr', 'nationalrat')",123.69924880301095
+306,Christlichdemokratische Volkspartei der Schweiz (CVP),"('frau', 'bundesratin')",118.00071908994386
+307,Christlichdemokratische Volkspartei der Schweiz (CVP),"('kommission', 'beantragt')",110.84916035721999
+308,Christlichdemokratische Volkspartei der Schweiz (CVP),"('nam', 'cvpevpglpfraktion')",105.74046719858556
+309,Christlichdemokratische Volkspartei der Schweiz (CVP),"('antrag', 'kommission')",104.3490374641141
+310,Christlichdemokratische Volkspartei der Schweiz (CVP),"('uns', 'kommission')",102.67595037696414
+311,Christlichdemokratische Volkspartei der Schweiz (CVP),"('herr', 'standerat')",101.70827123803122
+312,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bundesrat', 'beantragt')",94.29129891335612
+313,Christlichdemokratische Volkspartei der Schweiz (CVP),"('cvpevpglpfraktion', 'unterstutzt')",92.52290879876236
+314,Christlichdemokratische Volkspartei der Schweiz (CVP),"('kommission', 'rechtsfrag')",89.26242963797712
+315,Christlichdemokratische Volkspartei der Schweiz (CVP),"('gemass', 'artikel')",88.796858675688
+316,Christlichdemokratische Volkspartei der Schweiz (CVP),"('cvpevpglpfraktion', 'bitt')",86.65760643527072
+317,Christlichdemokratische Volkspartei der Schweiz (CVP),"('annahm', 'motion')",83.26457667385648
+318,Christlichdemokratische Volkspartei der Schweiz (CVP),"('vorlag', 'einzutret')",82.71488205406554
+319,Christlichdemokratische Volkspartei der Schweiz (CVP),"('schriftlich', 'bericht')",82.39592165010824
+320,Christlichdemokratische Volkspartei der Schweiz (CVP),"('kommission', 'stimm')",81.09051706548625
+321,Christlichdemokratische Volkspartei der Schweiz (CVP),"('parlamentar', 'initiativ')",79.99337159513634
+322,Christlichdemokratische Volkspartei der Schweiz (CVP),"('geht', 'darum')",77.653955857345
+323,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bund', 'kanton')",74.12702786461763
+324,Christlichdemokratische Volkspartei der Schweiz (CVP),"('ganz', 'klar')",73.86051548500343
+325,Christlichdemokratische Volkspartei der Schweiz (CVP),"('sicherheitspolit', 'bericht')",73.54721315241777
+326,Christlichdemokratische Volkspartei der Schweiz (CVP),"('mehrheit', 'folg')",71.36185902703693
+327,Christlichdemokratische Volkspartei der Schweiz (CVP),"('motion', 'abzulehn')",70.1168847883145
+328,Christlichdemokratische Volkspartei der Schweiz (CVP),"('indirekt', 'gegenvorschlag')",69.98311045594073
+329,Christlichdemokratische Volkspartei der Schweiz (CVP),"('st', 'gall')",68.5926046842207
+330,Christlichdemokratische Volkspartei der Schweiz (CVP),"('beschluss', 'nationalrat')",68.45063358464276
+331,Christlichdemokratische Volkspartei der Schweiz (CVP),"('kenntnis', 'genomm')",67.8897352176164
+332,Christlichdemokratische Volkspartei der Schweiz (CVP),"('frau', 'fetz')",67.80551415868747
+333,Christlichdemokratische Volkspartei der Schweiz (CVP),"('absatz', 'buchstab')",67.71267305406346
+334,Christlichdemokratische Volkspartei der Schweiz (CVP),"('geh', 'davon')",65.38567984204681
+335,Christlichdemokratische Volkspartei der Schweiz (CVP),"('pro', 'jahr')",63.58176030228709
+336,Christlichdemokratische Volkspartei der Schweiz (CVP),"('motion', 'anzunehm')",61.630696432440985
+337,Christlichdemokratische Volkspartei der Schweiz (CVP),"('folg', 'geb')",60.471902406150846
+338,Christlichdemokratische Volkspartei der Schweiz (CVP),"('offent', 'verkehr')",60.277423604386904
+339,Christlichdemokratische Volkspartei der Schweiz (CVP),"('stell', 'fest')",60.00883600000833
+340,Christlichdemokratische Volkspartei der Schweiz (CVP),"('wurd', 'kommission')",58.74494673308893
+341,Christlichdemokratische Volkspartei der Schweiz (CVP),"('vergang', 'jahr')",58.74494673308893
+342,Christlichdemokratische Volkspartei der Schweiz (CVP),"('letzt', 'jahr')",58.38514420539468
+343,Christlichdemokratische Volkspartei der Schweiz (CVP),"('losung', 'find')",57.831996666858416
+344,Christlichdemokratische Volkspartei der Schweiz (CVP),"('frau', 'sommaruga')",57.72631610807177
+345,Christlichdemokratische Volkspartei der Schweiz (CVP),"('vorberat', 'kommission')",57.212469861790964
+346,Christlichdemokratische Volkspartei der Schweiz (CVP),"('beantragt', 'stimm')",57.20338800743604
+347,Christlichdemokratische Volkspartei der Schweiz (CVP),"('antrag', 'mind')",57.09723661262862
+348,Christlichdemokratische Volkspartei der Schweiz (CVP),"('darauf', 'hinweis')",56.35965002703485
+349,Christlichdemokratische Volkspartei der Schweiz (CVP),"('darauf', 'hingewies')",55.78588782855244
+350,Christlichdemokratische Volkspartei der Schweiz (CVP),"('mind', 'i')",55.14325470271036
+351,Christlichdemokratische Volkspartei der Schweiz (CVP),"('herrn', 'standerat')",54.93061443340549
+352,Christlichdemokratische Volkspartei der Schweiz (CVP),"('rund', 'milliard')",54.14751611919502
+353,Christlichdemokratische Volkspartei der Schweiz (CVP),"('erneuerbar', 'energi')",53.966957524868064
+354,Christlichdemokratische Volkspartei der Schweiz (CVP),"('geht', 'frag')",53.521394270277696
+355,Christlichdemokratische Volkspartei der Schweiz (CVP),"('end', 'jahr')",53.12586487166303
+356,Christlichdemokratische Volkspartei der Schweiz (CVP),"('letzt', 'woch')",53.12586487166303
+357,Christlichdemokratische Volkspartei der Schweiz (CVP),"('dank', 'bundesrat')",52.80312739147942
+358,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bereit', 'heut')",52.726337811652705
+359,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bitt', 'mehrheit')",52.71046405406137
+360,Christlichdemokratische Volkspartei der Schweiz (CVP),"('nationalrat', 'beschloss')",52.22857171682684
+361,Christlichdemokratische Volkspartei der Schweiz (CVP),"('initiativ', 'folg')",52.10602795504503
+362,Christlichdemokratische Volkspartei der Schweiz (CVP),"('frank', 'pro')",52.10602795504503
+363,Christlichdemokratische Volkspartei der Schweiz (CVP),"('drei', 'jahr')",51.79587302674119
+364,Christlichdemokratische Volkspartei der Schweiz (CVP),"('zehn', 'jahr')",51.76930390489667
+365,Christlichdemokratische Volkspartei der Schweiz (CVP),"('minderheitsantrag', 'abzulehn')",51.59338800036506
+366,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bericht', 'kommission')",51.06338348714208
+367,Christlichdemokratische Volkspartei der Schweiz (CVP),"('frau', 'forst')",50.53616527873305
+368,Christlichdemokratische Volkspartei der Schweiz (CVP),"('richtig', 'gesagt')",50.39599025307853
+369,Christlichdemokratische Volkspartei der Schweiz (CVP),"('letzt', 'bemerk')",50.39599025307853
+370,Christlichdemokratische Volkspartei der Schweiz (CVP),"('geltend', 'recht')",50.060911129067094
+371,Christlichdemokratische Volkspartei der Schweiz (CVP),"('antrag', 'bundesrat')",50.060911129067094
+372,Christlichdemokratische Volkspartei der Schweiz (CVP),"('antwort', 'bundesrat')",48.655812972979724
+373,Christlichdemokratische Volkspartei der Schweiz (CVP),"('letzt', 'punkt')",48.56340878933022
+374,Christlichdemokratische Volkspartei der Schweiz (CVP),"('mitglied', 'bundesrat')",48.014823278954495
+375,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bitt', 'dah')",47.8448827567634
+376,Christlichdemokratische Volkspartei der Schweiz (CVP),"('ablehn', 'motion')",47.774258116100434
+377,Christlichdemokratische Volkspartei der Schweiz (CVP),"('kanton', 'gemeind')",47.763858958791275
+378,Christlichdemokratische Volkspartei der Schweiz (CVP),"('d', 'h')",47.45370403048744
+379,Christlichdemokratische Volkspartei der Schweiz (CVP),"('z', 'b')",47.366379245062845
+380,Christlichdemokratische Volkspartei der Schweiz (CVP),"('konsumentinn', 'konsument')",47.2526832269076
+381,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bundesrat', 'folg')",47.14564945667806
+382,Christlichdemokratische Volkspartei der Schweiz (CVP),"('erst', 'lini')",47.1435491021836
+383,Christlichdemokratische Volkspartei der Schweiz (CVP),"('kommission', 'folg')",47.03395254054707
+384,Christlichdemokratische Volkspartei der Schweiz (CVP),"('produzier', 'landwirtschaft')",46.14171612406061
+385,Christlichdemokratische Volkspartei der Schweiz (CVP),"('nam', 'kommission')",45.463480515173174
+386,Christlichdemokratische Volkspartei der Schweiz (CVP),"('herr', 'kolleg')",45.28261953236056
+387,Christlichdemokratische Volkspartei der Schweiz (CVP),"('recht', 'gesagt')",44.96626307076691
+388,Christlichdemokratische Volkspartei der Schweiz (CVP),"('herrn', 'bundesrat')",44.96626307076691
+389,Christlichdemokratische Volkspartei der Schweiz (CVP),"('sicherheitspolit', 'kommission')",44.952654891407185
+390,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bitt', 'bundesrat')",44.952654891407185
+391,Christlichdemokratische Volkspartei der Schweiz (CVP),"('sinn', 'bitt')",44.60116189189808
+392,Christlichdemokratische Volkspartei der Schweiz (CVP),"('frag', 'stell')",44.44182926764119
+393,Christlichdemokratische Volkspartei der Schweiz (CVP),"('bundesrat', 'parlament')",44.44182926764119
+394,Christlichdemokratische Volkspartei der Schweiz (CVP),"('schweiz', 'eu')",44.20412301872001
+395,Christlichdemokratische Volkspartei der Schweiz (CVP),"('antrag', 'mehrheit')",44.18242316021353
+396,Christlichdemokratische Volkspartei der Schweiz (CVP),"('direkt', 'bundessteu')",44.002606159566184
+397,Christlichdemokratische Volkspartei der Schweiz (CVP),"('oberst', 'organ')",43.981955129959445
+398,Christlichdemokratische Volkspartei der Schweiz (CVP),"('eth', 'zurich')",43.94449154672439
+399,Christlichdemokratische Volkspartei der Schweiz (CVP),"('dah', 'find')",43.45482363572071
+400,Christlichsoziale Volkspartei Oberwallis (CSPO),"('landwirtschaft', 'nutzflach')",12.875503299472802
+401,Christlichsoziale Volkspartei Oberwallis (CSPO),"('reh', 'gams')",10.074515102711324
+402,Christlichsoziale Volkspartei Oberwallis (CSPO),"('gleichwert', 'massnahm')",10.074515102711324
+403,Christlichsoziale Volkspartei Oberwallis (CSPO),"('realersatz', 'verzichtet')",8.12415060330663
+404,Christlichsoziale Volkspartei Oberwallis (CSPO),"('ascoop', 'angeschloss')",8.12415060330663
+405,Christlichsoziale Volkspartei Oberwallis (CSPO),"('realersatz', 'gegend')",8.12415060330663
+406,Christlichsoziale Volkspartei Oberwallis (CSPO),"('landschaftsschutz', 'getroff')",8.12415060330663
+407,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zahnuberzug', 'hund')",8.12415060330663
+408,Christlichsoziale Volkspartei Oberwallis (CSPO),"('anpass', 'wasserzins')",8.059612082169059
+409,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zugun', 'natur')",8.047189562170502
+410,Christlichsoziale Volkspartei Oberwallis (CSPO),"('vollstand', 'marktoffn')",7.330325854993241
+411,Christlichsoziale Volkspartei Oberwallis (CSPO),"('mocht', 'bitt')",6.694306539426293
+412,Christlichsoziale Volkspartei Oberwallis (CSPO),"('natur', 'landschaftsschutz')",6.608779199911598
+413,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zunahm', 'waldflach')",6.591673732008658
+414,Christlichsoziale Volkspartei Oberwallis (CSPO),"('statisch', 'waldgrenz')",6.437751649736401
+415,Christlichsoziale Volkspartei Oberwallis (CSPO),"('flexibilisier', 'waldflachenpolit')",6.0447090616267936
+416,Christlichsoziale Volkspartei Oberwallis (CSPO),"('dynam', 'waldbegriff')",6.0447090616267936
+417,Christlichsoziale Volkspartei Oberwallis (CSPO),"('revision', 'waldgesetz')",5.493061443340549
+418,Christlichsoziale Volkspartei Oberwallis (CSPO),"('hochrang', 'strassenprojekt')",5.41610040220442
+419,Christlichsoziale Volkspartei Oberwallis (CSPO),"('strassenprojekt', 'inneralpin')",5.41610040220442
+420,Christlichsoziale Volkspartei Oberwallis (CSPO),"('inneralpin', 'verkehr')",5.41610040220442
+421,Christlichsoziale Volkspartei Oberwallis (CSPO),"('angesicht', 'natur')",5.41610040220442
+422,Christlichsoziale Volkspartei Oberwallis (CSPO),"('natur', 'waldflachenzunahm')",5.41610040220442
+423,Christlichsoziale Volkspartei Oberwallis (CSPO),"('waldflach', 'nimmt')",5.41610040220442
+424,Christlichsoziale Volkspartei Oberwallis (CSPO),"('realersatz', 'geleistet')",5.41610040220442
+425,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zunimmt', 'realersatz')",5.41610040220442
+426,Christlichsoziale Volkspartei Oberwallis (CSPO),"('vorsorgewerk', 'unternehm')",5.41610040220442
+427,Christlichsoziale Volkspartei Oberwallis (CSPO),"('sicher', 'servic')",5.41610040220442
+428,Christlichsoziale Volkspartei Oberwallis (CSPO),"('public', 'tourismusinfrastruktur')",5.41610040220442
+429,Christlichsoziale Volkspartei Oberwallis (CSPO),"('hilfestell', 'erwartet')",5.41610040220442
+430,Christlichsoziale Volkspartei Oberwallis (CSPO),"('insbesond', 'bergregion')",5.41610040220442
+431,Christlichsoziale Volkspartei Oberwallis (CSPO),"('erarbeit', 'spezif')",5.41610040220442
+432,Christlichsoziale Volkspartei Oberwallis (CSPO),"('wasserzinsmaximum', 'teuer')",5.41610040220442
+433,Christlichsoziale Volkspartei Oberwallis (CSPO),"('teuer', 'hinaus')",5.41610040220442
+434,Christlichsoziale Volkspartei Oberwallis (CSPO),"('mehrkost', 'rapp')",5.41610040220442
+435,Christlichsoziale Volkspartei Oberwallis (CSPO),"('verwaltungsrat', 'enalpin')",5.41610040220442
+436,Christlichsoziale Volkspartei Oberwallis (CSPO),"('enalpin', 'ag')",5.41610040220442
+437,Christlichsoziale Volkspartei Oberwallis (CSPO),"('umrust', 'stillleg')",5.41610040220442
+438,Christlichsoziale Volkspartei Oberwallis (CSPO),"('stillleg', 'anlag')",5.41610040220442
+439,Christlichsoziale Volkspartei Oberwallis (CSPO),"('anlag', 'umgerustet')",5.41610040220442
+440,Christlichsoziale Volkspartei Oberwallis (CSPO),"('grundstuck', 'bauzon')",5.41610040220442
+441,Christlichsoziale Volkspartei Oberwallis (CSPO),"('staatspolit', 'zulass')",5.41610040220442
+442,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zweimal', 'million')",5.41610040220442
+443,Christlichsoziale Volkspartei Oberwallis (CSPO),"('energietrag', 'ersetz')",5.41610040220442
+444,Christlichsoziale Volkspartei Oberwallis (CSPO),"('stromverbrauch', 'trotz')",5.41610040220442
+445,Christlichsoziale Volkspartei Oberwallis (CSPO),"('beleg', 'folgend')",5.41610040220442
+446,Christlichsoziale Volkspartei Oberwallis (CSPO),"('insbesond', 'erdol')",5.41610040220442
+447,Christlichsoziale Volkspartei Oberwallis (CSPO),"('lastwag', 'simplonpass')",5.41610040220442
+448,Christlichsoziale Volkspartei Oberwallis (CSPO),"('simplon', 'lastwag')",5.41610040220442
+449,Christlichsoziale Volkspartei Oberwallis (CSPO),"('viert', 'arbeitsplatz')",5.41610040220442
+450,Christlichsoziale Volkspartei Oberwallis (CSPO),"('nie', 'leis')",5.41610040220442
+451,Christlichsoziale Volkspartei Oberwallis (CSPO),"('bundesrat', 'ermoglicht')",5.41610040220442
+452,Christlichsoziale Volkspartei Oberwallis (CSPO),"('reguliert', 'darf')",5.41610040220442
+453,Christlichsoziale Volkspartei Oberwallis (CSPO),"('wildtierbestand', 'reh')",5.41610040220442
+454,Christlichsoziale Volkspartei Oberwallis (CSPO),"('gams', 'usw')",5.41610040220442
+455,Christlichsoziale Volkspartei Oberwallis (CSPO),"('sogar', 'ausgerottet')",5.41610040220442
+456,Christlichsoziale Volkspartei Oberwallis (CSPO),"('ausgerottet', 'konnt')",5.41610040220442
+457,Christlichsoziale Volkspartei Oberwallis (CSPO),"('spannend', 'gewiss')",5.41610040220442
+458,Christlichsoziale Volkspartei Oberwallis (CSPO),"('voralp', 'alp')",5.41610040220442
+459,Christlichsoziale Volkspartei Oberwallis (CSPO),"('ets', 'unterstellt')",5.41610040220442
+460,Christlichsoziale Volkspartei Oberwallis (CSPO),"('tonn', 'verantwort')",5.41610040220442
+461,Christlichsoziale Volkspartei Oberwallis (CSPO),"('individualverkehr', 'angewies')",5.41610040220442
+462,Christlichsoziale Volkspartei Oberwallis (CSPO),"('reduktionspotenzial', 'imm')",5.41610040220442
+463,Christlichsoziale Volkspartei Oberwallis (CSPO),"('edgar', 'gartn')",5.41610040220442
+464,Christlichsoziale Volkspartei Oberwallis (CSPO),"('echt', 'wachstumsschub')",5.41610040220442
+465,Christlichsoziale Volkspartei Oberwallis (CSPO),"('tourist', 'interessant')",5.41610040220442
+466,Christlichsoziale Volkspartei Oberwallis (CSPO),"('neu', 'busangebot')",5.41610040220442
+467,Christlichsoziale Volkspartei Oberwallis (CSPO),"('busangebot', 'konnt')",5.41610040220442
+468,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zusatz', 'fahrgast')",5.41610040220442
+469,Christlichsoziale Volkspartei Oberwallis (CSPO),"('energi', 'gigawattstund')",5.41610040220442
+470,Christlichsoziale Volkspartei Oberwallis (CSPO),"('ganz', 'energiediskussion')",5.41610040220442
+471,Christlichsoziale Volkspartei Oberwallis (CSPO),"('a', 'aufgefuhrt')",5.41610040220442
+472,Christlichsoziale Volkspartei Oberwallis (CSPO),"('lastwagenverkehr', 'alpenpass')",5.41610040220442
+473,Christlichsoziale Volkspartei Oberwallis (CSPO),"('beid', 'hochwass')",5.41610040220442
+474,Christlichsoziale Volkspartei Oberwallis (CSPO),"('gletsch', 'genferse')",5.41610040220442
+475,Christlichsoziale Volkspartei Oberwallis (CSPO),"('abschnitt', 'visp')",5.41610040220442
+476,Christlichsoziale Volkspartei Oberwallis (CSPO),"('folgenschw', 'beschluss')",5.41610040220442
+477,Christlichsoziale Volkspartei Oberwallis (CSPO),"('art', 'rodungsersatz')",5.41610040220442
+478,Christlichsoziale Volkspartei Oberwallis (CSPO),"('okolog', 'landschaft')",5.41610040220442
+479,Christlichsoziale Volkspartei Oberwallis (CSPO),"('wertvoll', 'gebiet')",5.41610040220442
+480,Christlichsoziale Volkspartei Oberwallis (CSPO),"('verzichtet', 'beding')",5.41610040220442
+481,Christlichsoziale Volkspartei Oberwallis (CSPO),"('initiativkomite', 'rettet')",5.41610040220442
+482,Christlichsoziale Volkspartei Oberwallis (CSPO),"('statisch', 'waldbegriff')",5.41610040220442
+483,Christlichsoziale Volkspartei Oberwallis (CSPO),"('fest', 'raumlich')",5.41610040220442
+484,Christlichsoziale Volkspartei Oberwallis (CSPO),"('raumlich', 'abgrenz')",5.41610040220442
+485,Christlichsoziale Volkspartei Oberwallis (CSPO),"('abgrenz', 'wald')",5.41610040220442
+486,Christlichsoziale Volkspartei Oberwallis (CSPO),"('den', 'zunahm')",5.41610040220442
+487,Christlichsoziale Volkspartei Oberwallis (CSPO),"('integriert', 'arztenetzwerk')",5.41610040220442
+488,Christlichsoziale Volkspartei Oberwallis (CSPO),"('eck', 'schneidezahn')",5.41610040220442
+489,Christlichsoziale Volkspartei Oberwallis (CSPO),"('zahnuberzug', 'getestet')",5.41610040220442
+490,Christlichsoziale Volkspartei Oberwallis (CSPO),"('berein', 'landwirtschaft')",5.41610040220442
+491,Christlichsoziale Volkspartei Oberwallis (CSPO),"('nutzflach', 'waldweid')",5.41610040220442
+492,Christlichsoziale Volkspartei Oberwallis (CSPO),"('wertvoll', 'kulturflach')",5.41610040220442
+493,Christlichsoziale Volkspartei Oberwallis (CSPO),"('kulturflach', 'bess')",5.41610040220442
+494,Christlichsoziale Volkspartei Oberwallis (CSPO),"('wasserzinserhoh', 'einig')",5.41610040220442
+495,Christlichsoziale Volkspartei Oberwallis (CSPO),"('kantonal', 'richtplan')",5.334980364328277
+496,Christlichsoziale Volkspartei Oberwallis (CSPO),"('tourist', 'angebot')",5.287023359929278
+497,Christlichsoziale Volkspartei Oberwallis (CSPO),"('lex', 'koll')",5.028869275378993
+498,Christlichsoziale Volkspartei Oberwallis (CSPO),"('rapp', 'pro')",5.028869275378993
+499,Christlichsoziale Volkspartei Oberwallis (CSPO),"('treibhausgasemission', 'prozent')",4.828313737302301
+500,Eidgenössisch-Demokratische Union (EDU),"('stellung', 'halt')",8.12415060330663
+501,Eidgenössisch-Demokratische Union (EDU),"('zusammenarbeit', 'israel')",6.0447090616267936
+502,Eidgenössisch-Demokratische Union (EDU),"('ruf', 'muezzin')",5.41610040220442
+503,Eidgenössisch-Demokratische Union (EDU),"('getrau', 'mehr')",5.41610040220442
+504,Eidgenössisch-Demokratische Union (EDU),"('flexibel', 'standort')",5.41610040220442
+505,Eidgenössisch-Demokratische Union (EDU),"('punktuell', 'kurzung')",5.41610040220442
+506,Eidgenössisch-Demokratische Union (EDU),"('kurzungsantrag', 'zuzustimm')",5.41610040220442
+507,Eidgenössisch-Demokratische Union (EDU),"('selb', 'uberlebt')",5.41610040220442
+508,Eidgenössisch-Demokratische Union (EDU),"('kind', 'cannabiskonsum')",5.41610040220442
+509,Eidgenössisch-Demokratische Union (EDU),"('cannabiskonsum', 'stundenlang')",5.41610040220442
+510,Eidgenössisch-Demokratische Union (EDU),"('hand', 'drog')",5.41610040220442
+511,Eidgenössisch-Demokratische Union (EDU),"('woch', 'festhalt')",5.41610040220442
+512,Eidgenössisch-Demokratische Union (EDU),"('defizitar', 'budget')",5.41610040220442
+513,Eidgenössisch-Demokratische Union (EDU),"('euro', 'dollar')",4.394449154672439
+514,Eidgenössisch-Demokratische Union (EDU),"('grund', 'zusammenarbeit')",4.029806041084529
+515,Eidgenössisch-Demokratische Union (EDU),"('gefuhl', 'verantwort')",4.029806041084529
+516,Eidgenössisch-Demokratische Union (EDU),"('wiederhol', 'thema')",4.029806041084529
+517,Eidgenössisch-Demokratische Union (EDU),"('ausgegeb', 'gibt')",4.029806041084529
+518,Eidgenössisch-Demokratische Union (EDU),"('staat', 'israel')",4.029806041084529
+519,Eidgenössisch-Demokratische Union (EDU),"('ubervoll', 'kass')",4.029806041084529
+520,Eidgenössisch-Demokratische Union (EDU),"('nam', 'svpfraktion')",3.9652675199469583
+521,Eidgenössisch-Demokratische Union (EDU),"('menschlich', 'leb')",3.9652675199469583
+522,Eidgenössisch-Demokratische Union (EDU),"('ausgeg', 'budget')",3.2188758248682006
+523,Eidgenössisch-Demokratische Union (EDU),"('svpfraktion', 'lehnt')",3.2188758248682006
+524,Eidgenössisch-Demokratische Union (EDU),"('kurzung', 'rund')",3.2188758248682006
+525,Eidgenössisch-Demokratische Union (EDU),"('prasenz', 'marki')",3.2188758248682006
+526,Eidgenössisch-Demokratische Union (EDU),"('wohl', 'volk')",3.2188758248682006
+527,Eidgenössisch-Demokratische Union (EDU),"('million', 'schweizerfrank')",3.048560208187587
+528,Eidgenössisch-Demokratische Union (EDU),"('ganz', 'klar')",2.900866167084727
+529,Eidgenössisch-Demokratische Union (EDU),"('muslim', 'schweiz')",2.7488721956224653
+530,Eidgenössisch-Demokratische Union (EDU),"('budget', 'entsprech')",2.7488721956224653
+531,Eidgenössisch-Demokratische Union (EDU),"('person', 'experiment')",2.70805020110221
+532,Eidgenössisch-Demokratische Union (EDU),"('experiment', 'verantwort')",2.70805020110221
+533,Eidgenössisch-Demokratische Union (EDU),"('teusch', 'bauarbeit')",2.70805020110221
+534,Eidgenössisch-Demokratische Union (EDU),"('bauarbeit', 'angesproch')",2.70805020110221
+535,Eidgenössisch-Demokratische Union (EDU),"('angesproch', 'vorzeit')",2.70805020110221
+536,Eidgenössisch-Demokratische Union (EDU),"('wiss', 'sozialpartnerschaft')",2.70805020110221
+537,Eidgenössisch-Demokratische Union (EDU),"('wonach', 'bauarbeit')",2.70805020110221
+538,Eidgenössisch-Demokratische Union (EDU),"('syst', 'sozialpartnerschaft')",2.70805020110221
+539,Eidgenössisch-Demokratische Union (EDU),"('ausgehandelt', 'finanziert')",2.70805020110221
+540,Eidgenössisch-Demokratische Union (EDU),"('steh', 'drogenpolit')",2.70805020110221
+541,Eidgenössisch-Demokratische Union (EDU),"('drogenpolit', 'wegkreuz')",2.70805020110221
+542,Eidgenössisch-Demokratische Union (EDU),"('wegkreuz', 'geh')",2.70805020110221
+543,Eidgenössisch-Demokratische Union (EDU),"('gesetz', 'abstinenz')",2.70805020110221
+544,Eidgenössisch-Demokratische Union (EDU),"('abstinenz', 'feigenblatt')",2.70805020110221
+545,Eidgenössisch-Demokratische Union (EDU),"('feigenblatt', 'heuchelei')",2.70805020110221
+546,Eidgenössisch-Demokratische Union (EDU),"('heuchelei', 'hoffnungslos')",2.70805020110221
+547,Eidgenössisch-Demokratische Union (EDU),"('hoffnungslos', 'missbraucht')",2.70805020110221
+548,Eidgenössisch-Demokratische Union (EDU),"('missbraucht', 'erweitert')",2.70805020110221
+549,Eidgenössisch-Demokratische Union (EDU),"('erweitert', 'giftabgab')",2.70805020110221
+550,Eidgenössisch-Demokratische Union (EDU),"('giftabgab', 'staat')",2.70805020110221
+551,Eidgenössisch-Demokratische Union (EDU),"('strafbestimm', 'den')",2.70805020110221
+552,Eidgenössisch-Demokratische Union (EDU),"('jugend', 'polizei')",2.70805020110221
+553,Eidgenössisch-Demokratische Union (EDU),"('polizei', 'gesicht')",2.70805020110221
+554,Eidgenössisch-Demokratische Union (EDU),"('gesicht', 'lach')",2.70805020110221
+555,Eidgenössisch-Demokratische Union (EDU),"('sag', 'drog')",2.70805020110221
+556,Eidgenössisch-Demokratische Union (EDU),"('drog', 'trag')",2.70805020110221
+557,Eidgenössisch-Demokratische Union (EDU),"('trag', 'eigenkonsum')",2.70805020110221
+558,Eidgenössisch-Demokratische Union (EDU),"('eigenkonsum', 'grupp')",2.70805020110221
+559,Eidgenössisch-Demokratische Union (EDU),"('grupp', 'brauch')",2.70805020110221
+560,Eidgenössisch-Demokratische Union (EDU),"('brauch', 'edu')",2.70805020110221
+561,Eidgenössisch-Demokratische Union (EDU),"('edu', 'referendum')",2.70805020110221
+562,Eidgenössisch-Demokratische Union (EDU),"('ergreif', 'zusamm')",2.70805020110221
+563,Eidgenössisch-Demokratische Union (EDU),"('zusamm', 'gruppier')",2.70805020110221
+564,Eidgenössisch-Demokratische Union (EDU),"('gruppier', 'partei')",2.70805020110221
+565,Eidgenössisch-Demokratische Union (EDU),"('zusamm', 'mensch')",2.70805020110221
+566,Eidgenössisch-Demokratische Union (EDU),"('glaub', 'abstinenz')",2.70805020110221
+567,Eidgenössisch-Demokratische Union (EDU),"('abstinenz', 'einzig')",2.70805020110221
+568,Eidgenössisch-Demokratische Union (EDU),"('einzig', 'glaubwurd')",2.70805020110221
+569,Eidgenössisch-Demokratische Union (EDU),"('polit', 'biet')",2.70805020110221
+570,Eidgenössisch-Demokratische Union (EDU),"('morg', 'sitz')",2.70805020110221
+571,Eidgenössisch-Demokratische Union (EDU),"('sitz', 'todesanzeig')",2.70805020110221
+572,Eidgenössisch-Demokratische Union (EDU),"('todesanzeig', 'vorgefund')",2.70805020110221
+573,Eidgenössisch-Demokratische Union (EDU),"('vorgefund', 'wurd')",2.70805020110221
+574,Eidgenössisch-Demokratische Union (EDU),"('wurd', 'inszeniert')",2.70805020110221
+575,Eidgenössisch-Demokratische Union (EDU),"('inszeniert', 'viel')",2.70805020110221
+576,Eidgenössisch-Demokratische Union (EDU),"('saal', 'hinsicht')",2.70805020110221
+577,Eidgenössisch-Demokratische Union (EDU),"('hinsicht', 'drog')",2.70805020110221
+578,Eidgenössisch-Demokratische Union (EDU),"('drog', 'fertiggebracht')",2.70805020110221
+579,Eidgenössisch-Demokratische Union (EDU),"('fertiggebracht', 'gross')",2.70805020110221
+580,Eidgenössisch-Demokratische Union (EDU),"('sorg', 'referendum')",2.70805020110221
+581,Eidgenössisch-Demokratische Union (EDU),"('bringt', 'folg')",2.70805020110221
+582,Eidgenössisch-Demokratische Union (EDU),"('uberzeugt', 'referendum')",2.70805020110221
+583,Eidgenössisch-Demokratische Union (EDU),"('schon', 'ost')",2.70805020110221
+584,Eidgenössisch-Demokratische Union (EDU),"('ost', 'hoffnung')",2.70805020110221
+585,Eidgenössisch-Demokratische Union (EDU),"('probl', 'andersglaub')",2.70805020110221
+586,Eidgenössisch-Demokratische Union (EDU),"('andersglaub', 'schweiz')",2.70805020110221
+587,Eidgenössisch-Demokratische Union (EDU),"('probl', 'christ')",2.70805020110221
+588,Eidgenössisch-Demokratische Union (EDU),"('christ', 'schweiz')",2.70805020110221
+589,Eidgenössisch-Demokratische Union (EDU),"('schweiz', 'christ')",2.70805020110221
+590,Eidgenössisch-Demokratische Union (EDU),"('christ', 'namenschrist')",2.70805020110221
+591,Eidgenössisch-Demokratische Union (EDU),"('namenschrist', 'nenn')",2.70805020110221
+592,Eidgenössisch-Demokratische Union (EDU),"('nenn', 'namensgeb')",2.70805020110221
+593,Eidgenössisch-Demokratische Union (EDU),"('namensgeb', 'jesus')",2.70805020110221
+594,Eidgenössisch-Demokratische Union (EDU),"('jesus', 'christus')",2.70805020110221
+595,Eidgenössisch-Demokratische Union (EDU),"('christus', 'vehement')",2.70805020110221
+596,Eidgenössisch-Demokratische Union (EDU),"('ablehn', 'prasentation')",2.70805020110221
+597,Eidgenössisch-Demokratische Union (EDU),"('prasentation', 'gut')",2.70805020110221
+598,Eidgenössisch-Demokratische Union (EDU),"('zugehort', 'vergleicht')",2.70805020110221
+599,Eidgenössisch-Demokratische Union (EDU),"('vergleicht', 'kirchturm')",2.70805020110221
+600,Evangelische Volkspartei der Schweiz (EVP),"('kommission', 'rechtsfrag')",28.915998333429208
+601,Evangelische Volkspartei der Schweiz (EVP),"('obligator', 'handzeich')",18.95635140771547
+602,Evangelische Volkspartei der Schweiz (EVP),"('initiant', 'bekannt')",16.24830120661326
+603,Evangelische Volkspartei der Schweiz (EVP),"('achtel', 'nachlass')",16.24830120661326
+604,Evangelische Volkspartei der Schweiz (EVP),"('initiativ', 'bonhôt')",12.089418123253587
+605,Evangelische Volkspartei der Schweiz (EVP),"('elektron', 'medi')",11.911779514364017
+606,Evangelische Volkspartei der Schweiz (EVP),"('informationell', 'selbstbestimm')",11.266065387038703
+607,Evangelische Volkspartei der Schweiz (EVP),"('mehrheit', 'kommission')",10.85542249063438
+608,Evangelische Volkspartei der Schweiz (EVP),"('nationalrat', 'morgeli')",10.574046719858556
+609,Evangelische Volkspartei der Schweiz (EVP),"('rang', 'nam')",10.074515102711324
+610,Evangelische Volkspartei der Schweiz (EVP),"('recht', 'informationell')",10.074515102711324
+611,Evangelische Volkspartei der Schweiz (EVP),"('parlamentar', 'initiativ')",9.30155483664376
+612,Evangelische Volkspartei der Schweiz (EVP),"('uns', 'fraktion')",8.684337992507505
+613,Evangelische Volkspartei der Schweiz (EVP),"('beid', 'initiativ')",8.173209980255852
+614,Evangelische Volkspartei der Schweiz (EVP),"('vortrittsberechtigt', 'strass')",8.12415060330663
+615,Evangelische Volkspartei der Schweiz (EVP),"('chef', 'verkehrspolizei')",8.12415060330663
+616,Evangelische Volkspartei der Schweiz (EVP),"('verkehrspolizei', 'schweiz')",8.12415060330663
+617,Evangelische Volkspartei der Schweiz (EVP),"('drei', 'achtel')",8.12415060330663
+618,Evangelische Volkspartei der Schweiz (EVP),"('zwei', 'achtel')",8.12415060330663
+619,Evangelische Volkspartei der Schweiz (EVP),"('verletz', 'sitzungsgeheimnis')",8.12415060330663
+620,Evangelische Volkspartei der Schweiz (EVP),"('art', 'legislaturplan')",8.12415060330663
+621,Evangelische Volkspartei der Schweiz (EVP),"('schweizer', 'zivilschutzverband')",8.12415060330663
+622,Evangelische Volkspartei der Schweiz (EVP),"('uberhoht', 'geschwind')",8.12415060330663
+623,Evangelische Volkspartei der Schweiz (EVP),"('institut', 'tierschutzanwalt')",8.12415060330663
+624,Evangelische Volkspartei der Schweiz (EVP),"('werbung', 'medi')",8.12415060330663
+625,Evangelische Volkspartei der Schweiz (EVP),"('fernseh', 'kommt')",8.12415060330663
+626,Evangelische Volkspartei der Schweiz (EVP),"('stimm', 'enthalt')",8.109302162163289
+627,Evangelische Volkspartei der Schweiz (EVP),"('alkoholwerb', 'elektron')",8.059612082169059
+628,Evangelische Volkspartei der Schweiz (EVP),"('initiativ', 'sommaruga')",7.9305350398939165
+629,Evangelische Volkspartei der Schweiz (EVP),"('alkoholwerb', 'fernseh')",7.9305350398939165
+630,Evangelische Volkspartei der Schweiz (EVP),"('bundesrat', 'standerat')",6.640733108957879
+631,Evangelische Volkspartei der Schweiz (EVP),"('verbot', 'alkoholwerb')",6.608779199911598
+632,Evangelische Volkspartei der Schweiz (EVP),"('vortritt', 'gewahr')",6.437751649736401
+633,Evangelische Volkspartei der Schweiz (EVP),"('kommission', 'stimm')",6.286086594223741
+634,Evangelische Volkspartei der Schweiz (EVP),"('geht', 'darum')",6.248019436797874
+635,Evangelische Volkspartei der Schweiz (EVP),"('schiedsgericht', 'sitz')",6.0447090616267936
+636,Evangelische Volkspartei der Schweiz (EVP),"('teilweis', 'dritt')",6.0447090616267936
+637,Evangelische Volkspartei der Schweiz (EVP),"('beid', 'hauptamt')",6.0447090616267936
+638,Evangelische Volkspartei der Schweiz (EVP),"('durchsetz', 'umweltrecht')",6.0447090616267936
+639,Evangelische Volkspartei der Schweiz (EVP),"('gerecht', 'schaff')",6.0447090616267936
+640,Evangelische Volkspartei der Schweiz (EVP),"('wenig', 'anpass')",6.0447090616267936
+641,Evangelische Volkspartei der Schweiz (EVP),"('international', 'schiedsgerichtsbar')",6.0447090616267936
+642,Evangelische Volkspartei der Schweiz (EVP),"('tragend', 'wert')",6.0447090616267936
+643,Evangelische Volkspartei der Schweiz (EVP),"('beschrankt', 'immunitat')",6.0447090616267936
+644,Evangelische Volkspartei der Schweiz (EVP),"('beim', 'strafmass')",6.0447090616267936
+645,Evangelische Volkspartei der Schweiz (EVP),"('beispiel', 'uefa')",6.0447090616267936
+646,Evangelische Volkspartei der Schweiz (EVP),"('folg', 'geb')",6.024875885483664
+647,Evangelische Volkspartei der Schweiz (EVP),"('bundesrat', 'couchepin')",5.657477934801367
+648,Evangelische Volkspartei der Schweiz (EVP),"('initiativ', 'folg')",5.58278870946911
+649,Evangelische Volkspartei der Schweiz (EVP),"('stimm', 'parlamentar')",5.497744391244931
+650,Evangelische Volkspartei der Schweiz (EVP),"('standesinitiativ', 'aargau')",5.493061443340549
+651,Evangelische Volkspartei der Schweiz (EVP),"('frau', 'fiala')",5.493061443340549
+652,Evangelische Volkspartei der Schweiz (EVP),"('berat', 'dabei')",5.493061443340549
+653,Evangelische Volkspartei der Schweiz (EVP),"('evp', 'beurteilt')",5.41610040220442
+654,Evangelische Volkspartei der Schweiz (EVP),"('bezug', 'erwerb')",5.41610040220442
+655,Evangelische Volkspartei der Schweiz (EVP),"('erwerb', 'betreuungsarbeit')",5.41610040220442
+656,Evangelische Volkspartei der Schweiz (EVP),"('einzufuhr', 'modell')",5.41610040220442
+657,Evangelische Volkspartei der Schweiz (EVP),"('minergiestandard', 'angewendet')",5.41610040220442
+658,Evangelische Volkspartei der Schweiz (EVP),"('bundesrat', 'fritz')",5.41610040220442
+659,Evangelische Volkspartei der Schweiz (EVP),"('fritz', 'traugott')",5.41610040220442
+660,Evangelische Volkspartei der Schweiz (EVP),"('traugott', 'wahl')",5.41610040220442
+661,Evangelische Volkspartei der Schweiz (EVP),"('vortrittsberechtigt', 'verkehr')",5.41610040220442
+662,Evangelische Volkspartei der Schweiz (EVP),"('vortrittsberechtigt', 'querend')",5.41610040220442
+663,Evangelische Volkspartei der Schweiz (EVP),"('querend', 'fussgangerverkehr')",5.41610040220442
+664,Evangelische Volkspartei der Schweiz (EVP),"('geseh', 'fussgang')",5.41610040220442
+665,Evangelische Volkspartei der Schweiz (EVP),"('handzeich', 'einfuhr')",5.41610040220442
+666,Evangelische Volkspartei der Schweiz (EVP),"('musst', 'vortritt')",5.41610040220442
+667,Evangelische Volkspartei der Schweiz (EVP),"('vortritt', 'beanspruch')",5.41610040220442
+668,Evangelische Volkspartei der Schweiz (EVP),"('vortritt', 'wahrnehm')",5.41610040220442
+669,Evangelische Volkspartei der Schweiz (EVP),"('fussgangerstreif', 'mehr')",5.41610040220442
+670,Evangelische Volkspartei der Schweiz (EVP),"('vortrittsberechtigt', 'fussgang')",5.41610040220442
+671,Evangelische Volkspartei der Schweiz (EVP),"('vortrittsberechtigt', 'automobilist')",5.41610040220442
+672,Evangelische Volkspartei der Schweiz (EVP),"('eindeut', 'schutz')",5.41610040220442
+673,Evangelische Volkspartei der Schweiz (EVP),"('fussverkehr', 'schweiz')",5.41610040220442
+674,Evangelische Volkspartei der Schweiz (EVP),"('privat', 'einsprach')",5.41610040220442
+675,Evangelische Volkspartei der Schweiz (EVP),"('projekt', 'geltend')",5.41610040220442
+676,Evangelische Volkspartei der Schweiz (EVP),"('rechtsfrag', 'ebenfall')",5.41610040220442
+677,Evangelische Volkspartei der Schweiz (EVP),"('o', 'weh')",5.41610040220442
+678,Evangelische Volkspartei der Schweiz (EVP),"('angriff', 'verbandsbeschwerderecht')",5.41610040220442
+679,Evangelische Volkspartei der Schweiz (EVP),"('gross', 'einschneid')",5.41610040220442
+680,Evangelische Volkspartei der Schweiz (EVP),"('freud', 'zeigt')",5.41610040220442
+681,Evangelische Volkspartei der Schweiz (EVP),"('fdp', 'tiefpunkt')",5.41610040220442
+682,Evangelische Volkspartei der Schweiz (EVP),"('bundesgesetz', 'verfolgungsverjahr')",5.41610040220442
+683,Evangelische Volkspartei der Schweiz (EVP),"('verfolgungsverjahr', 'straftat')",5.41610040220442
+684,Evangelische Volkspartei der Schweiz (EVP),"('feststell', 'wann')",5.41610040220442
+685,Evangelische Volkspartei der Schweiz (EVP),"('wann', 'pubertat')",5.41610040220442
+686,Evangelische Volkspartei der Schweiz (EVP),"('volksinitiativ', 'verbandsbeschwerd')",5.41610040220442
+687,Evangelische Volkspartei der Schweiz (EVP),"('verzogert', 'imm')",5.41610040220442
+688,Evangelische Volkspartei der Schweiz (EVP),"('syst', 'trassenpreis')",5.41610040220442
+689,Evangelische Volkspartei der Schweiz (EVP),"('grosst', 'automobilclub')",5.41610040220442
+690,Evangelische Volkspartei der Schweiz (EVP),"('bauherrschaft', 'fuhr')",5.41610040220442
+691,Evangelische Volkspartei der Schweiz (EVP),"('architektur', 'bauleist')",5.41610040220442
+692,Evangelische Volkspartei der Schweiz (EVP),"('schutz', 'initiantin')",5.41610040220442
+693,Evangelische Volkspartei der Schweiz (EVP),"('wiedereinfuhr', 'obligator')",5.41610040220442
+694,Evangelische Volkspartei der Schweiz (EVP),"('vortrittsberechtigt', 'verkehrsteilnehm')",5.41610040220442
+695,Evangelische Volkspartei der Schweiz (EVP),"('ausgestreckt', 'arm')",5.41610040220442
+696,Evangelische Volkspartei der Schweiz (EVP),"('arbeitsgemeinschaft', 'chef')",5.41610040220442
+697,Evangelische Volkspartei der Schweiz (EVP),"('schweizer', 'verkehrssicherheitsrat')",5.41610040220442
+698,Evangelische Volkspartei der Schweiz (EVP),"('sachlich', 'technisch')",5.41610040220442
+699,Evangelische Volkspartei der Schweiz (EVP),"('vignett', 'kostet')",5.41610040220442
+700,FDP.Die Liberalen (FDP-Liberale),"('fdpliberal', 'fraktion')",524.1182986320167
+701,FDP.Die Liberalen (FDP-Liberale),"('nam', 'fdpliberal')",263.9522956910367
+702,FDP.Die Liberalen (FDP-Liberale),"('million', 'frank')",219.08739161387072
+703,FDP.Die Liberalen (FDP-Liberale),"('milliard', 'frank')",181.19256366713833
+704,FDP.Die Liberalen (FDP-Liberale),"('stimm', 'enthalt')",170.7008105135372
+705,FDP.Die Liberalen (FDP-Liberale),"('mehrheit', 'kommission')",161.9008725746042
+706,FDP.Die Liberalen (FDP-Liberale),"('bundesrat', 'beantragt')",150.86607826136978
+707,FDP.Die Liberalen (FDP-Liberale),"('frau', 'bundesratin')",126.1739290701997
+708,FDP.Die Liberalen (FDP-Liberale),"('motion', 'abzulehn')",122.70454837955037
+709,FDP.Die Liberalen (FDP-Liberale),"('schriftlich', 'bericht')",119.74873946482397
+710,FDP.Die Liberalen (FDP-Liberale),"('kommission', 'beantragt')",113.91411409981593
+711,FDP.Die Liberalen (FDP-Liberale),"('kommission', 'rechtsfrag')",113.14955869602734
+712,FDP.Die Liberalen (FDP-Liberale),"('artikel', 'absatz')",101.74469982851868
+713,FDP.Die Liberalen (FDP-Liberale),"('frau', 'fetz')",101.70827123803122
+714,FDP.Die Liberalen (FDP-Liberale),"('herr', 'standerat')",98.04310831053459
+715,FDP.Die Liberalen (FDP-Liberale),"('kommission', 'stimm')",93.03408159451136
+716,FDP.Die Liberalen (FDP-Liberale),"('mehrheit', 'folg')",84.3367424864982
+717,FDP.Die Liberalen (FDP-Liberale),"('kalt', 'progression')",83.07326567311175
+718,FDP.Die Liberalen (FDP-Liberale),"('geht', 'darum')",82.33997043494341
+719,FDP.Die Liberalen (FDP-Liberale),"('bericht', 'kommission')",82.31112562106485
+720,FDP.Die Liberalen (FDP-Liberale),"('antrag', 'mind')",80.13647243877702
+721,FDP.Die Liberalen (FDP-Liberale),"('vorlag', 'einzutret')",79.87662629730838
+722,FDP.Die Liberalen (FDP-Liberale),"('ablehn', 'motion')",78.57608242779676
+723,FDP.Die Liberalen (FDP-Liberale),"('frag', 'stell')",77.1346691886646
+724,FDP.Die Liberalen (FDP-Liberale),"('diskussion', 'einverstand')",75.3400828789922
+725,FDP.Die Liberalen (FDP-Liberale),"('kenntnis', 'genomm')",74.80443047126252
+726,FDP.Die Liberalen (FDP-Liberale),"('mind', 'i')",74.60557989190225
+727,FDP.Die Liberalen (FDP-Liberale),"('parlamentar', 'initiativ')",73.55383363130605
+728,FDP.Die Liberalen (FDP-Liberale),"('ganz', 'klar')",73.1910848310608
+729,FDP.Die Liberalen (FDP-Liberale),"('antrag', 'kommission')",72.9186044929954
+730,FDP.Die Liberalen (FDP-Liberale),"('herr', 'nationalrat')",72.38696781805825
+731,FDP.Die Liberalen (FDP-Liberale),"('pro', 'jahr')",71.02547858157924
+732,FDP.Die Liberalen (FDP-Liberale),"('annahm', 'motion')",70.49393607970671
+733,FDP.Die Liberalen (FDP-Liberale),"('geltend', 'recht')",69.98311045594073
+734,FDP.Die Liberalen (FDP-Liberale),"('beantragt', 'ablehn')",68.72180489056163
+735,FDP.Die Liberalen (FDP-Liberale),"('erhalt', 'kommission')",68.11396189742281
+736,FDP.Die Liberalen (FDP-Liberale),"('bund', 'kanton')",67.30361944193317
+737,FDP.Die Liberalen (FDP-Liberale),"('bundesrat', 'folg')",66.63251789877165
+738,FDP.Die Liberalen (FDP-Liberale),"('st', 'gall')",63.25762431989243
+739,FDP.Die Liberalen (FDP-Liberale),"('antwort', 'bundesrat')",62.84709175676548
+740,FDP.Die Liberalen (FDP-Liberale),"('art', 'weis')",62.84709175676548
+741,FDP.Die Liberalen (FDP-Liberale),"('gemass', 'artikel')",62.84709175676548
+742,FDP.Die Liberalen (FDP-Liberale),"('geh', 'davon')",62.83155172321686
+743,FDP.Die Liberalen (FDP-Liberale),"('herr', 'kolleg')",62.34114058907173
+744,FDP.Die Liberalen (FDP-Liberale),"('losung', 'find')",62.232257282815034
+745,FDP.Die Liberalen (FDP-Liberale),"('indirekt', 'gegenvorschlag')",61.80990047568488
+746,FDP.Die Liberalen (FDP-Liberale),"('schriftlich', 'antwort')",61.522288165414146
+747,FDP.Die Liberalen (FDP-Liberale),"('erst', 'lini')",61.41067580416021
+748,FDP.Die Liberalen (FDP-Liberale),"('bundesrat', 'befriedigt')",60.8007686391867
+749,FDP.Die Liberalen (FDP-Liberale),"('herrn', 'standerat')",59.32506358807793
+750,FDP.Die Liberalen (FDP-Liberale),"('folg', 'geb')",59.133041098265586
+751,FDP.Die Liberalen (FDP-Liberale),"('minderheitsantrag', 'abzulehn')",58.74494673308893
+752,FDP.Die Liberalen (FDP-Liberale),"('frau', 'sommaruga')",58.64260683994593
+753,FDP.Die Liberalen (FDP-Liberale),"('bitt', 'deshalb')",58.30912652112182
+754,FDP.Die Liberalen (FDP-Liberale),"('motion', 'anzunehm')",57.98151045946751
+755,FDP.Die Liberalen (FDP-Liberale),"('beantragt', 'ebenfall')",57.72631610807177
+756,FDP.Die Liberalen (FDP-Liberale),"('beantragt', 'stimm')",55.946170688591295
+757,FDP.Die Liberalen (FDP-Liberale),"('europa', 'union')",55.67999299049299
+758,FDP.Die Liberalen (FDP-Liberale),"('uns', 'kommission')",55.67999299049299
+759,FDP.Die Liberalen (FDP-Liberale),"('fakultativ', 'referendum')",54.111943695329664
+760,FDP.Die Liberalen (FDP-Liberale),"('kommission', 'erhalt')",54.061153180575154
+761,FDP.Die Liberalen (FDP-Liberale),"('etwa', 'million')",53.92685937838586
+762,FDP.Die Liberalen (FDP-Liberale),"('diskussion', 'beantragt')",53.11145111032531
+763,FDP.Die Liberalen (FDP-Liberale),"('befriedigt', 'diskussion')",53.11145111032531
+764,FDP.Die Liberalen (FDP-Liberale),"('z', 'b')",52.80421130340843
+765,FDP.Die Liberalen (FDP-Liberale),"('nam', 'fdpfraktion')",52.38747853409888
+766,FDP.Die Liberalen (FDP-Liberale),"('letzt', 'jahr')",51.65940455428304
+767,FDP.Die Liberalen (FDP-Liberale),"('frau', 'dien')",51.312280984952686
+768,FDP.Die Liberalen (FDP-Liberale),"('deshalb', 'bitt')",51.088603621628714
+769,FDP.Die Liberalen (FDP-Liberale),"('einfach', 'sag')",50.9173014132123
+770,FDP.Die Liberalen (FDP-Liberale),"('initiativ', 'folg')",50.86540824182967
+771,FDP.Die Liberalen (FDP-Liberale),"('darauf', 'hinweis')",50.68313851352055
+772,FDP.Die Liberalen (FDP-Liberale),"('bitt', 'mehrheit')",50.277673405412386
+773,FDP.Die Liberalen (FDP-Liberale),"('liegt', 'schriftlich')",50.22672191932814
+774,FDP.Die Liberalen (FDP-Liberale),"('beantragt', 'kurz')",49.892575285457106
+775,FDP.Die Liberalen (FDP-Liberale),"('darauf', 'aufmerksam')",49.660084094367555
+776,FDP.Die Liberalen (FDP-Liberale),"('erneuerbar', 'energi')",49.31463360031047
+777,FDP.Die Liberalen (FDP-Liberale),"('schon', 'gesagt')",49.03925988153511
+778,FDP.Die Liberalen (FDP-Liberale),"('interpellant', 'schriftlich')",48.28313737302301
+779,FDP.Die Liberalen (FDP-Liberale),"('absatz', 'buchstab')",48.250347864871564
+780,FDP.Die Liberalen (FDP-Liberale),"('stell', 'fest')",48.250347864871564
+781,FDP.Die Liberalen (FDP-Liberale),"('famili', 'kind')",48.014823278954495
+782,FDP.Die Liberalen (FDP-Liberale),"('zwei', 'drei')",47.8448827567634
+783,FDP.Die Liberalen (FDP-Liberale),"('direkt', 'bundessteu')",47.774258116100434
+784,FDP.Die Liberalen (FDP-Liberale),"('frank', 'pro')",47.763858958791275
+785,FDP.Die Liberalen (FDP-Liberale),"('antrag', 'mehrheit')",47.75271998124089
+786,FDP.Die Liberalen (FDP-Liberale),"('darauf', 'hingewies')",47.75271998124089
+787,FDP.Die Liberalen (FDP-Liberale),"('mind', 'ii')",47.1435491021836
+788,FDP.Die Liberalen (FDP-Liberale),"('kanton', 'gemeind')",47.1435491021836
+789,FDP.Die Liberalen (FDP-Liberale),"('leutenegg', 'oberholz')",46.99595738647115
+790,FDP.Die Liberalen (FDP-Liberale),"('kommission', 'folg')",46.6284874324389
+791,FDP.Die Liberalen (FDP-Liberale),"('roll', 'spiel')",46.4905431748607
+792,FDP.Die Liberalen (FDP-Liberale),"('beruf', 'vorsorg')",45.7284031228138
+793,FDP.Die Liberalen (FDP-Liberale),"('herrn', 'bundesrat')",45.7284031228138
+794,FDP.Die Liberalen (FDP-Liberale),"('herr', 'stahelin')",45.0431038353925
+795,FDP.Die Liberalen (FDP-Liberale),"('freisinnigdemokrat', 'fraktion')",44.93969855939886
+796,FDP.Die Liberalen (FDP-Liberale),"('sicherheitspolit', 'bericht')",44.63121481898856
+797,FDP.Die Liberalen (FDP-Liberale),"('beantragt', 'annahm')",44.20412301872001
+798,FDP.Die Liberalen (FDP-Liberale),"('grund', 'weshalb')",44.19569678378992
+799,FDP.Die Liberalen (FDP-Liberale),"('regional', 'erschopf')",43.981955129959445
+800,Grüne Partei der Schweiz (GPS),"('grun', 'fraktion')",136.6417414324514
+801,Grüne Partei der Schweiz (GPS),"('nam', 'grun')",111.02749055851484
+802,Grüne Partei der Schweiz (GPS),"('fraktion', 'grun')",75.80424791809958
+803,Grüne Partei der Schweiz (GPS),"('million', 'frank')",65.96948891835036
+804,Grüne Partei der Schweiz (GPS),"('mind', 'i')",55.54871981081852
+805,Grüne Partei der Schweiz (GPS),"('antrag', 'mind')",55.23692564529987
+806,Grüne Partei der Schweiz (GPS),"('milliard', 'frank')",52.43873455883929
+807,Grüne Partei der Schweiz (GPS),"('grun', 'unterstutz')",52.22857171682684
+808,Grüne Partei der Schweiz (GPS),"('halt', 'grun')",48.74490361983978
+809,Grüne Partei der Schweiz (GPS),"('grun', 'klar')",45.06426154815481
+810,Grüne Partei der Schweiz (GPS),"('kommission', 'rechtsfrag')",44.002606159566184
+811,Grüne Partei der Schweiz (GPS),"('frau', 'bundesratin')",41.88770114881124
+812,Grüne Partei der Schweiz (GPS),"('offent', 'verkehr')",39.33357302998129
+813,Grüne Partei der Schweiz (GPS),"('geht', 'darum')",38.38069082604408
+814,Grüne Partei der Schweiz (GPS),"('grun', 'bitt')",38.28315739030303
+815,Grüne Partei der Schweiz (GPS),"('grun', 'beantrag')",37.91270281543094
+816,Grüne Partei der Schweiz (GPS),"('grun', 'wichtig')",35.20465261432873
+817,Grüne Partei der Schweiz (GPS),"('grun', 'deshalb')",34.2533513492185
+818,Grüne Partei der Schweiz (GPS),"('grun', 'empfehl')",34.2533513492185
+819,Grüne Partei der Schweiz (GPS),"('sinn', 'ersuch')",34.056980948711406
+820,Grüne Partei der Schweiz (GPS),"('parlamentar', 'initiativ')",33.48559741191754
+821,Grüne Partei der Schweiz (GPS),"('mehrheit', 'kommission')",32.566267471903146
+822,Grüne Partei der Schweiz (GPS),"('grun', 'halt')",32.238448328676235
+823,Grüne Partei der Schweiz (GPS),"('grun', 'antrag')",32.18875824868201
+824,Grüne Partei der Schweiz (GPS),"('mind', 'ii')",31.325647758687783
+825,Grüne Partei der Schweiz (GPS),"('kalt', 'progression')",31.247742133922767
+826,Grüne Partei der Schweiz (GPS),"('vorlag', 'einzutret')",31.220813324328656
+827,Grüne Partei der Schweiz (GPS),"('pro', 'helvetia')",30.80182431169633
+828,Grüne Partei der Schweiz (GPS),"('patient', 'patientinn')",30.761144082707073
+829,Grüne Partei der Schweiz (GPS),"('unterstutz', 'grun')",30.40038431959335
+830,Grüne Partei der Schweiz (GPS),"('bitt', 'deshalb')",30.395182973776265
+831,Grüne Partei der Schweiz (GPS),"('grun', 'minderheitsantrag')",29.788552212124312
+832,Grüne Partei der Schweiz (GPS),"('grund', 'genomm')",28.961321977782074
+833,Grüne Partei der Schweiz (GPS),"('ganz', 'klar')",27.66980036296201
+834,Grüne Partei der Schweiz (GPS),"('sag', 'ja')",27.65878101458446
+835,Grüne Partei der Schweiz (GPS),"('grun', 'stimm')",27.0805020110221
+836,Grüne Partei der Schweiz (GPS),"('grun', 'setz')",27.0805020110221
+837,Grüne Partei der Schweiz (GPS),"('grun', 'uberzeugt')",27.0805020110221
+838,Grüne Partei der Schweiz (GPS),"('kris', 'chanc')",27.0805020110221
+839,Grüne Partei der Schweiz (GPS),"('erneuerbar', 'energi')",26.983478762434032
+840,Grüne Partei der Schweiz (GPS),"('grun', 'lehn')",26.19373926704944
+841,Grüne Partei der Schweiz (GPS),"('patientinn', 'patient')",25.91276176959449
+842,Grüne Partei der Schweiz (GPS),"('managed', 'car')",25.772955036317338
+843,Grüne Partei der Schweiz (GPS),"('sexuell', 'belast')",25.268082639366526
+844,Grüne Partei der Schweiz (GPS),"('grun', 'dafur')",24.37245180991989
+845,Grüne Partei der Schweiz (GPS),"('grun', 'artikel')",24.37245180991989
+846,Grüne Partei der Schweiz (GPS),"('grun', 'tret')",24.37245180991989
+847,Grüne Partei der Schweiz (GPS),"('bitt', 'dah')",24.327906486489862
+848,Grüne Partei der Schweiz (GPS),"('grun', 'vorlag')",24.178836246507174
+849,Grüne Partei der Schweiz (GPS),"('ja', 'sag')",23.25852039862784
+850,Grüne Partei der Schweiz (GPS),"('bundesrat', 'standerat')",22.98715306946958
+851,Grüne Partei der Schweiz (GPS),"('sinn', 'bitt')",22.706046054057204
+852,Grüne Partei der Schweiz (GPS),"('indirekt', 'gegenvorschlag')",22.476327445703593
+853,Grüne Partei der Schweiz (GPS),"('geh', 'davon')",22.476327445703593
+854,Grüne Partei der Schweiz (GPS),"('mehrheit', 'folg')",22.30058094594904
+855,Grüne Partei der Schweiz (GPS),"('deshalb', 'grun')",22.16393322596491
+856,Grüne Partei der Schweiz (GPS),"('grun', 'steh')",22.16393322596491
+857,Grüne Partei der Schweiz (GPS),"('entlang', 'autobahn')",22.16393322596491
+858,Grüne Partei der Schweiz (GPS),"('mehrheit', 'grun')",21.972245773362197
+859,Grüne Partei der Schweiz (GPS),"('direkt', 'gegenvorschlag')",21.9655018219376
+860,Grüne Partei der Schweiz (GPS),"('stimm', 'enthalt')",21.895115837840876
+861,Grüne Partei der Schweiz (GPS),"('teil', 'grun')",21.66440160881768
+862,Grüne Partei der Schweiz (GPS),"('grun', 'erwart')",21.66440160881768
+863,Grüne Partei der Schweiz (GPS),"('grun', 'sicht')",21.66440160881768
+864,Grüne Partei der Schweiz (GPS),"('steh', 'grun')",21.66440160881768
+865,Grüne Partei der Schweiz (GPS),"('grun', 'begruss')",21.66440160881768
+866,Grüne Partei der Schweiz (GPS),"('grun', 'grundsatz')",21.66440160881768
+867,Grüne Partei der Schweiz (GPS),"('kunstl', 'kunstlerinn')",21.66440160881768
+868,Grüne Partei der Schweiz (GPS),"('gepanzert', 'mannschaftstransportfahrzeug')",21.66440160881768
+869,Grüne Partei der Schweiz (GPS),"('trockenwies', 'weid')",21.66440160881768
+870,Grüne Partei der Schweiz (GPS),"('herr', 'schwand')",21.37269442036072
+871,Grüne Partei der Schweiz (GPS),"('kunst', 'kulturschaff')",21.148093439717112
+872,Grüne Partei der Schweiz (GPS),"('geltend', 'recht')",20.94385057440562
+873,Grüne Partei der Schweiz (GPS),"('mind', 'folg')",20.94385057440562
+874,Grüne Partei der Schweiz (GPS),"('halt', 'dafur')",20.873633484694086
+875,Grüne Partei der Schweiz (GPS),"('gewiss', 'sinn')",20.873633484694086
+876,Grüne Partei der Schweiz (GPS),"('kunst', 'kultur')",20.873633484694086
+877,Grüne Partei der Schweiz (GPS),"('arztinn', 'arzt')",20.57778140526621
+878,Grüne Partei der Schweiz (GPS),"('artikel', 'geht')",20.433024950639627
+879,Grüne Partei der Schweiz (GPS),"('grun', 'unterstutzt')",20.149030205422648
+880,Grüne Partei der Schweiz (GPS),"('grun', 'beantragt')",20.149030205422648
+881,Grüne Partei der Schweiz (GPS),"('meierschatz', 'herr')",20.149030205422648
+882,Grüne Partei der Schweiz (GPS),"('herr', 'glasson')",20.149030205422648
+883,Grüne Partei der Schweiz (GPS),"('leutenegg', 'oberholz')",19.92219932687364
+884,Grüne Partei der Schweiz (GPS),"('bitt', 'minderheitsantrag')",19.46232518919189
+885,Grüne Partei der Schweiz (GPS),"('sicht', 'grun')",19.313254949209202
+886,Grüne Partei der Schweiz (GPS),"('frau', 'mann')",19.053501301172417
+887,Grüne Partei der Schweiz (GPS),"('hausarzt', 'hausarztinn')",18.95635140771547
+888,Grüne Partei der Schweiz (GPS),"('grun', 'einverstand')",18.95635140771547
+889,Grüne Partei der Schweiz (GPS),"('strategischpolit', 'steuer')",18.95635140771547
+890,Grüne Partei der Schweiz (GPS),"('wichtig', 'grun')",18.95635140771547
+891,Grüne Partei der Schweiz (GPS),"('verband', 'wohnungswes')",18.95635140771547
+892,Grüne Partei der Schweiz (GPS),"('plus', 'stellenprozent')",18.95635140771547
+893,Grüne Partei der Schweiz (GPS),"('letzt', 'jahr')",18.746210516928194
+894,Grüne Partei der Schweiz (GPS),"('konsumentinn', 'konsument')",18.291361249125522
+895,Grüne Partei der Schweiz (GPS),"('mensch', 'behinder')",18.22965112324885
+896,Grüne Partei der Schweiz (GPS),"('schweiz', 'bevolker')",18.22965112324885
+897,Grüne Partei der Schweiz (GPS),"('grun', 'eintret')",18.13412718488038
+898,Grüne Partei der Schweiz (GPS),"('autofahrerinn', 'autofahr')",18.13412718488038
+899,Grüne Partei der Schweiz (GPS),"('eintret', 'vorlag')",17.601042463826474
+900,Grünes Bündnis (GB),"('interpellation', 'grun')",6.0447090616267936
+901,Grünes Bündnis (GB),"('grun', 'fraktion')",5.676511513514301
+902,Grünes Bündnis (GB),"('offiziell', 'svppolit')",5.41610040220442
+903,Grünes Bündnis (GB),"('zuerst', 'eingereicht')",5.41610040220442
+904,Grünes Bündnis (GB),"('sp', 'svpfraktion')",5.41610040220442
+905,Grünes Bündnis (GB),"('zustimm', 'dringlicherklar')",5.41610040220442
+906,Grünes Bündnis (GB),"('sechzig', 'minut')",5.41610040220442
+907,Grünes Bündnis (GB),"('motion', 'theil')",5.41610040220442
+908,Grünes Bündnis (GB),"('enttauscht', 'fraktionsprasidi')",5.41610040220442
+909,Grünes Bündnis (GB),"('gpk', 'gpdelmitglied')",5.41610040220442
+910,Grünes Bündnis (GB),"('behord', 'ubsaffar')",5.41610040220442
+911,Grünes Bündnis (GB),"('ging', 'untersuch')",5.41610040220442
+912,Grünes Bündnis (GB),"('verlanger', 'alkaidaverbot')",5.41610040220442
+913,Grünes Bündnis (GB),"('verlanger', 'verordn')",5.41610040220442
+914,Grünes Bündnis (GB),"('al', 'kaida')",5.287023359929278
+915,Grünes Bündnis (GB),"('voraussetz', 'weiterhin')",4.029806041084529
+916,Grünes Bündnis (GB),"('verbot', 'al')",4.029806041084529
+917,Grünes Bündnis (GB),"('kaida', 'verwandt')",4.029806041084529
+918,Grünes Bündnis (GB),"('verwandt', 'organisation')",4.029806041084529
+919,Grünes Bündnis (GB),"('geltungsdau', 'verordn')",4.029806041084529
+920,Grünes Bündnis (GB),"('verordn', 'verbot')",4.029806041084529
+921,Grünes Bündnis (GB),"('finma', 'behord')",4.029806041084529
+922,Grünes Bündnis (GB),"('oberaufsicht', 'bereich')",4.029806041084529
+923,Grünes Bündnis (GB),"('kantonal', 'staatsschutz')",4.029806041084529
+924,Grünes Bündnis (GB),"('jahr', 'spfraktion')",4.029806041084529
+925,Grünes Bündnis (GB),"('kost', 'partei')",4.029806041084529
+926,Grünes Bündnis (GB),"('partei', 'geh')",4.029806041084529
+927,Grünes Bündnis (GB),"('maya', 'graf')",3.9652675199469583
+928,Grünes Bündnis (GB),"('fall', 'tinn')",3.6651629274966204
+929,Grünes Bündnis (GB),"('menschenrecht', 'volkerrecht')",3.2188758248682006
+930,Grünes Bündnis (GB),"('nationalrat', 'bekannt')",3.2188758248682006
+931,Grünes Bündnis (GB),"('gpdel', 'letzt')",3.2188758248682006
+932,Grünes Bündnis (GB),"('empfehl', 'ford')",3.2188758248682006
+933,Grünes Bündnis (GB),"('fraktion', 'spfraktion')",3.2188758248682006
+934,Grünes Bündnis (GB),"('fraktion', 'kurz')",2.70805020110221
+935,Grünes Bündnis (GB),"('kurz', 'tatig')",2.70805020110221
+936,Grünes Bündnis (GB),"('eingeh', 'all')",2.70805020110221
+937,Grünes Bündnis (GB),"('jahr', 'hugo')",2.70805020110221
+938,Grünes Bündnis (GB),"('fasel', 'getan')",2.70805020110221
+939,Grünes Bündnis (GB),"('verlass', 'zuletzt')",2.70805020110221
+940,Grünes Bündnis (GB),"('zuletzt', 'hugo')",2.70805020110221
+941,Grünes Bündnis (GB),"('jahr', 'vizeprasident')",2.70805020110221
+942,Grünes Bündnis (GB),"('vizeprasident', 'claud')",2.70805020110221
+943,Grünes Bündnis (GB),"('janiak', 'ersetzt')",2.70805020110221
+944,Grünes Bündnis (GB),"('ersetzt', 'gpk')",2.70805020110221
+945,Grünes Bündnis (GB),"('dezemb', 'mariethérès')",2.70805020110221
+946,Grünes Bündnis (GB),"('ersetzt', 'sitz')",2.70805020110221
+947,Grünes Bündnis (GB),"('sitz', 'gpdel')",2.70805020110221
+948,Grünes Bündnis (GB),"('gpdel', 'ubernomm')",2.70805020110221
+949,Grünes Bündnis (GB),"('erst', 'arbeitsjahr')",2.70805020110221
+950,Grünes Bündnis (GB),"('arbeitsjahr', 'gpk')",2.70805020110221
+951,Grünes Bündnis (GB),"('legislatur', 'verlief')",2.70805020110221
+952,Grünes Bündnis (GB),"('verlief', 'zweifelsohn')",2.70805020110221
+953,Grünes Bündnis (GB),"('zweifelsohn', 'ruhig')",2.70805020110221
+954,Grünes Bündnis (GB),"('ruhig', 'sachbezog')",2.70805020110221
+955,Grünes Bündnis (GB),"('sachbezog', 'jahr')",2.70805020110221
+956,Grünes Bündnis (GB),"('heftig', 'polem')",2.70805020110221
+957,Grünes Bündnis (GB),"('polem', 'indiskretion')",2.70805020110221
+958,Grünes Bündnis (GB),"('indiskretion', 'stark')",2.70805020110221
+959,Grünes Bündnis (GB),"('unterstutzt', 'medi')",2.70805020110221
+960,Grünes Bündnis (GB),"('medi', 'gepragt')",2.70805020110221
+961,Grünes Bündnis (GB),"('gepragt', 'arbeitet')",2.70805020110221
+962,Grünes Bündnis (GB),"('beding', 'vertraulich')",2.70805020110221
+963,Grünes Bündnis (GB),"('vertraulich', 'unabhang')",2.70805020110221
+964,Grünes Bündnis (GB),"('unabhang', 'weitgeh')",2.70805020110221
+965,Grünes Bündnis (GB),"('weitgeh', 'gegeb')",2.70805020110221
+966,Grünes Bündnis (GB),"('gegeb', 'beobacht')",2.70805020110221
+967,Grünes Bündnis (GB),"('edavb', 'juli')",2.70805020110221
+968,Grünes Bündnis (GB),"('auftrag', 'erhielt')",2.70805020110221
+969,Grünes Bündnis (GB),"('erhielt', 'untersuch')",2.70805020110221
+970,Grünes Bündnis (GB),"('nef', 'armeechef')",2.70805020110221
+971,Grünes Bündnis (GB),"('armeechef', 'einzuleit')",2.70805020110221
+972,Grünes Bündnis (GB),"('einzuleit', 'mehr')",2.70805020110221
+973,Grünes Bündnis (GB),"('mehr', 'brigit')",2.70805020110221
+974,Grünes Bündnis (GB),"('wyss', 'zweit')",2.70805020110221
+975,Grünes Bündnis (GB),"('zweit', 'sprecherin')",2.70805020110221
+976,Grünes Bündnis (GB),"('sprecherin', 'grun')",2.70805020110221
+977,Grünes Bündnis (GB),"('herrscht', 'bess')",2.70805020110221
+978,Grünes Bündnis (GB),"('arbeitsbeding', 'gab')",2.70805020110221
+979,Grünes Bündnis (GB),"('gab', 'bleibend')",2.70805020110221
+980,Grünes Bündnis (GB),"('wichtig', 'nachfolgearbeit')",2.70805020110221
+981,Grünes Bündnis (GB),"('nachfolgearbeit', 'erfahr')",2.70805020110221
+982,Grünes Bündnis (GB),"('erfahr', 'turbulent')",2.70805020110221
+983,Grünes Bündnis (GB),"('turbulent', 'wahljahr')",2.70805020110221
+984,Grünes Bündnis (GB),"('wahljahr', 'datiert')",2.70805020110221
+985,Grünes Bündnis (GB),"('datiert', 'gab')",2.70805020110221
+986,Grünes Bündnis (GB),"('problem', 'gewaltenteil')",2.70805020110221
+987,Grünes Bündnis (GB),"('gewaltenteil', 'ruedi')",2.70805020110221
+988,Grünes Bündnis (GB),"('lustenberg', 'darauf')",2.70805020110221
+989,Grünes Bündnis (GB),"('hingewies', 'beispiel')",2.70805020110221
+990,Grünes Bündnis (GB),"('angetont', 'entscheid')",2.70805020110221
+991,Grünes Bündnis (GB),"('bundesstrafgericht', 'dezemb')",2.70805020110221
+992,Grünes Bündnis (GB),"('dezemb', 'gpk')",2.70805020110221
+993,Grünes Bündnis (GB),"('recht', 'zusteh')",2.70805020110221
+994,Grünes Bündnis (GB),"('zusteh', 'information')",2.70805020110221
+995,Grünes Bündnis (GB),"('ermittlungsverfahr', 'bundesanwaltschaft')",2.70805020110221
+996,Grünes Bündnis (GB),"('bundesanwaltschaft', 'erhalt')",2.70805020110221
+997,Grünes Bündnis (GB),"('faktisch', 'ausserkraftsetz')",2.70805020110221
+998,Grünes Bündnis (GB),"('parlamentsgesetz', 'kitt')",2.70805020110221
+999,Grünes Bündnis (GB),"('kitt', 'berichtsjahr')",2.70805020110221
+1000,Grünliberale Partei (glp),"('grunliberal', 'unterstutz')",37.91270281543094
+1001,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'mehrheit')",26.19373926704944
+1002,Grünliberale Partei (glp),"('indirekt', 'gegenvorschlag')",25.541281188299536
+1003,Grünliberale Partei (glp),"('kanton', 'zurich')",23.516976270273535
+1004,Grünliberale Partei (glp),"('stuck', 'weit')",20.15839610123141
+1005,Grünliberale Partei (glp),"('million', 'frank')",19.46171473513156
+1006,Grünliberale Partei (glp),"('nam', 'grunliberal')",18.95635140771547
+1007,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'unterstutzt')",18.504581759752472
+1008,Grünliberale Partei (glp),"('mehrheit', 'kommission')",18.299140769926527
+1009,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'lehnt')",17.703817036775103
+1010,Grünliberale Partei (glp),"('stimm', 'enthalt')",17.029534540542905
+1011,Grünliberale Partei (glp),"('grunliberal', 'deshalb')",16.24830120661326
+1012,Grünliberale Partei (glp),"('erneuerbar', 'energi')",15.507746415191972
+1013,Grünliberale Partei (glp),"('mehrheit', 'folg')",15.407674108110246
+1014,Grünliberale Partei (glp),"('mind', 'i')",14.596743891893919
+1015,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'uberzeugt')",14.104321143795852
+1016,Grünliberale Partei (glp),"('grunliberal', 'erwart')",13.54025100551105
+1017,Grünliberale Partei (glp),"('grunliberal', 'uberzeugt')",13.54025100551105
+1018,Grünliberale Partei (glp),"('massiv', 'uberschuss')",13.54025100551105
+1019,Grünliberale Partei (glp),"('nam', 'cvpevpglpfraktion')",13.217558399823195
+1020,Grünliberale Partei (glp),"('too', 'big')",12.956380884797245
+1021,Grünliberale Partei (glp),"('big', 'to')",12.956380884797245
+1022,Grünliberale Partei (glp),"('antrag', 'mind')",12.592874240379246
+1023,Grünliberale Partei (glp),"('to', 'fail')",12.194240832750348
+1024,Grünliberale Partei (glp),"('nordafrika', 'mittl')",12.089418123253587
+1025,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'antrag')",11.895802559840876
+1026,Grünliberale Partei (glp),"('kommission', 'beantragt')",11.238163722851796
+1027,Grünliberale Partei (glp),"('mehrheit', 'cvpevpglpfraktion')",10.986122886681098
+1028,Grünliberale Partei (glp),"('teilerganz', 'sbahn')",10.83220080440884
+1029,Grünliberale Partei (glp),"('grunliberal', 'seh')",10.83220080440884
+1030,Grünliberale Partei (glp),"('grunliberal', 'befurwort')",10.83220080440884
+1031,Grünliberale Partei (glp),"('grunliberal', 'klar')",10.83220080440884
+1032,Grünliberale Partei (glp),"('grunliberal', 'lehn')",10.83220080440884
+1033,Grünliberale Partei (glp),"('unterstutz', 'grunliberal')",10.83220080440884
+1034,Grünliberale Partei (glp),"('deshalb', 'grunliberal')",10.83220080440884
+1035,Grünliberale Partei (glp),"('kulturforder', 'bundeseb')",10.83220080440884
+1036,Grünliberale Partei (glp),"('budgetdisziplin', 'beid')",10.83220080440884
+1037,Grünliberale Partei (glp),"('ide', 'wegkomm')",10.83220080440884
+1038,Grünliberale Partei (glp),"('wegkomm', 'defizit')",10.83220080440884
+1039,Grünliberale Partei (glp),"('uberschuss', 'schuldenreduktion')",10.83220080440884
+1040,Grünliberale Partei (glp),"('zukunft', 'priorisier')",10.83220080440884
+1041,Grünliberale Partei (glp),"('kost', 'umweltschad')",10.83220080440884
+1042,Grünliberale Partei (glp),"('aggressiv', 'rabatt')",10.83220080440884
+1043,Grünliberale Partei (glp),"('anlieg', 'jag')",10.83220080440884
+1044,Grünliberale Partei (glp),"('antrag', 'ii')",10.83220080440884
+1045,Grünliberale Partei (glp),"('frank', 'flexibilisier')",10.83220080440884
+1046,Grünliberale Partei (glp),"('prozent', 'ausland')",10.669960728656553
+1047,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'vorlag')",10.574046719858556
+1048,Grünliberale Partei (glp),"('klein', 'stiftung')",10.079198050615705
+1049,Grünliberale Partei (glp),"('angemess', 'erschloss')",10.074515102711324
+1050,Grünliberale Partei (glp),"('national', 'muse')",10.074515102711324
+1051,Grünliberale Partei (glp),"('evp', 'grunliberal')",10.074515102711324
+1052,Grünliberale Partei (glp),"('soziodemograf', 'topf')",10.074515102711324
+1053,Grünliberale Partei (glp),"('losung', 'find')",10.057738550757986
+1054,Grünliberale Partei (glp),"('ausland', 'kompensiert')",9.887510598012987
+1055,Grünliberale Partei (glp),"('inland', 'prozent')",9.887510598012987
+1056,Grünliberale Partei (glp),"('uns', 'kommission')",9.705686851553823
+1057,Grünliberale Partei (glp),"('drei', 'absatz')",9.656627474604601
+1058,Grünliberale Partei (glp),"('artikel', 'absatz')",9.587756523925107
+1059,Grünliberale Partei (glp),"('antrag', 'kommission')",9.429129891335611
+1060,Grünliberale Partei (glp),"('rapp', 'pro')",9.429129891335611
+1061,Grünliberale Partei (glp),"('mind', 'ii')",9.304647849115183
+1062,Grünliberale Partei (glp),"('beitragssatz', 'prozent')",9.252290879876236
+1063,Grünliberale Partei (glp),"('beispiel', 'hierfur')",9.252290879876236
+1064,Grünliberale Partei (glp),"('wurd', 'kommission')",9.194861227787833
+1065,Grünliberale Partei (glp),"('absolut', 'zentral')",9.162907318741551
+1066,Grünliberale Partei (glp),"('kommission', 'klar')",9.145680624562761
+1067,Grünliberale Partei (glp),"('heutig', 'vorlag')",9.145680624562761
+1068,Grünliberale Partei (glp),"('sinn', 'bitt')",8.920232378379616
+1069,Grünliberale Partei (glp),"('reduktion', 'prozent')",8.800521231913237
+1070,Grünliberale Partei (glp),"('pro', 'kilowattstund')",8.800521231913237
+1071,Grünliberale Partei (glp),"('konzept', 'mehrheit')",8.788898309344878
+1072,Grünliberale Partei (glp),"('milliard', 'frank')",8.702598501254181
+1073,Grünliberale Partei (glp),"('offent', 'verkehr')",8.684035604021842
+1074,Grünliberale Partei (glp),"('schon', 'sag')",8.684035604021842
+1075,Grünliberale Partei (glp),"('absatz', 'buchstab')",8.514767270271452
+1076,Grünliberale Partei (glp),"('st', 'gall')",8.383540572515864
+1077,Grünliberale Partei (glp),"('zuhand', 'materiali')",8.246616586867397
+1078,Grünliberale Partei (glp),"('kommission', 'stimm')",8.171912572490863
+1079,Grünliberale Partei (glp),"('grunliberal', 'antrag')",8.12415060330663
+1080,Grünliberale Partei (glp),"('kilowattstund', 'atomstrom')",8.12415060330663
+1081,Grünliberale Partei (glp),"('okonom', 'chanc')",8.12415060330663
+1082,Grünliberale Partei (glp),"('mindest', 'energieeffizienzklass')",8.12415060330663
+1083,Grünliberale Partei (glp),"('niedrig', 'einschatzt')",8.12415060330663
+1084,Grünliberale Partei (glp),"('steil', 'gewass')",8.12415060330663
+1085,Grünliberale Partei (glp),"('umweltschad', 'staat')",8.12415060330663
+1086,Grünliberale Partei (glp),"('grunliberal', 'steh')",8.12415060330663
+1087,Grünliberale Partei (glp),"('gedachtnis', 'schweiz')",8.12415060330663
+1088,Grünliberale Partei (glp),"('grunliberal', 'beantrag')",8.12415060330663
+1089,Grünliberale Partei (glp),"('erschloss', 'angemess')",8.12415060330663
+1090,Grünliberale Partei (glp),"('edelmetall', 'kriminell')",8.12415060330663
+1091,Grünliberale Partei (glp),"('antrag', 'lustenberg')",8.12415060330663
+1092,Grünliberale Partei (glp),"('uberdeck', 'katzense')",8.12415060330663
+1093,Grünliberale Partei (glp),"('darf', 'bezweifelt')",8.12415060330663
+1094,Grünliberale Partei (glp),"('kapazitat', 'paulscherrerinstitut')",8.12415060330663
+1095,Grünliberale Partei (glp),"('cvpevpglpfraktion', 'grunliberal')",8.12415060330663
+1096,Grünliberale Partei (glp),"('paket', 'polit')",8.12415060330663
+1097,Grünliberale Partei (glp),"('nam', 'fahn')",8.12415060330663
+1098,Grünliberale Partei (glp),"('jahr', 'budgetdisziplin')",8.12415060330663
+1099,Grünliberale Partei (glp),"('schuldenreduktion', 'nutz')",8.12415060330663
+1100,Lega dei Ticinesi (Lega),"('prozed', 'waffenkauf')",2.70805020110221
+1101,Lega dei Ticinesi (Lega),"('waffenkauf', 'formular')",2.70805020110221
+1102,Lega dei Ticinesi (Lega),"('auszufull', 'ausweis')",2.70805020110221
+1103,Lega dei Ticinesi (Lega),"('ausweis', 'usw')",2.70805020110221
+1104,Lega dei Ticinesi (Lega),"('bitt', 'prozed')",2.70805020110221
+1105,Lega dei Ticinesi (Lega),"('prozed', 'beim')",2.70805020110221
+1106,Lega dei Ticinesi (Lega),"('kauf', 'waff')",2.70805020110221
+1107,Lega dei Ticinesi (Lega),"('formular', 'auszufull')",2.0149030205422647
+1108,Lega dei Ticinesi (Lega),"('kollegin', 'erklar')",2.0149030205422647
+1109,Lega dei Ticinesi (Lega),"('erklar', 'bitt')",1.0986122886681098
+1110,Lega dei Ticinesi (Lega),"('muss', 'vorhand')",1.0986122886681098
+1111,Lega dei Ticinesi (Lega),"('usw', 'muss')",0.7621400520468967
+1112,Lega dei Ticinesi (Lega),"('beim', 'kauf')",0.7621400520468967
+1113,Lega dei Ticinesi (Lega),"('frau', 'kollegin')",0.31015492830383945
+1114,Schweizerische Volkspartei (SVP),"('nam', 'svpfraktion')",359.5175884751909
+1115,Schweizerische Volkspartei (SVP),"('frau', 'bundesratin')",250.81538126910144
+1116,Schweizerische Volkspartei (SVP),"('million', 'frank')",229.53375319963988
+1117,Schweizerische Volkspartei (SVP),"('milliard', 'frank')",190.1183057197067
+1118,Schweizerische Volkspartei (SVP),"('svpfraktion', 'bitt')",133.58334673203032
+1119,Schweizerische Volkspartei (SVP),"('kommission', 'rechtsfrag')",110.00651539891547
+1120,Schweizerische Volkspartei (SVP),"('motion', 'abzulehn')",104.41318713042484
+1121,Schweizerische Volkspartei (SVP),"('artikel', 'absatz')",101.88780067215934
+1122,Schweizerische Volkspartei (SVP),"('mehrheit', 'kommission')",98.93942212892479
+1123,Schweizerische Volkspartei (SVP),"('stimm', 'enthalt')",98.52802127028394
+1124,Schweizerische Volkspartei (SVP),"('indirekt', 'gegenvorschlag')",98.07851976307022
+1125,Schweizerische Volkspartei (SVP),"('sicherheitspolit', 'bericht')",98.06295086989036
+1126,Schweizerische Volkspartei (SVP),"('parlamentar', 'initiativ')",91.15523739910886
+1127,Schweizerische Volkspartei (SVP),"('geht', 'darum')",89.03427697436969
+1128,Schweizerische Volkspartei (SVP),"('kommission', 'beantragt')",87.35118166398442
+1129,Schweizerische Volkspartei (SVP),"('vorlag', 'einzutret')",85.14767270271452
+1130,Schweizerische Volkspartei (SVP),"('schriftlich', 'bericht')",84.59314622744445
+1131,Schweizerische Volkspartei (SVP),"('mind', 'i')",81.09302162163287
+1132,Schweizerische Volkspartei (SVP),"('bundesrat', 'beantragt')",81.09051706548625
+1133,Schweizerische Volkspartei (SVP),"('bitt', 'deshalb')",80.01997150239058
+1134,Schweizerische Volkspartei (SVP),"('antrag', 'mind')",79.42096822057366
+1135,Schweizerische Volkspartei (SVP),"('mehrheit', 'folg')",78.6602309729839
+1136,Schweizerische Volkspartei (SVP),"('svpfraktion', 'mehrheit')",78.58121780114833
+1137,Schweizerische Volkspartei (SVP),"('svpfraktion', 'beantrag')",75.82540563086188
+1138,Schweizerische Volkspartei (SVP),"('herr', 'kolleg')",74.43718279292146
+1139,Schweizerische Volkspartei (SVP),"('geltend', 'recht')",72.02641295100469
+1140,Schweizerische Volkspartei (SVP),"('svpfraktion', 'mind')",70.40930522865746
+1141,Schweizerische Volkspartei (SVP),"('pro', 'jahr')",69.78485886836387
+1142,Schweizerische Volkspartei (SVP),"('gemass', 'artikel')",69.73999859460427
+1143,Schweizerische Volkspartei (SVP),"('svpfraktion', 'unterstutzt')",66.08779199911598
+1144,Schweizerische Volkspartei (SVP),"('ganz', 'klar')",64.93477343243504
+1145,Schweizerische Volkspartei (SVP),"('mehrheit', 'svpfraktion')",62.76807858492991
+1146,Schweizerische Volkspartei (SVP),"('svpfraktion', 'beantragt')",62.285154625350835
+1147,Schweizerische Volkspartei (SVP),"('deshalb', 'bitt')",61.630696432440985
+1148,Schweizerische Volkspartei (SVP),"('geh', 'davon')",60.78824922815289
+1149,Schweizerische Volkspartei (SVP),"('stell', 'fest')",60.00883600000833
+1150,Schweizerische Volkspartei (SVP),"('herr', 'bundesrat')",59.95925348544209
+1151,Schweizerische Volkspartei (SVP),"('darum', 'bitt')",59.446924059657945
+1152,Schweizerische Volkspartei (SVP),"('bundesrat', 'folg')",58.46060532628079
+1153,Schweizerische Volkspartei (SVP),"('mind', 'ii')",57.99897159281798
+1154,Schweizerische Volkspartei (SVP),"('folg', 'geb')",57.1247491364377
+1155,Schweizerische Volkspartei (SVP),"('klar', 'meinung')",56.39836385147036
+1156,Schweizerische Volkspartei (SVP),"('bericht', 'kommission')",56.39836385147036
+1157,Schweizerische Volkspartei (SVP),"('motion', 'anzunehm')",55.954184918926686
+1158,Schweizerische Volkspartei (SVP),"('bund', 'kanton')",55.8278870946911
+1159,Schweizerische Volkspartei (SVP),"('darauf', 'hingewies')",54.893313623295604
+1160,Schweizerische Volkspartei (SVP),"('kenntnis', 'genomm')",54.68895336974655
+1161,Schweizerische Volkspartei (SVP),"('annahm', 'motion')",54.65834174296101
+1162,Schweizerische Volkspartei (SVP),"('art', 'weis')",54.33232448649403
+1163,Schweizerische Volkspartei (SVP),"('mind', 'folg')",54.14751611919502
+1164,Schweizerische Volkspartei (SVP),"('drei', 'jahr')",53.34664766826039
+1165,Schweizerische Volkspartei (SVP),"('initiativ', 'folg')",52.726337811652705
+1166,Schweizerische Volkspartei (SVP),"('absatz', 'buchstab')",52.71046405406137
+1167,Schweizerische Volkspartei (SVP),"('frau', 'bundesprasidentin')",52.587663591235874
+1168,Schweizerische Volkspartei (SVP),"('neu', 'unternehmenssteu')",52.38747853409888
+1169,Schweizerische Volkspartei (SVP),"('antrag', 'kommission')",52.17451873205705
+1170,Schweizerische Volkspartei (SVP),"('bitt', 'nam')",51.79587302674119
+1171,Schweizerische Volkspartei (SVP),"('uns', 'kommission')",50.060911129067094
+1172,Schweizerische Volkspartei (SVP),"('offent', 'verkehr')",50.060911129067094
+1173,Schweizerische Volkspartei (SVP),"('frank', 'pro')",49.62478852861431
+1174,Schweizerische Volkspartei (SVP),"('zwei', 'drei')",49.06127808108789
+1175,Schweizerische Volkspartei (SVP),"('beantrag', 'nam')",47.774258116100434
+1176,Schweizerische Volkspartei (SVP),"('ja', 'nein')",47.506783010237136
+1177,Schweizerische Volkspartei (SVP),"('all', 'grund')",47.2526832269076
+1178,Schweizerische Volkspartei (SVP),"('macht', 'sinn')",46.99595738647115
+1179,Schweizerische Volkspartei (SVP),"('rund', 'milliard')",46.99595738647115
+1180,Schweizerische Volkspartei (SVP),"('frau', 'kollegin')",46.523239245575915
+1181,Schweizerische Volkspartei (SVP),"('direkt', 'demokrati')",46.51704079725568
+1182,Schweizerische Volkspartei (SVP),"('pro', 'helvetia')",46.51704079725568
+1183,Schweizerische Volkspartei (SVP),"('administrativ', 'aufwand')",45.7284031228138
+1184,Schweizerische Volkspartei (SVP),"('herr', 'bundesprasident')",45.463480515173174
+1185,Schweizerische Volkspartei (SVP),"('bereit', 'erwahnt')",45.25982347841094
+1186,Schweizerische Volkspartei (SVP),"('st', 'gall')",44.96626307076691
+1187,Schweizerische Volkspartei (SVP),"('letzt', 'jahr')",44.64746321589005
+1188,Schweizerische Volkspartei (SVP),"('svpfraktion', 'bittet')",44.32786645192982
+1189,Schweizerische Volkspartei (SVP),"('bitt', 'mehrheit')",44.19569678378992
+1190,Schweizerische Volkspartei (SVP),"('ablehn', 'motion')",44.002606159566184
+1191,Schweizerische Volkspartei (SVP),"('seit', 'fahn')",43.981955129959445
+1192,Schweizerische Volkspartei (SVP),"('uns', 'meinung')",43.42017802010921
+1193,Schweizerische Volkspartei (SVP),"('kenntnis', 'nehm')",42.491225177626006
+1194,Schweizerische Volkspartei (SVP),"('letzt', 'woch')",42.39852677257723
+1195,Schweizerische Volkspartei (SVP),"('leutenegg', 'oberholz')",42.39852677257723
+1196,Schweizerische Volkspartei (SVP),"('kanton', 'gemeind')",42.18107024932217
+1197,Schweizerische Volkspartei (SVP),"('frau', 'fetz')",42.14937366621113
+1198,Schweizerische Volkspartei (SVP),"('frau', 'meierschatz')",42.14937366621113
+1199,Schweizerische Volkspartei (SVP),"('antrag', 'mehrheit')",41.50470054444302
+1200,Schweizerische Volkspartei (SVP),"('einfach', 'sag')",41.48817152187669
+1201,Schweizerische Volkspartei (SVP),"('direkt', 'gegenvorschlag')",41.37687552504525
+1202,Schweizerische Volkspartei (SVP),"('frag', 'stell')",40.355224277513265
+1203,Schweizerische Volkspartei (SVP),"('svpfraktion', 'eintret')",40.298060410845295
+1204,Schweizerische Volkspartei (SVP),"('jurist', 'person')",39.63128270643863
+1205,Schweizerische Volkspartei (SVP),"('antwort', 'bundesrat')",39.33011548649195
+1206,Schweizerische Volkspartei (SVP),"('nationalrat', 'folg')",38.9737368841872
+1207,Schweizerische Volkspartei (SVP),"('bundesrat', 'leuenberg')",38.86914265439173
+1208,Schweizerische Volkspartei (SVP),"('beschluss', 'nationalrat')",38.82274740621529
+1209,Schweizerische Volkspartei (SVP),"('kommission', 'erhalt')",38.484210738714516
+1210,Schweizerische Volkspartei (SVP),"('frau', 'fehr')",38.484210738714516
+1211,Schweizerische Volkspartei (SVP),"('stellt', 'frag')",38.45921110967609
+1212,Schweizerische Volkspartei (SVP),"('erhalt', 'kommission')",38.45143010338384
+1213,Schweizerische Volkspartei (SVP),"('schweiz', 'schul')",38.33091935948727
+1214,Sozialdemokratische Partei der Schweiz (SP),"('nam', 'spfraktion')",706.8011024876769
+1215,Sozialdemokratische Partei der Schweiz (SP),"('kommission', 'rechtsfrag')",197.38311905862545
+1216,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'unterstutzt')",189.91367366722383
+1217,Sozialdemokratische Partei der Schweiz (SP),"('million', 'frank')",161.9901550012421
+1218,Sozialdemokratische Partei der Schweiz (SP),"('milliard', 'frank')",152.40704554760526
+1219,Sozialdemokratische Partei der Schweiz (SP),"('frau', 'bundesratin')",152.22603588226522
+1220,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'bitt')",122.90908425307815
+1221,Sozialdemokratische Partei der Schweiz (SP),"('mehrheit', 'kommission')",120.65026711019354
+1222,Sozialdemokratische Partei der Schweiz (SP),"('fdpliberal', 'fraktion')",117.28521367989185
+1223,Sozialdemokratische Partei der Schweiz (SP),"('konsumentinn', 'konsument')",114.3210078070345
+1224,Sozialdemokratische Partei der Schweiz (SP),"('stimm', 'enthalt')",110.69197451352888
+1225,Sozialdemokratische Partei der Schweiz (SP),"('antrag', 'mind')",110.61695213424042
+1226,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'antrag')",108.3220080440884
+1227,Sozialdemokratische Partei der Schweiz (SP),"('parlamentar', 'initiativ')",104.17741417041012
+1228,Sozialdemokratische Partei der Schweiz (SP),"('indirekt', 'gegenvorschlag')",101.14347350566617
+1229,Sozialdemokratische Partei der Schweiz (SP),"('patientinn', 'patient')",99.07820676609657
+1230,Sozialdemokratische Partei der Schweiz (SP),"('geltend', 'recht')",98.07851976307022
+1231,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'mind')",94.78175703857735
+1232,Sozialdemokratische Partei der Schweiz (SP),"('europa', 'union')",94.50274039670829
+1233,Sozialdemokratische Partei der Schweiz (SP),"('bitt', 'deshalb')",93.97694327606335
+1234,Sozialdemokratische Partei der Schweiz (SP),"('mind', 'i')",92.85150975676964
+1235,Sozialdemokratische Partei der Schweiz (SP),"('artikel', 'absatz')",89.58112811906145
+1236,Sozialdemokratische Partei der Schweiz (SP),"('kommission', 'beantragt')",88.3728329115164
+1237,Sozialdemokratische Partei der Schweiz (SP),"('vorlag', 'einzutret')",74.60557989190225
+1238,Sozialdemokratische Partei der Schweiz (SP),"('antrag', 'mehrheit')",74.52994613894606
+1239,Sozialdemokratische Partei der Schweiz (SP),"('geh', 'davon')",74.06971544606866
+1240,Sozialdemokratische Partei der Schweiz (SP),"('geht', 'darum')",73.86051548500343
+1241,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'mehrheit')",70.40930522865746
+1242,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'bittet')",70.40930522865746
+1243,Sozialdemokratische Partei der Schweiz (SP),"('pro', 'jahr')",70.40516872497156
+1244,Sozialdemokratische Partei der Schweiz (SP),"('sozialdemokratinn', 'sozialdemokrat')",67.70125502755525
+1245,Sozialdemokratische Partei der Schweiz (SP),"('kenntnis', 'genomm')",67.26112655819402
+1246,Sozialdemokratische Partei der Schweiz (SP),"('darauf', 'hinweis')",66.09081262163079
+1247,Sozialdemokratische Partei der Schweiz (SP),"('mind', 'ii')",65.44268987211012
+1248,Sozialdemokratische Partei der Schweiz (SP),"('sicht', 'spfraktion')",64.99320482645304
+1249,Sozialdemokratische Partei der Schweiz (SP),"('lasst', 'ausricht')",64.47689665735247
+1250,Sozialdemokratische Partei der Schweiz (SP),"('ja', 'schon')",62.86086594223741
+1251,Sozialdemokratische Partei der Schweiz (SP),"('offent', 'verkehr')",62.320726099450866
+1252,Sozialdemokratische Partei der Schweiz (SP),"('erneuerbar', 'energi')",61.72083073246405
+1253,Sozialdemokratische Partei der Schweiz (SP),"('kommission', 'stimm')",61.60364862339266
+1254,Sozialdemokratische Partei der Schweiz (SP),"('unterstutzt', 'antrag')",61.29907485191889
+1255,Sozialdemokratische Partei der Schweiz (SP),"('bundesrat', 'beantragt')",60.34643130454791
+1256,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'eintret')",59.577104424248624
+1257,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'vorlag')",59.577104424248624
+1258,Sozialdemokratische Partei der Schweiz (SP),"('hoh', 'vergut')",58.68478400761105
+1259,Sozialdemokratische Partei der Schweiz (SP),"('initiativ', 'folg')",58.61928144942566
+1260,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'kolleg')",58.30912652112182
+1261,Sozialdemokratische Partei der Schweiz (SP),"('staatspolit', 'kommission')",57.831996666858416
+1262,Sozialdemokratische Partei der Schweiz (SP),"('z', 'b')",57.81274083083199
+1263,Sozialdemokratische Partei der Schweiz (SP),"('antrag', 'kommission')",57.20338800743604
+1264,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'beantrag')",56.869054223146414
+1265,Sozialdemokratische Partei der Schweiz (SP),"('sag', 'ja')",56.57477934801367
+1266,Sozialdemokratische Partei der Schweiz (SP),"('ausricht', 'antrag')",56.41728457518341
+1267,Sozialdemokratische Partei der Schweiz (SP),"('kalt', 'progression')",56.39836385147036
+1268,Sozialdemokratische Partei der Schweiz (SP),"('art', 'weis')",55.954184918926686
+1269,Sozialdemokratische Partei der Schweiz (SP),"('folg', 'geb')",55.33960072592402
+1270,Sozialdemokratische Partei der Schweiz (SP),"('motion', 'abzulehn')",54.87408374737657
+1271,Sozialdemokratische Partei der Schweiz (SP),"('mehrheit', 'folg')",54.33232448649403
+1272,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'klar')",54.00073941803876
+1273,Sozialdemokratische Partei der Schweiz (SP),"('frank', 'pro')",53.966957524868064
+1274,Sozialdemokratische Partei der Schweiz (SP),"('drei', 'jahr')",53.966957524868064
+1275,Sozialdemokratische Partei der Schweiz (SP),"('st', 'gall')",53.34980364328277
+1276,Sozialdemokratische Partei der Schweiz (SP),"('sicht', 'bundesrat')",53.144862448701
+1277,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'lehnt')",52.38747853409888
+1278,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'bundesprasident')",52.104213624131056
+1279,Sozialdemokratische Partei der Schweiz (SP),"('sbb', 'cargo')",51.545910072634676
+1280,Sozialdemokratische Partei der Schweiz (SP),"('letzt', 'jahr')",51.087001179720346
+1281,Sozialdemokratische Partei der Schweiz (SP),"('einfach', 'sag')",49.660084094367555
+1282,Sozialdemokratische Partei der Schweiz (SP),"('bitt', 'nam')",49.62478852861431
+1283,Sozialdemokratische Partei der Schweiz (SP),"('arbeitnehmerinn', 'arbeitnehm')",49.5500855053011
+1284,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'klar')",48.74490361983978
+1285,Sozialdemokratische Partei der Schweiz (SP),"('offent', 'hand')",48.655812972979724
+1286,Sozialdemokratische Partei der Schweiz (SP),"('uns', 'kommission')",47.506783010237136
+1287,Sozialdemokratische Partei der Schweiz (SP),"('schriftlich', 'bericht')",47.24032841272872
+1288,Sozialdemokratische Partei der Schweiz (SP),"('gemass', 'artikel')",47.03395254054707
+1289,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'einfach')",46.99595738647115
+1290,Sozialdemokratische Partei der Schweiz (SP),"('leutenegg', 'oberholz')",46.99595738647115
+1291,Sozialdemokratische Partei der Schweiz (SP),"('letzt', 'mal')",46.51704079725568
+1292,Sozialdemokratische Partei der Schweiz (SP),"('annahm', 'motion')",46.48513176270516
+1293,Sozialdemokratische Partei der Schweiz (SP),"('unterstutzt', 'spfraktion')",46.03685341873757
+1294,Sozialdemokratische Partei der Schweiz (SP),"('flankier', 'massnahm')",45.97430613893916
+1295,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'darauf')",45.97430613893916
+1296,Sozialdemokratische Partei der Schweiz (SP),"('direkt', 'gegenvorschlag')",45.463480515173174
+1297,Sozialdemokratische Partei der Schweiz (SP),"('absatz', 'buchstab')",45.41209210811441
+1298,Sozialdemokratische Partei der Schweiz (SP),"('too', 'big')",44.96626307076691
+1299,Sozialdemokratische Partei der Schweiz (SP),"('dam', 'herr')",44.96626307076691
+1300,Sozialdemokratische Partei der Schweiz (SP),"('darauf', 'aufmerksam')",44.63121481898856
+1301,Sozialdemokratische Partei der Schweiz (SP),"('frag', 'stell')",44.44182926764119
+1302,Sozialdemokratische Partei der Schweiz (SP),"('big', 'to')",44.20412301872001
+1303,Sozialdemokratische Partei der Schweiz (SP),"('mieterinn', 'miet')",44.20412301872001
+1304,Sozialdemokratische Partei der Schweiz (SP),"('interess', 'daran')",44.002606159566184
+1305,Sozialdemokratische Partei der Schweiz (SP),"('direkt', 'bundessteu')",44.002606159566184
+1306,Sozialdemokratische Partei der Schweiz (SP),"('letzt', 'woch')",43.9310036438752
+1307,Sozialdemokratische Partei der Schweiz (SP),"('darauf', 'hingewies')",43.512992506270905
+1308,Sozialdemokratische Partei der Schweiz (SP),"('motion', 'anzunehm')",43.38476656757359
+1309,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'minderheitsantrag')",43.32880321763536
+1310,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'bundesrat')",43.21645477948332
+1311,Sozialdemokratische Partei der Schweiz (SP),"('jurist', 'person')",42.679842914626214
+1312,Sozialdemokratische Partei der Schweiz (SP),"('richterinn', 'richt')",42.679842914626214
+1313,Sozialdemokratische Partei der Schweiz (SP),"('erst', 'lini')",42.18107024932217
+1314,parteilos (-),"('feri', 'mensch')",8.12415060330663
+1315,parteilos (-),"('schuldfah', 'person')",8.12415060330663
+1316,parteilos (-),"('mensch', 'dafur')",6.0447090616267936
+1317,parteilos (-),"('geht', 'feri')",5.41610040220442
+1318,parteilos (-),"('aufstand', 'liby')",5.41610040220442
+1319,parteilos (-),"('à', 'accueillir')",5.41610040220442
+1320,parteilos (-),"('de', 'réfugiés')",5.41610040220442
+1321,parteilos (-),"('kind', 'vermindert')",5.41610040220442
+1322,parteilos (-),"('fried', 'bewahr')",4.029806041084529
+1323,parteilos (-),"('somm', 'prêts')",4.029806041084529
+1324,parteilos (-),"('prêts', 'à')",4.029806041084529
+1325,parteilos (-),"('la', 'suiss')",3.6651629274966204
+1326,parteilos (-),"('strass', 'geh')",3.2188758248682006
+1327,parteilos (-),"('vermindert', 'schuldfah')",3.2188758248682006
+1328,parteilos (-),"('sozial', 'fried')",3.1430432971118707
+1329,parteilos (-),"('riklin', 'denk')",2.70805020110221
+1330,parteilos (-),"('denk', 'multikulturalitat')",2.70805020110221
+1331,parteilos (-),"('multikulturalitat', 'reichtum')",2.70805020110221
+1332,parteilos (-),"('reichtum', 'zusammenleb')",2.70805020110221
+1333,parteilos (-),"('zusammenleb', 'gesellschaft')",2.70805020110221
+1334,parteilos (-),"('ermoglicht', 'person')",2.70805020110221
+1335,parteilos (-),"('stolz', 'herkunft')",2.70805020110221
+1336,parteilos (-),"('herkunft', 'herkunftsland')",2.70805020110221
+1337,parteilos (-),"('herkunftsland', 'gleichzeit')",2.70805020110221
+1338,parteilos (-),"('gleichzeit', 'steh')",2.70805020110221
+1339,parteilos (-),"('schweiz', 'nationalitat')",2.70805020110221
+1340,parteilos (-),"('denk', 'zeich')",2.70805020110221
+1341,parteilos (-),"('integration', 'vielfalt')",2.70805020110221
+1342,parteilos (-),"('vielfalt', 'identitat')",2.70805020110221
+1343,parteilos (-),"('identitat', 'vorstoss')",2.70805020110221
+1344,parteilos (-),"('vielleicht', 'versteckt')",2.70805020110221
+1345,parteilos (-),"('versteckt', 'absicht')",2.70805020110221
+1346,parteilos (-),"('absicht', 'leut')",2.70805020110221
+1347,parteilos (-),"('leut', 'abzurat')",2.70805020110221
+1348,parteilos (-),"('abzurat', 'zwei')",2.70805020110221
+1349,parteilos (-),"('nationalitat', 'wirklich')",2.70805020110221
+1350,parteilos (-),"('absicht', 'braucht')",2.70805020110221
+1351,parteilos (-),"('seh', 'ungleichbehandl')",2.70805020110221
+1352,parteilos (-),"('ungleichbehandl', 'ausland')",2.70805020110221
+1353,parteilos (-),"('ausland', 'euland')",2.70805020110221
+1354,parteilos (-),"('euland', 'stamm')",2.70805020110221
+1355,parteilos (-),"('stamm', 'durf')",2.70805020110221
+1356,parteilos (-),"('jederzeit', 'schweiz')",2.70805020110221
+1357,parteilos (-),"('nachzieh', 'lass')",2.70805020110221
+1358,parteilos (-),"('ausland', 'drittland')",2.70805020110221
+1359,parteilos (-),"('drittland', 'gilt')",2.70805020110221
+1360,parteilos (-),"('seh', 'markant')",2.70805020110221
+1361,parteilos (-),"('markant', 'ungleichbehandl')",2.70805020110221
+1362,parteilos (-),"('bewahr', 'nehm')",2.70805020110221
+1363,parteilos (-),"('nehm', 'sozial')",2.70805020110221
+1364,parteilos (-),"('tun', 'weiterfahr')",2.70805020110221
+1365,parteilos (-),"('bish', 'mensch')",2.70805020110221
+1366,parteilos (-),"('sturz', 'freiheit')",2.70805020110221
+1367,parteilos (-),"('kampf', 'nein')",2.70805020110221
+1368,parteilos (-),"('nein', 'strass')",2.70805020110221
+1369,parteilos (-),"('anteil', 'fortschritt')",2.70805020110221
+1370,parteilos (-),"('fortschritt', 'einzuford')",2.70805020110221
+1371,parteilos (-),"('einzuford', 'schweiz')",2.70805020110221
+1372,parteilos (-),"('fried', 'sozial')",2.70805020110221
+1373,parteilos (-),"('gefahrdet', 'gewerkschaft')",2.70805020110221
+1374,parteilos (-),"('gewerkschaft', 'mitglied')",2.70805020110221
+1375,parteilos (-),"('mitglied', 'kontroll')",2.70805020110221
+1376,parteilos (-),"('kontroll', 'basis')",2.70805020110221
+1377,parteilos (-),"('basis', 'brodelt')",2.70805020110221
+1378,parteilos (-),"('brodelt', 'mensch')",2.70805020110221
+1379,parteilos (-),"('hart', 'leist')",2.70805020110221
+1380,parteilos (-),"('lohn', 'gutgeht')",2.70805020110221
+1381,parteilos (-),"('gutgeht', 'krieg')",2.70805020110221
+1382,parteilos (-),"('krieg', 'teuerungsausgleich')",2.70805020110221
+1383,parteilos (-),"('teuerungsausgleich', 'anstieg')",2.70805020110221
+1384,parteilos (-),"('krankenkassenprami', 'gedeckt')",2.70805020110221
+1385,parteilos (-),"('krieg', 'arbeitsproduktivitat')",2.70805020110221
+1386,parteilos (-),"('arbeitsproduktivitat', 'rund')",2.70805020110221
+1387,parteilos (-),"('war', 'lohnentwickl')",2.70805020110221
+1388,parteilos (-),"('lohnentwickl', 'fruh')",2.70805020110221
+1389,parteilos (-),"('fruh', 'modell')",2.70805020110221
+1390,parteilos (-),"('modell', 'gefolgt')",2.70805020110221
+1391,parteilos (-),"('war', 'reallohn')",2.70805020110221
+1392,parteilos (-),"('reallohn', 'heut')",2.70805020110221
+1393,parteilos (-),"('hoh', 'fruh')",2.70805020110221
+1394,parteilos (-),"('wurd', 'produktivitatsfortschritt')",2.70805020110221
+1395,parteilos (-),"('produktivitatsfortschritt', 'namlich')",2.70805020110221
+1396,parteilos (-),"('lohn', 'verbesser')",2.70805020110221
+1397,parteilos (-),"('arbeitsbeding', 'eingesetzt')",2.70805020110221
+1398,parteilos (-),"('richtig', 'arbeiterinn')",2.70805020110221
+1399,parteilos (-),"('anspruch', 'halft')",2.70805020110221
+1400,parteilos (-),"('halft', 'produktivitatsfortschritt')",2.70805020110221
+1401,parteilos (-),"('erhielt', 'meist')",2.70805020110221
+1402,parteilos (-),"('mehr', 'reallohn')",2.70805020110221
+1403,parteilos (-),"('reallohn', 'viel')",2.70805020110221
+1404,parteilos (-),"('mensch', 'tieflohnbereich')",2.70805020110221
+1405,parteilos (-),"('teuerungsausgleich', 'erhalt')",2.70805020110221
+1406,parteilos (-),"('erhalt', 'verdient')",2.70805020110221
+1407,parteilos (-),"('freizeit', 'zunehm')",2.70805020110221
+1408,parteilos (-),"('stress', 'erhol')",2.70805020110221
+1409,parteilos (-),"('erhol', 'feri')",2.70805020110221
+1410,parteilos (-),"('mehr', 'nic')",2.70805020110221
+1411,parteilos (-),"('hav', 'feri')",2.70805020110221
+1412,parteilos (-),"('feri', 'menschenrecht')",2.70805020110221
+1413,parteilos (-),"('menschenrecht', 'gibt')",2.70805020110221
