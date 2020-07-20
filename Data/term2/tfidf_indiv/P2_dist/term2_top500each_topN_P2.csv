@@ -1,0 +1,1001 @@
+,Speaker Party,Phrase,tf_idf
+0,Schweizerische Volkspartei (SVP),"('svpfraktion', 'unterstutzt')",61.69009906983513
+1,Schweizerische Volkspartei (SVP),"('svpfraktion', 'lehnt')",28.419034402957756
+2,Schweizerische Volkspartei (SVP),"('svpfraktion', 'mind')",22.18070977791825
+3,Schweizerische Volkspartei (SVP),"('svpfraktion', 'bittet')",21.487562597358306
+4,Schweizerische Volkspartei (SVP),"('svpfraktion', 'beantragt')",21.487562597358306
+5,Schweizerische Volkspartei (SVP),"('svpfraktion', 'beantrag')",15.249237972318797
+6,Schweizerische Volkspartei (SVP),"('illegal', 'anwes')",15.249237972318797
+7,Schweizerische Volkspartei (SVP),"('svpfraktion', 'artikel')",15.249237972318797
+8,Schweizerische Volkspartei (SVP),"('sag', 'fall')",12.476649250079015
+9,Schweizerische Volkspartei (SVP),"('svpfraktion', 'empfiehlt')",11.78350206951907
+10,Schweizerische Volkspartei (SVP),"('sicht', 'svpfraktion')",11.090354888959125
+11,Schweizerische Volkspartei (SVP),"('neu', 'auflag')",11.090354888959125
+12,Schweizerische Volkspartei (SVP),"('terrorist', 'straftat')",11.090354888959125
+13,Schweizerische Volkspartei (SVP),"('geschaftsbericht', 'bundesrat')",10.39720770839918
+14,Schweizerische Volkspartei (SVP),"('bundesamt', 'baut')",10.39720770839918
+15,Schweizerische Volkspartei (SVP),"('baut', 'logist')",10.39720770839918
+16,Schweizerische Volkspartei (SVP),"('schutz', 'eigentum')",10.39720770839918
+17,Schweizerische Volkspartei (SVP),"('subkommission', 'ediuvek')",10.39720770839918
+18,Schweizerische Volkspartei (SVP),"('besteh', 'gebaud')",9.704060527839234
+19,Schweizerische Volkspartei (SVP),"('svpfraktion', 'klar')",9.704060527839234
+20,Schweizerische Volkspartei (SVP),"('gesamtwirtschaft', 'interess')",9.704060527839234
+21,Schweizerische Volkspartei (SVP),"('heutig', 'losung')",9.704060527839234
+22,Schweizerische Volkspartei (SVP),"('rahm', 'eintret')",9.704060527839234
+23,Schweizerische Volkspartei (SVP),"('link', 'ratsseit')",9.704060527839234
+24,Schweizerische Volkspartei (SVP),"('zwangsweis', 'ruckfuhr')",9.704060527839234
+25,Schweizerische Volkspartei (SVP),"('fursorger', 'freiheitsentzug')",9.704060527839234
+26,Schweizerische Volkspartei (SVP),"('auftrag', 'arme')",9.010913347279288
+27,Schweizerische Volkspartei (SVP),"('stuf', 'bund')",9.010913347279288
+28,Schweizerische Volkspartei (SVP),"('bundesrat', 'besteht')",9.010913347279288
+29,Schweizerische Volkspartei (SVP),"('fruh', 'zeit')",9.010913347279288
+30,Schweizerische Volkspartei (SVP),"('ja', 'leut')",9.010913347279288
+31,Schweizerische Volkspartei (SVP),"('frau', 'brunn')",9.010913347279288
+32,Schweizerische Volkspartei (SVP),"('intern', 'kontrollsyst')",9.010913347279288
+33,Schweizerische Volkspartei (SVP),"('militarversicher', 'suva')",9.010913347279288
+34,Schweizerische Volkspartei (SVP),"('direkt', 'aktiv')",9.010913347279288
+35,Schweizerische Volkspartei (SVP),"('ausserhalb', 'europa')",9.010913347279288
+36,Schweizerische Volkspartei (SVP),"('svpfraktion', 'unterstutz')",9.010913347279288
+37,Schweizerische Volkspartei (SVP),"('mehr', 'bedeut')",8.317766166719343
+38,Schweizerische Volkspartei (SVP),"('davon', 'abweich')",8.317766166719343
+39,Schweizerische Volkspartei (SVP),"('recht', 'herzlich')",8.317766166719343
+40,Schweizerische Volkspartei (SVP),"('natur', 'moglich')",8.317766166719343
+41,Schweizerische Volkspartei (SVP),"('herr', 'daguet')",8.317766166719343
+42,Schweizerische Volkspartei (SVP),"('borsenkotiert', 'gesellschaft')",8.317766166719343
+43,Schweizerische Volkspartei (SVP),"('kolleg', 'rechstein')",8.317766166719343
+44,Schweizerische Volkspartei (SVP),"('kreisschreib', 'nr')",8.317766166719343
+45,Schweizerische Volkspartei (SVP),"('sica', 'fix')",8.317766166719343
+46,Schweizerische Volkspartei (SVP),"('svpfraktion', 'empfehl')",8.317766166719343
+47,Schweizerische Volkspartei (SVP),"('ausserordent', 'gefahr')",8.317766166719343
+48,Schweizerische Volkspartei (SVP),"('sei', 'volkerrechtswidr')",8.317766166719343
+49,Schweizerische Volkspartei (SVP),"('waff', 'besitz')",7.6246189861593985
+50,Schweizerische Volkspartei (SVP),"('bundesrat', 'legt')",7.6246189861593985
+51,Schweizerische Volkspartei (SVP),"('sicht', 'svp')",7.6246189861593985
+52,Schweizerische Volkspartei (SVP),"('nam', 'gpk')",7.6246189861593985
+53,Schweizerische Volkspartei (SVP),"('kolleg', 'funfschilling')",7.6246189861593985
+54,Schweizerische Volkspartei (SVP),"('beantragt', 'initiativ')",7.6246189861593985
+55,Schweizerische Volkspartei (SVP),"('aufgab', 'ausgab')",7.6246189861593985
+56,Schweizerische Volkspartei (SVP),"('gibt', 'person')",7.6246189861593985
+57,Schweizerische Volkspartei (SVP),"('herr', 'link')",7.6246189861593985
+58,Schweizerische Volkspartei (SVP),"('elektron', 'lotteri')",7.6246189861593985
+59,Schweizerische Volkspartei (SVP),"('funf', 'monat')",7.6246189861593985
+60,Schweizerische Volkspartei (SVP),"('natur', 'relativ')",7.6246189861593985
+61,Schweizerische Volkspartei (SVP),"('betrieb', 'arbeitsplatz')",7.6246189861593985
+62,Schweizerische Volkspartei (SVP),"('person', 'uberzeugt')",7.6246189861593985
+63,Schweizerische Volkspartei (SVP),"('allgemein', 'luftfahrt')",7.6246189861593985
+64,Schweizerische Volkspartei (SVP),"('svpfraktion', 'steht')",7.6246189861593985
+65,Schweizerische Volkspartei (SVP),"('kanton', 'sach')",6.931471805599453
+66,Schweizerische Volkspartei (SVP),"('notig', 'macht')",6.931471805599453
+67,Schweizerische Volkspartei (SVP),"('pruf', 'allenfall')",6.931471805599453
+68,Schweizerische Volkspartei (SVP),"('zahlreich', 'kanton')",6.931471805599453
+69,Schweizerische Volkspartei (SVP),"('frank', 'plus')",6.931471805599453
+70,Schweizerische Volkspartei (SVP),"('antrag', 'reimann')",6.931471805599453
+71,Schweizerische Volkspartei (SVP),"('furstentum', 'liechtenstein')",6.931471805599453
+72,Schweizerische Volkspartei (SVP),"('haus', 'aussenwirtschaftsforder')",6.931471805599453
+73,Schweizerische Volkspartei (SVP),"('gerad', 'fall')",6.931471805599453
+74,Schweizerische Volkspartei (SVP),"('separat', 'vorlag')",6.931471805599453
+75,Schweizerische Volkspartei (SVP),"('bedeut', 'fall')",6.931471805599453
+76,Schweizerische Volkspartei (SVP),"('bemerk', 'anzubring')",6.931471805599453
+77,Schweizerische Volkspartei (SVP),"('gericht', 'beurteil')",6.931471805599453
+78,Schweizerische Volkspartei (SVP),"('durchaus', 'denkbar')",6.931471805599453
+79,Schweizerische Volkspartei (SVP),"('bundesgerichtsgesetz', 'verwaltungsgerichtsgesetz')",6.931471805599453
+80,Schweizerische Volkspartei (SVP),"('fall', 'geb')",6.931471805599453
+81,Schweizerische Volkspartei (SVP),"('laufend', 'rechnung')",6.931471805599453
+82,Schweizerische Volkspartei (SVP),"('aufmerksam', 'geschenkt')",6.931471805599453
+83,Schweizerische Volkspartei (SVP),"('kunftig', 'gewinn')",6.931471805599453
+84,Schweizerische Volkspartei (SVP),"('vot', 'électroniqu')",6.931471805599453
+85,Schweizerische Volkspartei (SVP),"('medizin', 'indikation')",6.931471805599453
+86,Schweizerische Volkspartei (SVP),"('besteht', 'schon')",6.931471805599453
+87,Schweizerische Volkspartei (SVP),"('sei', 'verfassungsmass')",6.931471805599453
+88,Schweizerische Volkspartei (SVP),"('kanton', 'meinung')",6.931471805599453
+89,Schweizerische Volkspartei (SVP),"('klar', 'zielsetz')",6.931471805599453
+90,Schweizerische Volkspartei (SVP),"('europa', 'patentubereinkomm')",6.931471805599453
+91,Schweizerische Volkspartei (SVP),"('aufheb', 'lex')",6.931471805599453
+92,Schweizerische Volkspartei (SVP),"('minus', 'milliard')",6.931471805599453
+93,Schweizerische Volkspartei (SVP),"('wiederkehr', 'ausgab')",6.931471805599453
+94,Schweizerische Volkspartei (SVP),"('zustand', 'kantonal')",6.238324625039508
+95,Schweizerische Volkspartei (SVP),"('militar', 'angriff')",6.238324625039508
+96,Schweizerische Volkspartei (SVP),"('mehrkost', 'million')",6.238324625039508
+97,Schweizerische Volkspartei (SVP),"('ausfuhr', 'kommissionsprasident')",6.238324625039508
+98,Schweizerische Volkspartei (SVP),"('geandert', 'rustungsprogramm')",6.238324625039508
+99,Schweizerische Volkspartei (SVP),"('grund', 'svpfraktion')",6.238324625039508
+100,Schweizerische Volkspartei (SVP),"('beantragt', 'parlamentar')",6.238324625039508
+101,Schweizerische Volkspartei (SVP),"('ausserordent', 'ausgab')",6.238324625039508
+102,Schweizerische Volkspartei (SVP),"('inland', 'produktion')",6.238324625039508
+103,Schweizerische Volkspartei (SVP),"('besond', 'bestimm')",6.238324625039508
+104,Schweizerische Volkspartei (SVP),"('natur', 'problemat')",6.238324625039508
+105,Schweizerische Volkspartei (SVP),"('neu', 'grundsatz')",6.238324625039508
+106,Schweizerische Volkspartei (SVP),"('beim', 'asylgesetz')",6.238324625039508
+107,Schweizerische Volkspartei (SVP),"('zusatz', 'milliard')",6.238324625039508
+108,Schweizerische Volkspartei (SVP),"('staatlich', 'verordnet')",6.238324625039508
+109,Schweizerische Volkspartei (SVP),"('person', 'ganz')",6.238324625039508
+110,Schweizerische Volkspartei (SVP),"('nachhalt', 'sanier')",6.238324625039508
+111,Schweizerische Volkspartei (SVP),"('prasident', 'beschwerdekamm')",6.238324625039508
+112,Schweizerische Volkspartei (SVP),"('wer', 'tragt')",6.238324625039508
+113,Schweizerische Volkspartei (SVP),"('prozent', 'ertrag')",6.238324625039508
+114,Schweizerische Volkspartei (SVP),"('wachstum', 'ausgab')",6.238324625039508
+115,Schweizerische Volkspartei (SVP),"('problem', 'ahv')",6.238324625039508
+116,Schweizerische Volkspartei (SVP),"('assoziier', 'scheng')",6.238324625039508
+117,Schweizerische Volkspartei (SVP),"('anerkenn', 'schengenvisum')",6.238324625039508
+118,Schweizerische Volkspartei (SVP),"('kantonal', 'angeleg')",6.238324625039508
+119,Schweizerische Volkspartei (SVP),"('tatbestand', 'indirekt')",6.238324625039508
+120,Schweizerische Volkspartei (SVP),"('staat', 'sozialwerk')",6.238324625039508
+121,Schweizerische Volkspartei (SVP),"('fisch', 'vogel')",6.238324625039508
+122,Schweizerische Volkspartei (SVP),"('nothilf', 'bezieh')",6.238324625039508
+123,Schweizerische Volkspartei (SVP),"('chef', 'arme')",5.545177444479562
+124,Schweizerische Volkspartei (SVP),"('biolog', 'landbau')",5.545177444479562
+125,Schweizerische Volkspartei (SVP),"('kriminell', 'handlung')",5.545177444479562
+126,Schweizerische Volkspartei (SVP),"('kollegin', 'leutenegg')",5.545177444479562
+127,Schweizerische Volkspartei (SVP),"('amtlich', 'vermess')",5.545177444479562
+128,Schweizerische Volkspartei (SVP),"('teilweis', 'sogar')",5.545177444479562
+129,Schweizerische Volkspartei (SVP),"('ebenfall', 'eintret')",5.545177444479562
+130,Schweizerische Volkspartei (SVP),"('kanton', 'sagt')",5.545177444479562
+131,Schweizerische Volkspartei (SVP),"('erfahr', 'sammeln')",5.545177444479562
+132,Schweizerische Volkspartei (SVP),"('natur', 'neu')",5.545177444479562
+133,Schweizerische Volkspartei (SVP),"('bundesrat', 'anfang')",5.545177444479562
+134,Schweizerische Volkspartei (SVP),"('natur', 'schnell')",5.545177444479562
+135,Schweizerische Volkspartei (SVP),"('markt', 'ausgesetzt')",5.545177444479562
+136,Schweizerische Volkspartei (SVP),"('bundesrat', 'abweich')",5.545177444479562
+137,Schweizerische Volkspartei (SVP),"('zwingend', 'grund')",5.545177444479562
+138,Schweizerische Volkspartei (SVP),"('allgemein', 'polit')",5.545177444479562
+139,Schweizerische Volkspartei (SVP),"('jemand', 'land')",5.545177444479562
+140,Schweizerische Volkspartei (SVP),"('schweizer', 'zivilprozessordn')",5.545177444479562
+141,Schweizerische Volkspartei (SVP),"('flexibl', 'arbeitsmarkt')",5.545177444479562
+142,Schweizerische Volkspartei (SVP),"('frag', 'nationalrat')",5.545177444479562
+143,Schweizerische Volkspartei (SVP),"('innerhalb', 'kommission')",5.545177444479562
+144,Schweizerische Volkspartei (SVP),"('neu', 'gegeb')",5.545177444479562
+145,Schweizerische Volkspartei (SVP),"('absatz', 'dbg')",5.545177444479562
+146,Schweizerische Volkspartei (SVP),"('bundesrat', 'vorlieg')",5.545177444479562
+147,Schweizerische Volkspartei (SVP),"('kanton', 'tatig')",5.545177444479562
+148,Schweizerische Volkspartei (SVP),"('beschaff', 'geni')",5.545177444479562
+149,Schweizerische Volkspartei (SVP),"('ausgab', 'bereich')",5.545177444479562
+150,Schweizerische Volkspartei (SVP),"('staatlich', 'vorschrift')",5.545177444479562
+151,Schweizerische Volkspartei (SVP),"('natur', 'landschaftsschutz')",5.545177444479562
+152,Schweizerische Volkspartei (SVP),"('jedoch', 'weit')",5.545177444479562
+153,Schweizerische Volkspartei (SVP),"('finanz', 'steu')",5.545177444479562
+154,Schweizerische Volkspartei (SVP),"('bundesrat', 'abgelehnt')",5.545177444479562
+155,Schweizerische Volkspartei (SVP),"('europarat', 'osz')",5.545177444479562
+156,Schweizerische Volkspartei (SVP),"('tragt', 'kost')",5.545177444479562
+157,Schweizerische Volkspartei (SVP),"('kommissionsmehr', 'parlamentar')",5.545177444479562
+158,Schweizerische Volkspartei (SVP),"('volksinitiativ', 'ablehn')",5.545177444479562
+159,Schweizerische Volkspartei (SVP),"('begrund', 'mind')",5.545177444479562
+160,Schweizerische Volkspartei (SVP),"('frau', 'rothbernasconi')",5.545177444479562
+161,Schweizerische Volkspartei (SVP),"('doppelspur', 'vermeid')",5.545177444479562
+162,Schweizerische Volkspartei (SVP),"('gleich', 'betrag')",5.545177444479562
+163,Schweizerische Volkspartei (SVP),"('jahr', 'richtig')",5.545177444479562
+164,Schweizerische Volkspartei (SVP),"('souveranitat', 'kanton')",5.545177444479562
+165,Schweizerische Volkspartei (SVP),"('klar', 'unterscheid')",5.545177444479562
+166,Schweizerische Volkspartei (SVP),"('verschied', 'redn')",5.545177444479562
+167,Schweizerische Volkspartei (SVP),"('gesetz', 'bitt')",5.545177444479562
+168,Schweizerische Volkspartei (SVP),"('frag', 'interpellation')",5.545177444479562
+169,Schweizerische Volkspartei (SVP),"('bund', 'wurd')",5.545177444479562
+170,Schweizerische Volkspartei (SVP),"('kanton', 'mindest')",5.545177444479562
+171,Schweizerische Volkspartei (SVP),"('neu', 'uberpruf')",5.545177444479562
+172,Schweizerische Volkspartei (SVP),"('bereit', 'finanzplan')",5.545177444479562
+173,Schweizerische Volkspartei (SVP),"('hammerl', 'gesagt')",5.545177444479562
+174,Schweizerische Volkspartei (SVP),"('gross', 'kamm')",5.545177444479562
+175,Schweizerische Volkspartei (SVP),"('weit', 'ausbau')",5.545177444479562
+176,Schweizerische Volkspartei (SVP),"('gemacht', 'meinung')",5.545177444479562
+177,Schweizerische Volkspartei (SVP),"('vorlieg', 'gesetzesander')",5.545177444479562
+178,Schweizerische Volkspartei (SVP),"('europa', 'patentsyst')",5.545177444479562
+179,Schweizerische Volkspartei (SVP),"('volksrepubl', 'china')",5.545177444479562
+180,Schweizerische Volkspartei (SVP),"('privat', 'investor')",5.545177444479562
+181,Schweizerische Volkspartei (SVP),"('kommerziell', 'inbetriebnahm')",5.545177444479562
+182,Schweizerische Volkspartei (SVP),"('obligator', 'mediation')",5.545177444479562
+183,Schweizerische Volkspartei (SVP),"('neu', 'gewahlt')",5.545177444479562
+184,Schweizerische Volkspartei (SVP),"('paralandwirtschaft', 'tatig')",5.545177444479562
+185,Schweizerische Volkspartei (SVP),"('konnt', 'vorlag')",5.545177444479562
+186,Schweizerische Volkspartei (SVP),"('steuerho', 'kanton')",5.545177444479562
+187,Schweizerische Volkspartei (SVP),"('wicki', 'gesagt')",5.545177444479562
+188,Schweizerische Volkspartei (SVP),"('neu', 'finanzordn')",5.545177444479562
+189,Schweizerische Volkspartei (SVP),"('bess', 'integration')",5.545177444479562
+190,Schweizerische Volkspartei (SVP),"('wirkung', 'ziel')",5.545177444479562
+191,Schweizerische Volkspartei (SVP),"('leut', 'haus')",5.545177444479562
+192,Schweizerische Volkspartei (SVP),"('finanzkommission', 'folg')",5.545177444479562
+193,Schweizerische Volkspartei (SVP),"('aktiv', 'mitwirk')",5.545177444479562
+194,Schweizerische Volkspartei (SVP),"('sexual', 'gewaltstraftat')",5.545177444479562
+195,Schweizerische Volkspartei (SVP),"('darum', 'nam')",5.545177444479562
+196,Schweizerische Volkspartei (SVP),"('hochstsatz', 'prozent')",5.545177444479562
+197,Schweizerische Volkspartei (SVP),"('papi', 'kommt')",5.545177444479562
+198,Schweizerische Volkspartei (SVP),"('lang', 'bleib')",5.545177444479562
+199,Schweizerische Volkspartei (SVP),"('svpfraktion', 'fordert')",5.545177444479562
+200,Schweizerische Volkspartei (SVP),"('entgegenzunehm', 'antrag')",5.545177444479562
+201,Schweizerische Volkspartei (SVP),"('polit', 'wesent')",5.545177444479562
+202,Schweizerische Volkspartei (SVP),"('beim', 'waffengesetz')",5.545177444479562
+203,Schweizerische Volkspartei (SVP),"('beantragt', 'svpfraktion')",5.545177444479562
+204,Schweizerische Volkspartei (SVP),"('grupp', 'sport')",5.545177444479562
+205,Schweizerische Volkspartei (SVP),"('streng', 'massstab')",5.545177444479562
+206,Schweizerische Volkspartei (SVP),"('neu', 'ostland')",5.545177444479562
+207,Schweizerische Volkspartei (SVP),"('bittet', 'svpfraktion')",5.545177444479562
+208,Schweizerische Volkspartei (SVP),"('fassung', 'einverstand')",5.545177444479562
+209,Schweizerische Volkspartei (SVP),"('absenk', 'technisch')",5.545177444479562
+210,Schweizerische Volkspartei (SVP),"('papi', 'komm')",5.545177444479562
+211,Schweizerische Volkspartei (SVP),"('nehm', 'fall')",4.852030263919617
+212,Schweizerische Volkspartei (SVP),"('gemacht', 'seit')",4.852030263919617
+213,Schweizerische Volkspartei (SVP),"('gewiss', 'sympathi')",4.852030263919617
+214,Schweizerische Volkspartei (SVP),"('forschungsstell', 'sicherheitspolit')",4.852030263919617
+215,Schweizerische Volkspartei (SVP),"('wer', 'verantwort')",4.852030263919617
+216,Schweizerische Volkspartei (SVP),"('absatz', 'militargesetz')",4.852030263919617
+217,Schweizerische Volkspartei (SVP),"('frank', 'reduzi')",4.852030263919617
+218,Schweizerische Volkspartei (SVP),"('mind', 'svpfraktion')",4.852030263919617
+219,Schweizerische Volkspartei (SVP),"('verbind', 'form')",4.852030263919617
+220,Schweizerische Volkspartei (SVP),"('frank', 'reduziert')",4.852030263919617
+221,Schweizerische Volkspartei (SVP),"('realitat', 'aug')",4.852030263919617
+222,Schweizerische Volkspartei (SVP),"('land', 'natur')",4.852030263919617
+223,Schweizerische Volkspartei (SVP),"('weiterhin', 'gross')",4.852030263919617
+224,Schweizerische Volkspartei (SVP),"('abgab', 'waff')",4.852030263919617
+225,Schweizerische Volkspartei (SVP),"('wesent', 'lang')",4.852030263919617
+226,Schweizerische Volkspartei (SVP),"('komm', 'zwei')",4.852030263919617
+227,Schweizerische Volkspartei (SVP),"('jemand', 'sag')",4.852030263919617
+228,Schweizerische Volkspartei (SVP),"('frag', 'aufgetaucht')",4.852030263919617
+229,Schweizerische Volkspartei (SVP),"('bundesrat', 'bittet')",4.852030263919617
+230,Schweizerische Volkspartei (SVP),"('fall', 'einfach')",4.852030263919617
+231,Schweizerische Volkspartei (SVP),"('usw', 'darum')",4.852030263919617
+232,Schweizerische Volkspartei (SVP),"('svpfraktion', 'grossmehrheit')",4.852030263919617
+233,Schweizerische Volkspartei (SVP),"('kost', 'steig')",4.852030263919617
+234,Schweizerische Volkspartei (SVP),"('geh', 'einfach')",4.852030263919617
+235,Schweizerische Volkspartei (SVP),"('administrativ', 'massnahm')",4.852030263919617
+236,Schweizerische Volkspartei (SVP),"('cvpfraktion', 'stimmt')",4.852030263919617
+237,Schweizerische Volkspartei (SVP),"('artikel', 'nationalrat')",4.852030263919617
+238,Schweizerische Volkspartei (SVP),"('ebenfall', 'annahm')",4.852030263919617
+239,Schweizerische Volkspartei (SVP),"('unterhalt', 'erneuer')",4.852030263919617
+240,Schweizerische Volkspartei (SVP),"('gemeinsam', 'ermittlungsgrupp')",4.852030263919617
+241,Schweizerische Volkspartei (SVP),"('rahm', 'teuer')",4.852030263919617
+242,Schweizerische Volkspartei (SVP),"('erd', 'flussiggas')",4.852030263919617
+243,Schweizerische Volkspartei (SVP),"('franzos', 'text')",4.852030263919617
+244,Schweizerische Volkspartei (SVP),"('wurd', 'motion')",4.852030263919617
+245,Schweizerische Volkspartei (SVP),"('jahr', 'stimm')",4.852030263919617
+246,Schweizerische Volkspartei (SVP),"('bundesrat', 'ledig')",4.852030263919617
+247,Schweizerische Volkspartei (SVP),"('elektr', 'energi')",4.852030263919617
+248,Schweizerische Volkspartei (SVP),"('fehlt', 'klar')",4.852030263919617
+249,Schweizerische Volkspartei (SVP),"('einheit', 'leitung')",4.852030263919617
+250,Schweizerische Volkspartei (SVP),"('psychisch', 'storung')",4.852030263919617
+251,Schweizerische Volkspartei (SVP),"('vorrecht', 'immunitat')",4.852030263919617
+252,Schweizerische Volkspartei (SVP),"('serbi', 'montenegro')",4.852030263919617
+253,Schweizerische Volkspartei (SVP),"('grundstuck', 'baut')",4.852030263919617
+254,Schweizerische Volkspartei (SVP),"('klar', 'lini')",4.852030263919617
+255,Schweizerische Volkspartei (SVP),"('antrag', 'eingebracht')",4.852030263919617
+256,Schweizerische Volkspartei (SVP),"('dabei', 'folgend')",4.852030263919617
+257,Schweizerische Volkspartei (SVP),"('bleib', 'mehrheit')",4.852030263919617
+258,Schweizerische Volkspartei (SVP),"('dritt', 'botschaft')",4.852030263919617
+259,Schweizerische Volkspartei (SVP),"('neu', 'art')",4.852030263919617
+260,Schweizerische Volkspartei (SVP),"('struktur', 'schweiz')",4.852030263919617
+261,Schweizerische Volkspartei (SVP),"('darf', 'weit')",4.852030263919617
+262,Schweizerische Volkspartei (SVP),"('streichung', 'bestimm')",4.852030263919617
+263,Schweizerische Volkspartei (SVP),"('dah', 'beantragt')",4.852030263919617
+264,Schweizerische Volkspartei (SVP),"('zwei', 'abkomm')",4.852030263919617
+265,Schweizerische Volkspartei (SVP),"('einfach', 'transparent')",4.852030263919617
+266,Schweizerische Volkspartei (SVP),"('gross', 'fall')",4.852030263919617
+267,Schweizerische Volkspartei (SVP),"('staatlich', 'regel')",4.852030263919617
+268,Schweizerische Volkspartei (SVP),"('darum', 'empfehl')",4.852030263919617
+269,Schweizerische Volkspartei (SVP),"('land', 'ausserhalb')",4.852030263919617
+270,Schweizerische Volkspartei (SVP),"('regist', 'eingetrag')",4.852030263919617
+271,Schweizerische Volkspartei (SVP),"('abgesichert', 'stromversorg')",4.852030263919617
+272,Schweizerische Volkspartei (SVP),"('franz', 'wicki')",4.852030263919617
+273,Schweizerische Volkspartei (SVP),"('gpk', 'bericht')",4.852030263919617
+274,Schweizerische Volkspartei (SVP),"('stark', 'kritisiert')",4.852030263919617
+275,Schweizerische Volkspartei (SVP),"('steiger', 'prozent')",4.852030263919617
+276,Schweizerische Volkspartei (SVP),"('hor', 'richtig')",4.852030263919617
+277,Schweizerische Volkspartei (SVP),"('war', 'darum')",4.852030263919617
+278,Schweizerische Volkspartei (SVP),"('sich', 'mocht')",4.852030263919617
+279,Schweizerische Volkspartei (SVP),"('antrag', 'sut')",4.852030263919617
+280,Schweizerische Volkspartei (SVP),"('verletz', 'bundesrecht')",4.852030263919617
+281,Schweizerische Volkspartei (SVP),"('find', 'bitt')",4.852030263919617
+282,Schweizerische Volkspartei (SVP),"('sieht', 'natur')",4.852030263919617
+283,Schweizerische Volkspartei (SVP),"('sech', 'acht')",4.852030263919617
+284,Schweizerische Volkspartei (SVP),"('sei', 'verfassungswidr')",4.852030263919617
+285,Schweizerische Volkspartei (SVP),"('jahr', 'natur')",4.852030263919617
+286,Schweizerische Volkspartei (SVP),"('erteil', 'niederlassungsbewill')",4.852030263919617
+287,Schweizerische Volkspartei (SVP),"('zwingend', 'erford')",4.852030263919617
+288,Schweizerische Volkspartei (SVP),"('ander', 'urheberrechtsgesetz')",4.852030263919617
+289,Schweizerische Volkspartei (SVP),"('landwirtschaft', 'rohstoff')",4.852030263919617
+290,Schweizerische Volkspartei (SVP),"('deshalb', 'vorlieg')",4.852030263919617
+291,Schweizerische Volkspartei (SVP),"('gegeb', 'sag')",4.852030263919617
+292,Schweizerische Volkspartei (SVP),"('war', 'zweifellos')",4.852030263919617
+293,Schweizerische Volkspartei (SVP),"('erwerb', 'waff')",4.852030263919617
+294,Schweizerische Volkspartei (SVP),"('zuzustimm', 'glaub')",4.852030263919617
+295,Schweizerische Volkspartei (SVP),"('gefahr', 'natur')",4.852030263919617
+296,Schweizerische Volkspartei (SVP),"('wechsel', 'beitragsprimat')",4.852030263919617
+297,Schweizerische Volkspartei (SVP),"('wunsch', 'geaussert')",4.852030263919617
+298,Schweizerische Volkspartei (SVP),"('geteilt', 'verantwort')",4.852030263919617
+299,Schweizerische Volkspartei (SVP),"('grund', 'stammkapital')",4.852030263919617
+300,Schweizerische Volkspartei (SVP),"('indizi', 'dafur')",4.852030263919617
+301,Schweizerische Volkspartei (SVP),"('bereich', 'ebenfall')",4.852030263919617
+302,Schweizerische Volkspartei (SVP),"('recht', 'eben')",4.852030263919617
+303,Schweizerische Volkspartei (SVP),"('sicherheitspolit', 'eth')",4.852030263919617
+304,Schweizerische Volkspartei (SVP),"('zins', 'bezahl')",4.852030263919617
+305,Schweizerische Volkspartei (SVP),"('asylrelevant', 'grund')",4.852030263919617
+306,Schweizerische Volkspartei (SVP),"('schweizer', 'anwaltsverband')",4.852030263919617
+307,Schweizerische Volkspartei (SVP),"('rechn', 'war')",4.852030263919617
+308,Schweizerische Volkspartei (SVP),"('standerat', 'bess')",4.852030263919617
+309,Schweizerische Volkspartei (SVP),"('benotigt', 'goldreserv')",4.852030263919617
+310,Schweizerische Volkspartei (SVP),"('klar', 'situation')",4.852030263919617
+311,Schweizerische Volkspartei (SVP),"('grundsatz', 'anlieg')",4.852030263919617
+312,Schweizerische Volkspartei (SVP),"('senkung', 'mehrwertsteu')",4.852030263919617
+313,Schweizerische Volkspartei (SVP),"('neu', 'bundesaufgab')",4.852030263919617
+314,Schweizerische Volkspartei (SVP),"('herrn', 'strahm')",4.852030263919617
+315,Schweizerische Volkspartei (SVP),"('heut', 'geseh')",4.852030263919617
+316,Schweizerische Volkspartei (SVP),"('ganz', 'spektrum')",4.852030263919617
+317,Schweizerische Volkspartei (SVP),"('gemeinsam', 'sitzung')",4.852030263919617
+318,Schweizerische Volkspartei (SVP),"('abzulehn', 'muss')",4.852030263919617
+319,Schweizerische Volkspartei (SVP),"('grenz', 'zwei')",4.852030263919617
+320,Schweizerische Volkspartei (SVP),"('mundlich', 'schriftlich')",4.852030263919617
+321,Schweizerische Volkspartei (SVP),"('gewerb', 'burgschaftsgenossenschaft')",4.852030263919617
+322,Schweizerische Volkspartei (SVP),"('seh', 'fall')",4.852030263919617
+323,Schweizerische Volkspartei (SVP),"('notig', 'aufmerksam')",4.852030263919617
+324,Schweizerische Volkspartei (SVP),"('gewinn', 'erwirtschaftet')",4.852030263919617
+325,Schweizerische Volkspartei (SVP),"('widerspruch', 'geltend')",4.852030263919617
+326,Schweizerische Volkspartei (SVP),"('hoch', 'selt')",4.852030263919617
+327,Schweizerische Volkspartei (SVP),"('mehrheit', 'bess')",4.852030263919617
+328,Schweizerische Volkspartei (SVP),"('holz', 'biomasseanlag')",4.852030263919617
+329,Schweizerische Volkspartei (SVP),"('klient', 'anwalt')",4.852030263919617
+330,Schweizerische Volkspartei (SVP),"('staat', 'ja')",4.852030263919617
+331,Schweizerische Volkspartei (SVP),"('geb', 'meinung')",4.852030263919617
+332,Schweizerische Volkspartei (SVP),"('pramiensenkungsinitiativ', 'svp')",4.852030263919617
+333,Schweizerische Volkspartei (SVP),"('militar', 'berufspersonal')",4.852030263919617
+334,Schweizerische Volkspartei (SVP),"('kolleg', 'fehr')",4.852030263919617
+335,Schweizerische Volkspartei (SVP),"('weit', 'mittel')",4.852030263919617
+336,Schweizerische Volkspartei (SVP),"('enthalt', 'erst')",4.852030263919617
+337,Schweizerische Volkspartei (SVP),"('monat', 'gedauert')",4.852030263919617
+338,Schweizerische Volkspartei (SVP),"('gemass', 'vertrag')",4.852030263919617
+339,Schweizerische Volkspartei (SVP),"('absatz', 'handelt')",4.852030263919617
+340,Schweizerische Volkspartei (SVP),"('gegeb', 'imm')",4.852030263919617
+341,Schweizerische Volkspartei (SVP),"('staat', 'tun')",4.852030263919617
+342,Schweizerische Volkspartei (SVP),"('polit', 'sicht')",4.852030263919617
+343,Schweizerische Volkspartei (SVP),"('weiss', 'gar')",4.852030263919617
+344,Schweizerische Volkspartei (SVP),"('bekannt', 'grund')",4.852030263919617
+345,Schweizerische Volkspartei (SVP),"('sanier', 'haushalt')",4.852030263919617
+346,Schweizerische Volkspartei (SVP),"('natur', 'ausserordent')",4.852030263919617
+347,Schweizerische Volkspartei (SVP),"('einwand', 'herrn')",4.852030263919617
+348,Schweizerische Volkspartei (SVP),"('fruh', 'recht')",4.852030263919617
+349,Schweizerische Volkspartei (SVP),"('richt', 'wahl')",4.852030263919617
+350,Schweizerische Volkspartei (SVP),"('schwerwieg', 'fall')",4.852030263919617
+351,Schweizerische Volkspartei (SVP),"('bundesrat', 'christoph')",4.852030263919617
+352,Schweizerische Volkspartei (SVP),"('vorschein', 'gekomm')",4.852030263919617
+353,Schweizerische Volkspartei (SVP),"('gebaud', 'landwirtschaftszon')",4.852030263919617
+354,Schweizerische Volkspartei (SVP),"('jung', 'gesetz')",4.852030263919617
+355,Schweizerische Volkspartei (SVP),"('viel', 'asylsuch')",4.852030263919617
+356,Schweizerische Volkspartei (SVP),"('ruckkehrhilf', 'leist')",4.852030263919617
+357,Schweizerische Volkspartei (SVP),"('professor', 'oberson')",4.852030263919617
+358,Schweizerische Volkspartei (SVP),"('frau', 'sialm')",4.852030263919617
+359,Schweizerische Volkspartei (SVP),"('svpfraktion', 'bundesrat')",4.852030263919617
+360,Schweizerische Volkspartei (SVP),"('absatz', 'svpfraktion')",4.852030263919617
+361,Schweizerische Volkspartei (SVP),"('burg', 'uniform')",4.852030263919617
+362,Schweizerische Volkspartei (SVP),"('waff', 'umzugeh')",4.852030263919617
+363,Schweizerische Volkspartei (SVP),"('bess', 'fassung')",4.852030263919617
+364,Schweizerische Volkspartei (SVP),"('fusion', 'spaltung')",4.852030263919617
+365,Schweizerische Volkspartei (SVP),"('mad', 'switzerland')",4.852030263919617
+366,Schweizerische Volkspartei (SVP),"('meinung', 'svpfraktion')",4.852030263919617
+367,Schweizerische Volkspartei (SVP),"('interess', 'klient')",4.852030263919617
+368,Schweizerische Volkspartei (SVP),"('diejen', 'papi')",4.852030263919617
+369,Schweizerische Volkspartei (SVP),"('hoch', 'fragwurd')",4.1588830833596715
+370,Schweizerische Volkspartei (SVP),"('gross', 'einfluss')",4.1588830833596715
+371,Schweizerische Volkspartei (SVP),"('recht', 'waff')",4.1588830833596715
+372,Schweizerische Volkspartei (SVP),"('simulationsunterstutz', 'gefechtsub')",4.1588830833596715
+373,Schweizerische Volkspartei (SVP),"('zwolf', 'geni')",4.1588830833596715
+374,Schweizerische Volkspartei (SVP),"('zahl', 'neu')",4.1588830833596715
+375,Schweizerische Volkspartei (SVP),"('schweizer', 'staatsgebiet')",4.1588830833596715
+376,Schweizerische Volkspartei (SVP),"('frag', 'eben')",4.1588830833596715
+377,Schweizerische Volkspartei (SVP),"('abwehr', 'militar')",4.1588830833596715
+378,Schweizerische Volkspartei (SVP),"('zeit', 'entscheid')",4.1588830833596715
+379,Schweizerische Volkspartei (SVP),"('demokrat', 'meinungsbild')",4.1588830833596715
+380,Schweizerische Volkspartei (SVP),"('derart', 'einsatz')",4.1588830833596715
+381,Schweizerische Volkspartei (SVP),"('raumsicher', 'verteid')",4.1588830833596715
+382,Schweizerische Volkspartei (SVP),"('land', 'entsprech')",4.1588830833596715
+383,Schweizerische Volkspartei (SVP),"('einzutret', 'vorlag')",4.1588830833596715
+384,Schweizerische Volkspartei (SVP),"('sachplan', 'infrastruktur')",4.1588830833596715
+385,Schweizerische Volkspartei (SVP),"('infrastruktur', 'luftfahrt')",4.1588830833596715
+386,Schweizerische Volkspartei (SVP),"('rahm', 'international')",4.1588830833596715
+387,Schweizerische Volkspartei (SVP),"('muss', 'leb')",4.1588830833596715
+388,Schweizerische Volkspartei (SVP),"('fest', 'letzt')",4.1588830833596715
+389,Schweizerische Volkspartei (SVP),"('zweit', 'tranch')",4.1588830833596715
+390,Schweizerische Volkspartei (SVP),"('formell', 'verfahr')",4.1588830833596715
+391,Schweizerische Volkspartei (SVP),"('bundesversamml', 'organisation')",4.1588830833596715
+392,Schweizerische Volkspartei (SVP),"('unternehmer', 'alltag')",4.1588830833596715
+393,Schweizerische Volkspartei (SVP),"('fuhrung', 'aufklar')",4.1588830833596715
+394,Schweizerische Volkspartei (SVP),"('neutral', 'schweiz')",4.1588830833596715
+395,Schweizerische Volkspartei (SVP),"('prozent', 'person')",4.1588830833596715
+396,Schweizerische Volkspartei (SVP),"('gewiss', 'projekt')",4.1588830833596715
+397,Schweizerische Volkspartei (SVP),"('folg', 'geschaft')",4.1588830833596715
+398,Schweizerische Volkspartei (SVP),"('svpfraktion', 'meinung')",4.1588830833596715
+399,Schweizerische Volkspartei (SVP),"('lass', 'darf')",4.1588830833596715
+400,Schweizerische Volkspartei (SVP),"('heut', 'ledig')",4.1588830833596715
+401,Schweizerische Volkspartei (SVP),"('neu', 'verordn')",4.1588830833596715
+402,Schweizerische Volkspartei (SVP),"('erwerb', 'besitz')",4.1588830833596715
+403,Schweizerische Volkspartei (SVP),"('stimmt', 'uberein')",4.1588830833596715
+404,Schweizerische Volkspartei (SVP),"('weiss', 'sag')",4.1588830833596715
+405,Schweizerische Volkspartei (SVP),"('bitt', 'verantwort')",4.1588830833596715
+406,Schweizerische Volkspartei (SVP),"('wirksam', 'mittel')",4.1588830833596715
+407,Schweizerische Volkspartei (SVP),"('gesamtbetrag', 'million')",4.1588830833596715
+408,Schweizerische Volkspartei (SVP),"('entwickl', 'uns')",4.1588830833596715
+409,Schweizerische Volkspartei (SVP),"('betragt', 'rund')",4.1588830833596715
+410,Schweizerische Volkspartei (SVP),"('stellungnahm', 'abgegeb')",4.1588830833596715
+411,Schweizerische Volkspartei (SVP),"('bereich', 'international')",4.1588830833596715
+412,Schweizerische Volkspartei (SVP),"('freiheit', 'land')",4.1588830833596715
+413,Schweizerische Volkspartei (SVP),"('zeit', 'verfug')",4.1588830833596715
+414,Schweizerische Volkspartei (SVP),"('streck', 'bleibt')",4.1588830833596715
+415,Schweizerische Volkspartei (SVP),"('geschaft', 'rat')",4.1588830833596715
+416,Schweizerische Volkspartei (SVP),"('zusatz', 'sich')",4.1588830833596715
+417,Schweizerische Volkspartei (SVP),"('fall', 'sach')",4.1588830833596715
+418,Schweizerische Volkspartei (SVP),"('festzustell', 'bundesrat')",4.1588830833596715
+419,Schweizerische Volkspartei (SVP),"('gleich', 'verhaltnis')",4.1588830833596715
+420,Schweizerische Volkspartei (SVP),"('verweis', 'zusammenhang')",4.1588830833596715
+421,Schweizerische Volkspartei (SVP),"('bleib', 'soll')",4.1588830833596715
+422,Schweizerische Volkspartei (SVP),"('darub', 'geb')",4.1588830833596715
+423,Schweizerische Volkspartei (SVP),"('bzw', 'milliard')",4.1588830833596715
+424,Schweizerische Volkspartei (SVP),"('wurd', 'wesent')",4.1588830833596715
+425,Schweizerische Volkspartei (SVP),"('notwend', 'erachtet')",4.1588830833596715
+426,Schweizerische Volkspartei (SVP),"('probl', 'stellt')",4.1588830833596715
+427,Schweizerische Volkspartei (SVP),"('standerat', 'beantragt')",4.1588830833596715
+428,Schweizerische Volkspartei (SVP),"('besteh', 'zustand')",4.1588830833596715
+429,Schweizerische Volkspartei (SVP),"('moglich', 'beurteil')",4.1588830833596715
+430,Schweizerische Volkspartei (SVP),"('beseit', 'strukturell')",4.1588830833596715
+431,Schweizerische Volkspartei (SVP),"('zugun', 'iv')",4.1588830833596715
+432,Schweizerische Volkspartei (SVP),"('sogar', 'zwei')",4.1588830833596715
+433,Schweizerische Volkspartei (SVP),"('leut', 'integri')",4.1588830833596715
+434,Schweizerische Volkspartei (SVP),"('beantragt', 'diskussion')",4.1588830833596715
+435,Schweizerische Volkspartei (SVP),"('schweizer', 'strafprozessordn')",4.1588830833596715
+436,Schweizerische Volkspartei (SVP),"('absatz', 'sowi')",4.1588830833596715
+437,Schweizerische Volkspartei (SVP),"('kommission', 'erachtet')",4.1588830833596715
+438,Schweizerische Volkspartei (SVP),"('bundesrat', 'eracht')",4.1588830833596715
+439,Schweizerische Volkspartei (SVP),"('verhaltnis', 'bund')",4.1588830833596715
+440,Schweizerische Volkspartei (SVP),"('zugestimmt', 'nationalrat')",4.1588830833596715
+441,Schweizerische Volkspartei (SVP),"('problem', 'bereich')",4.1588830833596715
+442,Schweizerische Volkspartei (SVP),"('geschaft', 'privatvermog')",4.1588830833596715
+443,Schweizerische Volkspartei (SVP),"('artikel', 'regier')",4.1588830833596715
+444,Schweizerische Volkspartei (SVP),"('uns', 'landesregier')",4.1588830833596715
+445,Schweizerische Volkspartei (SVP),"('wohl', 'tier')",4.1588830833596715
+446,Schweizerische Volkspartei (SVP),"('revision', 'natur')",4.1588830833596715
+447,Schweizerische Volkspartei (SVP),"('alt', 'syst')",4.1588830833596715
+448,Schweizerische Volkspartei (SVP),"('artikel', 'rpg')",4.1588830833596715
+449,Schweizerische Volkspartei (SVP),"('kanton', 'ebenfall')",4.1588830833596715
+450,Schweizerische Volkspartei (SVP),"('angefocht', 'entscheid')",4.1588830833596715
+451,Schweizerische Volkspartei (SVP),"('nutz', 'konsument')",4.1588830833596715
+452,Schweizerische Volkspartei (SVP),"('heut', 'recht')",4.1588830833596715
+453,Schweizerische Volkspartei (SVP),"('bundesrat', 'thema')",4.1588830833596715
+454,Schweizerische Volkspartei (SVP),"('kanton', 'gefordert')",4.1588830833596715
+455,Schweizerische Volkspartei (SVP),"('regel', 'gemass')",4.1588830833596715
+456,Schweizerische Volkspartei (SVP),"('nationalrat', 'nochmal')",4.1588830833596715
+457,Schweizerische Volkspartei (SVP),"('schlaf', 'stroh')",4.1588830833596715
+458,Schweizerische Volkspartei (SVP),"('bezug', 'antrag')",4.1588830833596715
+459,Schweizerische Volkspartei (SVP),"('war', 'gesetz')",4.1588830833596715
+460,Schweizerische Volkspartei (SVP),"('sitzung', 'februar')",4.1588830833596715
+461,Schweizerische Volkspartei (SVP),"('motion', 'beauftragt')",4.1588830833596715
+462,Schweizerische Volkspartei (SVP),"('ordnung', 'halb')",4.1588830833596715
+463,Schweizerische Volkspartei (SVP),"('notwend', 'kanton')",4.1588830833596715
+464,Schweizerische Volkspartei (SVP),"('mag', 'vielleicht')",4.1588830833596715
+465,Schweizerische Volkspartei (SVP),"('steht', 'einklang')",4.1588830833596715
+466,Schweizerische Volkspartei (SVP),"('besteht', 'eracht')",4.1588830833596715
+467,Schweizerische Volkspartei (SVP),"('uns', 'sitzung')",4.1588830833596715
+468,Schweizerische Volkspartei (SVP),"('bundesrat', 'gewillt')",4.1588830833596715
+469,Schweizerische Volkspartei (SVP),"('geschaff', 'neu')",4.1588830833596715
+470,Schweizerische Volkspartei (SVP),"('ergibt', 'artikel')",4.1588830833596715
+471,Schweizerische Volkspartei (SVP),"('jedoch', 'gross')",4.1588830833596715
+472,Schweizerische Volkspartei (SVP),"('dau', 'funf')",4.1588830833596715
+473,Schweizerische Volkspartei (SVP),"('liegt', 'neu')",4.1588830833596715
+474,Schweizerische Volkspartei (SVP),"('punkt', 'angelangt')",4.1588830833596715
+475,Schweizerische Volkspartei (SVP),"('artikel', 'zpo')",4.1588830833596715
+476,Schweizerische Volkspartei (SVP),"('ander', 'beim')",4.1588830833596715
+477,Schweizerische Volkspartei (SVP),"('beschwerdekamm', 'bundesstrafgericht')",4.1588830833596715
+478,Schweizerische Volkspartei (SVP),"('leicht', 'verschuld')",4.1588830833596715
+479,Schweizerische Volkspartei (SVP),"('beschaft', 'personal')",4.1588830833596715
+480,Schweizerische Volkspartei (SVP),"('frank', 'umsatz')",4.1588830833596715
+481,Schweizerische Volkspartei (SVP),"('bundesgesetz', 'krankenversicher')",4.1588830833596715
+482,Schweizerische Volkspartei (SVP),"('grossenordn', 'frank')",4.1588830833596715
+483,Schweizerische Volkspartei (SVP),"('kanton', 'erlass')",4.1588830833596715
+484,Schweizerische Volkspartei (SVP),"('hubmann', 'abzulehn')",4.1588830833596715
+485,Schweizerische Volkspartei (SVP),"('anhor', 'kommission')",4.1588830833596715
+486,Schweizerische Volkspartei (SVP),"('aufenthalt', 'niederlass')",4.1588830833596715
+487,Schweizerische Volkspartei (SVP),"('losung', 'leb')",4.1588830833596715
+488,Schweizerische Volkspartei (SVP),"('bundesrat', 'eingesetzt')",4.1588830833596715
+489,Schweizerische Volkspartei (SVP),"('bleib', 'frau')",4.1588830833596715
+490,Schweizerische Volkspartei (SVP),"('seit', 'uns')",4.1588830833596715
+491,Schweizerische Volkspartei (SVP),"('drei', 'viermal')",4.1588830833596715
+492,Schweizerische Volkspartei (SVP),"('ausgab', 'rund')",4.1588830833596715
+493,Schweizerische Volkspartei (SVP),"('meinung', 'bezug')",4.1588830833596715
+494,Schweizerische Volkspartei (SVP),"('drei', 'differenz')",4.1588830833596715
+495,Schweizerische Volkspartei (SVP),"('frag', 'verantwort')",4.1588830833596715
+496,Schweizerische Volkspartei (SVP),"('entwickl', 'vergang')",4.1588830833596715
+497,Schweizerische Volkspartei (SVP),"('lehnt', 'bundesrat')",4.1588830833596715
+498,Schweizerische Volkspartei (SVP),"('geht', 'allgemein')",4.1588830833596715
+499,Schweizerische Volkspartei (SVP),"('uns', 'direkt')",4.1588830833596715
+500,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'bitt')",27.725887222397812
+501,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'mind')",26.33959286127792
+502,Sozialdemokratische Partei der Schweiz (SP),"('mensch', 'behinder')",18.714973875118524
+503,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'bittet')",16.635532333438686
+504,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'vorlag')",15.942385152878742
+505,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'eintret')",15.249237972318797
+506,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'weigelt')",14.556090791758852
+507,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'kunz')",14.556090791758852
+508,Sozialdemokratische Partei der Schweiz (SP),"('patient', 'patientinn')",14.556090791758852
+509,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'teilt')",14.556090791758852
+510,Sozialdemokratische Partei der Schweiz (SP),"('dah', 'ersuch')",13.862943611198906
+511,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'mehrheit')",13.862943611198906
+512,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'beantragt')",13.16979643063896
+513,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'wandfluh')",12.476649250079015
+514,Sozialdemokratische Partei der Schweiz (SP),"('fraktion', 'teilt')",12.476649250079015
+515,Sozialdemokratische Partei der Schweiz (SP),"('geist', 'sozialwissenschaft')",11.78350206951907
+516,Sozialdemokratische Partei der Schweiz (SP),"('sicht', 'spfraktion')",11.78350206951907
+517,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'minderheitsantrag')",11.090354888959125
+518,Sozialdemokratische Partei der Schweiz (SP),"('gewahlt', 'erklart')",11.090354888959125
+519,Sozialdemokratische Partei der Schweiz (SP),"('gultig', 'erklar')",11.090354888959125
+520,Sozialdemokratische Partei der Schweiz (SP),"('buro', 'festgestellt')",11.090354888959125
+521,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'empfiehlt')",11.090354888959125
+522,Sozialdemokratische Partei der Schweiz (SP),"('erklart', 'beschluss')",11.090354888959125
+523,Sozialdemokratische Partei der Schweiz (SP),"('unvereinbar', 'nationalratsmandat')",11.090354888959125
+524,Sozialdemokratische Partei der Schweiz (SP),"('nationalratsmandat', 'besteht')",11.090354888959125
+525,Sozialdemokratische Partei der Schweiz (SP),"('mehrheit', 'vorschlagt')",10.39720770839918
+526,Sozialdemokratische Partei der Schweiz (SP),"('unterstutzt', 'spfraktion')",10.39720770839918
+527,Sozialdemokratische Partei der Schweiz (SP),"('gepruft', 'herr')",10.39720770839918
+528,Sozialdemokratische Partei der Schweiz (SP),"('buro', 'wahl')",10.39720770839918
+529,Sozialdemokratische Partei der Schweiz (SP),"('erst', 'ersatz')",10.39720770839918
+530,Sozialdemokratische Partei der Schweiz (SP),"('ersatz', 'list')",10.39720770839918
+531,Sozialdemokratische Partei der Schweiz (SP),"('gas', 'dampfkraftwerk')",10.39720770839918
+532,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'spuhl')",9.704060527839234
+533,Sozialdemokratische Partei der Schweiz (SP),"('arbeitnehm', 'arbeitnehmerinn')",9.704060527839234
+534,Sozialdemokratische Partei der Schweiz (SP),"('investition', 'bildung')",9.704060527839234
+535,Sozialdemokratische Partei der Schweiz (SP),"('wichtig', 'find')",9.010913347279288
+536,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'mocht')",9.010913347279288
+537,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'beantrag')",9.010913347279288
+538,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'deshalb')",9.010913347279288
+539,Sozialdemokratische Partei der Schweiz (SP),"('beschluss', 'amtsblatt')",9.010913347279288
+540,Sozialdemokratische Partei der Schweiz (SP),"('amtsblatt', 'kanton')",9.010913347279288
+541,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'ausgleich')",8.317766166719343
+542,Sozialdemokratische Partei der Schweiz (SP),"('bewohnerinn', 'bewohn')",8.317766166719343
+543,Sozialdemokratische Partei der Schweiz (SP),"('vertret', 'vertreterinn')",8.317766166719343
+544,Sozialdemokratische Partei der Schweiz (SP),"('wbk', 'nationalrat')",8.317766166719343
+545,Sozialdemokratische Partei der Schweiz (SP),"('argument', 'mehrheit')",8.317766166719343
+546,Sozialdemokratische Partei der Schweiz (SP),"('koharent', 'polit')",8.317766166719343
+547,Sozialdemokratische Partei der Schweiz (SP),"('frau', 'hutt')",8.317766166719343
+548,Sozialdemokratische Partei der Schweiz (SP),"('cvpfraktion', 'teil')",8.317766166719343
+549,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'mocht')",8.317766166719343
+550,Sozialdemokratische Partei der Schweiz (SP),"('gleichstell', 'geschlecht')",8.317766166719343
+551,Sozialdemokratische Partei der Schweiz (SP),"('altrentnerinn', 'rentn')",8.317766166719343
+552,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'steht')",8.317766166719343
+553,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'klar')",8.317766166719343
+554,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'amstutz')",7.6246189861593985
+555,Sozialdemokratische Partei der Schweiz (SP),"('zehnt', 'schuljahr')",7.6246189861593985
+556,Sozialdemokratische Partei der Schweiz (SP),"('mind', 'schenk')",7.6246189861593985
+557,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'glasson')",7.6246189861593985
+558,Sozialdemokratische Partei der Schweiz (SP),"('working', 'poor')",7.6246189861593985
+559,Sozialdemokratische Partei der Schweiz (SP),"('heroingestutzt', 'behandl')",7.6246189861593985
+560,Sozialdemokratische Partei der Schweiz (SP),"('giusep', 'nay')",7.6246189861593985
+561,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'ausdruck')",7.6246189861593985
+562,Sozialdemokratische Partei der Schweiz (SP),"('rentn', 'rentnerinn')",7.6246189861593985
+563,Sozialdemokratische Partei der Schweiz (SP),"('bau', 'bauerinn')",7.6246189861593985
+564,Sozialdemokratische Partei der Schweiz (SP),"('sorgerecht', 'regelfall')",7.6246189861593985
+565,Sozialdemokratische Partei der Schweiz (SP),"('lohn', 'sozialdumping')",7.6246189861593985
+566,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'recht')",7.6246189861593985
+567,Sozialdemokratische Partei der Schweiz (SP),"('schlicht', 'ergreif')",7.6246189861593985
+568,Sozialdemokratische Partei der Schweiz (SP),"('altrentnerinn', 'altrentn')",7.6246189861593985
+569,Sozialdemokratische Partei der Schweiz (SP),"('genau', 'desweg')",6.931471805599453
+570,Sozialdemokratische Partei der Schweiz (SP),"('schulabgangerinn', 'schulabgang')",6.931471805599453
+571,Sozialdemokratische Partei der Schweiz (SP),"('leer', 'versprech')",6.931471805599453
+572,Sozialdemokratische Partei der Schweiz (SP),"('motion', 'pfist')",6.931471805599453
+573,Sozialdemokratische Partei der Schweiz (SP),"('rechtlich', 'geseh')",6.931471805599453
+574,Sozialdemokratische Partei der Schweiz (SP),"('nam', 'apk')",6.931471805599453
+575,Sozialdemokratische Partei der Schweiz (SP),"('artikel', 'emrk')",6.931471805599453
+576,Sozialdemokratische Partei der Schweiz (SP),"('revisorinn', 'revisor')",6.931471805599453
+577,Sozialdemokratische Partei der Schweiz (SP),"('verkauf', 'swisscom')",6.931471805599453
+578,Sozialdemokratische Partei der Schweiz (SP),"('genauso', 'wichtig')",6.931471805599453
+579,Sozialdemokratische Partei der Schweiz (SP),"('mitarbeit', 'mitarbeiterinn')",6.931471805599453
+580,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'kell')",6.931471805599453
+581,Sozialdemokratische Partei der Schweiz (SP),"('international', 'konkurrenzfah')",6.931471805599453
+582,Sozialdemokratische Partei der Schweiz (SP),"('kunstlerinn', 'kunstl')",6.931471805599453
+583,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'begrusst')",6.931471805599453
+584,Sozialdemokratische Partei der Schweiz (SP),"('departement', 'bildung')",6.931471805599453
+585,Sozialdemokratische Partei der Schweiz (SP),"('anlegerinn', 'anlegerschutz')",6.931471805599453
+586,Sozialdemokratische Partei der Schweiz (SP),"('offent', 'finanzkontroll')",6.931471805599453
+587,Sozialdemokratische Partei der Schweiz (SP),"('kurt', 'wasserfall')",6.238324625039508
+588,Sozialdemokratische Partei der Schweiz (SP),"('schul', 'komplementarmedizin')",6.238324625039508
+589,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'schwach')",6.238324625039508
+590,Sozialdemokratische Partei der Schweiz (SP),"('frau', 'hall')",6.238324625039508
+591,Sozialdemokratische Partei der Schweiz (SP),"('darub', 'schon')",6.238324625039508
+592,Sozialdemokratische Partei der Schweiz (SP),"('antrag', 'schwall')",6.238324625039508
+593,Sozialdemokratische Partei der Schweiz (SP),"('klar', 'gezeigt')",6.238324625039508
+594,Sozialdemokratische Partei der Schweiz (SP),"('wirtschaft', 'entwicklungszusammenarbeit')",6.238324625039508
+595,Sozialdemokratische Partei der Schweiz (SP),"('prozent', 'arbeitsplatz')",6.238324625039508
+596,Sozialdemokratische Partei der Schweiz (SP),"('nein', 'ewr')",6.238324625039508
+597,Sozialdemokratische Partei der Schweiz (SP),"('geht', 'ubrig')",6.238324625039508
+598,Sozialdemokratische Partei der Schweiz (SP),"('jahr', 'mocht')",6.238324625039508
+599,Sozialdemokratische Partei der Schweiz (SP),"('brauch', 'unterstutz')",6.238324625039508
+600,Sozialdemokratische Partei der Schweiz (SP),"('erhoh', 'kreditsperr')",6.238324625039508
+601,Sozialdemokratische Partei der Schweiz (SP),"('stimm', 'ganz')",6.238324625039508
+602,Sozialdemokratische Partei der Schweiz (SP),"('kommission', 'zustimmt')",6.238324625039508
+603,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'bitt')",6.238324625039508
+604,Sozialdemokratische Partei der Schweiz (SP),"('grossprojekt', 'offent')",6.238324625039508
+605,Sozialdemokratische Partei der Schweiz (SP),"('zunach', 'herrn')",6.238324625039508
+606,Sozialdemokratische Partei der Schweiz (SP),"('mehr', 'lehrstell')",6.238324625039508
+607,Sozialdemokratische Partei der Schweiz (SP),"('eig', 'beschluss')",6.238324625039508
+608,Sozialdemokratische Partei der Schweiz (SP),"('rot', 'halbmond')",6.238324625039508
+609,Sozialdemokratische Partei der Schweiz (SP),"('bericht', 'staatspolit')",6.238324625039508
+610,Sozialdemokratische Partei der Schweiz (SP),"('menschlich', 'gen')",6.238324625039508
+611,Sozialdemokratische Partei der Schweiz (SP),"('zusatz', 'lehrstell')",6.238324625039508
+612,Sozialdemokratische Partei der Schweiz (SP),"('unterstutz', 'spfraktion')",6.238324625039508
+613,Sozialdemokratische Partei der Schweiz (SP),"('felix', 'walk')",6.238324625039508
+614,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'beid')",6.238324625039508
+615,Sozialdemokratische Partei der Schweiz (SP),"('gemeinsam', 'sorg')",6.238324625039508
+616,Sozialdemokratische Partei der Schweiz (SP),"('di', 'una')",6.238324625039508
+617,Sozialdemokratische Partei der Schweiz (SP),"('tourismus', 'ford')",6.238324625039508
+618,Sozialdemokratische Partei der Schweiz (SP),"('sp', 'klar')",6.238324625039508
+619,Sozialdemokratische Partei der Schweiz (SP),"('josef', 'leu')",6.238324625039508
+620,Sozialdemokratische Partei der Schweiz (SP),"('sp', 'fordert')",6.238324625039508
+621,Sozialdemokratische Partei der Schweiz (SP),"('offent', 'regionalverkehr')",6.238324625039508
+622,Sozialdemokratische Partei der Schweiz (SP),"('insbesond', 'frau')",5.545177444479562
+623,Sozialdemokratische Partei der Schweiz (SP),"('laufend', 'zusatzrent')",5.545177444479562
+624,Sozialdemokratische Partei der Schweiz (SP),"('wbk', 'beantragt')",5.545177444479562
+625,Sozialdemokratische Partei der Schweiz (SP),"('brauch', 'deshalb')",5.545177444479562
+626,Sozialdemokratische Partei der Schweiz (SP),"('gemacht', 'heisst')",5.545177444479562
+627,Sozialdemokratische Partei der Schweiz (SP),"('zweit', 'paket')",5.545177444479562
+628,Sozialdemokratische Partei der Schweiz (SP),"('diskussion', 'bericht')",5.545177444479562
+629,Sozialdemokratische Partei der Schweiz (SP),"('unt', 'mittl')",5.545177444479562
+630,Sozialdemokratische Partei der Schweiz (SP),"('polit', 'handeln')",5.545177444479562
+631,Sozialdemokratische Partei der Schweiz (SP),"('argument', 'dageg')",5.545177444479562
+632,Sozialdemokratische Partei der Schweiz (SP),"('antrag', 'weyeneth')",5.545177444479562
+633,Sozialdemokratische Partei der Schweiz (SP),"('kind', 'frank')",5.545177444479562
+634,Sozialdemokratische Partei der Schweiz (SP),"('nochmal', 'unterstreich')",5.545177444479562
+635,Sozialdemokratische Partei der Schweiz (SP),"('stand', 'durchgangsplatz')",5.545177444479562
+636,Sozialdemokratische Partei der Schweiz (SP),"('folg', 'mocht')",5.545177444479562
+637,Sozialdemokratische Partei der Schweiz (SP),"('de', 'ce')",5.545177444479562
+638,Sozialdemokratische Partei der Schweiz (SP),"('bereich', 'infrastruktur')",5.545177444479562
+639,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'muss')",5.545177444479562
+640,Sozialdemokratische Partei der Schweiz (SP),"('materiell', 'harmonisier')",5.545177444479562
+641,Sozialdemokratische Partei der Schweiz (SP),"('meist', 'betroff')",5.545177444479562
+642,Sozialdemokratische Partei der Schweiz (SP),"('gut', 'erinn')",5.545177444479562
+643,Sozialdemokratische Partei der Schweiz (SP),"('prozent', 'ja')",5.545177444479562
+644,Sozialdemokratische Partei der Schweiz (SP),"('protokoll', 'v')",5.545177444479562
+645,Sozialdemokratische Partei der Schweiz (SP),"('kost', 'grundversorg')",5.545177444479562
+646,Sozialdemokratische Partei der Schweiz (SP),"('dritt', 'zusatzprotokoll')",5.545177444479562
+647,Sozialdemokratische Partei der Schweiz (SP),"('geld', 'kanton')",5.545177444479562
+648,Sozialdemokratische Partei der Schweiz (SP),"('klar', 'braucht')",5.545177444479562
+649,Sozialdemokratische Partei der Schweiz (SP),"('beid', 'firm')",5.545177444479562
+650,Sozialdemokratische Partei der Schweiz (SP),"('sprech', 'spfraktion')",5.545177444479562
+651,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'anhand')",5.545177444479562
+652,Sozialdemokratische Partei der Schweiz (SP),"('fried', 'menschenrechtsforder')",5.545177444479562
+653,Sozialdemokratische Partei der Schweiz (SP),"('warum', 'motion')",5.545177444479562
+654,Sozialdemokratische Partei der Schweiz (SP),"('einfuhr', 'einspracheverfahr')",5.545177444479562
+655,Sozialdemokratische Partei der Schweiz (SP),"('de', 'à')",5.545177444479562
+656,Sozialdemokratische Partei der Schweiz (SP),"('beid', 'basel')",5.545177444479562
+657,Sozialdemokratische Partei der Schweiz (SP),"('laubach', 'abzulehn')",5.545177444479562
+658,Sozialdemokratische Partei der Schweiz (SP),"('bekampf', 'armut')",5.545177444479562
+659,Sozialdemokratische Partei der Schweiz (SP),"('gend', 'studi')",5.545177444479562
+660,Sozialdemokratische Partei der Schweiz (SP),"('mag', 'david')",5.545177444479562
+661,Sozialdemokratische Partei der Schweiz (SP),"('david', 'adom')",5.545177444479562
+662,Sozialdemokratische Partei der Schweiz (SP),"('funf', 'komplementarmedizin')",5.545177444479562
+663,Sozialdemokratische Partei der Schweiz (SP),"('sozialdemokratinn', 'sozialdemokrat')",5.545177444479562
+664,Sozialdemokratische Partei der Schweiz (SP),"('massnahm', 'massnahm')",5.545177444479562
+665,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'kohasion')",5.545177444479562
+666,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'urs')",5.545177444479562
+667,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'beantrag')",5.545177444479562
+668,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'bundesrat')",5.545177444479562
+669,Sozialdemokratische Partei der Schweiz (SP),"('kanton', 'verlass')",5.545177444479562
+670,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'artikel')",5.545177444479562
+671,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'weigelt')",5.545177444479562
+672,Sozialdemokratische Partei der Schweiz (SP),"('deshalb', 'spfraktion')",5.545177444479562
+673,Sozialdemokratische Partei der Schweiz (SP),"('flexibl', 'altersrucktritt')",5.545177444479562
+674,Sozialdemokratische Partei der Schweiz (SP),"('bundesrat', 'arbeitgeb')",5.545177444479562
+675,Sozialdemokratische Partei der Schweiz (SP),"('gewalt', 'famili')",5.545177444479562
+676,Sozialdemokratische Partei der Schweiz (SP),"('leg', 'prasidentin')",5.545177444479562
+677,Sozialdemokratische Partei der Schweiz (SP),"('laid', 'humanitair')",5.545177444479562
+678,Sozialdemokratische Partei der Schweiz (SP),"('arztenetz', 'budgetverantwort')",5.545177444479562
+679,Sozialdemokratische Partei der Schweiz (SP),"('regionaleuropa', 'erschopf')",5.545177444479562
+680,Sozialdemokratische Partei der Schweiz (SP),"('besond', 'stark')",4.852030263919617
+681,Sozialdemokratische Partei der Schweiz (SP),"('genf', 'abkomm')",4.852030263919617
+682,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'kulturell')",4.852030263919617
+683,Sozialdemokratische Partei der Schweiz (SP),"('beid', 'instrument')",4.852030263919617
+684,Sozialdemokratische Partei der Schweiz (SP),"('sigi', 'feigel')",4.852030263919617
+685,Sozialdemokratische Partei der Schweiz (SP),"('absolut', 'unverstand')",4.852030263919617
+686,Sozialdemokratische Partei der Schweiz (SP),"('arbeit', 'lohnbeding')",4.852030263919617
+687,Sozialdemokratische Partei der Schweiz (SP),"('oberholz', 'folg')",4.852030263919617
+688,Sozialdemokratische Partei der Schweiz (SP),"('geld', 'auszugeb')",4.852030263919617
+689,Sozialdemokratische Partei der Schweiz (SP),"('wenig', 'verdi')",4.852030263919617
+690,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'verantwort')",4.852030263919617
+691,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'programm')",4.852030263919617
+692,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'prozess')",4.852030263919617
+693,Sozialdemokratische Partei der Schweiz (SP),"('entsprech', 'investition')",4.852030263919617
+694,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'falsch')",4.852030263919617
+695,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'darbellay')",4.852030263919617
+696,Sozialdemokratische Partei der Schweiz (SP),"('investiert', 'frank')",4.852030263919617
+697,Sozialdemokratische Partei der Schweiz (SP),"('finanzkommission', 'bundesrat')",4.852030263919617
+698,Sozialdemokratische Partei der Schweiz (SP),"('landwirtschaft', 'schweiz')",4.852030263919617
+699,Sozialdemokratische Partei der Schweiz (SP),"('qualitat', 'sich')",4.852030263919617
+700,Sozialdemokratische Partei der Schweiz (SP),"('schweiz', 'aktiv')",4.852030263919617
+701,Sozialdemokratische Partei der Schweiz (SP),"('folg', 'betroff')",4.852030263919617
+702,Sozialdemokratische Partei der Schweiz (SP),"('geht', 'zunach')",4.852030263919617
+703,Sozialdemokratische Partei der Schweiz (SP),"('eben', 'teil')",4.852030263919617
+704,Sozialdemokratische Partei der Schweiz (SP),"('diskutiert', 'entsprech')",4.852030263919617
+705,Sozialdemokratische Partei der Schweiz (SP),"('sinn', 'gekomm')",4.852030263919617
+706,Sozialdemokratische Partei der Schweiz (SP),"('tief', 'krankenkassenprami')",4.852030263919617
+707,Sozialdemokratische Partei der Schweiz (SP),"('sur', 'le')",4.852030263919617
+708,Sozialdemokratische Partei der Schweiz (SP),"('a', 'été')",4.852030263919617
+709,Sozialdemokratische Partei der Schweiz (SP),"('ersuch', 'motion')",4.852030263919617
+710,Sozialdemokratische Partei der Schweiz (SP),"('hinweis', 'herr')",4.852030263919617
+711,Sozialdemokratische Partei der Schweiz (SP),"('pflanz', 'tier')",4.852030263919617
+712,Sozialdemokratische Partei der Schweiz (SP),"('intensiv', 'gesprach')",4.852030263919617
+713,Sozialdemokratische Partei der Schweiz (SP),"('gut', 'koordination')",4.852030263919617
+714,Sozialdemokratische Partei der Schweiz (SP),"('zusatz', 'schutzzeich')",4.852030263919617
+715,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'klein')",4.852030263919617
+716,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'allerding')",4.852030263919617
+717,Sozialdemokratische Partei der Schweiz (SP),"('europa', 'integration')",4.852030263919617
+718,Sozialdemokratische Partei der Schweiz (SP),"('beim', 'betrieb')",4.852030263919617
+719,Sozialdemokratische Partei der Schweiz (SP),"('wiss', 'wichtig')",4.852030263919617
+720,Sozialdemokratische Partei der Schweiz (SP),"('digital', 'fernseh')",4.852030263919617
+721,Sozialdemokratische Partei der Schweiz (SP),"('gesellschaft', 'leb')",4.852030263919617
+722,Sozialdemokratische Partei der Schweiz (SP),"('beim', 'passiv')",4.852030263919617
+723,Sozialdemokratische Partei der Schweiz (SP),"('finanzdirektor', 'kanton')",4.852030263919617
+724,Sozialdemokratische Partei der Schweiz (SP),"('heut', 'uberhaupt')",4.852030263919617
+725,Sozialdemokratische Partei der Schweiz (SP),"('hund', 'katzenfell')",4.852030263919617
+726,Sozialdemokratische Partei der Schweiz (SP),"('aufgrund', 'ergebnis')",4.852030263919617
+727,Sozialdemokratische Partei der Schweiz (SP),"('bahn', 'erst')",4.852030263919617
+728,Sozialdemokratische Partei der Schweiz (SP),"('schau', 'wer')",4.852030263919617
+729,Sozialdemokratische Partei der Schweiz (SP),"('empfehl', 'oecd')",4.852030263919617
+730,Sozialdemokratische Partei der Schweiz (SP),"('uns', 'haltung')",4.852030263919617
+731,Sozialdemokratische Partei der Schweiz (SP),"('verzicht', 'bitt')",4.852030263919617
+732,Sozialdemokratische Partei der Schweiz (SP),"('vorgeseh', 'erhoh')",4.852030263919617
+733,Sozialdemokratische Partei der Schweiz (SP),"('schul', 'geh')",4.852030263919617
+734,Sozialdemokratische Partei der Schweiz (SP),"('richtung', 'bess')",4.852030263919617
+735,Sozialdemokratische Partei der Schweiz (SP),"('mehrheit', 'apk')",4.852030263919617
+736,Sozialdemokratische Partei der Schweiz (SP),"('genomm', 'mocht')",4.852030263919617
+737,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'zusammenhalt')",4.852030263919617
+738,Sozialdemokratische Partei der Schweiz (SP),"('ziel', 'tatsach')",4.852030263919617
+739,Sozialdemokratische Partei der Schweiz (SP),"('mind', 'nordmann')",4.852030263919617
+740,Sozialdemokratische Partei der Schweiz (SP),"('svpfraktion', 'abzulehn')",4.852030263919617
+741,Sozialdemokratische Partei der Schweiz (SP),"('unternehm', 'wirtschaft')",4.852030263919617
+742,Sozialdemokratische Partei der Schweiz (SP),"('ja', 'gern')",4.852030263919617
+743,Sozialdemokratische Partei der Schweiz (SP),"('akkreditier', 'dritt')",4.852030263919617
+744,Sozialdemokratische Partei der Schweiz (SP),"('gerecht', 'steu')",4.852030263919617
+745,Sozialdemokratische Partei der Schweiz (SP),"('fohn', 'abzulehn')",4.852030263919617
+746,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'schneiderammann')",4.852030263919617
+747,Sozialdemokratische Partei der Schweiz (SP),"('losung', 'probl')",4.852030263919617
+748,Sozialdemokratische Partei der Schweiz (SP),"('antrag', 'kien')",4.852030263919617
+749,Sozialdemokratische Partei der Schweiz (SP),"('heut', 'nein')",4.852030263919617
+750,Sozialdemokratische Partei der Schweiz (SP),"('zusatz', 'standerat')",4.852030263919617
+751,Sozialdemokratische Partei der Schweiz (SP),"('mensch', 'arbeitsmarkt')",4.852030263919617
+752,Sozialdemokratische Partei der Schweiz (SP),"('eigent', 'art')",4.852030263919617
+753,Sozialdemokratische Partei der Schweiz (SP),"('spital', 'pflegeheim')",4.852030263919617
+754,Sozialdemokratische Partei der Schweiz (SP),"('bevorschussungslimit', 'finovfond')",4.852030263919617
+755,Sozialdemokratische Partei der Schweiz (SP),"('komm', 'zusatz')",4.852030263919617
+756,Sozialdemokratische Partei der Schweiz (SP),"('beid', 'grund')",4.852030263919617
+757,Sozialdemokratische Partei der Schweiz (SP),"('sprech', 'franzos')",4.852030263919617
+758,Sozialdemokratische Partei der Schweiz (SP),"('menétreysavary', 'unterstutz')",4.852030263919617
+759,Sozialdemokratische Partei der Schweiz (SP),"('medizin', 'zweck')",4.852030263919617
+760,Sozialdemokratische Partei der Schweiz (SP),"('fall', 'erhalt')",4.852030263919617
+761,Sozialdemokratische Partei der Schweiz (SP),"('forder', 'selbsthilf')",4.852030263919617
+762,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'strauss')",4.852030263919617
+763,Sozialdemokratische Partei der Schweiz (SP),"('word', 'interess')",4.852030263919617
+764,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'unabhang')",4.852030263919617
+765,Sozialdemokratische Partei der Schweiz (SP),"('bitt', 'stimmenzahl')",4.852030263919617
+766,Sozialdemokratische Partei der Schweiz (SP),"('branchenub', 'arbeitsbeding')",4.852030263919617
+767,Sozialdemokratische Partei der Schweiz (SP),"('kind', 'welt')",4.852030263919617
+768,Sozialdemokratische Partei der Schweiz (SP),"('endlich', 'gesetz')",4.852030263919617
+769,Sozialdemokratische Partei der Schweiz (SP),"('anrechenbar', 'entwicklungshilf')",4.852030263919617
+770,Sozialdemokratische Partei der Schweiz (SP),"('verantwort', 'aktuar')",4.852030263919617
+771,Sozialdemokratische Partei der Schweiz (SP),"('einfach', 'antwort')",4.852030263919617
+772,Sozialdemokratische Partei der Schweiz (SP),"('schon', 'daraus')",4.852030263919617
+773,Sozialdemokratische Partei der Schweiz (SP),"('gern', 'unterstutz')",4.852030263919617
+774,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'svpfraktion')",4.852030263919617
+775,Sozialdemokratische Partei der Schweiz (SP),"('forder', 'menschenrecht')",4.852030263919617
+776,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'brunn')",4.852030263919617
+777,Sozialdemokratische Partei der Schweiz (SP),"('sag', 'srg')",4.852030263919617
+778,Sozialdemokratische Partei der Schweiz (SP),"('klar', 'verfassungswidr')",4.852030263919617
+779,Sozialdemokratische Partei der Schweiz (SP),"('standerat', 'eingefuhrt')",4.852030263919617
+780,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'ersuch')",4.852030263919617
+781,Sozialdemokratische Partei der Schweiz (SP),"('fahrend', 'zug')",4.852030263919617
+782,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'favr')",4.852030263919617
+783,Sozialdemokratische Partei der Schweiz (SP),"('studi', 'gibt')",4.852030263919617
+784,Sozialdemokratische Partei der Schweiz (SP),"('okonom', 'entwickl')",4.852030263919617
+785,Sozialdemokratische Partei der Schweiz (SP),"('pet', 'weigelt')",4.852030263919617
+786,Sozialdemokratische Partei der Schweiz (SP),"('explizit', 'verank')",4.852030263919617
+787,Sozialdemokratische Partei der Schweiz (SP),"('verantwort', 'aktuarin')",4.852030263919617
+788,Sozialdemokratische Partei der Schweiz (SP),"('minderheitsantrag', 'polla')",4.852030263919617
+789,Sozialdemokratische Partei der Schweiz (SP),"('sag', 'post')",4.852030263919617
+790,Sozialdemokratische Partei der Schweiz (SP),"('wenig', 'moment')",4.852030263919617
+791,Sozialdemokratische Partei der Schweiz (SP),"('ersetzt', 'kolleg')",4.852030263919617
+792,Sozialdemokratische Partei der Schweiz (SP),"('besteht', 'buro')",4.852030263919617
+793,Sozialdemokratische Partei der Schweiz (SP),"('stiftung', 'patientensich')",4.852030263919617
+794,Sozialdemokratische Partei der Schweiz (SP),"('sozial', 'finanzier')",4.852030263919617
+795,Sozialdemokratische Partei der Schweiz (SP),"('klar', 'votum')",4.852030263919617
+796,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'bereit')",4.852030263919617
+797,Sozialdemokratische Partei der Schweiz (SP),"('neu', 'steuerschlupfloch')",4.852030263919617
+798,Sozialdemokratische Partei der Schweiz (SP),"('euburgerinn', 'euburg')",4.852030263919617
+799,Sozialdemokratische Partei der Schweiz (SP),"('echt', 'systemwechsel')",4.852030263919617
+800,Sozialdemokratische Partei der Schweiz (SP),"('menschenwurd', 'arbeit')",4.852030263919617
+801,Sozialdemokratische Partei der Schweiz (SP),"('of', 'conduct')",4.852030263919617
+802,Sozialdemokratische Partei der Schweiz (SP),"('doppelbelast', 'vorliegt')",4.852030263919617
+803,Sozialdemokratische Partei der Schweiz (SP),"('tast', 'c')",4.852030263919617
+804,Sozialdemokratische Partei der Schweiz (SP),"('druck', 'tast')",4.852030263919617
+805,Sozialdemokratische Partei der Schweiz (SP),"('tast', 'send')",4.852030263919617
+806,Sozialdemokratische Partei der Schweiz (SP),"('flexibl', 'rentenalt')",4.852030263919617
+807,Sozialdemokratische Partei der Schweiz (SP),"('betrag', 'trassenpreisverbill')",4.852030263919617
+808,Sozialdemokratische Partei der Schweiz (SP),"('virtuell', 'jugendparlament')",4.852030263919617
+809,Sozialdemokratische Partei der Schweiz (SP),"('mieterinn', 'mieterverband')",4.852030263919617
+810,Sozialdemokratische Partei der Schweiz (SP),"('la', 'motion')",4.852030263919617
+811,Sozialdemokratische Partei der Schweiz (SP),"('vorsatz', 'verletz')",4.852030263919617
+812,Sozialdemokratische Partei der Schweiz (SP),"('akti', 'sperrfrist')",4.852030263919617
+813,Sozialdemokratische Partei der Schweiz (SP),"('menschenrecht', 'volkerrecht')",4.1588830833596715
+814,Sozialdemokratische Partei der Schweiz (SP),"('oberholz', 'unterstutz')",4.1588830833596715
+815,Sozialdemokratische Partei der Schweiz (SP),"('menschenrecht', 'demokrati')",4.1588830833596715
+816,Sozialdemokratische Partei der Schweiz (SP),"('zuerst', 'kurz')",4.1588830833596715
+817,Sozialdemokratische Partei der Schweiz (SP),"('wenig', 'ausgegeb')",4.1588830833596715
+818,Sozialdemokratische Partei der Schweiz (SP),"('pia', 'hollenstein')",4.1588830833596715
+819,Sozialdemokratische Partei der Schweiz (SP),"('wichtig', 'minderheitsantrag')",4.1588830833596715
+820,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'regli')",4.1588830833596715
+821,Sozialdemokratische Partei der Schweiz (SP),"('bereich', 'personal')",4.1588830833596715
+822,Sozialdemokratische Partei der Schweiz (SP),"('langfrist', 'angelegt')",4.1588830833596715
+823,Sozialdemokratische Partei der Schweiz (SP),"('rein', 'betriebswirtschaft')",4.1588830833596715
+824,Sozialdemokratische Partei der Schweiz (SP),"('absolut', 'unbestritt')",4.1588830833596715
+825,Sozialdemokratische Partei der Schweiz (SP),"('gemass', 'kommissionsmehr')",4.1588830833596715
+826,Sozialdemokratische Partei der Schweiz (SP),"('schlecht', 'behandelt')",4.1588830833596715
+827,Sozialdemokratische Partei der Schweiz (SP),"('herb', 'jahr')",4.1588830833596715
+828,Sozialdemokratische Partei der Schweiz (SP),"('zurzeit', 'lauf')",4.1588830833596715
+829,Sozialdemokratische Partei der Schweiz (SP),"('gern', 'bundesrat')",4.1588830833596715
+830,Sozialdemokratische Partei der Schweiz (SP),"('zgb', 'artikel')",4.1588830833596715
+831,Sozialdemokratische Partei der Schweiz (SP),"('braucht', 'erst')",4.1588830833596715
+832,Sozialdemokratische Partei der Schweiz (SP),"('land', 'leid')",4.1588830833596715
+833,Sozialdemokratische Partei der Schweiz (SP),"('stationar', 'ambulant')",4.1588830833596715
+834,Sozialdemokratische Partei der Schweiz (SP),"('davon', 'million')",4.1588830833596715
+835,Sozialdemokratische Partei der Schweiz (SP),"('klar', 'stimm')",4.1588830833596715
+836,Sozialdemokratische Partei der Schweiz (SP),"('mehr', 'richtig')",4.1588830833596715
+837,Sozialdemokratische Partei der Schweiz (SP),"('deshalb', 'entschied')",4.1588830833596715
+838,Sozialdemokratische Partei der Schweiz (SP),"('find', 'absolut')",4.1588830833596715
+839,Sozialdemokratische Partei der Schweiz (SP),"('kopf', 'stell')",4.1588830833596715
+840,Sozialdemokratische Partei der Schweiz (SP),"('usa', 'kanada')",4.1588830833596715
+841,Sozialdemokratische Partei der Schweiz (SP),"('gestrich', 'soll')",4.1588830833596715
+842,Sozialdemokratische Partei der Schweiz (SP),"('nachhalt', 'verkehrspolit')",4.1588830833596715
+843,Sozialdemokratische Partei der Schweiz (SP),"('et', 'la')",4.1588830833596715
+844,Sozialdemokratische Partei der Schweiz (SP),"('au', 'conseil')",4.1588830833596715
+845,Sozialdemokratische Partei der Schweiz (SP),"('ce', 'qui')",4.1588830833596715
+846,Sozialdemokratische Partei der Schweiz (SP),"('la', 'politiqu')",4.1588830833596715
+847,Sozialdemokratische Partei der Schweiz (SP),"('zweifach', 'hinsicht')",4.1588830833596715
+848,Sozialdemokratische Partei der Schweiz (SP),"('qui', 'a')",4.1588830833596715
+849,Sozialdemokratische Partei der Schweiz (SP),"('lini', 'mehrheit')",4.1588830833596715
+850,Sozialdemokratische Partei der Schweiz (SP),"('et', 'le')",4.1588830833596715
+851,Sozialdemokratische Partei der Schweiz (SP),"('dah', 'find')",4.1588830833596715
+852,Sozialdemokratische Partei der Schweiz (SP),"('jung', 'gesund')",4.1588830833596715
+853,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'brandli')",4.1588830833596715
+854,Sozialdemokratische Partei der Schweiz (SP),"('vorschlag', 'kommissionsmehr')",4.1588830833596715
+855,Sozialdemokratische Partei der Schweiz (SP),"('wirklich', 'klar')",4.1588830833596715
+856,Sozialdemokratische Partei der Schweiz (SP),"('meinung', 'besteh')",4.1588830833596715
+857,Sozialdemokratische Partei der Schweiz (SP),"('verschied', 'anbiet')",4.1588830833596715
+858,Sozialdemokratische Partei der Schweiz (SP),"('deshalb', 'grund')",4.1588830833596715
+859,Sozialdemokratische Partei der Schweiz (SP),"('arbeitsmarkt', 'massnahm')",4.1588830833596715
+860,Sozialdemokratische Partei der Schweiz (SP),"('bundesrat', 'versucht')",4.1588830833596715
+861,Sozialdemokratische Partei der Schweiz (SP),"('vier', 'motion')",4.1588830833596715
+862,Sozialdemokratische Partei der Schweiz (SP),"('volksinitiativ', 'postdien')",4.1588830833596715
+863,Sozialdemokratische Partei der Schweiz (SP),"('brauch', 'geld')",4.1588830833596715
+864,Sozialdemokratische Partei der Schweiz (SP),"('mind', 'findet')",4.1588830833596715
+865,Sozialdemokratische Partei der Schweiz (SP),"('profiti', 'soll')",4.1588830833596715
+866,Sozialdemokratische Partei der Schweiz (SP),"('schwerwieg', 'verstoss')",4.1588830833596715
+867,Sozialdemokratische Partei der Schweiz (SP),"('bundesrat', 'juni')",4.1588830833596715
+868,Sozialdemokratische Partei der Schweiz (SP),"('lang', 'kanton')",4.1588830833596715
+869,Sozialdemokratische Partei der Schweiz (SP),"('besetzt', 'gebiet')",4.1588830833596715
+870,Sozialdemokratische Partei der Schweiz (SP),"('akzeptiert', 'wurd')",4.1588830833596715
+871,Sozialdemokratische Partei der Schweiz (SP),"('anzahl', 'lehrstell')",4.1588830833596715
+872,Sozialdemokratische Partei der Schweiz (SP),"('debatt', 'gesagt')",4.1588830833596715
+873,Sozialdemokratische Partei der Schweiz (SP),"('begriff', 'klar')",4.1588830833596715
+874,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'schon')",4.1588830833596715
+875,Sozialdemokratische Partei der Schweiz (SP),"('riesig', 'potenzial')",4.1588830833596715
+876,Sozialdemokratische Partei der Schweiz (SP),"('pflegebedurft', 'mensch')",4.1588830833596715
+877,Sozialdemokratische Partei der Schweiz (SP),"('gemeinsam', 'interess')",4.1588830833596715
+878,Sozialdemokratische Partei der Schweiz (SP),"('druck', 'gesetzt')",4.1588830833596715
+879,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'zuppig')",4.1588830833596715
+880,Sozialdemokratische Partei der Schweiz (SP),"('seit', 'vier')",4.1588830833596715
+881,Sozialdemokratische Partei der Schweiz (SP),"('einzeln', 'kass')",4.1588830833596715
+882,Sozialdemokratische Partei der Schweiz (SP),"('jahr', 'aufenthalt')",4.1588830833596715
+883,Sozialdemokratische Partei der Schweiz (SP),"('unterschritt', 'darf')",4.1588830833596715
+884,Sozialdemokratische Partei der Schweiz (SP),"('grundversorg', 'postdien')",4.1588830833596715
+885,Sozialdemokratische Partei der Schweiz (SP),"('zugun', 'versichert')",4.1588830833596715
+886,Sozialdemokratische Partei der Schweiz (SP),"('initiativ', 'gesetz')",4.1588830833596715
+887,Sozialdemokratische Partei der Schweiz (SP),"('ordnungsantrag', 'marti')",4.1588830833596715
+888,Sozialdemokratische Partei der Schweiz (SP),"('grosso', 'modo')",4.1588830833596715
+889,Sozialdemokratische Partei der Schweiz (SP),"('namlich', 'wichtig')",4.1588830833596715
+890,Sozialdemokratische Partei der Schweiz (SP),"('erhalt', 'herr')",4.1588830833596715
+891,Sozialdemokratische Partei der Schweiz (SP),"('forschung', 'lehr')",4.1588830833596715
+892,Sozialdemokratische Partei der Schweiz (SP),"('fahn', 'anschau')",4.1588830833596715
+893,Sozialdemokratische Partei der Schweiz (SP),"('bundesrat', 'argumentation')",4.1588830833596715
+894,Sozialdemokratische Partei der Schweiz (SP),"('tat', 'seh')",4.1588830833596715
+895,Sozialdemokratische Partei der Schweiz (SP),"('beid', 'einzelantrag')",4.1588830833596715
+896,Sozialdemokratische Partei der Schweiz (SP),"('kostendeck', 'vergut')",4.1588830833596715
+897,Sozialdemokratische Partei der Schweiz (SP),"('massiv', 'mehr')",4.1588830833596715
+898,Sozialdemokratische Partei der Schweiz (SP),"('frank', 'vorinvestition')",4.1588830833596715
+899,Sozialdemokratische Partei der Schweiz (SP),"('arbeitsrecht', 'vorschrift')",4.1588830833596715
+900,Sozialdemokratische Partei der Schweiz (SP),"('abschluss', 'freihandelsabkomm')",4.1588830833596715
+901,Sozialdemokratische Partei der Schweiz (SP),"('schlecht', 'leistung')",4.1588830833596715
+902,Sozialdemokratische Partei der Schweiz (SP),"('kanton', 'universitatsspital')",4.1588830833596715
+903,Sozialdemokratische Partei der Schweiz (SP),"('muss', 'nachd')",4.1588830833596715
+904,Sozialdemokratische Partei der Schweiz (SP),"('dennoch', 'mocht')",4.1588830833596715
+905,Sozialdemokratische Partei der Schweiz (SP),"('kohasion', 'land')",4.1588830833596715
+906,Sozialdemokratische Partei der Schweiz (SP),"('lombardi', 'gesagt')",4.1588830833596715
+907,Sozialdemokratische Partei der Schweiz (SP),"('senkung', 'umwandlungssatz')",4.1588830833596715
+908,Sozialdemokratische Partei der Schweiz (SP),"('regional', 'lokalpress')",4.1588830833596715
+909,Sozialdemokratische Partei der Schweiz (SP),"('folg', 'd')",4.1588830833596715
+910,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'vermeid')",4.1588830833596715
+911,Sozialdemokratische Partei der Schweiz (SP),"('deshalb', 'denk')",4.1588830833596715
+912,Sozialdemokratische Partei der Schweiz (SP),"('zweit', 'ziel')",4.1588830833596715
+913,Sozialdemokratische Partei der Schweiz (SP),"('gibt', 'vorlag')",4.1588830833596715
+914,Sozialdemokratische Partei der Schweiz (SP),"('mocht', 'vorredn')",4.1588830833596715
+915,Sozialdemokratische Partei der Schweiz (SP),"('sprachregional', 'national')",4.1588830833596715
+916,Sozialdemokratische Partei der Schweiz (SP),"('unabhang', 'behord')",4.1588830833596715
+917,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'wichtig')",4.1588830833596715
+918,Sozialdemokratische Partei der Schweiz (SP),"('rat', 'verabschiedet')",4.1588830833596715
+919,Sozialdemokratische Partei der Schweiz (SP),"('wiss', 'vielleicht')",4.1588830833596715
+920,Sozialdemokratische Partei der Schweiz (SP),"('solch', 'wichtig')",4.1588830833596715
+921,Sozialdemokratische Partei der Schweiz (SP),"('entscheid', 'sbb')",4.1588830833596715
+922,Sozialdemokratische Partei der Schweiz (SP),"('dual', 'berufsbildungssyst')",4.1588830833596715
+923,Sozialdemokratische Partei der Schweiz (SP),"('wohlerworb', 'recht')",4.1588830833596715
+924,Sozialdemokratische Partei der Schweiz (SP),"('komm', 'wirklich')",4.1588830833596715
+925,Sozialdemokratische Partei der Schweiz (SP),"('betrag', 'kurz')",4.1588830833596715
+926,Sozialdemokratische Partei der Schweiz (SP),"('initiativ', 'lanciert')",4.1588830833596715
+927,Sozialdemokratische Partei der Schweiz (SP),"('gesetzgeb', 'gesetz')",4.1588830833596715
+928,Sozialdemokratische Partei der Schweiz (SP),"('wer', 'war')",4.1588830833596715
+929,Sozialdemokratische Partei der Schweiz (SP),"('armut', 'betroff')",4.1588830833596715
+930,Sozialdemokratische Partei der Schweiz (SP),"('teil', 'uberhaupt')",4.1588830833596715
+931,Sozialdemokratische Partei der Schweiz (SP),"('auftrag', 'verfass')",4.1588830833596715
+932,Sozialdemokratische Partei der Schweiz (SP),"('verlangt', 'eben')",4.1588830833596715
+933,Sozialdemokratische Partei der Schweiz (SP),"('land', 'absolut')",4.1588830833596715
+934,Sozialdemokratische Partei der Schweiz (SP),"('ausland', 'nam')",4.1588830833596715
+935,Sozialdemokratische Partei der Schweiz (SP),"('stark', 'regulator')",4.1588830833596715
+936,Sozialdemokratische Partei der Schweiz (SP),"('gross', 'auseinandersetz')",4.1588830833596715
+937,Sozialdemokratische Partei der Schweiz (SP),"('tisch', 'setz')",4.1588830833596715
+938,Sozialdemokratische Partei der Schweiz (SP),"('polit', 'prioritat')",4.1588830833596715
+939,Sozialdemokratische Partei der Schweiz (SP),"('prinzip', 'gegenfinanzier')",4.1588830833596715
+940,Sozialdemokratische Partei der Schweiz (SP),"('einfach', 'desweg')",4.1588830833596715
+941,Sozialdemokratische Partei der Schweiz (SP),"('heut', 'swisscom')",4.1588830833596715
+942,Sozialdemokratische Partei der Schweiz (SP),"('eher', 'symbol')",4.1588830833596715
+943,Sozialdemokratische Partei der Schweiz (SP),"('herrn', 'esch')",4.1588830833596715
+944,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'frag')",4.1588830833596715
+945,Sozialdemokratische Partei der Schweiz (SP),"('schwand', 'abzulehn')",4.1588830833596715
+946,Sozialdemokratische Partei der Schweiz (SP),"('gut', 'ausgefuhrt')",4.1588830833596715
+947,Sozialdemokratische Partei der Schweiz (SP),"('eingesetzt', 'heut')",4.1588830833596715
+948,Sozialdemokratische Partei der Schweiz (SP),"('ganz', 'eben')",4.1588830833596715
+949,Sozialdemokratische Partei der Schweiz (SP),"('mensch', 'arbeit')",4.1588830833596715
+950,Sozialdemokratische Partei der Schweiz (SP),"('diskussion', 'gibt')",4.1588830833596715
+951,Sozialdemokratische Partei der Schweiz (SP),"('ab', 'uhr')",4.1588830833596715
+952,Sozialdemokratische Partei der Schweiz (SP),"('inhab', 'grundstuck')",4.1588830833596715
+953,Sozialdemokratische Partei der Schweiz (SP),"('prasidentin', 'stiftung')",4.1588830833596715
+954,Sozialdemokratische Partei der Schweiz (SP),"('land', 'herum')",4.1588830833596715
+955,Sozialdemokratische Partei der Schweiz (SP),"('eigentumerinn', 'eigentum')",4.1588830833596715
+956,Sozialdemokratische Partei der Schweiz (SP),"('innerhalb', 'sprachregion')",4.1588830833596715
+957,Sozialdemokratische Partei der Schweiz (SP),"('initiativ', 'haering')",4.1588830833596715
+958,Sozialdemokratische Partei der Schweiz (SP),"('gewiss', 'kontroll')",4.1588830833596715
+959,Sozialdemokratische Partei der Schweiz (SP),"('mensch', 'imm')",4.1588830833596715
+960,Sozialdemokratische Partei der Schweiz (SP),"('freien', 'spitalwahl')",4.1588830833596715
+961,Sozialdemokratische Partei der Schweiz (SP),"('kmu', 'schweiz')",4.1588830833596715
+962,Sozialdemokratische Partei der Schweiz (SP),"('geschlecht', 'angemess')",4.1588830833596715
+963,Sozialdemokratische Partei der Schweiz (SP),"('dankeschon', 'sag')",4.1588830833596715
+964,Sozialdemokratische Partei der Schweiz (SP),"('evpedufraktion', 'teilt')",4.1588830833596715
+965,Sozialdemokratische Partei der Schweiz (SP),"('gehort', 'polit')",4.1588830833596715
+966,Sozialdemokratische Partei der Schweiz (SP),"('argumentiert', 'gesagt')",4.1588830833596715
+967,Sozialdemokratische Partei der Schweiz (SP),"('gern', 'gehort')",4.1588830833596715
+968,Sozialdemokratische Partei der Schweiz (SP),"('kind', 'recht')",4.1588830833596715
+969,Sozialdemokratische Partei der Schweiz (SP),"('fdpfraktion', 'teil')",4.1588830833596715
+970,Sozialdemokratische Partei der Schweiz (SP),"('insbesond', 'antrag')",4.1588830833596715
+971,Sozialdemokratische Partei der Schweiz (SP),"('differenziert', 'selbstbehalt')",4.1588830833596715
+972,Sozialdemokratische Partei der Schweiz (SP),"('beschloss', 'war')",4.1588830833596715
+973,Sozialdemokratische Partei der Schweiz (SP),"('stimmenzahl', 'wahlzettel')",4.1588830833596715
+974,Sozialdemokratische Partei der Schweiz (SP),"('organ', 'verfug')",4.1588830833596715
+975,Sozialdemokratische Partei der Schweiz (SP),"('publikumsrat', 'srg')",4.1588830833596715
+976,Sozialdemokratische Partei der Schweiz (SP),"('tier', 'pflanz')",4.1588830833596715
+977,Sozialdemokratische Partei der Schweiz (SP),"('ausschliess', 'darum')",4.1588830833596715
+978,Sozialdemokratische Partei der Schweiz (SP),"('vorbereit', 'session')",4.1588830833596715
+979,Sozialdemokratische Partei der Schweiz (SP),"('spfraktion', 'teil')",4.1588830833596715
+980,Sozialdemokratische Partei der Schweiz (SP),"('geschloss', 'rentenvorsorgewerk')",4.1588830833596715
+981,Sozialdemokratische Partei der Schweiz (SP),"('herr', 'dunant')",4.1588830833596715
+982,Sozialdemokratische Partei der Schweiz (SP),"('gut', 'freund')",4.1588830833596715
+983,Sozialdemokratische Partei der Schweiz (SP),"('standesinitiativ', 'jura')",4.1588830833596715
+984,Sozialdemokratische Partei der Schweiz (SP),"('spenderinn', 'spend')",4.1588830833596715
+985,Sozialdemokratische Partei der Schweiz (SP),"('initiativ', 'beck')",4.1588830833596715
+986,Sozialdemokratische Partei der Schweiz (SP),"('ja', 'alt')",4.1588830833596715
+987,Sozialdemokratische Partei der Schweiz (SP),"('arbeitsbeding', 'branch')",4.1588830833596715
+988,Sozialdemokratische Partei der Schweiz (SP),"('nein', 'steuerpaket')",4.1588830833596715
+989,Sozialdemokratische Partei der Schweiz (SP),"('kommission', 'tierschutz')",4.1588830833596715
+990,Sozialdemokratische Partei der Schweiz (SP),"('credit', 'suiss')",4.1588830833596715
+991,Sozialdemokratische Partei der Schweiz (SP),"('besond', 'attraktiv')",4.1588830833596715
+992,Sozialdemokratische Partei der Schweiz (SP),"('desweg', 'wurd')",4.1588830833596715
+993,Sozialdemokratische Partei der Schweiz (SP),"('gegenub', 'jung')",4.1588830833596715
+994,Sozialdemokratische Partei der Schweiz (SP),"('gleichwert', 'bildungsweg')",4.1588830833596715
+995,Sozialdemokratische Partei der Schweiz (SP),"('qualitat', 'behandl')",4.1588830833596715
+996,Sozialdemokratische Partei der Schweiz (SP),"('freisinn', 'partei')",4.1588830833596715
+997,Sozialdemokratische Partei der Schweiz (SP),"('minimal', 'schutz')",4.1588830833596715
+998,Sozialdemokratische Partei der Schweiz (SP),"('multinational', 'unternehm')",4.1588830833596715
+999,Sozialdemokratische Partei der Schweiz (SP),"('chanc', 'gut')",4.1588830833596715
