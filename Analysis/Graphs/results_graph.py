@@ -19,7 +19,11 @@ summary_stats = dfbypartyspeaker.groupby('Term').describe(include='all')
 
 summary_stats2 = summary_stats.dropna(axis=1)
 
+summary_stats3 = summary_stats2.drop([('Speaker','count'),('Speaker Party','count')],axis=1)
+
 summary_stats2.to_csv('./summary_stats.csv')
+summary_stats3.to_csv('./summary_stats_new.csv')
+
 
 
 summary_stats2.to_html('summary_stats.html')
@@ -54,7 +58,10 @@ sumry2.to_csv('summary_stats_P2.csv')
 sumry.to_csv('summary_stats_P2_byParty.csv')
 
 
-sumry3 = dfbypartyspeaker2filt.groupby(['Term','Speaker Party','Speaker']).describe(include='all').dropna(axis=1)
+sumry3 = sumry2.drop([('Speaker','count'),('Speaker Party','count')],axis=1)
+
+sumry3.to_csv('summary_stats_P2_new.csv')
+
 
 
 sumry.columns
