@@ -81,19 +81,6 @@ rule prepare_term_5_indiv:
 
 # ind = ['Speaker Party','Speaker','Phrase']
 
-rule agg_data_byPartySpeaker:
-    input:
-        data = expand("../../interim/t{iKey}_byPartySpeaker.pkl", iKey = [1,2,3,4,5]),
-        script = "script_all_byInd.py"
-    params:
-        i = 3
-    output:
-        "../../interim/all_byPartySpeaker.pkl"
-    log:
-        "logs/agg_all.log"
-    shell:
-        "python {input.script} {input.data} {params.i} {output}\
-        > {log} {logAll}"
 
 rule agg_data_overall:
     input:
@@ -122,6 +109,34 @@ rule agg_data_byParty:
     shell:
         "python {input.script} {input.data} {params.i}\
         {output} > {log} {logAll}"
+
+rule agg_data_byPartySpeaker:
+    input:
+        data = expand("../../interim/t{iKey}_byPartySpeaker.pkl", iKey = [1,2,3,4,5]),
+        script = "script_all_byInd.py"
+    params:
+        i = 3
+    output:
+        "../../interim/all_byPartySpeaker.pkl"
+    log:
+        "logs/agg_all3.log"
+    shell:
+        "python {input.script} {input.data} {params.i} {output}\
+        > {log} {logAll}"
+
+rule agg_data_byPartySpeaker2:
+    input:
+        data = expand("../../interim/t{iKey}_byPartySpeaker.pkl", iKey = [1,2,3,4,5]),
+        script = "script_all_byInd2.py"
+    params:
+        i = 4
+    output:
+        "../../interim/all_byPartySpeakerTerm.pkl"
+    log:
+        "logs/agg_all3_2.log"
+    shell:
+        "python {input.script} {input.data} {params.i} {output}\
+        > {log} {logAll}"
 
 
 files_i_fixed = ['overall','byParty']
