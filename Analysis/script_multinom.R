@@ -143,11 +143,11 @@ model_list <- list(
                    )
 
 acc_list <- list(
-                  model1    = mean(caret_1$resample$Accuracy),
-                  model2    = mean(caret_2$resample$Accuracy),
-                  model3    = mean(caret_3$resample$Accuracy),
-                  model4    = mean(caret_4$resample$Accuracy),
-                  model5    = mean(caret_5$resample$Accuracy)
+                  term1    = mean(caret_1$resample$Accuracy),
+                  term2    = mean(caret_2$resample$Accuracy),
+                  term3    = mean(caret_3$resample$Accuracy),
+                  term4    = mean(caret_4$resample$Accuracy),
+                  term5    = mean(caret_5$resample$Accuracy)
                   )
 
 # Save Output #
