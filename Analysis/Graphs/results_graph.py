@@ -90,7 +90,7 @@ sumry_phrase2.set_ylabel('# Unique Phrases')
 sumry_phrase2.legend(bbox_to_anchor=(1,1))
 sumry_phrase2.get_figure().savefig('./summary_fixed_indiv_phrase_plot_P2.png', dpi=600,bbox_inches='tight')
 
-sumry_speaker2 = sumry[('Speaker','unique')].reset_index().pivot(index='Term',columns = 'Speaker Party', values=('Speaker', 'unique')).plot.bar(stacked=True,color = ['orange','blue','green','red'],rot=0)
+sumry_speaker2 = sumry[('Speaker','unique')].reset_index().pivot(index='Term',columns = 'Speaker Party', values=('Speaker', 'unique')).plot.bar(stacked=True,color = ['green','red'],rot=0)
 sumry_speaker2.set_ylabel('# Speakers')
 sumry_speaker2.legend(bbox_to_anchor=(1,1))
 sumry_speaker2.get_figure().savefig('./summary_fixed_indiv_speaker_plot_P2.png', dpi=600,bbox_inches='tight')
