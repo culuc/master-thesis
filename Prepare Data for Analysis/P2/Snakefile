@@ -1,7 +1,3 @@
-# rule test:
-#     input: "README.md"
-#     output: "testytest.txt"
-#     script: "python lower() {input} > {output}"
 # --- Variable Declarations ---- #
 runR = "Rscript --no-save --no-restore --verbose"
 logAll = "2>&1"

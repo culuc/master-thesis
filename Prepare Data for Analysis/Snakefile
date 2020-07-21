@@ -87,7 +87,7 @@ rule agg_data_overall:
         data = expand("../../interim/t{iKey}_overall.pkl", iKey = [1,2,3,4,5]),
         script = "script_all_byInd.py"
     params:
-        i = 1
+        i = 3
     output:
         "../../interim/all_overall.pkl"
     log:
@@ -115,7 +115,7 @@ rule agg_data_byPartySpeaker:
         data = expand("../../interim/t{iKey}_byPartySpeaker.pkl", iKey = [1,2,3,4,5]),
         script = "script_all_byInd.py"
     params:
-        i = 3
+        i = 1
     output:
         "../../interim/all_byPartySpeaker.pkl"
     log:
@@ -246,7 +246,7 @@ rule prepare_phrases_all_terms_fixed_restr_P4_old:
         script = "script_fixed_terms_restr2.py",
         data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
     params:
-        parties = 2,
+        parties = 4,
         topN = 500
     output:
         files = expand("../../interim/fixd_P4_old/{iKey}", iKey = files_fixed_restr2_4)

@@ -14,9 +14,9 @@ i = ast.literal_eval(sys.argv[6])
 
 
 
-print(ind[-i:3])
+print(ind[::-i][::-1])
 
 
-dfbypartyspeaker=pd.concat([df1,df2,df3,df4,df5]).groupby(ind[-i:3]).sum().reset_index()
+dfbypartyspeaker=pd.concat([df1,df2,df3,df4,df5]).groupby(ind[::-i][::-1]).sum().reset_index()
 
 dfbypartyspeaker.to_pickle(sys.argv[7])
