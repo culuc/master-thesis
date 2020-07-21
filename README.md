@@ -25,7 +25,7 @@ Prediction accuracy determined with 10-fold cross-validation:
 ![results P2](Analysis/Graphs/summary_plot_P2.png)
 
 
-### Some Summary Stats About the Fixed-Indiv Analysis
+### Some Summary Stats About the _individual_fixed_ Analysis
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
@@ -36,7 +36,7 @@ Distribution of Phrases  | Distribution of Speakers
  ![results P4](Analysis/Graphs/summary_plot_P4.png)
 
 
- ### Some Summary Stats About the Fixed-Indiv Analysis
+ ### Some Summary Stats About the _individual_fixed_ Analysis
 
  Distribution of Phrases  | Distribution of Speakers
  :--:|:--:
