@@ -25,12 +25,22 @@ Prediction accuracy determined with 10-fold cross-validation:
 ![results P2](Analysis/Graphs/summary_plot_P2.png)
 
 
-### Some Summary Stats About the Analysis
+### Some Summary Stats About the Fixed-Indiv Analysis
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
- ![results P2](Analysis/Graphs/summary_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_speaker_plot_P2.png)
+ ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P2.png)
 
+
+## Results for Restricted Analysis: SP, CVP, FDP & SVP
+ ![results P4](Analysis/Graphs/summary_plot_P4.png)
+
+
+ ### Some Summary Stats About the Fixed-Indiv Analysis
+
+ Distribution of Phrases  | Distribution of Speakers
+ :--:|:--:
+  ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4speaker_plot_P2.png)
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
 | tfidf top500 | 0.7060330371383003 | 0.7024822134387352 | 0.6639619800489366 | 0.7229813664596273 | 0.6859479578392622 |
