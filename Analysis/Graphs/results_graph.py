@@ -7,17 +7,23 @@ df_42 = pd.read_csv('../out/accuracy/multinom_P4/summary.csv')
 df2 = pd.read_csv('../out/accuracy/regLogistic_P2/summary.csv')
 df2 = pd.read_csv('../out/accuracy/glm_P2/summary.csv')
 df3 = pd.read_csv('../out/accuracy/glm_P2_old/summary.csv')
+
+df_all = pd.read_csv('../out/accuracy/multinom/summary.csv')
 #%%
 df
 para_plot = pd.plotting.parallel_coordinates(df,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
 
 para_plot42 = pd.plotting.parallel_coordinates(df_42,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
 
+para_plotALL = pd.plotting.parallel_coordinates(df_all,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
 para_plot4 = pd.plotting.parallel_coordinates(df_4,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
 fig = para_plot.get_figure()
 fig.savefig('./summary_plot_P2.png', dpi=600,bbox_inches='tight')
 fig2 = para_plot42.get_figure()
 fig2.savefig('./summary_plot_P4.png', dpi=600,bbox_inches='tight')
+fig3 = para_plotALL.get_figure()
+fig3.savefig('./summary_plot_ALL.png', dpi=600,bbox_inches='tight')
+
 
 
 para_plot2 = pd.plotting.parallel_coordinates(df2,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
