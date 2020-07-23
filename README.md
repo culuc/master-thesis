@@ -27,7 +27,7 @@ Multinom | regLogistic | randomForest
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png)
 
 
-### Some Summary Stats About the _individual_fixed_ Analysis
+##### Some Summary Stats About the _individual_fixed_ Analysis
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
@@ -40,11 +40,11 @@ Multinom | regLogistic | randomForest
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png)
 
 
- ### Some Summary Stats About the _individual_fixed_ Analysis
+##### Some Summary Stats About the _individual_fixed_ Analysis
 
- Distribution of Phrases  | Distribution of Speakers
- :--:|:--:
-  ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4.png)
+Distribution of Phrases  | Distribution of Speakers
+:--:|:--:
+![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4.png)
 
 
 ## Results for Analysis With All Parties
@@ -52,7 +52,7 @@ Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png)
 
-### Some Summary Stats About the _individual_fixed_ Analysis
+##### Some Summary Stats About the _individual_fixed_ Analysis
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
