@@ -35,7 +35,9 @@ Distribution of Phrases  | Distribution of Speakers
 
 
 ## Results for Restricted Analysis: SP, CVP, FDP & SVP
- ![results P4](Analysis/Graphs/summary_plot_P4.png)
+Multinom | regLogistic | randomForest
+:--:|:--:|:--:
+![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png)
 
 
  ### Some Summary Stats About the _individual_fixed_ Analysis
@@ -46,7 +48,15 @@ Distribution of Phrases  | Distribution of Speakers
 
 
 ## Results for Analysis With All Parties
-![results ALL](Analysis/Graphs/summary_plot_ALL.png)
+Multinom | regLogistic | randomForest
+:--:|:--:|:--:
+![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png)
+
+### Some Summary Stats About the _individual_fixed_ Analysis
+
+Distribution of Phrases  | Distribution of Speakers
+:--:|:--:
+ ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
