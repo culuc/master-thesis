@@ -12,13 +12,13 @@
 |5   |15           |Sozialdemokratische Partei der Schweiz (SP)          |735257       |237    |Simonetta Sommaruga    |169380 |3149257|1941602|('million', 'frank') |204   |3149257.0|1.156980837067283 |1.244432181289119 |1.0   |1.0   |1.0   |1.0   |567.0 |
 
 
-Previous Results: Prediction accuracy determined with 10-fold cross-validation:
+<!-- Previous Results: Prediction accuracy determined with 10-fold cross-validation:
 
 [Results for Multinomial Logistic](Results/old/summary_result_terms_multinom_scaled.csv)
 
 [Results for Regularized Logistic](Results/old/summary_result_terms_regLogistic_scaled.csv)
 
-[Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv)
+[Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
 
 
 ## Results for Restricted Analysis: SP & SVP
