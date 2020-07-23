@@ -1,28 +1,58 @@
 import pandas as pd
 import ast
 
-df = pd.read_csv('../out/accuracy/multinom_P2/summary.csv')
-df_4 = pd.read_csv('../out/accuracy/multinom_P4_old/summary.csv')
-df_42 = pd.read_csv('../out/accuracy/multinom_P4/summary.csv')
+df_P2 = pd.read_csv('../out/accuracy/multinom_P2/summary.csv')
+df_P2rf = pd.read_csv('../out/accuracy/randomForest_P2/summary.csv')
+df_P2rl = pd.read_csv('../out/accuracy/regLogistic_P2/summary.csv')
+
+df_P4 = pd.read_csv('../out/accuracy/multinom_P4_old/summary.csv')
+df_P42 = pd.read_csv('../out/accuracy/multinom_P4/summary.csv')
+df_P4rf = pd.read_csv('../out/accuracy/randomForest_P4/summary.csv')
+df_P4rl = pd.read_csv('../out/accuracy/regLogistic_P4/summary.csv')
+
+
 df2 = pd.read_csv('../out/accuracy/regLogistic_P2/summary.csv')
 df2 = pd.read_csv('../out/accuracy/glm_P2/summary.csv')
 df3 = pd.read_csv('../out/accuracy/glm_P2_old/summary.csv')
 
 df_all = pd.read_csv('../out/accuracy/multinom/summary.csv')
+df_all2 = pd.read_csv('../out/accuracy/regLogistic/summary.csv')
+df_all3 = pd.read_csv('../out/accuracy/randomForest/summary.csv')
+
+
 #%%
 df
-para_plot = pd.plotting.parallel_coordinates(df,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
-
-para_plot42 = pd.plotting.parallel_coordinates(df_42,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plot2 = pd.plotting.parallel_coordinates(df,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plot2rf = pd.plotting.parallel_coordinates(df_P2rf,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plot2rl = pd.plotting.parallel_coordinates(df_P2rl,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plot4 = pd.plotting.parallel_coordinates(df_42,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plot4rf = pd.plotting.parallel_coordinates(df_P4rf,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plot4rl = pd.plotting.parallel_coordinates(df_P4rl,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
 
 para_plotALL = pd.plotting.parallel_coordinates(df_all,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
-para_plot4 = pd.plotting.parallel_coordinates(df_4,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
-fig = para_plot.get_figure()
-fig.savefig('./summary_plot_P2.png', dpi=600,bbox_inches='tight')
-fig2 = para_plot42.get_figure()
-fig2.savefig('./summary_plot_P4.png', dpi=600,bbox_inches='tight')
-fig3 = para_plotALL.get_figure()
-fig3.savefig('./summary_plot_ALL.png', dpi=600,bbox_inches='tight')
+para_plotALLrl = pd.plotting.parallel_coordinates(df_all2,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+para_plotALLrf = pd.plotting.parallel_coordinates(df_all3,'file',colormap = 'Accent').legend(bbox_to_anchor=(1,1))
+
+fig2 = para_plot2.get_figure()
+fig2.savefig('./summary_plot_P2.png', dpi=400,bbox_inches='tight')
+fig2rf = para_plot2rf.get_figure()
+fig2rf.savefig('./summary_plot_P2_rf.png', dpi=400,bbox_inches='tight')
+fig2rl = para_plot2rl.get_figure()
+fig2rl.savefig('./summary_plot_P2_rl.png', dpi=400,bbox_inches='tight')
+
+fig4 = para_plot4.get_figure()
+fig4.savefig('./summary_plot_P4.png', dpi=400,bbox_inches='tight')
+fig4rf = para_plot4rf.get_figure()
+fig4rf.savefig('./summary_plot_P4_rf.png', dpi=400,bbox_inches='tight')
+fig4rl = para_plot4rl.get_figure()
+fig4rl.savefig('./summary_plot_P4_rl.png', dpi=400,bbox_inches='tight')
+
+fig = para_plotALL.get_figure()
+fig.savefig('./summary_plot_ALL.png', dpi=400,bbox_inches='tight')
+figrf = para_plotALLrf.get_figure()
+figrf.savefig('./summary_plot_ALL_rf.png', dpi=400,bbox_inches='tight')
+figrl = para_plotALLrl.get_figure()
+figrl.savefig('./summary_plot_ALL_rl.png', dpi=400,bbox_inches='tight')
 
 
 
@@ -60,6 +90,10 @@ phrases = phrases.Phrase.apply(ast.literal_eval)
 phrases4 = pd.read_csv('../../../interim/fixd_P4/phrases_all_terms_tfidf_top250each_P4.csv')
 phrases4 = phrases4.Phrase.apply(ast.literal_eval)
 
+phrasesALL = pd.read_csv('../../../interim/fixed/phrases_all_terms_tfidf_top100each.csv')
+phrasesALL = phrasesALL.Phrase.apply(ast.literal_eval)
+
+
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
 p2 = 'Schweizerische Volkspartei (SVP)'
 p3 = 'FDP.Die Liberalen (FDP-Liberale)'
@@ -73,6 +107,7 @@ dfbypartyspeaker4 = dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(part
 
 dfbypartyspeaker2filt = dfbypartyspeaker2[dfbypartyspeaker2.Phrase.isin(phrases)]
 dfbypartyspeaker4filt = dfbypartyspeaker4[dfbypartyspeaker4.Phrase.isin(phrases4)]
+dfbypartyspeakerALLfilt = dfbypartyspeaker[dfbypartyspeaker.Phrase.isin(phrasesALL)]
 
 sumry = dfbypartyspeaker2filt.groupby(['Term','Speaker Party']).describe(include='all').dropna(axis=1)
 
@@ -88,6 +123,7 @@ sumry3 = sumry2.drop([('Speaker','count'),('Speaker Party','count')],axis=1)
 
 sumry3.to_csv('summary_stats_P2_new.csv')
 
+sumryALL = dfbypartyspeakerALLfilt.groupby(['Term','Speaker Party']).describe(include='all').dropna(axis=1)
 
 
 sumry.columns
@@ -117,3 +153,12 @@ sumry_speaker4 = sumry4[('Speaker','unique')].reset_index().pivot(index='Term',c
 sumry_speaker4.set_ylabel('# Speakers')
 sumry_speaker4.legend(bbox_to_anchor=(1,1))
 sumry_speaker4.get_figure().savefig('./summary_fixed_indiv_speaker_plot_P4.png', dpi=600,bbox_inches='tight')
+
+sumry_phraseALL = sumryALL[('Phrase','unique')].reset_index().pivot(columns='Term',index = 'Speaker Party', values=('Phrase', 'unique')).plot.bar(stacked=False)
+sumry_phraseALL.set_ylabel('# Unique Phrases')
+sumry_phraseALL.legend(bbox_to_anchor=(1,1))
+sumry_phraseALL.get_figure().savefig('./summary_fixed_indiv_phrase_plot_ALL.png', dpi=600,bbox_inches='tight')
+
+sumry_speakerALL = sumryALL[('Speaker','unique')].reset_index().pivot(columns='Term',index = 'Speaker Party', values=('Speaker', 'unique')).plot.bar(stacked=True)
+sumry_speakerALL.set_ylabel('# Speakers')
+sumry_speakerALL.get_figure().savefig('./summary_fixed_indiv_speaker_plot_ALL.png', dpi=600,bbox_inches='tight')

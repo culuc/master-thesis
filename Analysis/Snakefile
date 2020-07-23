@@ -13,25 +13,14 @@ terms = ["term1","term2","term3","term4","term5"]
 files = ["top500","top100each","fixed_top500","fixed_top100each"]
 files_P2 = ["top500","top500each","fixed_top500","fixed_top500each"]
 files_P4= ["top500","top250each","fixed_top500","fixed_top250each"]
+files_overall = ["overall_top500","individual_top100each","overall_fixed_top500","individual_fixed_top100each"]
+files_P2n = ["overall_top500","individual_top500each","overall_fixed_top500","individual_fixed_top500each"]
+files_P4n = ["overall_top500","individual_top250each","overall_fixed_top500","individual_fixed_top250each"]
+
 # terms = ["term2","term3"]
-
-rule regLogistic:
-    input:
-        data = expand("out/accuracy/regLogistic/{iKey}.csv", iKey = files)
-
-
-rule randomForest:
-    input:
-        data = expand("out/accuracy/randomForest/{iKey}.csv", iKey = files)
-
-
 rule multinom:
     input:
         data = expand("out/accuracy/multinom/{iKey}.csv", iKey = files)
-
-rule glm_P2:
-    input:
-        data = expand("out/accuracy/glm_P2/{iKey}_P2.csv", iKey = files_P2)
 
 rule multinom_P2:
     input:
@@ -41,14 +30,38 @@ rule multinom_P4:
     input:
         data = expand("out/accuracy/multinom_P4/{iKey}_P4.csv", iKey = files_P4)
 
+rule regLogistic:
+    input:
+        data = expand("out/accuracy/regLogistic/{iKey}.csv", iKey = files_overall)
+
+rule regLogistic_P4:
+    input:
+        data = expand("out/accuracy/regLogistic_P4/{iKey}_P4.csv", iKey = files_P4n)
 
 
-# OLS REGRESSIONS - Descriptive Evidence
-#
+rule randomForest:
+    input:
+        data = expand("out/accuracy/randomForest/{iKey}.csv", iKey = files_overall)
+
+rule randomForest_P2:
+    input:
+        data = expand("out/accuracy/randomForest_P2/{iKey}.csv", iKey = files_P2n)
+
+rule randomForest_P4:
+    input:
+        data = expand("out/accuracy/randomForest_P4/{iKey}.csv", iKey = files_P4n)
+
+rule glm_P2:
+    input:
+        data = expand("out/accuracy/glm_P2/{iKey}_P2.csv", iKey = files_P2)
+
+
+
+# ---------------------------- MULTINOM ---------------------------------
 rule multinom_top500:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
                                 iKey = terms),
     output:
@@ -66,7 +79,7 @@ rule multinom_top500:
 rule multinom_top100each:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
                                 iKey = terms)
     output:
@@ -82,7 +95,7 @@ rule multinom_top100each:
 rule multinom_fixed:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/fixed/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
@@ -98,7 +111,7 @@ rule multinom_fixed:
 rule multinom_fixed_indiv:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_scaled.csv",
                                 iKey = terms)
     output:
@@ -113,12 +126,12 @@ rule multinom_fixed_indiv:
 
 
 
-#----------------- ------------ P2 --------------------------------------------
+#-----------------  P2
 
 rule multinom_fixed_indiv_P2:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
                                 iKey = terms)
     output:
@@ -134,7 +147,7 @@ rule multinom_fixed_indiv_P2:
 rule multinom_fixed_overall_P2:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
@@ -151,7 +164,7 @@ rule multinom_fixed_overall_P2:
 rule multinom_top500each_P2:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
@@ -167,7 +180,7 @@ rule multinom_top500each_P2:
 rule multinom_top500each_P2_dist:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
@@ -183,7 +196,7 @@ rule multinom_top500each_P2_dist:
 rule multinom_top500_P2:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
                                 iKey = terms)
     output:
@@ -197,12 +210,12 @@ rule multinom_top500_P2:
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
-#------------------------------ P4 --------------------------------------------
+#----------------- P4
 
 rule multinom_fixed_indiv_P4:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_scaled.csv",
                                 iKey = terms)
     output:
@@ -218,7 +231,7 @@ rule multinom_fixed_indiv_P4:
 rule multinom_fixed_overall_P4:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
@@ -235,7 +248,7 @@ rule multinom_fixed_overall_P4:
 rule multinom_top250each_P4:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
@@ -251,7 +264,7 @@ rule multinom_top250each_P4:
 rule multinom_top500_P4:
     input:
         script = "script_multinom.R",
-        model  = "./Models/model_multinom.json",
+        model  = "Models/model_multinom.json",
         data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_scaled_P4.csv",
                                 iKey = terms)
     output:
@@ -267,7 +280,7 @@ rule multinom_top500_P4:
 
 
 
-#------------------------ P2 glm -----------------------------------------------
+#------------------------ P2 glm ----------------------------------------
 rule glm_fixed_indiv_P2:
     input:
         script = "script_glm.R",
@@ -333,12 +346,80 @@ rule glm_top500_P2:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
-#___________________
+
+#--------------------------- REGLOGISTIC -------------------------------
+rule regLogistic_fixed_indiv:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/regLogistic/individual_fixed_top100each.Rds",
+        accuracy = "out/accuracy/regLogistic/individual_fixed_top100each.Rds",
+        accuracy2 = "out/accuracy/regLogistic/individual_fixed_top100each.csv"
+    log:
+        "logs/regLogistic_noreg.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_fixed_overall:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/regLogistic/overall_fixed_top500.Rds",
+        accuracy = "out/accuracy/regLogistic/overall_fixed_top500.Rds",
+        accuracy2 = "out/accuracy/regLogistic/overall_fixed_top500.csv"
+    log:
+        "logs/regLogistic_noreg.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule regLogistic_top500:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/regLogistic/overall_top500.Rds",
+        accuracy = "out/accuracy/regLogistic/overall_top500.Rds",
+        accuracy2 = "out/accuracy/regLogistic/overall_top500.csv"
+    log:
+        "logs/regLogistic_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_top100each:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/regLogistic/individual_top100each.Rds",
+        accuracy = "out/accuracy/regLogistic/individual_top100each.Rds",
+        accuracy2 = "out/accuracy/regLogistic/individual_top100each.csv"
+    log:
+        "logs/regLogistic_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+#_______________P2 regLogistic
 
 rule regLogistic_fixed_indiv_P2:
     input:
         script = "script.R",
-        model  = "./Models/model_regLogistic.json",
+        model  = "Models/model_regLogistic.json",
         data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
                                 iKey = terms)
     output:
@@ -354,7 +435,7 @@ rule regLogistic_fixed_indiv_P2:
 rule regLogistic_fixed_overall_P2:
     input:
         script = "script.R",
-        model  = "./Models/model_regLogistic.json",
+        model  = "Models/model_regLogistic.json",
         data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
@@ -371,7 +452,7 @@ rule regLogistic_fixed_overall_P2:
 rule regLogistic_top500each_P2:
     input:
         script = "script.R",
-        model  = "./Models/model_regLogistic.json",
+        model  = "Models/model_regLogistic.json",
         data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
@@ -387,7 +468,7 @@ rule regLogistic_top500each_P2:
 rule regLogistic_top500_P2:
     input:
         script = "script.R",
-        model  = "./Models/model_regLogistic.json",
+        model  = "Models/model_regLogistic.json",
         data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
                                 iKey = terms)
     output:
@@ -400,188 +481,274 @@ rule regLogistic_top500_P2:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
-#_________________________
-rule regLogistic_fixed_indiv:
-    input:
-        script = "script.R",
-        model  = "Models/model_regLogistic_noreg.json",
-        data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
-                                iKey = terms)
-    output:
-        models = "out/models/regLogistic/top500_noreg.Rds",
-        accuracy = "out/accuracy/regLogistic/top500_noreg.Rds",
-        accuracy2 = "out/accuracy/regLogistic/top500_noreg.csv"
-    log:
-        "logs/regLogistic_noreg.Rout"
-    shell:
-     "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+#__________P4 regLogistic
 
-
-rule regLogistic_top500:
+rule regLogistic_fixed_indiv_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/top500.Rds",
-        accuracy = "out/accuracy/regLogistic/top500.Rds",
-        accuracy2 = "out/accuracy/regLogistic/top500.csv"
+        models = "out/models/regLogistic_P4/individual_fixed_top250each_P4.Rds",
+        accuracy = "out/accuracy/regLogistic_P4/individual_fixed_top250each_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/individual_fixed_top250each_P4.csv"
     log:
-        "logs/regLogistic_top500.Rout"
+        "logs/regLogistic_fixed_top250each_P4.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
-rule regLogistic_noreg_top1000:
-    input:
-        script = "script.R",
-        model  = "Models/model_regLogistic_noreg.json",
-        data   = expand("Data/{iKey}/tfidf/{iKey}_top1000_scaled.csv",
-                                iKey = terms)
-    output:
-        models = "out/models/regLogistic/top1000_noreg.Rds",
-        accuracy = "out/accuracy/regLogistic/top1000_noreg.Rds",
-        accuracy2 = "out/accuracy/regLogistic/top1000_noreg.csv"
-    log:
-        "logs/regLogistic_noreg_top1000.Rout"
-    shell:
-     "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
-
-
-rule regLogistic_top1000:
+rule regLogistic_fixed_overall_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("Data/{iKey}/tfidf/{iKey}_top1000_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/top1000.Rds",
-        accuracy = "out/accuracy/regLogistic/top1000.Rds",
-        accuracy2 = "out/accuracy/regLogistic/top1000.csv"
+        models = "out/models/regLogistic_P4/overall_fixed_top500_P4.Rds",
+        accuracy = "out/accuracy/regLogistic_P4/overall_fixed_top500_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/overall_fixed_top500_P4.csv"
     log:
-        "logs/regLogistic_top1000.Rout"
-    shell:
-     "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
-
-rule regLogistic_noreg_cap20:
-    input:
-        script = "script.R",
-        model  = "Models/model_regLogistic_noreg.json",
-        data   = expand("Data/{iKey}/cap/{iKey}_cap20_scaled.csv",
-                                iKey = terms)
-    output:
-        models = "out/models/regLogistic/cap20_noreg.Rds",
-        accuracy = "out/accuracy/regLogistic/cap20_noreg.Rds",
-        accuracy2 = "out/accuracy/regLogistic/cap20_noreg.csv"
-    log:
-        "logs/regLogistic_noreg_cap20.Rout"
+        "logs/regLogistic_fixed_top500_P4.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
-rule regLogistic_cap20:
+rule regLogistic_top250each_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("Data/{iKey}/cap/{iKey}_cap20_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/cap20.Rds",
-        accuracy = "out/accuracy/regLogistic/cap20.Rds",
-        accuracy2 = "out/accuracy/regLogistic/cap20.csv"
+        models = "out/models/regLogistic_P4/individual_top250each_P4.Rds",
+        accuracy = "out/accuracy/regLogistic_P4/individual_top250each_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/individual_top250each_P4.csv"
     log:
-        "logs/regLogistic_cap20.Rout"
+        "logs/regLogistic_top250each_P4.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
-rule regLogistic_noreg_cap100:
-    input:
-        script = "script.R",
-        model  = "Models/model_regLogistic_noreg.json",
-        data   = expand("Data/{iKey}/cap/{iKey}_cap100_scaled.csv",
-                                iKey = terms)
-    output:
-        models = "out/models/regLogistic/cap100_noreg.Rds",
-        accuracy = "out/accuracy/regLogistic/cap100_noreg.Rds",
-        accuracy2 = "out/accuracy/regLogistic/cap100_noreg.csv"
-    log:
-        "logs/regLogistic_noreg_cap100.Rout"
-    shell:
-     "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
-
-
-rule regLogistic_cap100:
+rule regLogistic_top500_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("Data/{iKey}/cap/{iKey}_cap100_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_scaled_P4.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/cap100.Rds",
-        accuracy = "out/accuracy/regLogistic/cap100.Rds",
-        accuracy2 = "out/accuracy/regLogistic/cap100.csv"
+        models = "out/models/regLogistic_P4/overall_top500_P4.Rds",
+        accuracy = "out/accuracy/regLogistic_P4/overall_top500_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/overall_top500_P4.csv"
     log:
-        "logs/regLogistic_cap100.Rout"
+        "logs/regLogistic_top500_P4.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
+
+#---------------------------- randomForest ------------------------------
 
 rule rf_top500:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf/caret_1.Rds",
-        accuracy = "out/accuracy/rf/top500.Rds",
-        accuracy2 = "out/accuracy/rf/top500.csv"
+        models = "out/models/randomForest/caret_1.Rds",
+        accuracy = "out/accuracy/randomForest/top500.Rds",
+        accuracy2 = "out/accuracy/randomForest/overall_top500.csv"
     log:
         "logs/rf_top500.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
 
-rule rf_top1000:
+rule rf_indiv:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("Data/{iKey}/tfidf/{iKey}_top1000_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf/rf_top1000.Rds",
-        accuracy = "out/accuracy/rf/top1000.Rds",
-        accuracy2 = "out/accuracy/rf/top1000.csv"
+        models = "out/models/randomForest/caret_1.Rds",
+        accuracy = "out/accuracy/randomForest/top500.Rds",
+        accuracy2 = "out/accuracy/randomForest/individual_top100each.csv"
     log:
-        "logs/rf_top1000.Rout"
+        "logs/rf_top500.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
 
-rule rf_cap100:
+rule rf_fixed:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("Data/{iKey}/cap/{iKey}_cap100_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf/cap100.Rds",
-        accuracy = "out/accuracy/rf/cap100.Rds",
-        accuracy2 = "out/accuracy/rf/top1000.csv"
+        models = "out/models/randomForest/overall_fixed_top500.Rds",
+        accuracy = "out/accuracy/randomForest/overall_fixed_top500.Rds",
+        accuracy2 = "out/accuracy/randomForest/overall_fixed_top500.csv"
     log:
-        "logs/rf_cap100.Rout"
+        "logs/rf_top500.Rout"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
 
+rule rf_fixed_indiv:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest/individual_fixed_top100each.Rds",
+        accuracy = "out/accuracy/randomForest/individual_fixed_top100each.Rds",
+        accuracy2 = "out/accuracy/randomForest/individual_fixed_top100each.csv"
+    log:
+        "logs/rf_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+
+# ---------- P2 ---------
+
+rule rf_top500_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P2/overall_top500.Rds",
+        accuracy = "out/accuracy/randomForest_P2/overall_top500.Rds",
+        accuracy2 = "out/accuracy/randomForest_P2/overall_top500.csv"
+    log:
+        "logs/rf_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_indiv_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P2/individual_top500each.Rds",
+        accuracy = "out/accuracy/randomForest_P2/individual_top500each.Rds",
+        accuracy2 = "out/accuracy/randomForest_P2/individual_top500each.csv"
+    log:
+        "logs/rf_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P2/overall_fixed_top500.Rds",
+        accuracy = "out/accuracy/randomForest_P2/overall_fixed_top500.Rds",
+        accuracy2 = "out/accuracy/randomForest_P2/overall_fixed_top500.csv"
+    log:
+        "logs/rf_top500_fixed_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_indiv_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P2/individual_fixed_top500each.Rds",
+        accuracy = "out/accuracy/randomForest_P2/individual_fixed_top500each.Rds",
+        accuracy2 = "out/accuracy/randomForest_P2/individual_fixed_top500each.csv"
+    log:
+        "logs/rf_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+
+#---------- P4 ---------
+
+rule rf_top500_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_scaled_P4.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P4/overall_top500.Rds",
+        accuracy = "out/accuracy/randomForest_P4/overall_top500.Rds",
+        accuracy2 = "out/accuracy/randomForest_P4/overall_top500.csv"
+    log:
+        "logs/rf_top500_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_indiv_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_scaled_P4.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P4/individual_top250each.Rds",
+        accuracy = "out/accuracy/randomForest_P4/individual_top250each.Rds",
+        accuracy2 = "out/accuracy/randomForest_P4/individual_top250each.csv"
+    log:
+        "logs/rf_top500each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P4/overall_fixed_top500.Rds",
+        accuracy = "out/accuracy/randomForest_P4/overall_fixed_top500.Rds",
+        accuracy2 = "out/accuracy/randomForest_P4/overall_fixed_top500.csv"
+    log:
+        "logs/rf_top500_fixed_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_indiv_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/randomForest_P4/individual_fixed_top250each.Rds",
+        accuracy = "out/accuracy/randomForest_P4/individual_fixed_top250each.Rds",
+        accuracy2 = "out/accuracy/randomForest_P4/individual_fixed_top250each.csv"
+    log:
+        "logs/rf_top250each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+# -----------------------------------------------------------------------
 
 rule sum_accuracy_multinom:
     input:
@@ -626,6 +793,49 @@ rule sum_accuracy_multinom_P4:
            {output.summary} > {log} {logAll}"
 
 
+rule sum_accuracy_rf:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/randomForest/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/randomForest/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_rf_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/randomForest_P2/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/randomForest_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_rf_P4:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/randomForest_P4/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/randomForest_P4/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+
 rule sum_accuracy_glm:
     input:
         script = "script_sum.R",
@@ -662,6 +872,20 @@ rule sum_accuracy_regLogistic:
                             # iKey = files)
     output:
         summary = "out/accuracy/regLogistic/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_regLogistic_P4:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/regLogistic_P4/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/regLogistic_P4/summary.csv"
     log:
         "logs/sum.Rout"
     shell:

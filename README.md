@@ -22,7 +22,8 @@ Prediction accuracy determined with 10-fold cross-validation:
 
 
 ## Results for Restricted Analysis: SP & SVP
-![results P2](Analysis/Graphs/summary_plot_P2.png)
+:--:|:--:|:--:
+![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png)
 
 
 ### Some Summary Stats About the _individual_fixed_ Analysis
