@@ -43,9 +43,9 @@ Multinom | regLogistic | randomForest
 
  Model | Results
 :--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_P4.png)
-|regLogistic   | ![](Analysis/Graphs/summary_plot_P4_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_P4_rf.png)
+|Multinom   |   ![](Analysis/Graphs/summary_plot_P4.png){width=60%}
+|regLogistic   | ![](Analysis/Graphs/summary_plot_P4_rl.png){width=60%}
+|randomForest| ![](Analysis/Graphs/summary_plot_P4_rf.png){width=60%}
 
 
 #### Some Summary Stats About the _individual_fixed_ Analysis
