@@ -27,9 +27,9 @@ Multinom | regLogistic | randomForest
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png)
 
 
-##### Some Summary Stats About the _individual_fixed_ Analysis
+#### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 500 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
-These stats examine the resulting distribution over the terms with this method.
+These stats examine the resulting distribution over the five terms from this method.
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
@@ -41,8 +41,14 @@ Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png)
 
+ Model | Results
+:--:|:--:
+|Multinom   |   ![](Analysis/Graphs/summary_plot_P4.png)
+|regLogistic   | ![](Analysis/Graphs/summary_plot_P4_rl.png)
+|randomForest| ![](Analysis/Graphs/summary_plot_P4_rf.png)
 
-##### Some Summary Stats About the _individual_fixed_ Analysis
+
+#### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 250 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
 
 Distribution of Phrases  | Distribution of Speakers
@@ -55,7 +61,7 @@ Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png)
 
-##### Some Summary Stats About the _individual_fixed_ Analysis
+#### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 100 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
 
 Distribution of Phrases  | Distribution of Speakers
