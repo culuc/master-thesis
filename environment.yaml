@@ -1,0 +1,55 @@
+name: MaThesis
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.7.6
+  - nltk
+  - pandas
+  - spacy
+  - spacy-lookups-data
+  - matplotlib
+  - plotly=4.8.1
+  - scikit-learn
+  - cython
+  - r-liblinear
+  - r-e1071
+  - r-igraph
+  - r-dplyr
+  - r-tidyverse
+  - r-tidyr
+  - r-tidyselect
+  - r-caret
+  - r-tidytext
+  - r-irkernel
+  - r-catools
+  - python-language-server
+  - r-collections
+  - r-pkgload
+  - r-pillar
+  - r-repr
+  - jupyter_client
+  - ipython
+  - ipykernel
+  - r-xtable
+  - snakemake
+  - r-rjson
+  - r-rlist
+  - r-ranger
+  - r-sets
+  - pandoc-crossref=0.3.7
+  - mamba
+  - jupyterlab
+  - ipywidgets[version='>=7.5']
+  - jupyterlab-plotly-extension
+  - jupyterlab-latex
+  - jupyter_bokeh
+  - bokeh
+  - seaborn
+  - r-fastica
+  - r-naivebayes
+  - r-glmnet
+  - tabulate
+  - htop
+prefix: /Users/lseiler/anaconda3/envs/MaThesis
+
