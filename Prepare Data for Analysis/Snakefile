@@ -147,7 +147,7 @@ rule prepare_term_5_indiv:
 
 
 
-## ________________ compute fixed phrases over all terms _______
+## ________________ compute fixed phrases over all terms _______________________
 
 # ind = ['Speaker Party','Speaker','Phrase']
 
@@ -334,7 +334,7 @@ phrases = "../../interim/fixed/phrases_all_terms_tfidf_top100each.csv"
 
 rule run_all_fixed:
     input:
-        data = expand("../Data/{iKey}/fixed/{iKey}_top100each_normal.csv", iKey = terms)
+        data = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_normal.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_term_1_fixed:
@@ -343,7 +343,7 @@ rule prepare_term_1_fixed:
         data   = expand("../../interim/t1_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = expand("../Data/term1/fixed/term1_top100each_{iKey}", iKey = files_o),
+        files = expand("../Data/term1/fixed_indiv/term1_top100each_{iKey}", iKey = files_o),
     log:
         "logs/prepare_term1_fixed.log"
     shell:
@@ -356,7 +356,7 @@ rule prepare_term_2_fixed:
         data   = expand("../../interim/t2_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = expand("../Data/term2/fixed/term2_top100each_{iKey}", iKey = files_o)
+        files = expand("../Data/term2/fixed_indiv/term2_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term2.log"
     shell:
@@ -369,7 +369,7 @@ rule prepare_term_3_fixed:
         data   = expand("../../interim/t3_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = expand("../Data/term3/fixed/term3_top100each_{iKey}", iKey = files_o)
+        files = expand("../Data/term3/fixed_indiv/term3_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term3.log"
     shell:
@@ -382,7 +382,7 @@ rule prepare_term_4_fixed:
         data   = expand("../../interim/t4_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = expand("../Data/term4/fixed/term4_top100each_{iKey}", iKey = files_o)
+        files = expand("../Data/term4/fixed_indiv/term4_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term4.log"
     shell:
@@ -395,7 +395,7 @@ rule prepare_term_5_fixed:
         data   = expand("../../interim/t5_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = expand("../Data/term5/fixed/term5_top100each_{iKey}", iKey = files_o)
+        files = expand("../Data/term5/fixed_indiv/term5_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term5.log"
     shell:
