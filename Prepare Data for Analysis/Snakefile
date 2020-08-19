@@ -11,7 +11,7 @@ files_o = ['normal.csv','scaled.csv','share.csv','df.pkl','topN.csv']
 
 rule run_all_indiv:
     input:
-        data = expand("../Data/{iKey}/tfidf_indiv/{iKey}_normal.csv", iKey = terms)
+        data = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each__normal.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_term_1_indiv:
@@ -56,7 +56,7 @@ rule prepare_term_4_indiv:
         script = "script_prepare_data.py",
         data   = expand("../../interim/t4_{iKey}.pkl", iKey = files_i)
     output:
-        files = expand("../Data/term4/tfidf_indiv/term4_{iKey}", iKey = files_o)
+        files = expand("../Data/term4/tfidf_indiv/term4_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term4.log"
     shell:
