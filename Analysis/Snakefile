@@ -17,6 +17,8 @@ files_overall = ["overall_top500","individual_top100each","overall_fixed_top500"
 files_P2n = ["overall_top500","individual_top500each","overall_fixed_top500","individual_fixed_top500each"]
 files_P4n = ["overall_top500","individual_top250each","overall_fixed_top500","individual_fixed_top250each"]
 
+files_quisq = ['top1k_quisq','fixed_top1k_quisq']
+
 # terms = ["term2","term3"]
 rule multinom:
     input:
@@ -25,6 +27,11 @@ rule multinom:
 rule multinom_P2:
     input:
         data = expand("out/accuracy/multinom_P2/{iKey}_P2.csv", iKey = files_P2)
+
+rule multinom_quisq_P2:
+    input:
+        data = expand("out/accuracy/multinom_quisq/{iKey}_P2.csv", iKey = files_quisq)
+
 
 rule multinom_P4:
     input:
@@ -135,9 +142,9 @@ rule multinom_fixed_indiv_P2:
         data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/multinom/fixed_top500each_P2.Rds",
-        accuracy = "out/accuracy/multinom/fixed_top500each_P2.Rds",
-        accuracy2 = "out/accuracy/multinom/fixed_top500each_P2.csv"
+        models = "out/models/multinom_P2/fixed_top500each_P2.Rds",
+        accuracy = "out/accuracy/multinom_P2/fixed_top500each_P2.Rds",
+        accuracy2 = "out/accuracy/multinom_P2/fixed_top500each_P2.csv"
     log:
         "logs/multinom_fixed_top500each_P2.Rout"
     shell:
@@ -151,9 +158,9 @@ rule multinom_fixed_overall_P2:
         data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/multinom/fixed_top500_P2.Rds",
-        accuracy = "out/accuracy/multinom/fixed_top500_P2.Rds",
-        accuracy2 = "out/accuracy/multinom/fixed_top500_P2.csv"
+        models = "out/models/multinom_P2/fixed_top500_P2.Rds",
+        accuracy = "out/accuracy/multinom_P2/fixed_top500_P2.Rds",
+        accuracy2 = "out/accuracy/multinom_P2/fixed_top500_P2.csv"
     log:
         "logs/multinom_fixed_top500_P2.Rout"
     shell:
@@ -168,9 +175,9 @@ rule multinom_top500each_P2:
         data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out/models/multinom/top500each_P2.Rds",
-        accuracy = "out/accuracy/multinom/top500each_P2.Rds",
-        accuracy2 = "out/accuracy/multinom/top500each_P2.csv"
+        models = "out/models/multinom_P2/top500each_P2.Rds",
+        accuracy = "out/accuracy/multinom_P2/top500each_P2.Rds",
+        accuracy2 = "out/accuracy/multinom_P2/top500each_P2.csv"
     log:
         "logs/multinom_top500each_P2.Rout"
     shell:
@@ -184,9 +191,9 @@ rule multinom_top500each_P2_dist:
         data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out/models/multinom/top500each_P2_dist.Rds",
-        accuracy = "out/accuracy/multinom/top500each_P2_dist.Rds",
-        accuracy2 = "out/accuracy/multinom/top500each_P2_dist.csv"
+        models = "out/models/multinom_P2/top500each_P2_dist.Rds",
+        accuracy = "out/accuracy/multinom_P2/top500each_P2_dist.Rds",
+        accuracy2 = "out/accuracy/multinom_P2/top500each_P2_dist.csv"
     log:
         "logs/multinom_top500each_P2_dist.Rout"
     shell:
@@ -200,9 +207,43 @@ rule multinom_top500_P2:
         data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out/models/multinom/top500_P2.Rds",
-        accuracy = "out/accuracy/multinom/top500_P2.Rds",
-        accuracy2 = "out/accuracy/multinom/top500_P2.csv"
+        models = "out/models/multinom_P2/top500_P2.Rds",
+        accuracy = "out/accuracy/multinom_P2/top500_P2.Rds",
+        accuracy2 = "out/accuracy/multino_P2m/top500_P2.csv"
+    log:
+        "logs/multinom_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+# -------- QUI SQRD
+rule multinom_quisq_top1000_P2:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_scaled_P2.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/multinom_quisq/top1k_quisq_P2.Rds",
+        accuracy = "out/accuracy/multinom_quisq/top1k_quisq_P2.Rds",
+        accuracy2 = "out/accuracy/multinom_quisq/top1k_quisq_P2.csv"
+    log:
+        "logs/multinom_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule multinom_quisq_top1000_P2_fixed:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/multinom_quisq/fixed_top1k_quisq_P2.Rds",
+        accuracy = "out/accuracy/multinom_quisq/fixed_top1k_quisq_P2.Rds",
+        accuracy2 = "out/accuracy/multinom_quisq/fixed_top1k_quisq_P2.csv"
     log:
         "logs/multinom_top500_P2.Rout"
     shell:
@@ -423,9 +464,9 @@ rule regLogistic_fixed_indiv_P2:
         data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/fixed_top500each_P2.Rds",
-        accuracy = "out/accuracy/regLogistic/fixed_top500each_P2.Rds",
-        accuracy2 = "out/accuracy/regLogistic/fixed_top500each_P2.csv"
+        models = "out/models/regLogistic_P2/fixed_top500each_P2.Rds",
+        accuracy = "out/accuracy/regLogistic_P2/fixed_top500each_P2.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P2/fixed_top500each_P2.csv"
     log:
         "logs/regLogistic_fixed_top500each_P2.Rout"
     shell:
@@ -439,9 +480,9 @@ rule regLogistic_fixed_overall_P2:
         data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/fixed_top500_P2.Rds",
-        accuracy = "out/accuracy/regLogistic/fixed_top500_P2.Rds",
-        accuracy2 = "out/accuracy/regLogistic/fixed_top500_P2.csv"
+        models = "out/models/regLogistic_P2/fixed_top500_P2.Rds",
+        accuracy = "out/accuracy/regLogistic_P2/fixed_top500_P2.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P2/fixed_top500_P2.csv"
     log:
         "logs/regLogistic_fixed_top500_P2.Rout"
     shell:
@@ -456,9 +497,9 @@ rule regLogistic_top500each_P2:
         data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/top500each_P2.Rds",
-        accuracy = "out/accuracy/regLogistic/top500each_P2.Rds",
-        accuracy2 = "out/accuracy/regLogistic/top500each_P2.csv"
+        models = "out/models/regLogistic_P2/top500each_P2.Rds",
+        accuracy = "out/accuracy/regLogistic_P2/top500each_P2.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P2/top500each_P2.csv"
     log:
         "logs/regLogistic_top500each_P2.Rout"
     shell:
@@ -772,6 +813,20 @@ rule sum_accuracy_multinom_P2:
                             # iKey = files)
     output:
         summary = "out/accuracy/multinom_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_multinom_quisq_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/multinom_quisq/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/multinom_quisq/summary.csv"
     log:
         "logs/sum.Rout"
     shell:
