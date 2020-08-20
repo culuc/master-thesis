@@ -950,3 +950,17 @@ rule sum_accuracy_regLogistic_P4:
     shell:
         "{runR} {input.script} {input.files} \
            {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_regLogistic_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/regLogistic_P2/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/regLogistic_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
