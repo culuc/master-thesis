@@ -12,7 +12,7 @@ import pandas as pd
 cons_speakers = pd.read_csv('../Data/lookup_files/speaker_terms_servetime_consecutive_years.csv')
 cons_speakers = set(cons_speakers.Speaker)
 # %mkdir '../../interim/consecutive_speakers'
-for i in range(1,2):
+for i in range(1,6):
     byPartySpeaker = pd.read_pickle('../../interim/t'+str(i)+'_byPartySpeaker.pkl')
     byPartySpeaker = byPartySpeaker[byPartySpeaker.Speaker.isin(cons_speakers)]
 
