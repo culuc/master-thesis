@@ -22,11 +22,11 @@ for i in range(1,6):
     byParty.to_pickle('../../interim/consecutive_speakers/t'+str(i)+'_byParty.pkl')
 
 
-new[new.Speaker.isin(cons_speakers)]
+#new[new.Speaker.isin(cons_speakers)]
 
-old = pd.read_pickle('../../interim/t1_byPartySpeaker.pkl')
-new = pd.read_pickle('../../interim/consecutive_speakers/t1_byPartySpeaker.pkl')
+#old = pd.read_pickle('../../interim/t1_byPartySpeaker.pkl')
+#new = pd.read_pickle('../../interim/consecutive_speakers/t1_byPartySpeaker.pkl')
 
-new
-set(old.Speaker)- cons_speakers
+#new
+#set(old.Speaker)- cons_speakers
 set(new.Speaker)-cons_speakers
