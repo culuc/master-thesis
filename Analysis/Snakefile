@@ -242,7 +242,7 @@ rule multinom_quisq_top1000_P2_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
