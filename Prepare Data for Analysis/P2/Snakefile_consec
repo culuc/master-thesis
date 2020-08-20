@@ -228,7 +228,7 @@ rule prepare_term_5_fixed:
         {output.files} > {log} {logAll}"
 
 
-phrases2 = root + "../interim/consecutive_speakers/fixed_P2_old/phrases_top500.csv"
+phrases2 = root + "../interim/consecutive_speakers/fixd_P2_old/phrases_top500.csv"
 
 rule run_fixed:
     input:
