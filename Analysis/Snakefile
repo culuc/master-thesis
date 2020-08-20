@@ -17,7 +17,7 @@ files_n = ["overall_top500","individual_top100each","overall_fixed_top500","indi
 files_P2n = ["overall_top500_P2","individual_top500each_P2","overall_fixed_top500_P2","individual_fixed_top500each_P2"]
 files_P4n = ["overall_top500_P4","individual_top250each_P4","overall_fixed_top500_P4","individual_fixed_top250each_P4"]
 
-files_quisq = ['overall_top1k_quisq','fixed_top1k_quisq']
+files_quisq = ['overall_top1k_quisq','overall_fixed_top1k_quisq']
 
 # terms = ["term2","term3"]
 rule multinom:
