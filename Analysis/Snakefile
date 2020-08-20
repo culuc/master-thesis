@@ -517,9 +517,9 @@ rule regLogistic_top500_P2:
         data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/overall_top500_P2.Rds",
-        accuracy = "out/accuracy/regLogistic/overall_top500_P2.Rds",
-        accuracy2 = "out/accuracy/regLogistic/overall_top500_P2.csv"
+        models = "out/models/regLogistic_P2/overall_top500_P2.Rds",
+        accuracy = "out/accuracy/regLogistic_P2/overall_top500_P2.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P2/overall_top500_P2.csv"
     log:
         "logs/regLogistic_top500_P2.Rout"
     shell:
