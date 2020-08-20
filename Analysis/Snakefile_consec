@@ -770,9 +770,9 @@ rule rf_quisq_top1000_P2:
         data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out_consecutive/models/regLogistic_P2/overall_top1k_quisq_P2.Rds",
-        accuracy = "out_consecutive/accuracy/regLogistic_P2/overall_top1k_quisq_P2.Rds",
-        accuracy2 = "out_consecutive/accuracy/regLogistic_P2/overall_top1k_quisq_P2.csv"
+        models = "out_consecutive/models/randomForest_P2/overall_top1k_quisq_P2.Rds",
+        accuracy = "out_consecutive/accuracy/randomForest_P2/overall_top1k_quisq_P2.Rds",
+        accuracy2 = "out_consecutive/accuracy/randomForest_P2/overall_top1k_quisq_P2.csv"
     log:
         "logs/rf_quisq_top1000_P2.Rout"
     shell:
