@@ -2,6 +2,7 @@ name: MaThesis
 channels:
   - conda-forge
   - defaults
+  - bioconda
 dependencies:
   - python==3.7.6
   - nltk
@@ -52,4 +53,3 @@ dependencies:
   - tabulate
   - htop
 prefix: /Users/lseiler/anaconda3/envs/MaThesis
-
