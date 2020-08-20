@@ -242,7 +242,7 @@ rule multinom_quisq_top1000_P2_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled.csv",
+        data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out_consecutive/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -548,7 +548,7 @@ rule regLogistic_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled.csv",
+        data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out_consecutive/models/regLogistic_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -784,7 +784,7 @@ rule rf_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled.csv",
+        data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out_consecutive/models/randomForest_P2/overall_fixed_top1k_quisq_P2.Rds",
