@@ -228,9 +228,9 @@ rule multinom_quisq_top1000_P2:
         data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_scaled_P2.csv",
                                 iKey = terms)
     output:
-        models = "out_consecutive/models/multinom_quisq/overall_top1k_quisq_P2.Rds",
-        accuracy = "out_consecutive/accuracy/multinom_quisq/overall_top1k_quisq_P2.Rds",
-        accuracy2 = "out_consecutive/accuracy/multinom_quisq/overall_top1k_quisq_P2.csv"
+        models = "out_consecutive/models/multinom_P2/overall_top1k_quisq_P2.Rds",
+        accuracy = "out_consecutive/accuracy/multinom_P2/overall_top1k_quisq_P2.Rds",
+        accuracy2 = "out_consecutive/accuracy/multinom_P2/overall_top1k_quisq_P2.csv"
     log:
         "logs/multinom_top500_P2.Rout"
     shell:
@@ -245,9 +245,9 @@ rule multinom_quisq_top1000_P2_fixed:
         data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out_consecutive/models/multinom_quisq/overall_fixed_top1k_quisq_P2.Rds",
-        accuracy = "out_consecutive/accuracy/multinom_quisq/overall_fixed_top1k_quisq_P2.Rds",
-        accuracy2 = "out_consecutive/accuracy/multinom_quisq/overall_fixed_top1k_quisq_P2.csv"
+        models = "out_consecutive/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy = "out_consecutive/accuracy/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy2 = "out_consecutive/accuracy/multinom_P2/overall_fixed_top1k_quisq_P2.csv"
     log:
         "logs/multinom_top500_P2.Rout"
     shell:
@@ -823,19 +823,6 @@ rule sum_accuracy_multinom_P2:
         "{runR} {input.script} {input.files} \
            {output.summary} > {log} {logAll}"
 
-rule sum_accuracy_multinom_quisq_P2:
-    input:
-        script = "script_sum.R",
-        files = glob.glob('out_consecutive/accuracy/multinom_quisq/*.csv')
-        # data = expand("out_consecutive/accuracy/regLogistic/{iKey}.csv",
-                            # iKey = files)
-    output:
-        summary = "out_consecutive/accuracy/multinom_quisq/summary.csv"
-    log:
-        "logs/sum.Rout"
-    shell:
-        "{runR} {input.script} {input.files} \
-           {output.summary} > {log} {logAll}"
 
 rule sum_accuracy_multinom_P4:
     input:
