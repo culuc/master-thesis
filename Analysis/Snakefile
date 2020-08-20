@@ -87,7 +87,7 @@ rule multinom_top100each:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_scaled.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/top100each.Rds",
@@ -184,21 +184,21 @@ rule multinom_top500each_P2:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
-rule multinom_top500each_P2_dist:
-    input:
-        script = "script_multinom.R",
-        model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_scaled_P2.csv",
-                                iKey = terms)
-    output:
-        models = "out/models/multinom_P2/top500each_P2_dist.Rds",
-        accuracy = "out/accuracy/multinom_P2/top500each_P2_dist.Rds",
-        accuracy2 = "out/accuracy/multinom_P2/top500each_P2_dist.csv"
-    log:
-        "logs/multinom_top500each_P2_dist.Rout"
-    shell:
-     "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+# rule multinom_top500each_P2_dist:
+#     input:
+#         script = "script_multinom.R",
+#         model  = "Models/model_multinom.json",
+#         data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_scaled_P2.csv",
+#                                 iKey = terms)
+#     output:
+#         models = "out/models/multinom_P2/top500each_P2_dist.Rds",
+#         accuracy = "out/accuracy/multinom_P2/top500each_P2_dist.Rds",
+#         accuracy2 = "out/accuracy/multinom_P2/top500each_P2_dist.csv"
+#     log:
+#         "logs/multinom_top500each_P2_dist.Rout"
+#     shell:
+#      "{runR} {input.script} {input.model} {input.data} \
+#         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule multinom_top500_P2:
     input:
@@ -442,7 +442,7 @@ rule regLogistic_top100each:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_scaled.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic/individual_top100each.Rds",
@@ -612,7 +612,7 @@ rule rf_indiv:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_scaled.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest/caret_1.Rds",
