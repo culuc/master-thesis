@@ -10,7 +10,7 @@ import pandas as pd
 #%%
 dfbyparty = pd.read_pickle(sys.argv[1])
 #%%
-pp1 = pd.read_pickle('../procedural_phrases.pkl')
+pp1 = pd.read_pickle('../../Data/lookup_files/procedural_phrases.pkl')
 # pp2 = pd.read_pickle('../procedural_phrases_SpSvpDistinct.pkl')
 dfbyparty_filt = dfbyparty[dfbyparty.Phrase.isin(pp1).apply(lambda x: not x)]
 #%%
