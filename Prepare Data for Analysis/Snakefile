@@ -10,7 +10,7 @@ files_i = ['overall','byParty','byPartySpeaker']
 files_o = ['normal.csv','scaled.csv','share.csv','df.pkl','topN.csv']
 
 
-rule run_all:
+rule run_tfidf:
     input:
         data = expand("../Data/{iKey}/tfidf/{iKey}_top500_normal.csv", iKey = terms)
 
@@ -79,7 +79,7 @@ rule prepare_term_5:
 
 
 
-rule run_all_indiv:
+rule run_tfidf_indiv:
     input:
         data = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_normal.csv", iKey = terms)
 
@@ -332,7 +332,7 @@ files_i_fixed = ['byPartySpeaker']
 files_o = ['normal.csv','scaled.csv','share.csv']
 phrases = "../../interim/fixed/phrases_all_terms_tfidf_top100each.csv"
 
-rule run_all_fixed:
+rule run_fixed_indiv:
     input:
         data = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_normal.csv", iKey = terms)
 
@@ -408,7 +408,7 @@ rule prepare_term_5_fixed:
 # __________ prepare files for analysis with fixed phrases _____
 
 phrases2 = "../../interim/fixed_old/phrases_all_terms_tfidf_top500.csv"
-rule run_all_fixed_old:
+rule run_fixed:
     input:
         data = expand("../Data/{iKey}/fixed/{iKey}_top500_normal.csv", iKey = terms)
 

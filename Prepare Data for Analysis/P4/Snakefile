@@ -84,7 +84,7 @@ rule prepare_term_5:
 # _________________- old - ________________________________
 
 
-rule run_tfidf_overall:
+rule run_tfidf:
     input:
         data = expand(root + "Data/{iKey}/tfidf/P4/{iKey}_top500_normal_P4.csv", iKey = terms)
 
@@ -157,7 +157,7 @@ files_i_fixed = ['byPartySpeaker']
 files_o = ['normal.csv','scaled.csv','share.csv']
 phrases = root + "../interim/fixd_P4/phrases_all_terms_tfidf_top250each_P4.csv"
 
-rule run_all_fixed_indiv:
+rule run_fixed_indiv:
     input:
         data = expand(root + "Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_normal.csv", iKey = terms)
 
@@ -230,7 +230,7 @@ rule prepare_term_5_fixed:
 
 phrases2 = root + "../interim/fixd_P4_old/phrases_all_terms_tfidf_top500_P4.csv"
 
-rule run_all_fixed_overall:
+rule run_fixed:
     input:
         data = expand(root + "Data/{iKey}/fixed/P4/{iKey}_top500_normal.csv", iKey = terms)
 

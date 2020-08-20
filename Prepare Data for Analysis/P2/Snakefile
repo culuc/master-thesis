@@ -15,7 +15,7 @@ root = "../../"
 
 rule run_tfidf_indiv:
     input:
-        data = expand(root + "Data/{iKey}/tfidf_indiv/P2/{iKey}_top250each_normal_P2.csv", iKey = terms)
+        data = expand(root + "Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_normal_P2.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_term_1:
@@ -157,7 +157,7 @@ files_i_fixed = ['byPartySpeaker']
 files_o = ['normal.csv','scaled.csv','share.csv']
 phrases = root + "../interim/fixd_P2/phrases_all_terms_tfidf_top500each_P2.csv"
 
-rule run_all_fixed_indiv:
+rule run_fixed_indiv:
     input:
         data = expand(root + "Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_normal.csv", iKey = terms)
 
@@ -230,7 +230,7 @@ rule prepare_term_5_fixed:
 
 phrases2 = root + "../interim/fixed_P2_old/phrases_top500.csv"
 
-rule run_all_fixed_old:
+rule run_fixed:
     input:
         data = expand(root + "Data/{iKey}/fixed/P2/{iKey}_top500_normal.csv", iKey = terms)
 
