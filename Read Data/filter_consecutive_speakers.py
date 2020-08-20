@@ -29,4 +29,4 @@ for i in range(1,6):
 
 #new
 #set(old.Speaker)- cons_speakers
-set(new.Speaker)-cons_speakers
+#set(new.Speaker)-cons_speakers
