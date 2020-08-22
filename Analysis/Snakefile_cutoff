@@ -21,19 +21,20 @@ p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
 parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 
+files = ['cutoff_10','cutoff_10_consec']
 
 rule cutoff:
     input:
-        data = expand("out/accuracy/multinom/{iKey}.csv", iKey = files_n)
+        data = expand("out/accuracy/elasticnet/{iKey}.csv", iKey = files)
 
 rule cutoff_P2:
     input:
-        data = expand("out/accuracy/multinom_P2/{iKey}.csv", iKey = files_P2n)
+        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey = files)
 
 
 rule cutoff_P4:
     input:
-        data = expand("out/accuracy/multinom_P4/{iKey}.csv", iKey = files_P4n)
+        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey=files)
 
 
 
