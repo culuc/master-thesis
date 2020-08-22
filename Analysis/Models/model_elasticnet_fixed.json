@@ -1,0 +1,4 @@
+{
+    "tuneGrid" : {"alpha":0.01, "lambda":1:50/100},
+    "method" : {"name":"glmnet"}
+}
