@@ -86,7 +86,7 @@ rule filter_consecutive:
             df_out.to_csv(o)
 
 
-subsection = [''.'consecutive_speakers/']
+subsection = ['','consecutive_speakers/']
 
 rule filter_P2:
     input:
