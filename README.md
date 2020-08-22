@@ -80,7 +80,7 @@ Distribution of Phrases  | Distribution of Speakers
 
 
 
-![](Prepare Data for Analysis/speaker_servetime_all_color.png)
+![](Prepare Data\ for\ Analysis/speaker_servetime_all_color.png)
 
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
