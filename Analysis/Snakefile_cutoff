@@ -237,7 +237,7 @@ rule elasticnet_a001:
         accuracy = "out/accuracy/elasticnet/cutoff_10_a001.Rds",
         accuracy2 = "out/accuracy/elasticnet/cutoff_10_a001.csv"
     log:
-        "logs/elastic_net_consec.txt"
+        "logs/elastic_net_consec_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
@@ -254,7 +254,7 @@ rule elasticnet_P4_a001:
         accuracy = "out/accuracy/elasticnet_P4/cutoff_10_a001.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/cutoff_10_a001.csv"
     log:
-        "logs/elasticNet_P4.txt"
+        "logs/elasticNet_P4_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
@@ -270,7 +270,7 @@ rule elasticnet_P2_a001:
         accuracy = "out/accuracy/elasticnet_P2/cutoff_10_a001.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/cutoff_10_a001.csv"
     log:
-        "logs/elasticNet_P2.txt"
+        "logs/elasticNet_P2_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
@@ -287,7 +287,7 @@ rule elasticnet_consec_a001:
         accuracy = "out/accuracy/elasticnet/cutoff_10_consec_a001.Rds",
         accuracy2 = "out/accuracy/elasticnet/cutoff_10_consec_a001.csv"
     log:
-        "logs/elastic_net_consec.txt"
+        "logs/elastic_net_consec_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
@@ -303,7 +303,7 @@ rule elasticnet_consec_P4_a001:
         accuracy = "out/accuracy/elasticnet_P4/cutoff_10_consec_a001.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/cutoff_10_consec_a001.csv"
     log:
-        "logs/cutoff_10_consec_P4.txt"
+        "logs/cutoff_10_consec_P4_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
@@ -319,7 +319,7 @@ rule elasticnet_consec_P2_a001:
         accuracy = "out/accuracy/elasticnet_P2/cutoff_10_consec_a001.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/cutoff_10_consec_a001.csv"
     log:
-        "logs/cutoff_10_consec_P2.txt"
+        "logs/cutoff_10_consec_P2_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
