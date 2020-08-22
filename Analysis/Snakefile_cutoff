@@ -131,7 +131,7 @@ rule filter_P4:
 
 rule elasticnet:
     input:
-        script = "script_elastic.py",
+        script = "script.py",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -148,7 +148,7 @@ rule elasticnet:
 
 rule elasticnet_P4:
     input:
-        script = "script_elastic.py",
+        script = "script.py",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -164,7 +164,7 @@ rule elasticnet_P4:
 
 rule elasticnet_P2:
     input:
-        script = "script_elastic.py",
+        script = "script.py",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -180,7 +180,7 @@ rule elasticnet_P2:
 
 rule elasticnet_consec:
     input:
-        script = "script_elastic.py",
+        script = "script.py",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -196,7 +196,7 @@ rule elasticnet_consec:
 
 rule elasticnet_consec_P4:
     input:
-        script = "script_elastic.py",
+        script = "script.py",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/consecutive_speakers/P4/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -212,7 +212,7 @@ rule elasticnet_consec_P4:
 
 rule elasticnet_consec_P2:
     input:
-        script = "script_elastic.py",
+        script = "script.py",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/consecutive_speakers/P2/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
