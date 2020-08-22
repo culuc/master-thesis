@@ -53,6 +53,28 @@ rule cons:
 
 
 
+input_files_cutoff = glob.glob('cutoff/*/summary.csv')
+df_cutoff = pd.DataFrame(input_files_cutoff,columns=['names'])
+df_cutoff.names = df_cutoff.names.str.replace('/','_')
+df_cutoff.names = 'plots/' + df_cutoff.names.str.replace('csv','png')
+
+output_files_cutoff=df_cutoff.names
+
+
+rule cutoff:
+    input:
+        script = "plot_results.R",
+        data = input_files_cutoff
+
+    output:
+        plot = output_files_cutoff
+    log:
+        "logs/plotlogcutoff.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
 
 
 # data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
