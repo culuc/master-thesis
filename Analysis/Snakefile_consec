@@ -30,7 +30,7 @@ rule multinom_P2:
 
 rule multinom_quisq_P2:
     input:
-        data = expand("out_consecutive/accuracy/multinom/{iKey}_P2.csv", iKey = files_quisq)
+        data = expand("out_consecutive/accuracy/multinom_P2/{iKey}_P2.csv", iKey = files_quisq)
 
 
 rule multinom_P4:
