@@ -76,7 +76,12 @@ For each party, the 100 most significant phrases are selected from the entire sp
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
- ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
+![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
+
+
+
+![](Prepare Data for Analysis/speaker_servetime_all_color.png)
+
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
