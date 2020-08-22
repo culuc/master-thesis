@@ -50,6 +50,7 @@ Model | All Speakers | Consecutive Speakers
 |Multinom   | ![](Results/plots/all_speakers_multinom_P4_summary.png)| ![](Results/plots/consecutive_speakers_multinom_P4_summary.png)
 |regLogistic   | ![](Results/plots/all_speakers_regLogistic_P4_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_P4_summary.png)
 |randomForest| ![](Results/plots/all_speakers_randomForest_P4_summary.png)| ![](Results/plots/consecutive_speakers_randomForest_P4_summary.png)
+|elasticnet| ![](Results/plots/cutoff_elasticnet_P2_summary.png)|  |   |
 
 
 #### Some Summary Stats About the _individual_fixed_ Analysis
@@ -69,7 +70,7 @@ Model | All Speakers | Consecutive Speakers
 |Multinom   | ![](Results/plots/all_speakers_multinom_summary.png) |![](Results/plots/consecutive_speakers_multinom_summary.png)
 |regLogistic| ![](Results/plots/all_speakers_regLogistic_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_summary.png)
 |randomForest| ![](Results/plots/all_speakers_randomForest_summary.png) |![](Results/plots/consecutive_speakers_randomForest_summary.png)
-|   |   |
+|elasticnet| ![](Results/plots/cutoff_elasticnet_P4_summary.png)|  |   |
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 100 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
 
