@@ -21,7 +21,7 @@ p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
 parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 
-files = ['cutoff_10','cutoff_10_consec']
+files = ["cutoff_10","cutoff_10_consec"]
 
 rule cutoff:
     input:
@@ -83,15 +83,15 @@ rule filter_consecutive:
             df_out.to_csv(o)
 
 
-subsection = ['','consecutive_speakers/']
+subsection = ["","consecutive_speakers/""]
 
 rule filter_P2:
     input:
-        data = expand("../Data/{sub}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
+        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
                                 subs=subsection, iKey = terms, type=types),
 
     output:
-        expand("../Data/{sub}{iKey}/cutoff/P2/{iKey}_cutoff_10_{type}.csv",
+        expand("../Data/{subs}{iKey}/cutoff/P2/{iKey}_cutoff_10_{type}.csv",
                                 subs=subsection, iKey = terms, type=types),
     log:
         "logs/filter_P2.txt"
@@ -109,11 +109,11 @@ rule filter_P2:
 
 rule filter_P4:
     input:
-        data = expand("../Data/{sub}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
+        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
                                 subs=subsection, iKey = terms, type=types),
 
     output:
-        expand("../Data/{sub}{iKey}/cutoff/P4/{iKey}_cutoff_10_{type}.csv",
+        expand("../Data/{subs}{iKey}/cutoff/P4/{iKey}_cutoff_10_{type}.csv",
                                 subs=subsection, iKey = terms, type=types),
     log:
         "logs/filter_P4.txt"
