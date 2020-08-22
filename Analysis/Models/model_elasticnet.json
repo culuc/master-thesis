@@ -1,0 +1,4 @@
+{
+    "tuneGrid" : {"lambda":1},
+    "method" : {"name":"enet"}
+}
