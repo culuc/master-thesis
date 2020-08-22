@@ -25,11 +25,11 @@
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
-Model | Results
-:--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_P2.png)
-|regLogistic   | ![](Analysis/Graphs/summary_plot_P2_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_P2_rf.png)
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_P2_summary.png) |![](Results/plots/consecutive_speakers_multinom_P2_summary.png) |
+|regLogistic   |![](Results/plots/all_speakers_regLogistic_P2_summary.png)|![](Results/plots/consecutive_speakers_regLogistic_P2_summary.png)
+|randomForest|![](Results/plots/all_speakers_randomForest_P2_summary.png)|![](Results/plots/consecutive_speakers_randomForest_P2_summary.png)
 
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 500 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
@@ -45,11 +45,11 @@ Distribution of Phrases  | Distribution of Speakers
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png) -->
 
- Model | Results
-:--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_P4.png)
-|regLogistic   | ![](Analysis/Graphs/summary_plot_P4_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_P4_rf.png)
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_P4_summary.png)| ![](Results/plots/consecutive_speakers_multinom_P4_summary.png)
+|regLogistic   | ![](Results/plots/all_speakers_regLogistic_P4_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_P4_summary.png)
+|randomForest| ![](Results/plots/all_speakers_randomForest_P4_summary.png)| ![](Results/plots/consecutive_speakers_randomForest_P4_summary.png)
 
 
 #### Some Summary Stats About the _individual_fixed_ Analysis
@@ -64,11 +64,11 @@ Distribution of Phrases  | Distribution of Speakers
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png) -->
-Model | Results
-:--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_ALL.png)
-|regLogistic| ![](Analysis/Graphs/summary_plot_ALL_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_ALL_rf.png)
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_summary.png) |![](Results/plots/consecutive_speakers_multinom_summary.png)
+|regLogistic| ![](Results/plots/all_speakers_regLogistic_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_summary.png)
+|randomForest| ![](Results/plots/all_speakers_randomForest_summary.png) |![](Results/plots/consecutive_speakers_randomForest_summary.png)
 |   |   |
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 100 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
