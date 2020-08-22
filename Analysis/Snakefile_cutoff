@@ -76,8 +76,8 @@ rule filter_consecutive:
         # print(output)
         # print(output)
         for i,o in zip(input.data, output):
-            print(i)
-            print(o)
+            # print(i)
+            # print(o)
             df_in = pd.read_csv(i)
             df_out = df_in[df_in.Speaker.isin(speakers)]
             df_out.to_csv(o)
@@ -100,8 +100,8 @@ rule filter_P2:
         # print(output)
         # print(output)
         for i,o in zip(input.data, output):
-            print(i)
-            print(o)
+            # print(i)
+            # print(o)
             df_in = pd.read_csv(i)
             df_out = df_in[df_in['Speaker Party'].isin(parties2)]
             df_out.to_csv(o)
@@ -122,8 +122,8 @@ rule filter_P4:
         # print(output)
         # print(output)
         for i,o in zip(input.data, output):
-            print(i)
-            print(o)
+            # print(i)
+            # print(o)
             df_in = pd.read_csv(i)
             df_out = df_in[df_in['Speaker Party'].isin(parties4)]
             df_out.to_csv(o)
@@ -198,7 +198,7 @@ rule elasticnet_consec_P4:
     input:
         script = "script.R",
         model  = "Models/model_elasticnet.json",
-        data = expand("../Data/consecutive_speakers/P4/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
         models = "out/models/elasticnet_P4/cutoff_10_consec.Rds",
@@ -214,7 +214,7 @@ rule elasticnet_consec_P2:
     input:
         script = "script.R",
         model  = "Models/model_elasticnet.json",
-        data = expand("../Data/consecutive_speakers/P2/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
         models = "out/models/elasticnet_P2/cutoff_10_consec.Rds",
