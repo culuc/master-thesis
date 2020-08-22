@@ -363,7 +363,7 @@ rule sum_accuracy_elasticnet_P2:
         # data = expand("out/accuracy/regLogistic/{iKey}.csv",
                             # iKey = files)
     output:
-        summary = "out/accuracy/elasticnet_P4/summary.csv"
+        summary = "out/accuracy/elasticnet_P2/summary.csv"
     log:
         "logs/elasticNet_sum.Rout"
     shell:
