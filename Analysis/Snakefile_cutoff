@@ -34,7 +34,7 @@ rule cutoff_P2:
 
 rule cutoff_P4:
     input:
-        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey=files)
+        data = expand("out/accuracy/elasticnet_P4/{iKey}.csv", iKey=files)
 
 
 
