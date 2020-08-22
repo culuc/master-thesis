@@ -262,7 +262,7 @@ rule elasticnet_P4_a001:
 rule elasticnet_P2_a001:
     input:
         script = "script.R",
-        model  = "Models/model_elasticne_fixed.json",
+        model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
