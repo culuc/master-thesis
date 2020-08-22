@@ -29,12 +29,12 @@ rule cutoff:
 
 rule cutoff_P2:
     input:
-        data = expand("out/accuracy/elasticnet_P2/{iKey}_P2.csv", iKey = files)
+        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey = files)
 
 
 rule cutoff_P4:
     input:
-        data = expand("out/accuracy/elasticnet_P2/{iKey}_P4.csv", iKey=files)
+        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey=files)
 
 
 
