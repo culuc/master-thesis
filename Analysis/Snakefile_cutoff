@@ -106,7 +106,7 @@ rule filter_P2:
             print(i)
             print(o)
             df_in = pd.read_csv(i)
-            df_out = df_in[df_in.['Speaker Party'].isin(parties2)]
+            df_out = df_in[df_in['Speaker Party'].isin(parties2)]
             df_out.to_csv(o)
 
 
