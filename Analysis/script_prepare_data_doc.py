@@ -10,7 +10,7 @@ l_in = int((len(sys.argv)-2)/5)
 print(len(sys.argv))
 print(l_in)
 # dfoverall = pd.read_pickle(sys.argv[1])
-level = ast.literal_eval(sys.argv[l_in])
+level = sys.argv[l_in]
 #%%
 pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases.pkl')
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
