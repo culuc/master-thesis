@@ -75,7 +75,7 @@ rule prepare_data:
     log:
         "logs/prepare_term_doc.log"
     shell:
-     "python {input.script} {input.data} {params.level} \
+     "python {input.script} {params.level} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
