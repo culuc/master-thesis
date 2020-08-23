@@ -7,7 +7,7 @@ import pandas as pd
 import ast
 #%%
 # dfoverall = pd.read_pickle(sys.argv[1])
-level = ast.literal_eval(sys.arfv[l_in+1])
+level = ast.literal_eval(sys.argv[l_in+1])
 #%%
 pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases.pkl')
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
