@@ -83,7 +83,7 @@ rule elasticnet_P4_rl:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speechlevel_{iKey}_top250each_scaled.csv",
+        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speechlevel_{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/doc_regLogistic_P4/speechlevel_top250each_P4.Rds",
