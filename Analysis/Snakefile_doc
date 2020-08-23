@@ -63,7 +63,7 @@ rule run_tfidf_indiv:
         data = expand(root + "Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_normal_P4.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
-rule prepare_data:
+rule prepare_data_speech:
     input:
         script = "script_prepare_data_doc.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
@@ -78,24 +78,100 @@ rule prepare_data:
      "python {input.script} {params.level} {input.data}  \
         {output.files} > {log} {logAll}"
 
+rule prepare_data_speaker:
+    input:
+        script = "script_prepare_data_doc.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
+    params:
+        level = 'Speaker'
+    output:
+        files = expand(root + "Data/{iT}/doc_tfidf_indiv/P4/speakerlevel_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_term_doc_speaker.log"
+    shell:
+     "python {input.script} {params.level} {input.data}  \
+        {output.files} > {log} {logAll}"
 
-rule elasticnet_P4_rl:
+rule prepare_data_party:
+    input:
+        script = "script_prepare_data_doc.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
+    params:
+        level = 'Speaker Party'
+    output:
+        files = expand(root + "Data/{iT}/doc_tfidf_indiv/P4/partylevel_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_term_doc_speaker_party.log"
+    shell:
+     "python {input.script} {params.level} {input.data}  \
+        {output.files} > {log} {logAll}"
+
+
+rule elasticnet_P4_rl_speech:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speechlevel_{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
-        models = "out/models/doc_regLogistic_P4/speechlevel_top250each_P4.Rds",
-        accuracy = "out/accuracy/doc_regLogistic_P4/speechlevel_top250each_P4.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P4/speechlevel_top250each_P4.csv"
+        models = "out/models/doc_regLogistic_P4/speech-level_top250each_P4.Rds",
+        accuracy = "out/accuracy/doc_regLogistic_P4/speech-level_top250each_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/speech-level_top250each_P4.csv"
     log:
         "logs/speechlevel_top250each_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
+rule elasticnet_P4_rl_speaker:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speakerlevel_{iKey}_top250each_scaled_P4.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/doc_regLogistic_P4/speaker-level_top250each_P4.Rds",
+        accuracy = "out/accuracy/doc_regLogistic_P4/speaker-level_top250each_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/speaker-level_top250each_P4.csv"
+    log:
+        "logs/speakerlevel_top250each_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
+
+rule elasticnet_P4_rl_party:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/partylevel_{iKey}_top250each_scaled_P4.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/doc_regLogistic_P4/party-level_top250each_P4.Rds",
+        accuracy = "out/accuracy/doc_regLogistic_P4/party-level_top250each_P4.Rds",
+        accuracy2 = "out/accuracy/regLogistic_P4/party-level_top250each_P4.csv"
+    log:
+        "logs/partylevel_top250each_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule sum_accuracy:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/doc_tfidf_indiv/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/doc_tfidf_indiv/summary.csv"
+    log:
+        "logs/doc_tfidf_indiv.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
 #
 # rule filter_consecutive:
 #     input:
