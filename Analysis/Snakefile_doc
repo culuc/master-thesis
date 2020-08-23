@@ -70,7 +70,7 @@ rule prepare_data:
     params:
         level = 'index'
     output:
-        files = expand(root + "Data/term1/doc_tfidf_indiv/P4/speechlevel_term1_top250each_{iKey}",iT = terms_short, iKey = files_o)
+        files = expand(root + "Data/{iT}/doc_tfidf_indiv/P4/speechlevel_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_doc.log"
