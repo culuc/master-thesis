@@ -6,6 +6,7 @@ import modules as m
 import pandas as pd
 import ast
 #%%
+l_in = (len(sys.argv)-2)/5
 # dfoverall = pd.read_pickle(sys.argv[1])
 level = ast.literal_eval(sys.argv[l_in+1])
 #%%
@@ -17,8 +18,7 @@ p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
 parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 #%%
-col ={}
-l_in = (len(sys.argv)-2)/5
+
 for i in range(l_in):
     dfbypartyspeaker = pd.read_pickle(sys.argv[i+1]).reset_index(inplace=True)
     dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
