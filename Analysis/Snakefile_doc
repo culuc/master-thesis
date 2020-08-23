@@ -118,7 +118,7 @@ rule elasticnet_P4_rl_speech:
     output:
         models = "out/models/doc_regLogistic_P4/speech-level_top250each_P4.Rds",
         accuracy = "out/accuracy/doc_regLogistic_P4/speech-level_top250each_P4.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P4/speech-level_top250each_P4.csv"
+        accuracy2 = "out/accuracy/doc_regLogistic_P4/speech-level_top250each_P4.csv"
     log:
         "logs/speechlevel_top250each_P4.txt"
     shell:
@@ -134,7 +134,7 @@ rule elasticnet_P4_rl_speaker:
     output:
         models = "out/models/doc_regLogistic_P4/speaker-level_top250each_P4.Rds",
         accuracy = "out/accuracy/doc_regLogistic_P4/speaker-level_top250each_P4.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P4/speaker-level_top250each_P4.csv"
+        accuracy2 = "out/accuracy/doc_regLogistic_P4/speaker-level_top250each_P4.csv"
     log:
         "logs/speakerlevel_top250each_P4.txt"
     shell:
@@ -151,7 +151,7 @@ rule elasticnet_P4_rl_party:
     output:
         models = "out/models/doc_regLogistic_P4/party-level_top250each_P4.Rds",
         accuracy = "out/accuracy/doc_regLogistic_P4/party-level_top250each_P4.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P4/party-level_top250each_P4.csv"
+        accuracy2 = "out/accuracy/doc_regLogistic_P4/party-level_top250each_P4.csv"
     log:
         "logs/partylevel_top250each_P4.txt"
     shell:
@@ -162,11 +162,11 @@ rule elasticnet_P4_rl_party:
 rule sum_accuracy:
     input:
         script = "script_sum.R",
-        files = glob.glob('out/accuracy/doc_tfidf_indiv/*.csv')
+        files = glob.glob('out/accuracy/doc_regLogistic_P4/*.csv')
         # data = expand("out/accuracy/regLogistic/{iKey}.csv",
                             # iKey = files)
     output:
-        summary = "out/accuracy/doc_tfidf_indiv/summary.csv"
+        summary = "out/accuracy/doc_regLogistic_P4/summary.csv"
     log:
         "logs/doc_tfidf_indiv.Rout"
     shell:
