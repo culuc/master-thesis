@@ -11,6 +11,7 @@ print(len(sys.argv))
 print(l_in)
 # dfoverall = pd.read_pickle(sys.argv[1])
 level = sys.argv[1]
+print(level)
 #%%
 pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases.pkl')
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
@@ -21,7 +22,7 @@ parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 #%%
 
-for i in range(2,l_in):
+for i in range(1,l_in):
     print(sys.argv[i+1])
     dfbypartyspeaker = pd.read_pickle(sys.argv[i+1])
     dfbypartyspeaker.reset_index(inplace=True)
