@@ -54,7 +54,7 @@ files_i = ['byPartySpeaker']
 files_o = ['normal_P4.csv','scaled_P4.csv','share_P4.csv','df_P4.pkl','topN_P4.csv']
 files_i_fixed = ['overall','byParty']
 
-root = "../../"
+root = "../"
 
 
 
