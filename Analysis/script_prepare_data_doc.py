@@ -6,7 +6,7 @@ import modules as m
 import pandas as pd
 import ast
 #%%
-l_in = (len(sys.argv)-2)/5
+l_in = int((len(sys.argv)-2)/5)
 # dfoverall = pd.read_pickle(sys.argv[1])
 level = ast.literal_eval(sys.argv[l_in+1])
 #%%
