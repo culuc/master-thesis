@@ -65,7 +65,7 @@ rule run_tfidf_indiv:
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_data:
     input:
-        script = "script_prepare_data_P4.py",
+        script = "script_prepare_data_doc.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
     params:
         level = 'index'
