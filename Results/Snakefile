@@ -76,6 +76,28 @@ rule cutoff:
 
 
 
+input_files_def_doc = glob.glob('def_doc/*/summary.csv')
+df_def_doc = pd.DataFrame(input_files_def_doc,columns=['names'])
+df_def_doc.names = df_def_doc.names.str.replace('/','_')
+df_def_doc.names = 'plots/' + df_def_doc.names.str.replace('csv','png')
+
+output_files_def_doc=df_def_doc.names
+
+
+rule def_doc:
+    input:
+        script = "plot_results.R",
+        data = input_files_def_doc
+
+    output:
+        plot = output_files_def_doc
+    log:
+        "logs/plotlogdef_doc.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
 
 # data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
 #                         iKey = terms),
