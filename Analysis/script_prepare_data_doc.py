@@ -27,12 +27,13 @@ for i in range(2,l_in+1):
     dfbypartyspeaker = pd.read_pickle(sys.argv[i])
     dfbypartyspeaker.reset_index(inplace=True)
 
-    dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
+    # dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
     dfbyparty_filt = dfbypartyspeaker[dfbypartyspeaker.Phrase.isin(pp1).apply(lambda x: not x)]
     #%%
     term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,level,250)
     #%%
     term1topN_tf=term1topN_tf[term1topN_tf['Speaker Party'].isin(parties4)]
+    dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
     # %%
     term1_topN_bySpeakerParty, topN = m.select_phrases_from_df2(dfbypartyspeaker,term1topN_tf,['Speaker Party','Speaker'])
 
