@@ -19,18 +19,20 @@ alldata = m.read_data(path)
 alldata = m.compute_term(alldata,elections)
 
 # %%
-data4 = m.preprocess_data(alldata, 'Term', 4)
+data = m.preprocess_data(alldata, 'Term', 4)
 # del alldata
 # %%
-data4.drop(columns=['Date','Session','Term','Topic','Language'],inplace=True)
+data.drop(columns=['Date','Session','Term','Topic','Language'],inplace=True)
 
 # %%
-overall = m.collect_all(data4)
+overall = m.collect_all(data)
 #%%
-by_party = m.collect_by(data4, ['Speaker Party'])
+by_party = m.collect_by(data, ['Speaker Party'])
 #%%
-by_party_speaker = m.collect_by(data4, ['Speaker Party','Speaker'])
-
+by_party_speaker = m.collect_by(data, ['Speaker Party','Speaker'])
+#%%
+data_e = data.reset_index().rename({'index':'SpeechID'})
+by_party_speaker_speech = m.collect_by(data_e, ['Speaker Party','Speaker','SpeechID'])
 
 #%% save to csv
 overall.to_csv('../../interim/t4_overall.csv')
@@ -44,3 +46,5 @@ by_party_speaker.to_pickle('../../interim/t4_byPartySpeaker.pkl')
 overall.to_json('../../interim/t4_overall.json')
 by_party.to_json('../../interim/t4_byParty.json')
 by_party_speaker.to_json('../../interim/t4_byPartySpeaker.json')
+#%% save to by party speaker speech
+by_party_speaker.to_pickle('../../interim/t4_byPartySpeakerSpeech.pkl')
