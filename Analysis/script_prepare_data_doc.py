@@ -40,7 +40,8 @@ for i in range(1,l_in):
     term1_topN_bySpeakerParty_scaled = m.make_share(term1_topN_bySpeakerParty)
     term1_topN_bySpeakerParty_share = m.make_share(term1_topN_bySpeakerParty, scale=False)
 
-    # %% save results
+    # %% save result
+    print(sys.argv[l_in+2+i*3])
     term1_topN_bySpeakerParty.to_csv(sys.argv[l_in+2+i*3])
     term1_topN_bySpeakerParty_scaled.to_csv(sys.argv[l_in+3+i*3])
     term1_topN_bySpeakerParty_share.to_csv(sys.argv[l_in+4+i*3])
