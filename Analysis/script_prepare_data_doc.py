@@ -22,7 +22,10 @@ parties4 = [p1,p2,p3,p4]
 #%%
 
 for i in range(l_in):
-    dfbypartyspeaker = pd.read_pickle(sys.argv[i+1]).reset_index(inplace=True)
+    print(sys.argv[i+1])
+    dfbypartyspeaker = pd.read_pickle(sys.argv[i+1])
+    dfbypartyspeaker.reset_index(inplace=True)
+    
     dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
     dfbyparty_filt = dfbypartyspeaker[dfbypartyspeaker.Phrase.isin(pp1).apply(lambda x: not x)]
     #%%
