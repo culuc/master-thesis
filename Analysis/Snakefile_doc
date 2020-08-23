@@ -98,7 +98,7 @@ rule prepare_data_party:
         script = "script_prepare_data_doc.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
     params:
-        level = ["Speaker Party"]
+        level = '"Speaker Party"'
     output:
         files = expand(root + "Data/{iT}/doc_tfidf_indiv/P4/partylevel_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
