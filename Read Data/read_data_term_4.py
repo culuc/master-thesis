@@ -31,7 +31,7 @@ by_party = m.collect_by(data, ['Speaker Party'])
 #%%
 by_party_speaker = m.collect_by(data, ['Speaker Party','Speaker'])
 #%%
-data_e = data.reset_index().rename({'index':'SpeechID'})
+data_e = data.reset_index().rename(columns={'index':'SpeechID'})
 by_party_speaker_speech = m.collect_by(data_e, ['Speaker Party','Speaker','SpeechID'])
 
 #%% save to csv

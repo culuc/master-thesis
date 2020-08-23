@@ -31,7 +31,7 @@ by_party = m.collect_by(data, ['Speaker Party'])
 #%%
 by_party_speaker = m.collect_by(data, ['Speaker Party','Speaker'])
 #%%
-data_e = data.reset_index().rename({'index':'SpeechID'})
+data_e = data.reset_index().rename(columns={'index':'SpeechID'})
 by_party_speaker_speech = m.collect_by(data_e, ['Speaker Party','Speaker','SpeechID'])
 #%% save to overall
 overall.to_csv('../../interim/t1_overall.csv')
@@ -46,5 +46,5 @@ by_party_speaker.to_csv('../../interim/t1_byPartySpeaker.csv')
 by_party_speaker.to_pickle('../../interim/t1_byPartySpeaker.pkl')
 by_party_speaker.to_json('../../interim/t1_byPartySpeaker.json')
 by_party.to_json('../../interim/t1_byParty.json')
-#%% save to by party speaker
+#%% save to by party speaker speech
 by_party_speaker.to_pickle('../../interim/t1_byPartySpeakerSpeech.pkl')
