@@ -81,7 +81,7 @@ rule prepare_data_speech:
 rule prepare_data_speaker:
     input:
         script = "script_prepare_data_doc.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey =  ['byPartySpeaker','byPartySpeaker']))
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey =  ['byPartySpeaker','byPartySpeaker'])
     params:
         level = 'Speaker'
     output:
@@ -96,7 +96,7 @@ rule prepare_data_speaker:
 rule prepare_data_party:
     input:
         script = "script_prepare_data_doc.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']))
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker'])
     params:
         level = '"Speaker Party"'
     output:
