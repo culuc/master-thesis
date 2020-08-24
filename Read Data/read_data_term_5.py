@@ -36,7 +36,7 @@ by_party = m.collect_by(data, ['Speaker Party'])
 by_party_speaker = m.collect_by(data, ['Speaker Party','Speaker'])
 #%%
 data = data.reset_index().rename(columns={'index':'SpeechID'})
-n = 20000  #chunk row size
+n = 200  #chunk row size
 list_df = [data[i:i+n] for i in range(0,data.shape[0],n)]
 col = m.collect_by(list_df[0], ['Speaker Party','Speaker','SpeechID'])
 for df in list_df:
