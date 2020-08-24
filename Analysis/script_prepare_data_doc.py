@@ -25,8 +25,8 @@ parties4 = [p1,p2,p3,p4]
 for i in range(1,l_in):
     print(sys.argv[i*2])
     print(sys.argv[i*2+1])
-    dftfidf = pd.read_pickle(sys.argv[i])
-    dfbypartyspeaker = pd.read_pickle(sys.argv[i+1])
+    dftfidf = pd.read_pickle(sys.argv[i*2])
+    dfbypartyspeaker = pd.read_pickle(sys.argv[i*2+1])
 
     # dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
     dftfidf_filt = dftfidf[dftfidf.Phrase.isin(pp1).apply(lambda x: not x)]
