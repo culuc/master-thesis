@@ -58,4 +58,4 @@ by_party_speaker.to_csv('../../interim/t5_byPartySpeaker.csv')
 by_party_speaker.to_pickle('../../interim/t5_byPartySpeaker.pkl')
 by_party_speaker.to_json('../../interim/t5_byPartySpeaker.json')
 #%% save to by party speaker speech
-by_party_speaker.to_pickle('../../interim/t5_byPartySpeakerSpeech.pkl')
+by_party_speaker_speech.to_pickle('../../interim/t5_byPartySpeakerSpeech.pkl')

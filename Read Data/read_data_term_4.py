@@ -54,4 +54,4 @@ overall.to_json('../../interim/t4_overall.json')
 by_party.to_json('../../interim/t4_byParty.json')
 by_party_speaker.to_json('../../interim/t4_byPartySpeaker.json')
 #%% save to by party speaker speech
-by_party_speaker.to_pickle('../../interim/t4_byPartySpeakerSpeech.pkl')
+by_party_speaker_speech.to_pickle('../../interim/t4_byPartySpeakerSpeech.pkl')
