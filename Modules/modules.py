@@ -253,7 +253,7 @@ def compute_tf_idf_new(dfbyparty,level,topn):
     new.set_index(['Speaker Party','Phrase'],inplace=True)
 
     # select phrases with n-largest tf-idf metric
-    newtopN = new.groupby(['Speaker Party','Phrase'])['tf_idf'].sum().to_frame()
+    #newtopN = new.groupby(['Speaker Party','Phrase'])['tf_idf'].sum().to_frame()
     newtopN=newtopN.groupby(['Speaker Party'])['tf_idf'].nlargest(topn).to_frame()
     # somehow speaker party is contained twice in index, drop one and reset index
     newtopN = newtopN.reset_index(level=0,drop=True).reset_index()
