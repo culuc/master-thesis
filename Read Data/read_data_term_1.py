@@ -56,5 +56,5 @@ by_party_speaker.to_json('../../interim/t1_byPartySpeaker.json')
 by_party.to_json('../../interim/t1_byParty.json')
 #%% save to by party speaker speech
 by_party_speaker_speech.to_pickle('../../interim/t1_byPartySpeakerSpeech.pkl')
-#%% saver aw party speaker speech
+#%% save raw
 data.to_pickle('../../interim/t1_raw.pkl')
