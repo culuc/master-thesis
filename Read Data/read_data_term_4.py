@@ -39,7 +39,7 @@ for df in list_df:
     res = m.collect_by(df, ['Speaker Party','Speaker','SpeechID'])
     col = col.append(res,ignore_index=True)
 
-by_party_speaker_speech = col.sort_values(['Speaker Party','Speaker','Counts'])
+by_party_speaker_speech = col.sort_values(['Speaker Party','Speaker','Counts'],ascending=[True,True,False])
 
 #%% save to csv
 overall.to_csv('../../interim/t4_overall.csv')
