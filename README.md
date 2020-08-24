@@ -19,9 +19,21 @@
 [Results for Regularized Logistic](Results/old/summary_result_terms_regLogistic_scaled.csv)
 
 [Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
+## Cutoff > 10
+SP&SVP | SP, CVP, FDP & SVP
+:--:|:--:
+![](Results/plots/cutoff_compare_models_P2_summary.png) | ![](Results/plots/cutoff_compare_models_P4_summary.png)
 
+Both *glmnet* and *LiblineaR (regLogistic)* fit a cross-validated Lasso model. So why does glmnet predict better and quite differently over the terms than regLogistic?
 
-## Results for Restricted Analysis: SP & SVP
+## Tf-Idf
+
+Feature selection based on tf-idf score is done at the following two levels:
+
+- Parties: _Overall_ vs. _Individual Party-wise_
+- Time: _Individual Term-wise_ vs. _Fixed_
+
+### Results for Restricted Analysis: SP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
@@ -30,7 +42,9 @@ Model | All Speakers | Consecutive Speakers
 |Multinom   | ![](Results/plots/all_speakers_multinom_P2_summary.png) |![](Results/plots/consecutive_speakers_multinom_P2_summary.png) |
 |regLogistic   |![](Results/plots/all_speakers_regLogistic_P2_summary.png)|![](Results/plots/consecutive_speakers_regLogistic_P2_summary.png)
 |randomForest|![](Results/plots/all_speakers_randomForest_P2_summary.png)|![](Results/plots/consecutive_speakers_randomForest_P2_summary.png)
-|elasticnet| ![](Results/plots/cutoff_elasticnet_P2_summary.png)|  |   |
+
+
+<!-- |glmnet| ![](Results/plots/cutoff_elasticnet_P2_summary.png)|  |   | -->
 <!--
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 500 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
@@ -51,7 +65,7 @@ Model | All Speakers | Consecutive Speakers
 |Multinom   | ![](Results/plots/all_speakers_multinom_P4_summary.png)| ![](Results/plots/consecutive_speakers_multinom_P4_summary.png)
 |regLogistic   | ![](Results/plots/all_speakers_regLogistic_P4_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_P4_summary.png)
 |randomForest| ![](Results/plots/all_speakers_randomForest_P4_summary.png)| ![](Results/plots/consecutive_speakers_randomForest_P4_summary.png)
-|elasticnet| ![](Results/plots/cutoff_elasticnet_P4_summary.png)|  |   |
+<!-- |glmnet| ![](Results/plots/cutoff_elasticnet_P4_summary.png)|  |   | -->
 <!--
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 250 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
@@ -79,6 +93,7 @@ Distribution of Phrases  | Distribution of Speakers
 ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
  -->
 
+## Overview of consecutive speakers
 
 ![](Data/lookup_files/speaker_servetime_all_color.png)
 
