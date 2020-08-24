@@ -6,7 +6,7 @@ import modules as m
 import pandas as pd
 import ast
 #%%
-l_in = int((len(sys.argv)-2)/5)
+l_in = int((len(sys.argv)-2)/5)-1
 print(len(sys.argv))
 print(l_in)
 # dfoverall = pd.read_pickle(sys.argv[1])
@@ -22,9 +22,9 @@ parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 #%%
 
-for i in range(2,l_in+1):
-    print(sys.argv[i])
-    print(sys.argv[i+1])
+for i in range(1,l_in):
+    print(sys.argv[i*2])
+    print(sys.argv[i*2+1])
     dftfidf = pd.read_pickle(sys.argv[i])
     dfbypartyspeaker = pd.read_pickle(sys.argv[i+1])
 
@@ -43,12 +43,12 @@ for i in range(2,l_in+1):
     term1_topN_bySpeakerParty_share = m.make_share(term1_topN_bySpeakerParty, scale=False)
 
     # %% save result
-    print(sys.argv[l_in+2+(i-2)*5])
+    print(sys.argv[l_in*2+1+(i-1)*5])
     # print(sys.argv)
-    term1_topN_bySpeakerParty.to_csv(sys.argv[l_in+2+(i-2)*5])
-    term1_topN_bySpeakerParty_scaled.to_csv(sys.argv[l_in+3+(i-2)*5])
-    term1_topN_bySpeakerParty_share.to_csv(sys.argv[l_in+4+(i-2)*5])
+    term1_topN_bySpeakerParty.to_csv(sys.argv[l_in*2+2+(i-1)*5])
+    term1_topN_bySpeakerParty_scaled.to_csv(sys.argv[l_in*2+3+(i-1)*5])
+    term1_topN_bySpeakerParty_share.to_csv(sys.argv[l_in*2+4+(i-1)*5])
 
     # %% save interim results
-    term1_tf.to_pickle(sys.argv[l_in+5+(i-2)*5])
-    term1topN_tf.to_csv(sys.argv[l_in+6+(i-2)*5])
+    term1_tf.to_pickle(sys.argv[l_in*2+5+(i-1)*5])
+    term1topN_tf.to_csv(sys.argv[l_in*2+6+(i-1)*5])
