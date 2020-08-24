@@ -66,9 +66,9 @@ rule run_tfidf_indiv:
 rule prepare_data_speech:
     input:
         script = "script_prepare_data_doc.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = ['byPartySpeakerSpeech','byPartySpeaker'])
     params:
-        level = 'index'
+        level = 'SpeechID'
     output:
         files = expand(root + "Data/{iT}/doc_tfidf_indiv/P4/speechlevel_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
@@ -81,7 +81,7 @@ rule prepare_data_speech:
 rule prepare_data_speaker:
     input:
         script = "script_prepare_data_doc.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey =  ['byPartySpeaker','byPartySpeaker']))
     params:
         level = 'Speaker'
     output:
@@ -96,7 +96,7 @@ rule prepare_data_speaker:
 rule prepare_data_party:
     input:
         script = "script_prepare_data_doc.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short,iKey = files_i)
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']))
     params:
         level = '"Speaker Party"'
     output:

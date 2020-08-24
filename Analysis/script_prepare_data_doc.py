@@ -24,13 +24,14 @@ parties4 = [p1,p2,p3,p4]
 
 for i in range(2,l_in+1):
     print(sys.argv[i])
-    dfbypartyspeaker = pd.read_pickle(sys.argv[i])
-    dfbypartyspeaker.reset_index(inplace=True)
+    print(sys.argv[i+1])
+    dftfidf = pd.read_pickle(sys.argv[i])
+    dfbypartyspeaker = pd.read_pickle(sys.argv[i+1])
 
     # dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
-    dfbyparty_filt = dfbypartyspeaker[dfbypartyspeaker.Phrase.isin(pp1).apply(lambda x: not x)]
+    dftfidf_filt = dftfidf[dftfidf.Phrase.isin(pp1).apply(lambda x: not x)]
     #%%
-    term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,level,250)
+    term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,level,250)
     #%%
     term1topN_tf=term1topN_tf[term1topN_tf['Speaker Party'].isin(parties4)]
     dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
@@ -42,12 +43,12 @@ for i in range(2,l_in+1):
     term1_topN_bySpeakerParty_share = m.make_share(term1_topN_bySpeakerParty, scale=False)
 
     # %% save result
-    print(sys.argv[l_in+1+(i-2)*5])
+    print(sys.argv[l_in+2+(i-2)*5])
     # print(sys.argv)
-    term1_topN_bySpeakerParty.to_csv(sys.argv[l_in+1+(i-2)*5])
-    term1_topN_bySpeakerParty_scaled.to_csv(sys.argv[l_in+2+(i-2)*5])
-    term1_topN_bySpeakerParty_share.to_csv(sys.argv[l_in+3+(i-2)*5])
+    term1_topN_bySpeakerParty.to_csv(sys.argv[l_in+2+(i-2)*5])
+    term1_topN_bySpeakerParty_scaled.to_csv(sys.argv[l_in+3+(i-2)*5])
+    term1_topN_bySpeakerParty_share.to_csv(sys.argv[l_in+4+(i-2)*5])
 
     # %% save interim results
-    term1_tf.to_pickle(sys.argv[l_in+4+(i-2)*5])
-    term1topN_tf.to_csv(sys.argv[l_in+5+(i-2)*5])
+    term1_tf.to_pickle(sys.argv[l_in+5+(i-2)*5])
+    term1topN_tf.to_csv(sys.argv[l_in+6+(i-2)*5])
