@@ -26,7 +26,7 @@ SP&SVP | SP, CVP, FDP & SVP
 
 Both *glmnet* and *LiblineaR (regLogistic)* fit a cross-validated Lasso model. So why does glmnet predict better and quite differently over the terms than regLogistic?
 
-## Tf-Idf
+## Tf-Idf (& a bit of Qui-Squared)
 
 Feature selection based on tf-idf score is done at the following two levels:
 
