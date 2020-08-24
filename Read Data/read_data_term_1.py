@@ -31,7 +31,7 @@ by_party = m.collect_by(data, ['Speaker Party'])
 #%%
 by_party_speaker = m.collect_by(data, ['Speaker Party','Speaker'])
 #%%
-data = data.reset_index().rename(columns={'index':'SpeechID'})
+data = data.reset_index(drop=True).reset_index().rename(columns={'index':'SpeechID'})
 n = 200  #chunk row size
 list_df = [data[i:i+n] for i in range(0,data.shape[0],n)]
 col = m.collect_by(list_df[0], ['Speaker Party','Speaker','SpeechID'])
@@ -56,3 +56,5 @@ by_party_speaker.to_json('../../interim/t1_byPartySpeaker.json')
 by_party.to_json('../../interim/t1_byParty.json')
 #%% save to by party speaker speech
 by_party_speaker_speech.to_pickle('../../interim/t1_byPartySpeakerSpeech.pkl')
+#%% saver aw party speaker speech
+data.to_pickle('../../interim/t1_raw.pkl')
