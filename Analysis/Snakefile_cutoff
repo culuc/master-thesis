@@ -21,8 +21,8 @@ p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
 parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 
-files = ["cutoff_10","cutoff_10_consec","cutoff_10_a001","cutoff_10_consec_a001"]
-models = ["glmnet","regLogistic"]
+files = ["cutoff_10","cutoff_10_consec"]
+models = ["glmnet","glmnet_a001","regLogistic"]
 files2 = ["cutoff_10","cutoff_10_consec"]
 partysubs = ["","_P4","_P2"]
 
@@ -32,12 +32,12 @@ rule cutoff:
 
 rule cutoff_P2:
     input:
-        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey = files)
+        data = expand("out/accuracy/elasticnet_P2/{m}_{iKey}.csv", m=models, iKey = files)
 
 
 rule cutoff_P4:
     input:
-        data = expand("out/accuracy/elasticnet_P4/{iKey}.csv", iKey=files)
+        data = expand("out/accuracy/elasticnet_P4/{m}_{iKey}.csv", m=models, iKey=files)
 
 rule cutoff_regLogistic:
     input:
