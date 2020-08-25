@@ -19,18 +19,34 @@
 [Results for Regularized Logistic](Results/old/summary_result_terms_regLogistic_scaled.csv)
 
 [Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
+## Cutoff > 10
+SP&SVP | SP, CVP, FDP & SVP
+:--:|:--:
+![](Results/plots/cutoff_compare_models_P2_summary.png) | ![](Results/plots/cutoff_compare_models_P4_summary.png)
 
+Both *glmnet* and *LiblineaR (regLogistic)* fit a cross-validated Lasso model. So why does glmnet predict better and quite differently over the terms than regLogistic?
+*glmnet_a001....* fits an elasticnet with 0.99*L2 + 0.01 *L1
 
-## Results for Restricted Analysis: SP & SVP
+## Tf-Idf (& a bit of Qui-Squared)
+
+Feature selection based on tf-idf score is done at the following two levels:
+
+- Parties: _Overall_ vs. _Individual Party-wise_
+- Time: _Individual Term-wise_ vs. _Fixed_
+
+### Results for Restricted Analysis: SP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
-Model | Results
-:--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_P2.png)
-|regLogistic   | ![](Analysis/Graphs/summary_plot_P2_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_P2_rf.png)
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_P2_summary.png) |![](Results/plots/consecutive_speakers_multinom_P2_summary.png) |
+|regLogistic   |![](Results/plots/all_speakers_regLogistic_P2_summary.png)|![](Results/plots/consecutive_speakers_regLogistic_P2_summary.png)
+|randomForest|![](Results/plots/all_speakers_randomForest_P2_summary.png)|![](Results/plots/consecutive_speakers_randomForest_P2_summary.png)
 
+
+<!-- |glmnet| ![](Results/plots/cutoff_elasticnet_P2_summary.png)|  |   | -->
+<!--
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 500 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
 These stats examine the resulting distribution over the five terms from this method.
@@ -38,44 +54,50 @@ These stats examine the resulting distribution over the five terms from this met
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
  ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P2.png)
-
+ -->
 
 ## Results for Restricted Analysis: SP, CVP, FDP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png) -->
 
- Model | Results
-:--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_P4.png)
-|regLogistic   | ![](Analysis/Graphs/summary_plot_P4_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_P4_rf.png)
-
-
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_P4_summary.png)| ![](Results/plots/consecutive_speakers_multinom_P4_summary.png)
+|regLogistic   | ![](Results/plots/all_speakers_regLogistic_P4_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_P4_summary.png)
+|randomForest| ![](Results/plots/all_speakers_randomForest_P4_summary.png)| ![](Results/plots/consecutive_speakers_randomForest_P4_summary.png)
+<!-- |glmnet| ![](Results/plots/cutoff_elasticnet_P4_summary.png)|  |   | -->
+<!--
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 250 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
 ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4.png)
-
+ -->
 
 ## Results for Analysis With All Parties
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png) -->
-Model | Results
-:--:|:--:
-|Multinom   |   ![](Analysis/Graphs/summary_plot_ALL.png)
-|regLogistic| ![](Analysis/Graphs/summary_plot_ALL_rl.png)
-|randomForest| ![](Analysis/Graphs/summary_plot_ALL_rf.png)
-|   |   |
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_summary.png) |![](Results/plots/consecutive_speakers_multinom_summary.png)
+|regLogistic| ![](Results/plots/all_speakers_regLogistic_summary.png) | ![](Results/plots/consecutive_speakers_regLogistic_summary.png)
+|randomForest| ![](Results/plots/all_speakers_randomForest_summary.png) |![](Results/plots/consecutive_speakers_randomForest_summary.png)
+<!--
 #### Some Summary Stats About the _individual_fixed_ Analysis
 For each party, the 100 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
 
 Distribution of Phrases  | Distribution of Speakers
 :--:|:--:
- ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
+![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
+ -->
+
+## Overview of (non-)consecutive speakers
+
+![](Data/lookup_files/speaker_servetime_all_color.png)
+
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
 |--------------|--------------------|--------------------|--------------------|--------------------|--------------------|
@@ -83,3 +105,9 @@ Distribution of Phrases  | Distribution of Speakers
 | tfidf top100 | 0.7154159608507434 | 0.662403538490495  | 0.6657872200263505 | 0.7280683229813665 | 0.7029644268774704 |
 | cap 100      | 0.7071229457041814 | 0.6554663090532655 | 0.6446982872200263 | 0.6828379446640316 | 0.618729907773386  |
 | cap 20       | 0.697914747342665  | 0.6758493318275927 | 0.6525179023874677 | 0.699111424807077  | 0.6835641025641026 | -->
+
+## Compare definitions of *documents* (four main parties)
+
+Define *documents* by the level of _party_ (the specification of the previous analysis), _speaker_ and _speech_. Then select for each of the four main parties the 250 phrases with highest tf-idf score.
+
+![](Results/plots/def_doc_doc_regLogistic_P4_test_summary.png)

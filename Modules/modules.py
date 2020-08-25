@@ -173,6 +173,94 @@ def collect_by2(data, columns):
     return dfbyclong_nona
 
 
+def qui_sqrd(x):
+    sp = 'Sozialdemokratische Partei der Schweiz (SP)'
+    svp = 'Schweizerische Volkspartei (SVP)'
+
+    nom= x['Counts',svp]*x['Other',sp] - x['Counts',sp]*x['Other',svp]
+    nom = nom**2
+    denom= (x['Counts',svp]+x['Counts',sp])*(x['Counts',svp]+x['Other',svp])*(x['Counts',sp]+x['Other',sp])*(x['Other',svp]+x['Other',sp])
+    # print(nom,denom)
+
+    if denom == 0:
+        return 0
+    else:
+        return  nom/denom
+
+def compute_qui_sqrd(df,topN):
+    sp = 'Sozialdemokratische Partei der Schweiz (SP)'
+    svp = 'Schweizerische Volkspartei (SVP)'
+    p2 = [sp,svp]
+
+    df2 = df[df['Speaker Party'].isin(p2)]
+    # df2
+
+    counts = df2.groupby('Speaker Party').Counts.sum().to_frame()
+    counts.columns = ["TotalCounts"]
+    counts.reset_index(inplace=True)
+
+    df2 = df2.merge(counts,"left", 'Speaker Party')
+    # df2
+
+    df2["Other"] = df2["TotalCounts"] - df2["Counts"]
+    # df2
+    df2 = df2.pivot(index='Phrase',columns = 'Speaker Party', values=['Counts','TotalCounts','Other']).fillna(0)
+
+    df2['qui'] = df2.apply(qui_sqrd,axis=1)
+
+    quisq_topN = df2['qui'].nlargest(topN).to_frame().reset_index()
+
+    return df2,quisq_topN
+
+
+
+#%% term frequency - inverse document frequency (tf-idf)
+# def compute_tf_idf_new(dfbyparty,level,topn):
+#
+#     # how many parties have used a particular phrase
+#     byparty_freq = dfbyparty.groupby('Phrase').size()
+#     dfbyparty_freq = byparty_freq.to_frame()
+#     dfbyparty_freq = dfbyparty_freq.reset_index()
+#     dfbyparty_freq.columns = ['Phrase','Freq']
+#
+#     # merge with byparty counts to compute tf-idf
+#     new = pd.merge(dfbyparty,dfbyparty_freq,'left','Phrase')
+#     N = dfbyparty[level].nunique()
+#     new['N'] = N
+#     new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
+#     new.set_index(['Speaker Party','Phrase'],inplace=True)
+#
+#     # select phrases with n-largest tf-idf metric
+#     newtopN = new.groupby('Speaker Party')['tf_idf'].nlargest(topn).to_frame()
+#     # somehow speaker party is contained twice in index, drop one and reset index
+#     newtopN = newtopN.reset_index(level=0,drop=True).reset_index() #level=1
+#
+#     return new, newtopN
+
+def compute_tf_idf_new(dfbyparty,level,topn):
+
+    # how many parties have used a particular phrase
+    byparty_freq = dfbyparty.groupby('Phrase').size()
+    dfbyparty_freq = byparty_freq.to_frame()
+    dfbyparty_freq = dfbyparty_freq.reset_index()
+    dfbyparty_freq.columns = ['Phrase','Freq']
+
+    # merge with byparty counts to compute tf-idf
+    new = pd.merge(dfbyparty,dfbyparty_freq,'left','Phrase')
+    N = dfbyparty[level].nunique()
+    new['N'] = N
+    new['tf_idf'] = new.Counts*np.log(new.N/new.Freq)
+    new.set_index(['Speaker Party','Phrase'],inplace=True)
+
+    # select phrases with n-largest tf-idf metric
+    #newtopN = new.groupby(['Speaker Party','Phrase'])['tf_idf'].sum().to_frame()
+    newtopN=new.groupby(['Speaker Party'])['tf_idf'].nlargest(topn).to_frame()
+    # somehow speaker party is contained twice in index, drop one and reset index
+    newtopN = newtopN.reset_index(level=0,drop=True).reset_index()
+    # newtopN = newtopN.reset_index(level=0,drop=True).reset_index() #level=1
+
+    return new, newtopN
+
 #%% term frequency - inverse document frequency (tf-idf)
 def compute_tf_idf(dfoverall,dfbyparty,topn):
 
@@ -252,7 +340,7 @@ def select_phrases_from_df(df,newtop500,by_index,dropna=True):
     # restructure table with phrase counts as columns and index set by 'by_index'
     term5_top500_byindex = pd.pivot_table(top500, values = name1, index=by_index, columns = 'Phrase',fill_value = 0, dropna=dropna).reset_index()
 
-    return term5_top500_byindex, top500 
+    return term5_top500_byindex, top500
 
 #%% filter the top byparty phrase counts for each speaker, such that intersection between parties' phrases are allowed and counted
 def select_phrases_from_df2(df,newtop500,by_index,dropna=True):
@@ -276,6 +364,16 @@ def select_phrases_from_df3(df,newtop500,by_index,dropna=True):
     term5_top500_byindex = pd.pivot_table(top500, values = 'Counts', index=by_index, columns = 'Phrase',dropna=dropna,fill_value = 0).reset_index()
 
     return term5_top500_byindex
+
+#%% filter the top byparty phrase counts for each speaker, such that intersection between parties' phrases are allowed and counted
+def select_phrases_from_df_quisq(df,newtop500,by_index,dropna=True):
+
+    top500 = pd.merge(df,newtop500,'inner','Phrase',suffixes=('','_2'))
+
+    # restructure table with phrase counts as columns and index set by 'by_index'
+    term5_top500_byindex = pd.pivot_table(top500, values = 'Counts', index=by_index, columns = 'Phrase',dropna=dropna,fill_value = 0).reset_index()
+
+    return term5_top500_byindex, top500
 
 # %%
 def share(series):
@@ -307,7 +405,7 @@ def make_share(df,scale=True):
 
 def filter_dict(d,keys):
     filtered_dict = {k:v for (k,v) in d.items() if k in keys}
-        
+
     return Counter(filtered_dict)
 
 # filt_speech = test.apply(lambda x: filter_dict(x['Speech'], phrases), axis=1)

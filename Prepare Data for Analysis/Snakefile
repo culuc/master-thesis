@@ -9,9 +9,79 @@ terms = ["term1","term2","term3","term4","term5"]
 files_i = ['overall','byParty','byPartySpeaker']
 files_o = ['normal.csv','scaled.csv','share.csv','df.pkl','topN.csv']
 
-rule run_all_indiv:
+
+rule run_tfidf:
     input:
-        data = expand("../Data/{iKey}/tfidf_indiv/{iKey}_normal.csv", iKey = terms)
+        data = expand("../Data/{iKey}/tfidf/{iKey}_top500_normal.csv", iKey = terms)
+
+# '../../interim/t1_byPartySpeaker.pkl'
+rule prepare_term_1:
+    input:
+        script = "script_prepare_data2.py",
+        data   = expand("../../interim/t1_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand("../Data/term1/tfidf/term1_top500_{iKey}", iKey = files_o),
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_term1.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2:
+    input:
+        script = "script_prepare_data2.py",
+        data   = expand("../../interim/t2_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand("../Data/term2/tfidf/term2_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3:
+    input:
+        script = "script_prepare_data2.py",
+        data   = expand("../../interim/t3_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand("../Data/term3/tfidf/term3_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4:
+    input:
+        script = "script_prepare_data2.py",
+        data   = expand("../../interim/t4_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand("../Data/term4/tfidf/term4_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5:
+    input:
+        script = "script_prepare_data2.py",
+        data   = expand("../../interim/t5_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand("../Data/term5/tfidf/term5_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+
+
+rule run_tfidf_indiv:
+    input:
+        data = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_normal.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_term_1_indiv:
@@ -19,7 +89,7 @@ rule prepare_term_1_indiv:
         script = "script_prepare_data.py",
         data   = expand("../../interim/t1_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand("../Data/term1/tfidf_indiv/term1_top100each_{iKey}", iKey = files_o)),
+        files = expand("../Data/term1/tfidf_indiv/term1_top100each_{iKey}", iKey = files_o),
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term1.log"
@@ -32,7 +102,7 @@ rule prepare_term_2_indiv:
         script = "script_prepare_data.py",
         data   = expand("../../interim/t2_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand("../Data/term2/tfidf_indiv/term2_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term2/tfidf_indiv/term2_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term2.log"
     shell:
@@ -44,7 +114,7 @@ rule prepare_term_3_indiv:
         script = "script_prepare_data.py",
         data   = expand("../../interim/t3_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand("../Data/term3/tfidf_indiv/term3_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term3/tfidf_indiv/term3_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term3.log"
     shell:
@@ -56,7 +126,7 @@ rule prepare_term_4_indiv:
         script = "script_prepare_data.py",
         data   = expand("../../interim/t4_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand("../Data/term4/tfidf_indiv/term4_{iKey}", iKey = files_o))
+        files = expand("../Data/term4/tfidf_indiv/term4_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term4.log"
     shell:
@@ -68,7 +138,7 @@ rule prepare_term_5_indiv:
         script = "script_prepare_data.py",
         data   = expand("../../interim/t5_{iKey}.pkl", iKey = files_i)
     output:
-        files = protected(expand("../Data/term5/tfidf_indiv/term5_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term5/tfidf_indiv/term5_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term5.log"
     shell:
@@ -77,7 +147,7 @@ rule prepare_term_5_indiv:
 
 
 
-## ________________ compute fixed phrases over all terms _______
+## ________________ compute fixed phrases over all terms _______________________
 
 # ind = ['Speaker Party','Speaker','Phrase']
 
@@ -260,11 +330,11 @@ rule prepare_phrases_all_terms_fixed_restr_P4_old:
 
 files_i_fixed = ['byPartySpeaker']
 files_o = ['normal.csv','scaled.csv','share.csv']
-phrases = "../../interim/phrases_all_terms_tfidf_top100each.csv"
+phrases = "../../interim/fixed/phrases_all_terms_tfidf_top100each.csv"
 
-rule run_all_fixed:
+rule run_fixed_indiv:
     input:
-        data = expand("../Data/{iKey}/fixed/{iKey}_top100each_normal.csv", iKey = terms)
+        data = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_normal.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_term_1_fixed:
@@ -273,7 +343,7 @@ rule prepare_term_1_fixed:
         data   = expand("../../interim/t1_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = protected(expand("../Data/term1/fixed/term1_top100each_{iKey}", iKey = files_o)),
+        files = expand("../Data/term1/fixed_indiv/term1_top100each_{iKey}", iKey = files_o),
     log:
         "logs/prepare_term1_fixed.log"
     shell:
@@ -286,7 +356,7 @@ rule prepare_term_2_fixed:
         data   = expand("../../interim/t2_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = protected(expand("../Data/term2/fixed/term2_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term2/fixed_indiv/term2_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term2.log"
     shell:
@@ -299,7 +369,7 @@ rule prepare_term_3_fixed:
         data   = expand("../../interim/t3_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = protected(expand("../Data/term3/fixed/term3_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term3/fixed_indiv/term3_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term3.log"
     shell:
@@ -312,7 +382,7 @@ rule prepare_term_4_fixed:
         data   = expand("../../interim/t4_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = protected(expand("../Data/term4/fixed/term4_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term4/fixed_indiv/term4_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term4.log"
     shell:
@@ -325,7 +395,7 @@ rule prepare_term_5_fixed:
         data   = expand("../../interim/t5_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases
     output:
-        files = protected(expand("../Data/term5/fixed/term5_top100each_{iKey}", iKey = files_o))
+        files = expand("../Data/term5/fixed_indiv/term5_top100each_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term5.log"
     shell:
@@ -338,7 +408,7 @@ rule prepare_term_5_fixed:
 # __________ prepare files for analysis with fixed phrases _____
 
 phrases2 = "../../interim/fixed_old/phrases_all_terms_tfidf_top500.csv"
-rule run_all_fixed_old:
+rule run_fixed:
     input:
         data = expand("../Data/{iKey}/fixed/{iKey}_top500_normal.csv", iKey = terms)
 
@@ -349,7 +419,7 @@ rule prepare_term_1_fixed_old:
         data   = expand("../../interim/t1_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases2
     output:
-        files = protected(expand("../Data/term1/fixed/term1_top500_{iKey}", iKey = files_o)),
+        files = expand("../Data/term1/fixed/term1_top500_{iKey}", iKey = files_o),
     log:
         "logs/prepare_term1_fixed.log"
     shell:
@@ -362,7 +432,7 @@ rule prepare_term_2_fixed_old:
         data   = expand("../../interim/t2_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases2
     output:
-        files = protected(expand("../Data/term2/fixed/term2_top500_{iKey}", iKey = files_o))
+        files = expand("../Data/term2/fixed/term2_top500_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term2.log"
     shell:
@@ -375,7 +445,7 @@ rule prepare_term_3_fixed_old:
         data   = expand("../../interim/t3_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases2
     output:
-        files = protected(expand("../Data/term3/fixed/term3_top500_{iKey}", iKey = files_o))
+        files = expand("../Data/term3/fixed/term3_top500_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term3.log"
     shell:
@@ -388,7 +458,7 @@ rule prepare_term_4_fixed_old:
         data   = expand("../../interim/t4_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases2
     output:
-        files = protected(expand("../Data/term4/fixed/term4_top500_{iKey}", iKey = files_o))
+        files = expand("../Data/term4/fixed/term4_top500_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term4.log"
     shell:
@@ -401,7 +471,7 @@ rule prepare_term_5_fixed_old:
         data   = expand("../../interim/t5_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases2
     output:
-        files = protected(expand("../Data/term5/fixed/term5_top500_{iKey}", iKey = files_o))
+        files = expand("../Data/term5/fixed/term5_top500_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term5.log"
     shell:

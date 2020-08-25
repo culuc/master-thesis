@@ -9,6 +9,10 @@ import ast
 dfoverall = pd.read_pickle(sys.argv[1])
 #%%
 dfbyparty = pd.read_pickle(sys.argv[2])
+#&&
+pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases.pkl')
+# pp2 = pd.read_pickle('procedural_phrases_SpSvpDistinct.pkl')
+dfbyparty_filt = dfbyparty[dfbyparty.Phrase.isin(pp1).apply(lambda x: not x)]
 #%%
 n = ast.literal_eval(sys.argv[3])
 topN = ast.literal_eval(sys.argv[4])
@@ -24,7 +28,7 @@ print(parties)
 # dfbypartyspeaker = pd.read_pickle(sys.argv[3])
 # dfbyparty_filtered=dfbyparty[dfbyparty['Speaker Party'].isin(parties)]
 #%%
-term1_tf, term1topN_tf = m.compute_tf_idf2(dfoverall,dfbyparty,topN)
+term1_tf, term1topN_tf = m.compute_tf_idf2(dfoverall,dfbyparty_filt,topN)
 
 #%%
 term1topN_tf=term1topN_tf[term1topN_tf['Speaker Party'].isin(parties)]

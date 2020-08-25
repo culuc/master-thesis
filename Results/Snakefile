@@ -1,0 +1,103 @@
+runR = "Rscript --no-save --no-restore --verbose"
+logAll = "2>&1"
+
+# --- Dictionaries --- #
+import glob
+import pandas as pd
+
+
+# files =
+input_files = glob.glob('all_speakers/*/summary.csv')
+df = pd.DataFrame(input_files,columns=['names'])
+df.names = df.names.str.replace('/','_')
+df.names = 'plots/' + df.names.str.replace('csv','png')
+
+output_files=df.names
+
+
+rule all:
+    input:
+        script = "plot_results.R",
+        data = input_files
+
+    output:
+        plot = output_files
+    log:
+        "logs/plotlog.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
+
+input_files_cons = glob.glob('consecutive_speakers/*/summary.csv')
+df_cons = pd.DataFrame(input_files_cons,columns=['names'])
+df_cons.names = df_cons.names.str.replace('/','_')
+df_cons.names = 'plots/' + df_cons.names.str.replace('csv','png')
+
+output_files_cons=df_cons.names
+
+
+rule cons:
+    input:
+        script = "plot_results.R",
+        data = input_files_cons
+
+    output:
+        plot = output_files_cons
+    log:
+        "logs/plotlog.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
+
+input_files_cutoff = glob.glob('cutoff/*/summary.csv')
+df_cutoff = pd.DataFrame(input_files_cutoff,columns=['names'])
+df_cutoff.names = df_cutoff.names.str.replace('/','_')
+df_cutoff.names = 'plots/' + df_cutoff.names.str.replace('csv','png')
+
+output_files_cutoff=df_cutoff.names
+
+
+rule cutoff:
+    input:
+        script = "plot_results.R",
+        data = input_files_cutoff
+
+    output:
+        plot = output_files_cutoff
+    log:
+        "logs/plotlogcutoff.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
+
+input_files_def_doc = glob.glob('def_doc/*/summary.csv')
+df_def_doc = pd.DataFrame(input_files_def_doc,columns=['names'])
+df_def_doc.names = df_def_doc.names.str.replace('/','_')
+df_def_doc.names = 'plots/' + df_def_doc.names.str.replace('csv','png')
+
+output_files_def_doc=df_def_doc.names
+
+
+rule def_doc:
+    input:
+        script = "plot_results.R",
+        data = input_files_def_doc
+
+    output:
+        plot = output_files_def_doc
+    log:
+        "logs/plotlogdef_doc.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
+
+# data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+#                         iKey = terms),

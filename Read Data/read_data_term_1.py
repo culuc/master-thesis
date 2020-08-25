@@ -19,18 +19,27 @@ alldata = m.read_data(path)
 alldata = m.compute_term(alldata,elections)
 
 # %%
-data1 = m.preprocess_data(alldata, 'Term', 1)
+data = m.preprocess_data(alldata, 'Term', 1)
 # del alldata
 # %%
-data1.drop(columns=['Date','Session','Term','Topic','Language'],inplace=True)
+data.drop(columns=['Date','Session','Term','Topic','Language'],inplace=True)
 
 # %%
-overall = m.collect_all(data1)
+overall = m.collect_all(data)
 #%%
-by_party = m.collect_by(data1, ['Speaker Party'])
+by_party = m.collect_by(data, ['Speaker Party'])
 #%%
-by_party_speaker = m.collect_by(data1, ['Speaker Party','Speaker'])
+by_party_speaker = m.collect_by(data, ['Speaker Party','Speaker'])
+#%%
+data = data.reset_index(drop=True).reset_index().rename(columns={'index':'SpeechID'})
+n = 200  #chunk row size
+list_df = [data[i:i+n] for i in range(0,data.shape[0],n)]
+col = m.collect_by(list_df[0], ['Speaker Party','Speaker','SpeechID'])
+for df in list_df:
+    res = m.collect_by(df, ['Speaker Party','Speaker','SpeechID'])
+    col = col.append(res,ignore_index=True)
 
+by_party_speaker_speech = col.sort_values(['Speaker Party','Speaker','Counts'],ascending=[True,True,False])
 
 #%% save to overall
 overall.to_csv('../../interim/t1_overall.csv')
@@ -44,3 +53,8 @@ by_party.to_json('../../interim/t1_byParty.json')
 by_party_speaker.to_csv('../../interim/t1_byPartySpeaker.csv')
 by_party_speaker.to_pickle('../../interim/t1_byPartySpeaker.pkl')
 by_party_speaker.to_json('../../interim/t1_byPartySpeaker.json')
+by_party.to_json('../../interim/t1_byParty.json')
+#%% save to by party speaker speech
+by_party_speaker_speech.to_pickle('../../interim/t1_byPartySpeakerSpeech.pkl')
+#%% save raw
+data.to_pickle('../../interim/t1_raw.pkl')

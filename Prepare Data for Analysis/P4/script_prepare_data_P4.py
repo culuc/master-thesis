@@ -10,6 +10,10 @@ import pandas as pd
 #%%
 dfbyparty = pd.read_pickle(sys.argv[1])
 #%%
+pp1 = pd.read_pickle('../../Data/lookup_files/procedural_phrases.pkl')
+# pp2 = pd.read_pickle('../procedural_phrases_SpSvpDistinct.pkl')
+dfbyparty_filt = dfbyparty[dfbyparty.Phrase.isin(pp1).apply(lambda x: not x)]
+#%%
 dfbypartyspeaker = pd.read_pickle(sys.argv[2])
 
 #%%
@@ -31,7 +35,7 @@ dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties
 dfoverall = dfbyparty.groupby('Phrase').sum()
 dfoverall.reset_index(inplace=True)
 #%%
-term1_tf, term1topN_tf = m.compute_tf_idf2(dfoverall,dfbyparty,250)
+term1_tf, term1topN_tf = m.compute_tf_idf2(dfoverall,dfbyparty_filt,250)
 #%%
 term1topN_tf=term1topN_tf[term1topN_tf['Speaker Party'].isin(parties4)]
 

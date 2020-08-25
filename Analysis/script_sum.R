@@ -28,13 +28,13 @@ print(in_data[1])
 print(tail(strsplit(in_data[1],"/")[[1]],n=1))
 # Load Model and Data #
 print('Loading Objects in to R Session')
-name1 <- tail(strsplit(in_data[1],"/")[[1]],n=1)
+name1 <- strsplit(tail(strsplit(in_data[1],"/")[[1]],n=1),".csv")[[1]]
 print(name1)
 df <- read_csv(in_data[1])%>%add_column(file=name1,.before=T)
 for (i in 2:(l-1)){
     print(i)
     print(in_data[i])
-    name <- tail(strsplit(in_data[i],"/")[[1]],n=1)
+    name <- strsplit(tail(strsplit(in_data[i],"/")[[1]],n=1),".csv")[[1]]
     print(name)
     df2 <- read_csv(in_data[i])
     print(df2)

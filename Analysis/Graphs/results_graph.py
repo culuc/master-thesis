@@ -4,6 +4,7 @@ import ast
 df_P2 = pd.read_csv('../out/accuracy/multinom_P2/summary.csv')
 df_P2rf = pd.read_csv('../out/accuracy/randomForest_P2/summary.csv')
 df_P2rl = pd.read_csv('../out/accuracy/regLogistic_P2/summary.csv')
+df_quisq_P2 = pd.read_csv('../out/accuracy/multinom_quisq/summary.csv')
 
 df_P4 = pd.read_csv('../out/accuracy/multinom_P4_old/summary.csv')
 df_P42 = pd.read_csv('../out/accuracy/multinom_P4/summary.csv')

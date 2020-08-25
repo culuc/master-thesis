@@ -1,0 +1,446 @@
+# --- Variable Declarations ---- #
+runR = "Rscript --no-save --no-restore --verbose"
+logAll = "2>&1"
+
+# --- Dictionaries --- #
+import glob
+
+terms = ["term1","term2","term3","term4","term5"]
+
+files_i = ['byParty','byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
+files_i_fixed = ['overall','byParty']
+
+root = "../../"
+
+rule run_tfidf_indiv:
+    input:
+        data = expand(root + "Data/consecutive_speakers/{iKey}/tfidf_indiv/P2/{iKey}_top500each_normal_P2.csv", iKey = terms)
+
+# '../../interim/consecutive_speakers/t1_byPartySpeaker.pkl'
+rule prepare_term_1:
+    input:
+        script = "script_prepare_data_P2.py",
+        data   = expand(root+"../interim/consecutive_speakers/t1_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term1/tfidf_indiv/P2/term1_top500each_{iKey}", iKey = files_o),
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_term1.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2:
+    input:
+        script = "script_prepare_data_P2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t2_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term2/tfidf_indiv/P2/term2_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3:
+    input:
+        script = "script_prepare_data_P2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t3_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term3/tfidf_indiv/P2/term3_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4:
+    input:
+        script = "script_prepare_data_P2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t4_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term4/tfidf_indiv/P2/term4_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5:
+    input:
+        script = "script_prepare_data_P2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t5_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term5/tfidf_indiv/P2/term5_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+
+# _________________- old - ________________________________
+
+
+rule run_tfidf:
+    input:
+        data = expand(root + "Data/consecutive_speakers/{iKey}/tfidf/P2/{iKey}_top500_normal_P2.csv", iKey = terms)
+
+# '../../interim/consecutive_speakers/t1_byPartySpeaker.pkl'
+rule prepare_term_1_old:
+    input:
+        script = "script_prepare_data_P2-2.py",
+        data   = expand(root+"../interim/consecutive_speakers/t1_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term1/tfidf/P2/term1_top500_{iKey}", iKey = files_o),
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_term1.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_old:
+    input:
+        script = "script_prepare_data_P2-2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t2_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term2/tfidf/P2/term2_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_old:
+    input:
+        script = "script_prepare_data_P2-2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t3_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term3/tfidf/P2/term3_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_old:
+    input:
+        script = "script_prepare_data_P2-2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t4_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term4/tfidf/P2/term4_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_old:
+    input:
+        script = "script_prepare_data_P2-2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t5_{iKey}.pkl", iKey = files_i)
+    output:
+        files = expand(root + "Data/consecutive_speakers/term5/tfidf/P2/term5_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+
+
+files_i_fixed = ['byPartySpeaker']
+files_o = ['normal.csv','scaled.csv','share.csv']
+phrases = root + "../interim/consecutive_speakers/fixd_P2/phrases_all_terms_tfidf_top500each_P2.csv"
+
+rule run_fixed_indiv:
+    input:
+        data = expand(root + "Data/consecutive_speakers/{iKey}/fixed_indiv/P2/{iKey}_top500each_normal.csv", iKey = terms)
+
+
+rule prepare_term_1_fixed:
+    input:
+        script = "script_prepare_data_P2_fixed.py",
+        data   = expand(root + "../interim/consecutive_speakers/t1_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases
+    output:
+        files = expand(root + "Data/consecutive_speakers/term1/fixed_indiv/P2/term1_top500each_{iKey}", iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_fixed:
+    input:
+        script = "script_prepare_data_P2_fixed.py",
+        data   = expand(root + "../interim/consecutive_speakers/t2_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases
+    output:
+        files = expand(root + "Data/consecutive_speakers/term2/fixed_indiv/P2/term2_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_fixed:
+    input:
+        script = "script_prepare_data_P2_fixed.py",
+        data   = expand(root + "../interim/consecutive_speakers/t3_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases
+    output:
+        files = expand(root + "Data/consecutive_speakers/term3/fixed_indiv/P2/term3_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases}\
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_fixed:
+    input:
+        script = "script_prepare_data_P2_fixed.py",
+        data   = expand(root + "../interim/consecutive_speakers/t4_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases
+    output:
+        files = expand(root + "Data/consecutive_speakers/term4/fixed_indiv/P2/term4_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_fixed:
+    input:
+        script = "script_prepare_data_P2_fixed.py",
+        data   = expand(root + "../interim/consecutive_speakers/t5_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases
+    output:
+        files = expand(root + "Data/consecutive_speakers/term5/fixed_indiv/P2/term5_top500each_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+
+phrases2 = root + "../interim/consecutive_speakers/fixd_P2_old/phrases_all_terms_tfidf_top500_P2.csv"
+
+rule run_fixed:
+    input:
+        data = expand(root + "Data/consecutive_speakers/{iKey}/fixed/P2/{iKey}_top500_normal.csv", iKey = terms)
+
+rule prepare_term_1_fixed_old:
+    input:
+        script = "script_prepare_data_P2_fixed_2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t1_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases2
+    output:
+        files = expand(root + "Data/consecutive_speakers/term1/fixed/P2/term1_top500_{iKey}", iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_fixed_old:
+    input:
+        script = "script_prepare_data_P2_fixed_2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t2_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases2
+    output:
+        files = expand(root + "Data/consecutive_speakers/term2/fixed/P2/term2_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_fixed_old:
+    input:
+        script = "script_prepare_data_P2_fixed_2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t3_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases2
+    output:
+        files = expand(root + "Data/consecutive_speakers/term3/fixed/P2/term3_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases}\
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_fixed_old:
+    input:
+        script = "script_prepare_data_P2_fixed_2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t4_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases2
+    output:
+        files = expand(root + "Data/consecutive_speakers/term4/fixed/P2/term4_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_fixed_old:
+    input:
+        script = "script_prepare_data_P2_fixed_2.py",
+        data   = expand(root + "../interim/consecutive_speakers/t5_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases2
+    output:
+        files = expand(root + "Data/consecutive_speakers/term5/fixed/P2/term5_top500_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+
+##### Qui Squared --------------------------------------------------------------
+
+files_i_fixed = ['byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
+
+
+rule run_all_quisq:
+    input:
+        data = expand(root + "Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_normal_P2.csv", iKey = terms)
+
+rule prepare_term_1_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t1_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/consecutive_speakers/term1/qui_sqrd/term1_quisq_top1000_{iKey}", iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t2_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/consecutive_speakers/term2/qui_sqrd/term2_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t3_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/consecutive_speakers/term3/qui_sqrd/term3_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t4_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/consecutive_speakers/term4/qui_sqrd/term4_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t5_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/consecutive_speakers/term5/qui_sqrd/term5_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+## fixed
+
+files_i_fixed = ['byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv']
+phrases_qui = root + "Data/lookup_files/phrases_quisq_top1k.csv"
+
+rule run_all_fixed_quisq:
+    input:
+        data = expand(root + "Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_normal_P2.csv", iKey = terms)
+
+rule prepare_term_1_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t1_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/consecutive_speakers/term1/qui_sqrd/term1_quisq_top1000_fixed_{iKey}", iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t2_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/consecutive_speakers/term2/qui_sqrd/term2_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t3_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/consecutive_speakers/term3/qui_sqrd/term3_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases}\
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t4_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/consecutive_speakers/term4/qui_sqrd/term4_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/consecutive_speakers/t5_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/consecutive_speakers/term5/qui_sqrd/term5_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"

@@ -1,0 +1,49 @@
+id,abbr_de,abbr_fr,abbr_it,abbr_ro,color,on_color,on_white,on_black,name_de,name_fr,name_it,name_ro
+1,EAG,EAG,EAG,EAG,#AD4F89,#FFF,#AD4F89,#B2578F,Ensemble à Gauche,Ensemble à Gauche,Ensemble à Gauche,Ensemble à Gauche
+2,PDA,PDT,POP,PDL,#BF3939,#FFF,#BF3939,#C94A4A,Partei der Arbeit Schweiz,Parti suisse du travail,Partito operaio e popolare,Partida da la lavur
+3,AL,LG,SIN,SA,#A83232,#FFF,#AD3434,#C94A4A,Alternative Linke,La Gauche,La Sinistra,La Sanestra alternativa
+4,SOL,SOL,SOL,SOL,#A83232,#FFF,#AD3434,#C94A4A,SolidaritéS,SolidaritéS,Solidarietà,SolidaritéS
+5,DA,DA,DA,DA,#A83232,#FFF,#AD3434,#C94A4A,Décroissance - Alternatives,Décroissance - Alternatives,Décroissance - Alternatives,Décroissance - Alternatives
+6,SE,SE,SE,SE,#A83232,#FFF,#AD3434,#C94A4A,Solidarité & Écologie,Solidarité & Écologie,Solidarité & Écologie,Solidarité & Écologie
+7,KP,PC,PC,PC,#8C2736,#FFF,#9C2C39,#CB4857,Kommunistische Partei,Parti communiste,Partito Comunista,Partida communistica
+8,JA,JA,GA,GA,#8C2736,#FFF,#9C2C39,#CB4857,Junge Alternative,Jeune Alternative,Giovane Alternativa,Giuvna Alternativa
+9,JSVR,JSVR,JSVR,GSVR,#F0554D,#FFF,#D0362E,#F0554D,Jeunesses Socialistes du Valais Romand,Jeunesses Socialistes du Valais Romand,Jeunesses Socialistes du Valais Romand,Jeunesses Socialistes du Valais Romand
+10,SP,PS,PS,PS,#F0554D,#FFF,#D0362E,#F0554D,Sozialdemokratische Partei,Parti socialiste suisse,Partito Socialista,Partida socialdemocratica
+11,JUSO,JS,GS,GS,#F0554D,#FFF,#D0362E,#F0554D,Jungsozialist*Innen Schweiz,Jeunesses Socialiste Suisse,Gioventù Socialista Svizzera,Giuventetgna Socialista Svizra
+12,Grüne,Verts,Verdi,Verds,#84B547,#000,#5D8132,#84B547,Grüne Partei,Parti écologiste suisse (Les Verts),Partito ecologista,Partida dals Verds
+13,JG,JV,GV,GV,#84B547,#000,#5D8132,#84B547,Junge Grüne,Jeunes Vertes,Giovani Verdi,Giuvens Verds
+14,GLP,PVL,PVL,PVL,#C4C43D,#000,#999900,#C4C43D,Grünliberale Partei,Vert'libéraux,Partito Verde Liberale,Pardida verd-liberala
+15,JGLP,JVL,GVL,GVL,#C4C43D,#000,#999900,#C4C43D,Junge Grünliberale,Jeunes vert'libéraux,I giovani verdi liberali,Giuvens verd-liberals
+16,BDP,PBD,PBD,PBD,#E6C820,#000,#998200,#E6C820,Bürgerlich Demokratische Partei der Schweiz,Parti bourgeois démocratique,Partito Borghese Democratico,Partida burgaisdemocratica
+17,JBDP,JPBD,GPBD,GPBD,#E6C820,#000,#998200,#E6C820,Junge BDP,Jeunes PBD,Giovani PBD,Giuvna PBD
+18,EVP,PEV,PES,PEV,#DEAA28,#000,#996E00,#DEAA28,Evangelische Volkspartei,Parti évangélique,Partito Evangelico,Partida populara evangelica
+19,JEVP,JPEV,JPES,GPEV,#DEAA28,#000,#996E00,#DEAA28,Junge Evangelische Volkspartei,Jeune parti évangélique,Partito dei giovani evangelici,Giuvna partida evangelica
+20,CVP,PDC,PPD,PCD,#D6862B,#000,#B56100,#D6862B,Christlichdemokratische Volkspartei,Parti démocrate-chrétien,Partito Popolare Democratico,Partida populara cristiandemocratica
+21,JCVP,JDC,GPPD,GPCD,#D6862B,#000,#B56100,#D6862B,Junge CVP,Jeunes PDC,Giovani PPD - Generazione Giovani,Giuvna PCD
+22,CSPO,PCSO,PCSO,PCSO,#E3BA24,#000,#997800,#E8C720,Christlich-soziale Partei Oberwallis,Parti chrétien-social Haut-Valais,Partito Cristiano Sociale Alto Vallese,Partida cristian-sociala Valais Sura
+23,JCSPO,JPCSO,GPCSO,GPCSO,#E3BA24,#000,#997800,#E8C720,Junge Christlichsoziale Volkspartei Oberwallis,Jeune parti chrétien-social Haut-Valais,Giovane Partito Cristiano Sociale Alto Vallese,Giuvena partida cristian-sociala Valais Sura
+24,PPS,PP,PP,PP,#E7B661,#000,#B57300,#E7B661,Piratenpartei,Parti Pirate,Partito Pirata,Partida dals pirats
+25,LDU,ADI,ADI,ADL,#1BAA6E,#000,#158456,#1BAA6E,Landesring der Unabhängigen,Alliance des Indépendants,Anello degli Indipendenti,Allianza dals Independents
+26,CSP,PCS,PCS,PCS,#35AEB2,#000,#288186,#35AEB2,Christlichsoziale Partei,Centre Gauche,Partito Cristiano Sociale,Partida cristian-sociala
+27,JCSP,JPCS,GPCS,GPCS,#35AEB2,#000,#288186,#35AEB2,Junge CSP,Jeunes PCS,Giovani PCS,Giuvna PCS
+28,PCSI,PCSI,PCSI,PCSI,#35AEB2,#000,#288186,#35AEB2,Parti Chrétien-social Indépendant,Parti Chrétien-social Indépendant,Parti Chrétien-social Indépendant,Partida cristian-sociala independenta
+46,CSPOW,PCSOW,PCSOW,PCSOW,#B72733,#FFF,#B72733,#D53946,Christlichsoziale Partei Obwalden,Parti Chrétien-social Obwald,Partito Cristiano Sociale Obvaldo,Partida cristian-sociala Sursilvania
+29,LPS,PLS,PLS,PLS,#618DEA,#000,#4370D0,#618DEA,Liberale Partei Schweiz,Parti libéral suisse,Partito Liberale Svizzero,Partida liberala svizra
+30,LDP,PLD,PLD,PLDBS,#618DEA,#000,#4370D0,#618DEA,Liberal-demokratische Partei Basel-Stadt,Parti libéral démocrate Bâle-Ville,Partito Liberale Democratico Basilea Città,Partida liberaldemocratica Basilea-Citad
+31,JLDP,JPLD,GPLD,GPLD,#618DEA,#000,#4370D0,#618DEA,Junge LDP Basel-Stadt,Jeunes PLD Bâle-Ville,Giovani PLD Basilea Città,Giuvna PLD Basilea-Citad
+32,FDP,PLR,PLR,PLD,#3872B5,#FFF,#3872B5,#3B79BF,FDP.Die Liberalen,Les Libéraux-Radicaux,Partito Liberale Radicale,Partida liberaldemocratica
+33,JFS,JLR,GLR,GLS,#3872B5,#FFF,#3872B5,#3B79BF,Jungfreisinnige,Les Jeunes libéraux-radicaux,Giovani liberali radicali,Giuvens liberals svizzers
+34,UP,UP,UP,UP,#3872B5,#FFF,#3872B5,#3B79BF,Unabhängigkeitspartei,Unabhängigkeitspartei,Unabhängigkeitspartei,Unabhängigkeitspartei
+35,SVP,UDC,UDC,PPS,#4B8A3E,#FFF,#4F9141,#4B8A3E,Schweizerische Volkspartei,Union démocratique du centre,Unione Democratica di Centro,Partida populara svizra
+36,JSVP,JUDC,GUDC,PPSG,#4B8A3E,#FFF,#4F9141,#4B8A3E,Junge SVP,Jeunes UDC,Giovani UDC,Giuvna PPS
+37,MCR,MCR,MCR,MCR,#49A5E7,#000,#1979BE,#49A5E7,Mouvement Citoyens Romand,Mouvement Citoyens Romand,Mouvement Citoyens Romand,Mouvement Citoyens Romand
+38,MCRJ,MCRJ,MCRJ,MCRJ,#49A5E7,#000,#1979BE,#49A5E7,MCR Jeunesse,MCR Jeunesse,MCR Jeunesse,MCR Jeunesse
+39,LEGA,LEGA,LEGA,LEGA,#9070D4,#FFF,#8164BE,#9070D4,Lega dei Ticinesi,Ligue des Tessinois,Lega dei Ticinesi,Lega dei Ticinesi
+40,PNOS,PSN,PNS,PNOS,#B07F3E,#FFF,#976D35,#B07F3E,Partei National Orientierter Schweizer,Parti des Suisses nationalistes,Partito dei Nazionalisti Svizzeri,Partida dals Svizzers naziunalists
+41,EDU,UDF,UDF,UDF,#A65E42,#FFF,#A65E42,#AB6244,Eidgenössisch Demokratische Union,Union démocratique fédérale,Unione Democratica Federale,Uniun democratica federala
+42,JEDU,JUDF,GUDF,GUDF,#A65E42,#FFF,#A65E42,#AB6244,Junge EDU,Jeunes UDF,Giovane UDF,Giuvna UDF
+43,SD,DS,DS,DS,#9D9D9D,#000,#757575,#757575,Schweizer Demokraten,Démocrates suisses,Democratici Svizzeri,Democrats svizzers
+44,AUTO,AUTO,AUTO,AUTO,#9D9D9D,#000,#757575,#757575,Auto-Partei,Parti des automobilistes,Partito degli automobilisti,Partida dals automobilists
+45,FPS,PDL,PDL,PDL,#9D9D9D,#000,#757575,#757575,Freiheits-Partei,Parti de la liberté,Partito della libertà,Partida da la libertad
+,NONE,NONE,NONE,NONE,#B8B8B8,#000,#757575,#757575,parteilos,impartialement,imparzialmente,senza partida
+,OTHER,OTHER,OTHER,OTHER,#B8B8B8,#000,#757575,#757575,andere,autre,altro,auters
