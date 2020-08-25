@@ -141,3 +141,12 @@ dmypy.json
 
 # large data files
 #*.pkl
+*.Rds
+*out
+#out_consecutive
+*Prepare Data for Analysis_0
+*logs
+*external
+*old_files
+*old
+*old2
