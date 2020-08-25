@@ -104,3 +104,9 @@ Distribution of Phrases  | Distribution of Speakers
 | tfidf top100 | 0.7154159608507434 | 0.662403538490495  | 0.6657872200263505 | 0.7280683229813665 | 0.7029644268774704 |
 | cap 100      | 0.7071229457041814 | 0.6554663090532655 | 0.6446982872200263 | 0.6828379446640316 | 0.618729907773386  |
 | cap 20       | 0.697914747342665  | 0.6758493318275927 | 0.6525179023874677 | 0.699111424807077  | 0.6835641025641026 | -->
+
+## Compare definitions of *documents* (four main parties)
+
+Define *documents* by the level of _party_ (the specification of the previous analysis), _speaker_ and _speech_. Then select for each of the four main parties the 250 phrases with highest tf-idf score.
+
+![](Results/plots/def_doc_doc_regLogistic_P4_test_summary.png)
