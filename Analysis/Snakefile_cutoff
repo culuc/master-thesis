@@ -578,3 +578,19 @@ rule sum_accuracy_elasticnet_P2:
     shell:
         "{runR} {input.script} {input.files} \
            {output.summary} > {log} {logAll}"
+
+
+
+rule sum_accuracy_rf:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/rf_cutoff/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/rf_cutoff/summary.csv"
+    log:
+        "logs/elasticNet_sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
