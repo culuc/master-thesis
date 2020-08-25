@@ -1,4 +1,4 @@
-elasticnet//# rule test:
+# rule test:
 #     input: "README.md"
 #     output: "testytest.txt"
 #     script: "python lower() {input} > {output}"
