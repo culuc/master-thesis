@@ -42,6 +42,10 @@ rule cutoff_regLogistic:
     input:
         data = expand("out/accuracy/regLogistic{subs}/{iKey}.csv", subs=partysubs, iKey=files2)
 
+rule cutoff_regLogistic:
+    input:
+        data = expand("out/accuracy/rf_cutoff/{iKey}{subs}.csv", subs=partysubs, iKey=files2)
+
 
 
 # ---------------------------- PREPARE DATA ------------------------------------
@@ -428,6 +432,104 @@ rule elasticnet_consec_P2_rl:
         accuracy2 = "out/accuracy/regLogistic_P2/cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10.csv"
+    log:
+        "logs/rf_cutoff_10.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_P4.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_P4.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_P4.csv"
+    log:
+        "logs/rf_cutoff_10_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_P2.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_P2.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_P2.csv"
+    log:
+        "logs/rf_cutoff_10_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_consec:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec.csv"
+    log:
+        "logs/rf_cutoff_10_consec.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_consec_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_consec_P4.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec_P4.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec_P4.csv"
+    log:
+        "logs/rf_cutoff_10_consec_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_consec_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_consec_P2.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec_P2.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec_P2.csv"
+    log:
+        "logs/rf_cutoff_10_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
