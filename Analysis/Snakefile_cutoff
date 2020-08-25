@@ -21,26 +21,31 @@ p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
 parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
 
-files = ["cutoff_10","cutoff_10_consec","cutoff_10_a001","cutoff_10_consec_a001"]
+files = ["cutoff_10","cutoff_10_consec"]
+models = ["glmnet","glmnet_a001","regLogistic"]
 files2 = ["cutoff_10","cutoff_10_consec"]
 partysubs = ["","_P4","_P2"]
 
 rule cutoff:
     input:
-        data = expand("out/accuracy/elasticnet/{iKey}.csv", iKey = files)
+        data = expand("out/accuracy/elasticnet/{m}_{iKey}.csv", m=models, iKey = files)
 
 rule cutoff_P2:
     input:
-        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey = files)
+        data = expand("out/accuracy/elasticnet_P2/{m}_{iKey}.csv", m=models, iKey = files)
 
 
 rule cutoff_P4:
     input:
-        data = expand("out/accuracy/elasticnet_P4/{iKey}.csv", iKey=files)
+        data = expand("out/accuracy/elasticnet_P4/{m}_{iKey}.csv", m=models, iKey=files)
 
 rule cutoff_regLogistic:
     input:
         data = expand("out/accuracy/regLogistic{subs}/{iKey}.csv", subs=partysubs, iKey=files2)
+
+rule cutoff_rf:
+    input:
+        data = expand("out/accuracy/rf_cutoff/{iKey}{subs}.csv", subs=partysubs, iKey=files2)
 
 
 
@@ -84,7 +89,7 @@ rule filter_consecutive:
         for i,o in zip(input.data, output):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i)
+            df_in = pd.read_csv(i,index_col=0)
             df_out = df_in[df_in.Speaker.isin(speakers)]
             df_out.to_csv(o)
 
@@ -108,7 +113,7 @@ rule filter_P2:
         for i,o in zip(input.data, output):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i)
+            df_in = pd.read_csv(i,index_col=0)
             df_out = df_in[df_in['Speaker Party'].isin(parties2)]
             df_out.to_csv(o)
 
@@ -130,7 +135,7 @@ rule filter_P4:
         for i,o in zip(input.data, output):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i)
+            df_in = pd.read_csv(i,index_col=0)
             df_out = df_in[df_in['Speaker Party'].isin(parties4)]
             df_out.to_csv(o)
 
@@ -142,9 +147,9 @@ rule elasticnet:
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/cutoff_10.Rds",
-        accuracy = "out/accuracy/elasticnet/cutoff_10.Rds",
-        accuracy2 = "out/accuracy/elasticnet/cutoff_10.csv"
+        models = "out/models/elasticnet/glmnet_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet/glmnet_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet/glmnet_cutoff_10.csv"
     log:
         "logs/elastic_net_consec.txt"
     shell:
@@ -159,9 +164,9 @@ rule elasticnet_P4:
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/cutoff_10.Rds",
-        accuracy = "out/accuracy/elasticnet_P4/cutoff_10.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P4/cutoff_10.csv"
+        models = "out/models/elasticnet_P4/glmnet_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet_P4/glmnet_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P4/glmnet_cutoff_10.csv"
     log:
         "logs/elasticNet_P4.txt"
     shell:
@@ -175,9 +180,9 @@ rule elasticnet_P2:
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/cutoff_10.Rds",
-        accuracy = "out/accuracy/elasticnet_P2/cutoff_10.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P2/cutoff_10.csv"
+        models = "out/models/elasticnet_P2/glmnet_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet_P2/glmnet_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P2/glmnet_cutoff_10.csv"
     log:
         "logs/elasticNet_P2.txt"
     shell:
@@ -191,9 +196,9 @@ rule elasticnet_consec:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/cutoff_10_consec.Rds",
-        accuracy = "out/accuracy/elasticnet/cutoff_10_consec.Rds",
-        accuracy2 = "out/accuracy/elasticnet/cutoff_10_consec.csv"
+        models = "out/models/elasticnet/glmnet_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet/glmnet_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet/glmnet_cutoff_10_consec.csv"
     log:
         "logs/elastic_net_consec.txt"
     shell:
@@ -207,9 +212,9 @@ rule elasticnet_consec_P4:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/cutoff_10_consec.Rds",
-        accuracy = "out/accuracy/elasticnet_P4/cutoff_10_consec.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P4/cutoff_10_consec.csv"
+        models = "out/models/elasticnet_P4/glmnet_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet_P4/glmnet_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P4/glmnet_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P4.txt"
     shell:
@@ -223,9 +228,9 @@ rule elasticnet_consec_P2:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/cutoff_10_consec.Rds",
-        accuracy = "out/accuracy/elasticnet_P2/cutoff_10_consec.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P2/cutoff_10_consec.csv"
+        models = "out/models/elasticnet_P2/glmnet_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet_P2/glmnet_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P2/glmnet_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P2.txt"
     shell:
@@ -239,9 +244,9 @@ rule elasticnet_a001:
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/cutoff_10_a001.Rds",
-        accuracy = "out/accuracy/elasticnet/cutoff_10_a001.Rds",
-        accuracy2 = "out/accuracy/elasticnet/cutoff_10_a001.csv"
+        models = "out/models/elasticnet/glmnet_a001_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet/glmnet_a001_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet/glmnet_a001_cutoff_10.csv"
     log:
         "logs/elastic_net_consec_a001.txt"
     shell:
@@ -256,9 +261,9 @@ rule elasticnet_P4_a001:
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/cutoff_10_a001.Rds",
-        accuracy = "out/accuracy/elasticnet_P4/cutoff_10_a001.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P4/cutoff_10_a001.csv"
+        models = "out/models/elasticnet_P4/glmnet_a001_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10.csv"
     log:
         "logs/elasticNet_P4_a001.txt"
     shell:
@@ -272,9 +277,9 @@ rule elasticnet_P2_a001:
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/cutoff_10_a001.Rds",
-        accuracy = "out/accuracy/elasticnet_P2/cutoff_10_a001.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P2/cutoff_10_a001.csv"
+        models = "out/models/elasticnet_P2/glmnet_a001_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10.csv"
     log:
         "logs/elasticNet_P2_a001.txt"
     shell:
@@ -289,9 +294,9 @@ rule elasticnet_consec_a001:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/cutoff_10_consec_a001.Rds",
-        accuracy = "out/accuracy/elasticnet/cutoff_10_consec_a001.Rds",
-        accuracy2 = "out/accuracy/elasticnet/cutoff_10_consec_a001.csv"
+        models = "out/models/elasticnet/glmnet_a001cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet/glmnet_a001_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnetglmnet_a001_/cutoff_10_consec.csv"
     log:
         "logs/elastic_net_consec_a001.txt"
     shell:
@@ -305,9 +310,9 @@ rule elasticnet_consec_P4_a001:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/cutoff_10_consec_a001.Rds",
-        accuracy = "out/accuracy/elasticnet_P4/cutoff_10_consec_a001.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P4/cutoff_10_consec_a001.csv"
+        models = "out/models/elasticnet_P4/glmnet_a001_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P4_a001.txt"
     shell:
@@ -321,9 +326,9 @@ rule elasticnet_consec_P2_a001:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/cutoff_10_consec_a001.Rds",
-        accuracy = "out/accuracy/elasticnet_P2/cutoff_10_consec_a001.Rds",
-        accuracy2 = "out/accuracy/elasticnet_P2/cutoff_10_consec_a001.csv"
+        models = "out/models/elasticnet_P2/glmnet_a001_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P2_a001.txt"
     shell:
@@ -342,9 +347,9 @@ rule elasticnet_rl:
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/cutoff_10.Rds",
-        accuracy = "out/accuracy/regLogistic/cutoff_10.Rds",
-        accuracy2 = "out/accuracy/regLogistic/cutoff_10.csv"
+        models = "out/models/elasticnet/regLogistic_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet/regLogistic_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet/regLogistic_cutoff_10.csv"
     log:
         "logs/elastic_net_consec.txt"
     shell:
@@ -359,9 +364,9 @@ rule elasticnet_P4_rl:
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic_P4/cutoff_10.Rds",
-        accuracy = "out/accuracy/regLogistic_P4/cutoff_10.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P4/cutoff_10.csv"
+        models = "out/models/elasticnet_P4/regLogistic_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10.csv"
     log:
         "logs/elasticNet_P4.txt"
     shell:
@@ -375,9 +380,9 @@ rule elasticnet_P2_rl:
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic_P2/cutoff_10.Rds",
-        accuracy = "out/accuracy/regLogistic_P2/cutoff_10.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P2/cutoff_10.csv"
+        models = "out/models/elasticnet_P2/regLogistic_cutoff_10.Rds",
+        accuracy = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10.csv"
     log:
         "logs/elasticNet_P2.txt"
     shell:
@@ -391,9 +396,9 @@ rule elasticnet_consec_rl:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic/cutoff_10_consec.Rds",
-        accuracy = "out/accuracy/regLogistic/cutoff_10_consec.Rds",
-        accuracy2 = "out/accuracy/regLogistic/cutoff_10_consec.csv"
+        models = "out/models/elasticnet/regLogistic_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet/regLogistic_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet/regLogistic_cutoff_10_consec.csv"
     log:
         "logs/elastic_net_consec.txt"
     shell:
@@ -407,9 +412,9 @@ rule elasticnet_consec_P4_rl:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic_P4/cutoff_10_consec.Rds",
-        accuracy = "out/accuracy/regLogistic_P4/cutoff_10_consec.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P4/cutoff_10_consec.csv"
+        models = "out/models/elasticnet_P4/regLogistic_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P4.txt"
     shell:
@@ -423,11 +428,114 @@ rule elasticnet_consec_P2_rl:
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/regLogistic_P2/cutoff_10_consec.Rds",
-        accuracy = "out/accuracy/regLogistic_P2/cutoff_10_consec.Rds",
-        accuracy2 = "out/accuracy/regLogistic_P2/cutoff_10_consec.csv"
+        models = "out/models/elasticnet_P2/regLogistic_cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+
+
+#-------------------------------- RANDOMFOREST ---------------------------------
+rule rf:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10.csv"
+    log:
+        "logs/rf_cutoff_10.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_P4.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_P4.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_P4.csv"
+    log:
+        "logs/rf_cutoff_10_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_P2.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_P2.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_P2.csv"
+    log:
+        "logs/rf_cutoff_10_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_consec:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_consec.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec.csv"
+    log:
+        "logs/rf_cutoff_10_consec.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_consec_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_consec_P4.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec_P4.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec_P4.csv"
+    log:
+        "logs/rf_cutoff_10_consec_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_consec_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+                                iKey = terms)
+    output:
+        models = "out/models/rf_cutoff/cutoff_10_consec_P2.Rds",
+        accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec_P2.Rds",
+        accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec_P2.csv"
+    log:
+        "logs/rf_cutoff_10_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
@@ -471,6 +579,22 @@ rule sum_accuracy_elasticnet_P2:
                             # iKey = files)
     output:
         summary = "out/accuracy/elasticnet_P2/summary.csv"
+    log:
+        "logs/elasticNet_sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+
+
+rule sum_accuracy_rf:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out/accuracy/rf_cutoff/*.csv')
+        # data = expand("out/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out/accuracy/rf_cutoff/summary.csv"
     log:
         "logs/elasticNet_sum.Rout"
     shell:

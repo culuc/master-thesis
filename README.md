@@ -20,12 +20,21 @@
 
 [Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
 ## Cutoff > 10
+### Regularized Logisitc
+In contrast to tfidf, the cutoff analysis finds a peak --- and not a dip --- at the 48th term.
+
 SP&SVP | SP, CVP, FDP & SVP
 :--:|:--:
-![](Results/plots/cutoff_compare_models_P2_summary.png) | ![](Results/plots/cutoff_compare_models_P4_summary.png)
+![](Results/plots/cutoff_elasticnet_P2_summary.png) | ![](Results/plots/cutoff_elasticnet_P4_summary.png)
 
-Both *glmnet* and *LiblineaR (regLogistic)* fit a cross-validated Lasso model. So why does glmnet predict better and quite differently over the terms than regLogistic?
+*Update: I made a mistake. Now the results between glmnet and regLogistic are comparable.*
+
 *glmnet_a001....* fits an elasticnet with 0.99*L2 + 0.01 *L1
+
+### Random Forest
+However, with randomForest the results are gain comparable to tfidf, although the peak is more pronounced at the 47th term.
+![](Results/plots/cutoff_rf_cutoff_summary.png)
+
 
 ## Tf-Idf (& a bit of Qui-Squared)
 
