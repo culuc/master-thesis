@@ -42,7 +42,7 @@ rule cutoff_regLogistic:
     input:
         data = expand("out/accuracy/regLogistic{subs}/{iKey}.csv", subs=partysubs, iKey=files2)
 
-rule cutoff_regLogistic:
+rule cutoff_rf:
     input:
         data = expand("out/accuracy/rf_cutoff/{iKey}{subs}.csv", subs=partysubs, iKey=files2)
 
