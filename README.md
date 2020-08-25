@@ -25,6 +25,7 @@ SP&SVP | SP, CVP, FDP & SVP
 ![](Results/plots/cutoff_compare_models_P2_summary.png) | ![](Results/plots/cutoff_compare_models_P4_summary.png)
 
 Both *glmnet* and *LiblineaR (regLogistic)* fit a cross-validated Lasso model. So why does glmnet predict better and quite differently over the terms than regLogistic?
+*glmnet_a001....* fits an elasticnet with $0.99*L2 + 0.01 *L1$
 
 ## Tf-Idf (& a bit of Qui-Squared)
 
