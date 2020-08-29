@@ -39,7 +39,7 @@ print(Cstack_info())
 # df4         <- read_csv(in_data4)%>%select(-c('X1','Speaker'))
 # df5         <- read_csv(in_data5)%>%select(-c('X1','Speaker'))
 # # df1         <- read_csv(in_data[2])%>%select(-c('X1'))
-# model_info <- fromJSON(file = in_model)
+model_info <- fromJSON(file = in_model)
 #
 # colnames(df1) <- make.names(colnames(df1), unique=TRUE)
 # colnames(df2) <- make.names(colnames(df2), unique=TRUE)
