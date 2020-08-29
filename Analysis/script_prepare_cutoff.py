@@ -38,7 +38,8 @@ for i in range(in_len):
 
     dfbypartyspeaker_filt = dfbypartyspeaker[dfbypartyspeaker.Phrase.isin(pp1).apply(lambda x: not x)]
     #%%
-    dfbypartyspeaker_filt=dfbypartyspeaker_filt[dfbypartyspeaker_filt.Counts > N]
+    dfbypartyspeaker_filt['TotalCounts'] = dfbypartyspeaker_filt.groupby('Phrase')['Counts'].transform('sum')
+    dfbypartyspeaker_filt=dfbypartyspeaker_filt[dfbypartyspeaker_filt.TotalCounts >= N]
     # %%
 
     dftable = dfbypartyspeaker_filt.pivot_table(index=['Speaker Party','Speaker'],columns='Phrase',values='Counts')
