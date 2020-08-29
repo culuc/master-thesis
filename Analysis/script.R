@@ -64,17 +64,22 @@ print(tuneGrid)
 # Create Regression Models #
 print('Running Caret Models')
 
-print(paste('Working with', nrow(df1), 'rows of data', sep = " "))
+
 
 # Estimate Models #
 print('Estimating Models')
-print('Model 1...')
+
 caret_model <- rep(NaN,5)
 
 
 for (i in 1:5){
+    print(paste('Model ',i,'...'))
+
     df         <- read_csv(in_data[i])%>%select(-c('X1','Speaker'))
     colnames(df) <- make.names(colnames(df), unique=TRUE)
+
+    print(paste('Working with', nrow(df), 'rows of data', sep = " "))
+
     caret_model[i] <- train(
       Speaker.Party ~ .,
       df,
