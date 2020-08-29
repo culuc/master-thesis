@@ -23,9 +23,8 @@ out_models  <- args[7]
 out_acc <- args[8]
 out_acc2 <- args[9]
 # out_models2  <- args[5]
-in_data <- argsv[2:6]
+in_data <- args[2:6]
 # source(in_lib)
-l <- c(1,2,3)
 
 # Load Model and Data #
 print('Loading Objects in to R Session')
