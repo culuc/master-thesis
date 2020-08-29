@@ -71,14 +71,13 @@ print('Estimating Models')
 
 caret_model <- rep(NaN,5)
 
-
 for (i in 1:5){
     print(paste('Model ',i,'...'))
 
     df         <- read_csv(in_data[i])%>%select(-c('X1','Speaker'))
     colnames(df) <- make.names(colnames(df), unique=TRUE)
 
-    print(paste('Working with', nrow(df), 'rows of data', sep = " "))
+    print(paste('Working with', nrow(df), 'rows and', ncol(df), 'columns of data', sep = " "))
 
     caret_model[i] <- train(
       Speaker.Party ~ .,
