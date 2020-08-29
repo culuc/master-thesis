@@ -32,6 +32,7 @@ print(in_data1)
 print(in_data2)
 print(in_data5)
 print(out_models)
+print(Cstack_info())
 df1         <- read_csv(in_data1)%>%select(-c('X1','Speaker'))
 df2         <- read_csv(in_data2)%>%select(-c('X1','Speaker'))
 df3         <- read_csv(in_data3)%>%select(-c('X1','Speaker'))
@@ -63,7 +64,7 @@ print(tuneGrid)
 # Create Regression Models #
 print('Running Caret Models')
 
-print(paste('Working with', nrow(df), 'rows of data', sep = " "))
+print(paste('Working with', nrow(df1), 'rows of data', sep = " "))
 
 # Estimate Models #
 print('Estimating Models')
