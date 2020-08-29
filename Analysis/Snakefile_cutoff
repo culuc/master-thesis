@@ -3,7 +3,7 @@
 #     output: "testytest.txt"
 #     script: "python lower() {input} > {output}"
 # --- Variable Declarations ---- #
-runR = "Rscript --no-save --no-restore --verbose --max-ppsize=500000"
+runR = "Rscript --no-save --no-restore --verbose --max-ppsize=5000000"
 logAll = "2>&1"
 
 # --- Dictionaries --- #
