@@ -3,11 +3,19 @@
 #     output: "testytest.txt"
 #     script: "python lower() {input} > {output}"
 # --- Variable Declarations ---- #
-runR = "Rscript --no-save --no-restore --verbose"
+runR = "Rscript --no-save --no-restore --verbose --max-ppsize=500000"
 logAll = "2>&1"
 
 # --- Dictionaries --- #
 import glob
+
+import sys
+sys.path.append('../Modules')
+
+import modules as m
+import pandas as pd
+import ast
+
 
 terms_short = ["t1","t2","t3","t4","t5"]
 terms = ["term1","term2","term3","term4","term5"]
@@ -26,6 +34,9 @@ models = ["glmnet","glmnet_a001","regLogistic"]
 files2 = ["cutoff_10","cutoff_10_consec"]
 partysubs = ["","_P4","_P2"]
 
+rule all:
+    input:
+        data = expand("out/accuracy/{folder}/summary.csv",folder = ["elasticnet_P2","elasticnet_P4","rf_cutoff"])
 rule cutoff:
     input:
         data = expand("out/accuracy/elasticnet/{m}_{iKey}.csv", m=models, iKey = files)
@@ -72,8 +83,8 @@ rule prepare_data:
 
 rule filter_consecutive:
     input:
-        data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
-                                iKey = terms, type=types),
+        data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_normal.csv",
+                                iKey = terms),
         speakers = "../Data/lookup_files/speaker_terms_servetime_consecutive_years.csv"
 
     output:
@@ -86,254 +97,267 @@ rule filter_consecutive:
         speakers = set(pd.read_csv(input.speakers)['Speaker'])
         # print(output)
         # print(output)
-        for i,o in zip(input.data, output):
+        for i,inp in enumerate(input.data):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i,index_col=0)
+            df_in = pd.read_csv(inp,index_col=0)
             df_out = df_in[df_in.Speaker.isin(speakers)]
-            df_out.to_csv(o)
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
 
 
 subsection = ["","consecutive_speakers/"]
 
 rule filter_P2:
     input:
-        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_normal.csv",
+                                subs=subsection, iKey = terms)
 
     output:
         expand("../Data/{subs}{iKey}/cutoff/P2/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+                                subs=subsection, iKey = terms, type=types)
     log:
         "logs/filter_P2.txt"
     run:
         import pandas as pd
         # print(output)
         # print(output)
-        for i,o in zip(input.data, output):
+        for i,inp in enumerate(input.data):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i,index_col=0)
+            df_in = pd.read_csv(inp,index_col=0)
             df_out = df_in[df_in['Speaker Party'].isin(parties2)]
-            df_out.to_csv(o)
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
 
 
 rule filter_P4:
     input:
-        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_normal.csv",
+                                subs=subsection, iKey = terms)
 
     output:
         expand("../Data/{subs}{iKey}/cutoff/P4/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+                                subs=subsection, iKey = terms, type=types)
     log:
         "logs/filter_P4.txt"
     run:
         import pandas as pd
         # print(output)
         # print(output)
-        for i,o in zip(input.data, output):
+        for i,inp in enumerate(input.data):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i,index_col=0)
+            df_in = pd.read_csv(inp,index_col=0)
             df_out = df_in[df_in['Speaker Party'].isin(parties4)]
-            df_out.to_csv(o)
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
+
 
 
 rule elasticnet:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/glmnet_cutoff_10.Rds",
+        # models = "out/models/elasticnet/glmnet_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet/glmnet_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet/glmnet_cutoff_10.csv"
     log:
-        "logs/elastic_net_consec.txt"
+        "logs/elastic_net.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 rule elasticnet_P4:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/glmnet_cutoff_10.Rds",
+        # models = "out/models/elasticnet_P4/glmnet_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet_P4/glmnet_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/glmnet_cutoff_10.csv"
     log:
         "logs/elasticNet_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_P2:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/glmnet_cutoff_10.Rds",
+        # models = "out/models/elasticnet_P2/glmnet_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet_P2/glmnet_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/glmnet_cutoff_10.csv"
     log:
         "logs/elasticNet_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/glmnet_cutoff_10_consec.Rds",
+        # models = "out/models/elasticnet/glmnet_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet/glmnet_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet/glmnet_cutoff_10_consec.csv"
     log:
         "logs/elastic_net_consec.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_P4:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/glmnet_cutoff_10_consec.Rds",
+        # models = "out/models/elasticnet_P4/glmnet_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet_P4/glmnet_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/glmnet_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_P2:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/glmnet_cutoff_10_consec.Rds",
+        # models = "out/models/elasticnet_P2/glmnet_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet_P2/glmnet_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/glmnet_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_a001:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/glmnet_a001_cutoff_10.Rds",
+        # models = "out/models/elasticnet/glmnet_a001_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet/glmnet_a001_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet/glmnet_a001_cutoff_10.csv"
     log:
-        "logs/elastic_net_consec_a001.txt"
+        "logs/elastic_net_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 rule elasticnet_P4_a001:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/glmnet_a001_cutoff_10.Rds",
+        # models = "out/models/elasticnet_P4/glmnet_a001_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10.csv"
     log:
         "logs/elasticNet_P4_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_P2_a001:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/glmnet_a001_cutoff_10.Rds",
+        # models = "out/models/elasticnet_P2/glmnet_a001_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10.csv"
     log:
         "logs/elasticNet_P2_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 rule elasticnet_consec_a001:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/glmnet_a001cutoff_10_consec.Rds",
+        # models = "out/models/elasticnet/glmnet_a001cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet/glmnet_a001_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnetglmnet_a001_/cutoff_10_consec.csv"
     log:
         "logs/elastic_net_consec_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_P4_a001:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/glmnet_a001_cutoff_10_consec.Rds",
+        # models = "out/models/elasticnet_P4/glmnet_a001_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/glmnet_a001_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P4_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_P2_a001:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_elasticnet_fixed.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/glmnet_a001_cutoff_10_consec.Rds",
+        # models = "out/models/elasticnet_P2/glmnet_a001_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/glmnet_a001_cutoff_10_consec.csv"
     log:
         "logs/cutoff_10_consec_P2_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 
@@ -342,100 +366,100 @@ rule elasticnet_consec_P2_a001:
 
 rule elasticnet_rl:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/regLogistic_cutoff_10.Rds",
+        # models ="out/models/elasticnet/regLogistic_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet/regLogistic_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet/regLogistic_cutoff_10.csv"
     log:
-        "logs/elastic_net_consec.txt"
+        "logs/regLogistic_cutoff_10.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 rule elasticnet_P4_rl:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/regLogistic_cutoff_10.Rds",
+        # models ="out/models/elasticnet_P4/regLogistic_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10.csv"
     log:
-        "logs/elasticNet_P4.txt"
+        "logs/regLogistic_cutoff_10_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_P2_rl:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/regLogistic_cutoff_10.Rds",
+        # models ="out/models/elasticnet_P2/regLogistic_cutoff_10.Rds",
         accuracy = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10.csv"
     log:
-        "logs/elasticNet_P2.txt"
+        "logs/regLogistic_cutoff_10_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_rl:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet/regLogistic_cutoff_10_consec.Rds",
+        # models ="out/models/elasticnet/regLogistic_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet/regLogistic_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet/regLogistic_cutoff_10_consec.csv"
     log:
-        "logs/elastic_net_consec.txt"
+        "logs/regLogistic_cutoff_10_consec.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_P4_rl:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P4/regLogistic_cutoff_10_consec.Rds",
+        # models ="out/models/elasticnet_P4/regLogistic_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet_P4/regLogistic_cutoff_10_consec.csv"
     log:
-        "logs/cutoff_10_consec_P4.txt"
+        "logs/regLogistic_cutoff_10cutoff_10_consec_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule elasticnet_consec_P2_rl:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_regLogistic.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/elasticnet_P2/regLogistic_cutoff_10_consec.Rds",
+        # models ="out/models/elasticnet_P2/regLogistic_cutoff_10_consec.Rds",
         accuracy = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/elasticnet_P2/regLogistic_cutoff_10_consec.csv"
     log:
-        "logs/cutoff_10_consec_P2.txt"
+        "logs/regLogistic_cutoff_10_cutoff_10_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 
@@ -444,101 +468,101 @@ rule elasticnet_consec_P2_rl:
 #-------------------------------- RANDOMFOREST ---------------------------------
 rule rf:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf_cutoff/cutoff_10.Rds",
+        # models ="out/models/rf_cutoff/cutoff_10.Rds",
         accuracy = "out/accuracy/rf_cutoff/cutoff_10.Rds",
         accuracy2 = "out/accuracy/rf_cutoff/cutoff_10.csv"
     log:
         "logs/rf_cutoff_10.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 rule rf_P4:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf_cutoff/cutoff_10_P4.Rds",
+        # models ="out/models/rf_cutoff/cutoff_10_P4.Rds",
         accuracy = "out/accuracy/rf_cutoff/cutoff_10_P4.Rds",
         accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_P4.csv"
     log:
         "logs/rf_cutoff_10_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule rf_P2:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf_cutoff/cutoff_10_P2.Rds",
+        # models ="out/models/rf_cutoff/cutoff_10_P2.Rds",
         accuracy = "out/accuracy/rf_cutoff/cutoff_10_P2.Rds",
         accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_P2.csv"
     log:
         "logs/rf_cutoff_10_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 
 rule rf_consec:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf_cutoff/cutoff_10_consec.Rds",
+        # models ="out/models/rf_cutoff/cutoff_10_consec.Rds",
         accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec.Rds",
         accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec.csv"
     log:
         "logs/rf_cutoff_10_consec.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule rf_consec_P4:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf_cutoff/cutoff_10_consec_P4.Rds",
+        # models ="out/models/rf_cutoff/cutoff_10_consec_P4.Rds",
         accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec_P4.Rds",
         accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec_P4.csv"
     log:
         "logs/rf_cutoff_10_consec_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 rule rf_consec_P2:
     input:
-        script = "script.R",
+        script = "script_cutoff.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
     output:
-        models = "out/models/rf_cutoff/cutoff_10_consec_P2.Rds",
+        # models ="out/models/rf_cutoff/cutoff_10_consec_P2.Rds",
         accuracy = "out/accuracy/rf_cutoff/cutoff_10_consec_P2.Rds",
         accuracy2 = "out/accuracy/rf_cutoff/cutoff_10_consec_P2.csv"
     log:
         "logs/rf_cutoff_10_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
 # -----------------------------------------------------------------------
 

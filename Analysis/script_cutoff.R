@@ -19,9 +19,9 @@ in_data3     <- args[4]
 in_data4     <- args[5]
 in_data5     <- args[6]
 # in_lib      <- args[3]
-out_models  <- args[7]
-out_acc <- args[8]
-out_acc2 <- args[9]
+# out_models  <- args[7]
+out_acc <- args[7]
+out_acc2 <- args[8]
 # out_models2  <- args[5]
 in_data <- args[2:6]
 # source(in_lib)
@@ -31,7 +31,7 @@ print('Loading Objects in to R Session')
 print(in_data1)
 print(in_data2)
 print(in_data5)
-print(out_models)
+# print(out_models)
 print(Cstack_info())
 # df1         <- read_csv(in_data1)%>%select(-c('X1','Speaker'))
 # df2         <- read_csv(in_data2)%>%select(-c('X1','Speaker'))
@@ -153,13 +153,13 @@ for (i in 1:5){
 
 
 # pack it into a list #
-model_list <- list(
-                   model1    = caret_model[[1]],
-                   model2    = caret_model[[2]],
-                   model3    = caret_model[[3]],
-                   model4    = caret_model[[4]],
-                   model5    = caret_model[[5]]
-                   )
+# model_list <- list(
+#                    model1    = caret_model[[1]],
+#                    model2    = caret_model[[2]],
+#                    model3    = caret_model[[3]],
+#                    model4    = caret_model[[4]],
+#                    model5    = caret_model[[5]]
+#                    )
 
 acc_list <- list(
                   term1    = mean(caret_model[[1]]$resample$Accuracy),
@@ -170,6 +170,6 @@ acc_list <- list(
                   )
 
 # Save Output #
-list.save(model_list, out_models)
+# list.save(model_list, out_models)
 list.save(acc_list, out_acc)
 write_csv(data.frame(acc_list), out_acc2)
