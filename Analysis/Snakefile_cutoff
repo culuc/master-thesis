@@ -111,11 +111,11 @@ subsection = ["","consecutive_speakers/"]
 rule filter_P2:
     input:
         data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_normal.csv",
-                                subs=subsection, iKey = terms),
+                                subs=subsection, iKey = terms)
 
     output:
         expand("../Data/{subs}{iKey}/cutoff/P2/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+                                subs=subsection, iKey = terms, type=types)
     log:
         "logs/filter_P2.txt"
     run:
@@ -136,12 +136,12 @@ rule filter_P2:
 
 rule filter_P4:
     input:
-        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+        data = expand("../Data/{subs}{iKey}/cutoff/{iKey}_cutoff_10_normal.csv",
+                                subs=subsection, iKey = terms)
 
     output:
         expand("../Data/{subs}{iKey}/cutoff/P4/{iKey}_cutoff_10_{type}.csv",
-                                subs=subsection, iKey = terms, type=types),
+                                subs=subsection, iKey = terms, type=types)
     log:
         "logs/filter_P4.txt"
     run:
