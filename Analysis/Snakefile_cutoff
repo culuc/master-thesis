@@ -80,8 +80,8 @@ rule prepare_data:
 
 rule filter_consecutive:
     input:
-        data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_{type}.csv",
-                                iKey = terms, type=types),
+        data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_normal.csv",
+                                iKey = terms),
         speakers = "../Data/lookup_files/speaker_terms_servetime_consecutive_years.csv"
 
     output:
@@ -94,12 +94,16 @@ rule filter_consecutive:
         speakers = set(pd.read_csv(input.speakers)['Speaker'])
         # print(output)
         # print(output)
-        for i,o in zip(input.data, output):
+        for i,inp in enumerate(input.data):
             # print(i)
             # print(o)
-            df_in = pd.read_csv(i,index_col=0)
+            df_in = pd.read_csv(inp,index_col=0)
             df_out = df_in[df_in.Speaker.isin(speakers)]
-            df_out.to_csv(o)
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
 
 
 subsection = ["","consecutive_speakers/"]
@@ -127,7 +131,7 @@ rule filter_P2:
             df_out_share = m.make_share(df_out,False)
             df_out.to_csv(output[3*i])
             df_out_scaled.to_csv(output[3*i+1])
-            df_out_share.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
 
 
 rule filter_P4:
@@ -153,7 +157,7 @@ rule filter_P4:
             df_out_share = m.make_share(df_out,False)
             df_out.to_csv(output[3*i])
             df_out_scaled.to_csv(output[3*i+1])
-            df_out_share.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
 
 
 
