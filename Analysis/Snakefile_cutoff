@@ -34,6 +34,9 @@ models = ["glmnet","glmnet_a001","regLogistic"]
 files2 = ["cutoff_10","cutoff_10_consec"]
 partysubs = ["","_P4","_P2"]
 
+rule all:
+    input:
+        data = expand("out/accuracy/{folder}/summary.csv",folder = ["elasticnet_P2","elasticnet_P4","rf_cutoff"])
 rule cutoff:
     input:
         data = expand("out/accuracy/elasticnet/{m}_{iKey}.csv", m=models, iKey = files)
