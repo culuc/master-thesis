@@ -74,7 +74,7 @@ caret_model <- vector(mode="list", length=5)
 for (i in 1:5){
     print(paste('Model ',i,'...'))
 
-    df         <- fread(in_data[i])%>%select(-c('V1','Speaker'))
+    df         <- read_csv(in_data[i])%>%select(-c('X1','Speaker'))
     colnames(df) <- make.names(colnames(df), unique=TRUE)
 
     print(paste('Working with', nrow(df), 'rows and', ncol(df), 'columns of data', sep = " "))
