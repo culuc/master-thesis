@@ -71,7 +71,7 @@ print('Estimating Models')
 
 caret_model <- vector(mode="list", length=5)
 
-for (i in 5:5){
+for (i in 1:5){
     print(paste('Model ',i,'...'))
 
     df         <- fread(in_data[i])%>%select(-c('V1','Speaker'))
@@ -154,18 +154,18 @@ for (i in 5:5){
 
 # pack it into a list #
 model_list <- list(
-                   # model1    = caret_model[[1]],
-                   # model2    = caret_model[[2]],
-                   # model3    = caret_model[[3]],
-                   # model4    = caret_model[[4]],
+                   model1    = caret_model[[1]],
+                   model2    = caret_model[[2]],
+                   model3    = caret_model[[3]],
+                   model4    = caret_model[[4]],
                    model5    = caret_model[[5]]
                    )
 
 acc_list <- list(
-                  # term1    = mean(caret_model[[1]]$resample$Accuracy),
-                  # term2    = mean(caret_model[[2]]$resample$Accuracy),
-                  # term3    = mean(caret_model[[3]]$resample$Accuracy),
-                  # term4    = mean(caret_model[[4]]$resample$Accuracy),
+                  term1    = mean(caret_model[[1]]$resample$Accuracy),
+                  term2    = mean(caret_model[[2]]$resample$Accuracy),
+                  term3    = mean(caret_model[[3]]$resample$Accuracy),
+                  term4    = mean(caret_model[[4]]$resample$Accuracy),
                   term5    = mean(caret_model[[5]]$resample$Accuracy)
                   )
 
