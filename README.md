@@ -29,7 +29,8 @@ SP&SVP | SP, CVP, FDP & SVP
 
 *Update: I made a mistake. Now the results between glmnet and regLogistic are comparable.*
 
-*glmnet_a001....* fits an elasticnet with 0.99*L2 + 0.01 *L1
+*glmnet_a001....* fixes alpha to fit an elasticnet with 0.99*L2 + 0.01 *L1
+The other models fit for each term the specification between L1 and L2 that fits best.
 
 ### Random Forest
 However, with randomForest the results are gain comparable to tfidf, although the peak is more pronounced at the 47th term.
