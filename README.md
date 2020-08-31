@@ -21,15 +21,21 @@
 [Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
 ## Cutoff > 10
 ### Regularized Logisitc
-In contrast to tfidf, the cutoff analysis finds a peak --- and not a dip --- at the 48th term.
 
-SP&SVP | SP, CVP, FDP & SVP
+For SP & SVP, the results are more mixed, with some indicating an increase --- and not a clear trough as with most of tf-idf --- at the 48th term.
+
+For SP, CVP, FDP & SVP, the results are very similar, apart from the fact that the peak at the 49th term is less pronounced.
+
+Overall, the cutoff analysis seems to reveal similar trends as the tf-idf analysis.
+
+SP & SVP | SP, CVP, FDP & SVP
 :--:|:--:
 ![](Results/plots/cutoff_elasticnet_P2_summary.png) | ![](Results/plots/cutoff_elasticnet_P4_summary.png)
 
 *Update: I made a mistake. Now the results between glmnet and regLogistic are comparable.*
 
 *glmnet_a001....* fixes alpha to fit an elasticnet with 0.99*L2 + 0.01 *L1
+
 The other models fit for each term the specification between L1 and L2 that fits best.
 
 ### Random Forest
