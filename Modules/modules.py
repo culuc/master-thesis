@@ -166,10 +166,10 @@ def preprocess_data(alldata, filtervar, criterion, lang='DE'):
 
     return data
 
-def preprocess_data2(alldata, filtervar, criterion, lang='DE'):
+def preprocess_data2(alldata, filtervar, criterion, lang='DE',N=5):
 
     data = alldata[(alldata.Language == lang) & (alldata[filtervar] == criterion)]
-    data['Speech'] = data['Speech'].map(preprocess_speech2)
+    data['Speech'] = data['Speech'].map(lambda x: preprocess_speech2(x,N))
 
     return data
 
