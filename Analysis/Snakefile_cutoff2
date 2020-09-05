@@ -1,0 +1,626 @@
+# rule test:
+#     input: "README.md"
+#     output: "testytest.txt"
+#     script: "python lower() {input} > {output}"
+# --- Variable Declarations ---- #
+runR = "Rscript --no-save --no-restore --verbose --max-ppsize=500000"
+logAll = "2>&1"
+
+# --- Dictionaries --- #
+import glob
+
+import sys
+sys.path.append('../Modules')
+
+import modules as m
+import pandas as pd
+import ast
+
+
+terms_short = ["t1","t2","t3","t4","t5"]
+terms = ["term1","term2","term3","term4","term5"]
+types = ["normal","scaled","share"]
+
+
+p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
+p2 = 'Schweizerische Volkspartei (SVP)'
+p3 = 'FDP.Die Liberalen (FDP-Liberale)'
+p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
+parties2 = [p1,p2]
+parties4 = [p1,p2,p3,p4]
+
+files = ["cutoff_5gram_10","cutoff_5gram_10_consec"]
+models = ["glmnet","glmnet_a001","regLogistic"]
+files2 = ["cutoff_5gram_10","cutoff_5gram_10_consec"]
+partysubs = ["","_P4","_P2"]
+
+rule all:
+    input:
+        data = expand("out_5gram/accuracy/{folder}/summary.csv",folder = ["elasticnet_P2","elasticnet_P4","rf_cutoff"])
+rule cutoff:
+    input:
+        data = expand("out_5gram/accuracy/elasticnet/{m}_{iKey}.csv", m=models, iKey = files)
+
+rule cutoff_5gram_P2:
+    input:
+        data = expand("out_5gram/accuracy/elasticnet_P2/{m}_{iKey}.csv", m=models, iKey = files)
+
+
+rule cutoff_5gram_P4:
+    input:
+        data = expand("out_5gram/accuracy/elasticnet_P4/{m}_{iKey}.csv", m=models, iKey=files)
+
+rule cutoff_5gram_regLogistic:
+    input:
+        data = expand("out_5gram/accuracy/regLogistic{subs}/{iKey}.csv", subs=partysubs, iKey=files2)
+
+rule cutoff_5gram_rf:
+    input:
+        data = expand("out_5gram/accuracy/rf_cutoff_5gram/{iKey}{subs}.csv", subs=partysubs, iKey=files2)
+
+
+
+# ---------------------------- PREPARE DATA ------------------------------------
+
+
+rule prepare_data:
+    input:
+        script = "script_prepare_cutoff2.py",
+        data = expand("../../interim/{iKey}_byPartySpeaker.pkl",
+                                iKey = terms_short)
+    params:
+        N = 10,
+        n = None
+    output:
+         expand("../Data/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_{type}.csv",
+                                iKey = terms, type=types)
+    log:
+        "logs/prep_data.txt"
+    shell:
+     "python {input.script} {input.data} {params.N} {params.n} \
+        {output} > {log} {logAll}"
+
+
+rule filter_consecutive:
+    input:
+        data = expand("../Data/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_normal.csv",
+                                iKey = terms),
+        speakers = "../Data/lookup_files/speaker_terms_servetime_consecutive_years.csv"
+
+    output:
+         expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_{type}.csv",
+                                iKey = terms, type=types)
+    log:
+        "logs/prep_data2.txt"
+    run:
+        import pandas as pd
+        speakers = set(pd.read_csv(input.speakers)['Speaker'])
+        # print(output)
+        # print(output)
+        for i,inp in enumerate(input.data):
+            # print(i)
+            # print(o)
+            df_in = pd.read_csv(inp,index_col=0)
+            df_out = df_in[df_in.Speaker.isin(speakers)]
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
+
+
+subsection = ["","consecutive_speakers/"]
+
+rule filter_P2:
+    input:
+        data = expand("../Data/{subs}{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_normal.csv",
+                                subs=subsection, iKey = terms)
+
+    output:
+        expand("../Data/{subs}{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_{type}.csv",
+                                subs=subsection, iKey = terms, type=types)
+    log:
+        "logs/filter_P2.txt"
+    run:
+        import pandas as pd
+        # print(output)
+        # print(output)
+        for i,inp in enumerate(input.data):
+            # print(i)
+            # print(o)
+            df_in = pd.read_csv(inp,index_col=0)
+            df_out = df_in[df_in['Speaker Party'].isin(parties2)]
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
+
+
+rule filter_P4:
+    input:
+        data = expand("../Data/{subs}{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_normal.csv",
+                                subs=subsection, iKey = terms)
+
+    output:
+        expand("../Data/{subs}{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_{type}.csv",
+                                subs=subsection, iKey = terms, type=types)
+    log:
+        "logs/filter_P4.txt"
+    run:
+        import pandas as pd
+        # print(output)
+        # print(output)
+        for i,inp in enumerate(input.data):
+            # print(i)
+            # print(o)
+            df_in = pd.read_csv(inp,index_col=0)
+            df_out = df_in[df_in['Speaker Party'].isin(parties4)]
+            df_out_scaled = m.make_share(df_out,True)
+            df_out_share = m.make_share(df_out,False)
+            df_out.to_csv(output[3*i])
+            df_out_scaled.to_csv(output[3*i+1])
+            df_out_share.to_csv(output[3*i+2])
+
+
+
+rule elasticnet:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet/glmnet_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet/glmnet_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet/glmnet_cutoff_5gram_10.csv"
+    log:
+        "logs/elastic_net.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule elasticnet_P4:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P4/glmnet_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P4/glmnet_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P4/glmnet_cutoff_5gram_10.csv"
+    log:
+        "logs/elasticNet_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_P2:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P2/glmnet_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P2/glmnet_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P2/glmnet_cutoff_5gram_10.csv"
+    log:
+        "logs/elasticNet_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet/glmnet_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet/glmnet_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet/glmnet_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/elastic_net_consec.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_P4:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P4/glmnet_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P4/glmnet_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P4/glmnet_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/cutoff_5gram_10_consec_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_P2:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P2/glmnet_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P2/glmnet_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P2/glmnet_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/cutoff_5gram_10_consec_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_a001:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet_fixed.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet/glmnet_a001_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet/glmnet_a001_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet/glmnet_a001_cutoff_5gram_10.csv"
+    log:
+        "logs/elastic_net_a001.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule elasticnet_P4_a001:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet_fixed.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P4/glmnet_a001_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P4/glmnet_a001_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P4/glmnet_a001_cutoff_5gram_10.csv"
+    log:
+        "logs/elasticNet_P4_a001.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_P2_a001:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet_fixed.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P2/glmnet_a001_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P2/glmnet_a001_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P2/glmnet_a001_cutoff_5gram_10.csv"
+    log:
+        "logs/elasticNet_P2_a001.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule elasticnet_consec_a001:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet_fixed.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet/glmnet_a001cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet/glmnet_a001_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnetglmnet_a001_/cutoff_5gram_10_consec.csv"
+    log:
+        "logs/elastic_net_consec_a001.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_P4_a001:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet_fixed.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P4/glmnet_a001_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P4/glmnet_a001_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P4/glmnet_a001_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/cutoff_5gram_10_consec_P4_a001.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_P2_a001:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_elasticnet_fixed.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models = "out_5gram/models/elasticnet_P2/glmnet_a001_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P2/glmnet_a001_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P2/glmnet_a001_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/cutoff_5gram_10_consec_P2_a001.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+# ------------------------------regLogistic-------------------------------------
+
+
+rule elasticnet_rl:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/elasticnet/regLogistic_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet/regLogistic_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet/regLogistic_cutoff_5gram_10.csv"
+    log:
+        "logs/regLogistic_cutoff_5gram_10.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule elasticnet_P4_rl:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/elasticnet_P4/regLogistic_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P4/regLogistic_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P4/regLogistic_cutoff_5gram_10.csv"
+    log:
+        "logs/regLogistic_cutoff_5gram_10_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_P2_rl:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/elasticnet_P2/regLogistic_cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P2/regLogistic_cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P2/regLogistic_cutoff_5gram_10.csv"
+    log:
+        "logs/regLogistic_cutoff_5gram_10_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_rl:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/elasticnet/regLogistic_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet/regLogistic_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet/regLogistic_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/regLogistic_cutoff_5gram_10_consec.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_P4_rl:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/elasticnet_P4/regLogistic_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P4/regLogistic_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P4/regLogistic_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/regLogistic_cutoff_5gram_10cutoff_5gram_10_consec_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule elasticnet_consec_P2_rl:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_regLogistic.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/elasticnet_P2/regLogistic_cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/elasticnet_P2/regLogistic_cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/elasticnet_P2/regLogistic_cutoff_5gram_10_consec.csv"
+    log:
+        "logs/regLogistic_cutoff_5gram_10_cutoff_5gram_10_consec_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+
+
+#-------------------------------- RANDOMFOREST ---------------------------------
+rule rf:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/rf_cutoff_5gram/cutoff_5gram_10.Rds",
+        accuracy = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10.Rds",
+        accuracy2 = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10.csv"
+    log:
+        "logs/rf_cutoff_5gram_10.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_P4:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/rf_cutoff_5gram/cutoff_5gram_10_P4.Rds",
+        accuracy = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_P4.Rds",
+        accuracy2 = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_P4.csv"
+    log:
+        "logs/rf_cutoff_5gram_10_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_P2:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/rf_cutoff_5gram/cutoff_5gram_10_P2.Rds",
+        accuracy = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_P2.Rds",
+        accuracy2 = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_P2.csv"
+    log:
+        "logs/rf_cutoff_5gram_10_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_consec:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/rf_cutoff_5gram/cutoff_5gram_10_consec.Rds",
+        accuracy = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_consec.Rds",
+        accuracy2 = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_consec.csv"
+    log:
+        "logs/rf_cutoff_5gram_10_consec.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_consec_P4:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P4/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/rf_cutoff_5gram/cutoff_5gram_10_consec_P4.Rds",
+        accuracy = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_consec_P4.Rds",
+        accuracy2 = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_consec_P4.csv"
+    log:
+        "logs/rf_cutoff_5gram_10_consec_P4.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule rf_consec_P2:
+    input:
+        script = "script_cutoff.R",
+        model  = "Models/model_rf.json",
+        data = expand("../Data/consecutive_speakers/{iKey}/cutoff_5gram/P2/{iKey}_cutoff_5gram_10_scaled.csv",
+                                iKey = terms)
+    output:
+        # models ="out_5gram/models/rf_cutoff_5gram/cutoff_5gram_10_consec_P2.Rds",
+        accuracy = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_consec_P2.Rds",
+        accuracy2 = "out_5gram/accuracy/rf_cutoff_5gram/cutoff_5gram_10_consec_P2.csv"
+    log:
+        "logs/rf_cutoff_5gram_10_consec_P2.txt"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+# -----------------------------------------------------------------------
+
+rule sum_accuracy_elasticnet:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_5gram/accuracy/elasticnet/*.csv')
+        # data = expand("out_5gram/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_5gram/accuracy/elasticnet/summary.csv"
+    log:
+        "logs/elasticNet_sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+
+rule sum_accuracy_elasticnet_P4:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_5gram/accuracy/elasticnet_P4/*.csv')
+        # data = expand("out_5gram/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_5gram/accuracy/elasticnet_P4/summary.csv"
+    log:
+        "logs/elasticNet_sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_elasticnet_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_5gram/accuracy/elasticnet_P2/*.csv')
+        # data = expand("out_5gram/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_5gram/accuracy/elasticnet_P2/summary.csv"
+    log:
+        "logs/elasticNet_sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+
+
+rule sum_accuracy_rf:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_5gram/accuracy/rf_cutoff_5gram/*.csv')
+        # data = expand("out_5gram/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_5gram/accuracy/rf_cutoff_5gram/summary.csv"
+    log:
+        "logs/elasticNet_sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
