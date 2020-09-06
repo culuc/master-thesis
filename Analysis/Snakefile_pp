@@ -67,7 +67,7 @@ rule run_tfidf_indiv:
 rule prepare_data_party:
     input:
         script = "script_prepare_data_pp.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker'])
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref.pkl"
     output:
         files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
