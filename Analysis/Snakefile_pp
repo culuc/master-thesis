@@ -75,7 +75,7 @@ rule prepare_data_party:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {params.pp} {input.data}  \
+     "python {input.script} {input.pp} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
