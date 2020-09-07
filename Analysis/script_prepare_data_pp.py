@@ -14,7 +14,10 @@ pp = sys.argv[1]
 fixed_phrases = sys.argv[2]
 indiv=sys.argv[3]
 n = int(sys.argv[4])
-N = int(sys.argv[5])
+N = sys.argv[5]
+
+if not N is None:
+    N = int(N)
 
 print(pp)
 #%%
