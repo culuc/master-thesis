@@ -9,8 +9,9 @@ import pandas as pd
 pp = pd.read_pickle(sys.argv[1])
 indiv=sys.argv[2]
 n=int(sys.argv[3])
-N = int(sys.argv[4])
-
+N = sys.argv[4]
+if not N is None:
+    N = int(N)
 
 #%%
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
