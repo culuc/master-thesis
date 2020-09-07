@@ -254,7 +254,7 @@ rule prepare_fixed_P2_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_of:
@@ -373,7 +373,7 @@ rule prepare_fixed_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_of:
