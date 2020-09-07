@@ -65,7 +65,7 @@ rule noref_rf:
 
 rule prepare_data:
     input:
-        script = "script_prepare_cutoff2.py",
+        script = "script_prepare_cutoff3.py",
         data = expand("../../interim/{iKey}_byPartySpeaker.pkl",
                                 iKey = terms_short)
     params:
