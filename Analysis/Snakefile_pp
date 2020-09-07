@@ -750,7 +750,7 @@ rule multinom_fixed_indiv_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top250each_scaled.csv",
+        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P4/individual_fixed_top250each_P4.Rds",
