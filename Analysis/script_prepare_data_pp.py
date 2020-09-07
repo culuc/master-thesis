@@ -46,7 +46,7 @@ for i in range(1,l_in):
         print(fixed_phrases)
         print(len(fixed_phrases))
         term1topN_tf = pd.read_csv(fixed_phrases,index_col=0)
-        term1topN_tf.Phrase = ast.literal_eval(term1topN_tf.Phrase)
+        term1topN_tf.Phrase = term1topN_tf.Phrase.map(ast.literal_eval)
     #%%
     if N==4:
         term1topN_tf=term1topN_tf[term1topN_tf['Speaker Party'].isin(parties4)]
