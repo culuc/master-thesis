@@ -36,11 +36,9 @@ for i in range(1,6):
     #%%
     if indiv ==1:
         term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',n)
-        term1topN_tf.reset_index(inplace=True)
     else:
         dfoverall = dfbyparty_filt.groupby('Phrase').sum()
-        term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dfbyparty_filt,500)
-        term1topN_tf.reset_index(inplace=True)
+        term1_tf, term1topN_tf = m.compute_tf_idf_old(dfoverall,dfbyparty_filt,500)
     # %% save interim results
     term1_tf.to_pickle(sys.argv[4*i+3])
     term1topN_tf.to_csv(sys.argv[4*i+4])
