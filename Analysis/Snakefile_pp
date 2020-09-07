@@ -93,7 +93,7 @@ rule prepare_fixed_P4_i:
         n=250,
         N = 4
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iT = ['df.pkl','top2500each.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iKey = ['df.pkl','top2500each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -130,7 +130,7 @@ rule prepare_fixed_P4_o:
         n=500,
         N = 4
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iT = ['df.pkl','top500.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iKey = ['df.pkl','top500.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -212,7 +212,7 @@ rule prepare_fixed_P2_i:
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P2_{iKey}",iT = ['df.pkl','top500each.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P2_{iKey}",iKey = ['df.pkl','top500each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -249,7 +249,7 @@ rule prepare_fixed_P2_o:
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P2_{iKey}",iT = ['df.pkl','top500.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P2_{iKey}",iKey = ['df.pkl','top500.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -331,7 +331,7 @@ rule prepare_fixed_i:
         n = 500,
         N = None
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iT = ['df.pkl','top100each.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top100each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -368,7 +368,7 @@ rule prepare_fixed_o:
         n = 500,
         N = None
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iT = ['df.pkl','top500.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top500.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
