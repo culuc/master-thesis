@@ -15,7 +15,6 @@ n=sys.argv[5]
 N = sys.argv[6]
 
 #%%
-pp1 = pd.read_pickle(pp)
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
 p2 = 'Schweizerische Volkspartei (SVP)'
 p3 = 'FDP.Die Liberalen (FDP-Liberale)'
@@ -25,7 +24,7 @@ parties4 = [p1,p2,p3,p4]
 # # dfbypartyspeaker = pd.read_pickle(sys.argv[3])
 # pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases.pkl')
 # pp2 = pd.read_pickle('procedural_phrases_SpSvpDistinct.pkl')
-dfbyparty_filt = dfbyparty[dfbyparty.Phrase.isin(pp1).apply(lambda x: not x)]
+dfbyparty_filt = dfbyparty[dfbyparty.Phrase.isin(pp).apply(lambda x: not x)]
 
 if N is not None:
     dfbyparty_filt = dfbyparty_filt[dfbyparty_filt.Phrase.isin(parties4[0:N])]
