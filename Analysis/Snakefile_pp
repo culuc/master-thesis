@@ -58,7 +58,7 @@ rule prepare_data_P4_i:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P4_i.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -78,7 +78,7 @@ rule prepare_data_P4_o:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P4_o.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -96,7 +96,7 @@ rule prepare_fixed_P4_i:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iKey = ['df.pkl','top250each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_fixed_P4_i.log"
     shell:
      "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -115,7 +115,7 @@ rule prepare_data_P4_if:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top250each_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P4_if.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -133,7 +133,7 @@ rule prepare_fixed_P4_o:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iKey = ['df.pkl','top500.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_fixed_P4_o.log"
     shell:
      "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -152,7 +152,7 @@ rule prepare_data_P4_of:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P4_of.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -177,7 +177,7 @@ rule prepare_data_P2_i:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_top500each_{iKey}",iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P2_i.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -197,7 +197,7 @@ rule prepare_data_P2_o:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P2_o.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -215,7 +215,7 @@ rule prepare_fixed_P2_i:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P2_{iKey}",iKey = ['df.pkl','top500each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_fixed_P2_i.log"
     shell:
      "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -234,7 +234,7 @@ rule prepare_data_P2_if:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500each_{iKey}",iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P2_if.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -252,7 +252,7 @@ rule prepare_fixed_P2_o:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P2_{iKey}",iKey = ['df.pkl','top500.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_fixed_P2_o.log"
     shell:
      "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -271,7 +271,7 @@ rule prepare_data_P2_of:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_P2_of.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -296,7 +296,7 @@ rule prepare_data_i:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_top100each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_i.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -316,7 +316,7 @@ rule prepare_data_o:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_o.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -334,7 +334,7 @@ rule prepare_fixed_i:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top100each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_fixed_i.log"
     shell:
      "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -353,7 +353,7 @@ rule prepare_data_if:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top100each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_if.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -371,7 +371,7 @@ rule prepare_fixed_o:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top500.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_fixed_o.log"
     shell:
      "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
@@ -390,7 +390,7 @@ rule prepare_data_of:
         files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
-        "logs/prepare_term_noref_speaker_party.log"
+        "logs/prepare_data_of.log"
     shell:
      "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
