@@ -42,6 +42,7 @@ for i in range(1,l_in):
     elif len(fixed_phrases) <= 8:
         dfoverall = dftfidf_filt.groupby('Phrase').sum()
         term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dftfidf_filt,n)
+        term1topN_tf.reset_index(inplace=True)
     else:
         print(fixed_phrases)
         print(len(fixed_phrases))

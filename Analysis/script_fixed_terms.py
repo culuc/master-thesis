@@ -39,6 +39,7 @@ for i in range(1,6):
     else:
         dfoverall = dfbyparty_filt.groupby('Phrase').sum()
         term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dfbyparty_filt,500)
+        term1topN_tf.reset_index(inplace=True)
     # %% save interim results
     term1_tf.to_pickle(sys.argv[4*i+3])
     term1topN_tf.to_csv(sys.argv[4*i+4])
