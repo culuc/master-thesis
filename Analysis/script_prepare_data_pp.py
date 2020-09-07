@@ -72,6 +72,6 @@ for i in range(1,l_in):
 
     # %% save interim results
     if len(fixed_phrases) > 8:
-        term1_tf = None
+        term1_tf = pd.DataFrame()
     term1_tf.to_pickle(sys.argv[l_in*2+4+3+(i-1)*5])
     term1topN_tf.to_csv(sys.argv[l_in*2+4+4+(i-1)*5])
