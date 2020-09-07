@@ -31,7 +31,7 @@ if N is not None:
     dfbyparty_filt = dfbyparty_filt[dfbyparty_filt.Phrase.isin(parties4[0:N])]
 #%%
 if indiv ==1:
-    term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',n)
+    term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',int(n))
 else:
     dfoverall = dfbyparty_filt.groupby('Phrase').sum()
     term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dfbyparty_filt,500)

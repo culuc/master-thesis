@@ -38,10 +38,10 @@ for i in range(1,l_in):
     #%%
     if (indiv==1 and len(fixed_phrases) <= 8):
         print(fixed_phrases)
-        term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,'Speaker Party',n)
+        term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,'Speaker Party',int(n))
     elif len(fixed_phrases) <= 8:
         dfoverall = dftfidf_filt.groupby('Phrase').sum()
-        term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dftfidf_filt,n)
+        term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dftfidf_filt,int(n))
     else:
         print(fixed_phrases)
         print(len(fixed_phrases))
