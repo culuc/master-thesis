@@ -36,6 +36,7 @@ for i in range(1,6):
     #%%
     if indiv ==1:
         term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',n)
+        term1topN_tf.reset_index(inplace=True)
     else:
         dfoverall = dfbyparty_filt.groupby('Phrase').sum()
         term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dfbyparty_filt,500)
