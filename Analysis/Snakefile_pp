@@ -93,7 +93,7 @@ rule prepare_fixed_P4_i:
         n=250,
         N = 4
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iKey = ['df.pkl','top2500each.csv'])
+        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iKey = ['df.pkl','top250each.csv'])
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -106,13 +106,13 @@ rule prepare_data_P4_if:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/noref_fixed_phrases_P4_top100each.csv"
+        fp = root + "Data/fixed/noref/noref_fixed_phrases_P4_top250each.csv"
     params:
         indiv = 1,
         n = 250,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_fixed_top250each_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -174,7 +174,7 @@ rule prepare_data_P2_i:
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o_P2)
+        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_top500each_{iKey}",iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -225,13 +225,13 @@ rule prepare_data_P2_if:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/noref_fixed_phrases_P2_top100each.csv"
+        fp = root + "Data/fixed/noref/noref_fixed_phrases_P2_top500each.csv"
     params:
         indiv = 1,
-        n = 100,
+        n = 500,
         N = 2
     output:
-        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P2)
+        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_fixed_top500each_{iKey}",iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -290,10 +290,10 @@ rule prepare_data_i:
         fp = "none.csv"
     params:
         indiv = 1,
-        n = 500,
+        n = 100,
         N = None
     output:
-        files = expand(root + "Data/{iT}/noref/noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o)
+        files = expand(root + "Data/{iT}/noref/noref_{iT}_top100each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -328,7 +328,7 @@ rule prepare_fixed_i:
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 1,
-        n = 500,
+        n = 100,
         N = None
     output:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top100each.csv'])
@@ -350,7 +350,7 @@ rule prepare_data_if:
         n = 100,
         N = None
     output:
-        files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o)
+        files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top100each_{iKey}",iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
