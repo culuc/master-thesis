@@ -55,7 +55,7 @@ rule prepare_data_P4_i:
         n = 250,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref//noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/noref/noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -75,7 +75,7 @@ rule prepare_data_P4_o:
         n = 500,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref//noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/noref/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -112,7 +112,7 @@ rule prepare_data_P4_if:
         n = 250,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref//noref_{iT}_fixed_top250each_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top250each_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -149,7 +149,7 @@ rule prepare_data_P4_of:
         n = 500,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref//noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_term_noref_speaker_party.log"
@@ -404,7 +404,7 @@ rule noref_P4_rl:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data = expand("../Data/{iKey}/noref//noref_{iKey}_top250each_scaled_P4.csv",
+        data = expand("../Data/{iKey}/noref/noref_{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/noref_P4/noref_regLogistic_top250each_P4.Rds",
@@ -421,7 +421,7 @@ rule noref_P4_multi:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data = expand("../Data/{iKey}/noref//noref_{iKey}_top250each_scaled_P4.csv",
+        data = expand("../Data/{iKey}/noref/noref_{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/noref_P4/noref_multinom_top250each_P4.Rds",
@@ -437,7 +437,7 @@ rule noref_P4_rf:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data = expand("../Data/{iKey}/noref//noref_{iKey}_top250each_scaled_P4.csv",
+        data = expand("../Data/{iKey}/noref/noref_{iKey}_top250each_scaled_P4.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/noref_P4/noref_rf_top250each_P4.Rds",
