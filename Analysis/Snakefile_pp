@@ -86,7 +86,7 @@ rule prepare_data_P4_o:
 rule prepare_fixed_P4_i:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 1,
@@ -123,7 +123,7 @@ rule prepare_data_P4_if:
 rule prepare_fixed_P4_o:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 0,
@@ -205,7 +205,7 @@ rule prepare_data_P2_o:
 rule prepare_fixed_P2_i:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 1,
@@ -242,7 +242,7 @@ rule prepare_data_P2_if:
 rule prepare_fixed_P2_o:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 0,
@@ -324,7 +324,7 @@ rule prepare_data_o:
 rule prepare_fixed_i:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 1,
@@ -361,7 +361,7 @@ rule prepare_data_if:
 rule prepare_fixed_o:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 0,
