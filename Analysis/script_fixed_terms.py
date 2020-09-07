@@ -32,7 +32,7 @@ dfbyparty = pd.read_pickle(sys.argv[6])
 dfbyparty_filt = dfbyparty[dfbyparty.Phrase.isin(pp).apply(lambda x: not x)]
 
 if N is not None:
-    dfbyparty_filt = dfbyparty_filt[dfbyparty_filt.Phrase.isin(parties4[0:N])]
+    dfbyparty_filt = dfbyparty_filt[dfbyparty_filt['Speaker Party'].isin(parties4[0:N])]
 #%%
 if indiv ==1:
     term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',n)
