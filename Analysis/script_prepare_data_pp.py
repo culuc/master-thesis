@@ -13,8 +13,8 @@ print(l_in)
 pp = sys.argv[1]
 fixed_phrases = sys.argv[2]
 indiv=sys.argv[3]
-n = sys.argv[4]
-N = sys.argv[5]
+n = int(sys.argv[4])
+N = int(sys.argv[5])
 
 print(pp)
 #%%
@@ -38,10 +38,10 @@ for i in range(1,l_in):
     #%%
     if (indiv==1 and len(fixed_phrases) <= 8):
         print(fixed_phrases)
-        term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,'Speaker Party',int(n))
+        term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,'Speaker Party',n)
     elif len(fixed_phrases) <= 8:
         dfoverall = dftfidf_filt.groupby('Phrase').sum()
-        term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dftfidf_filt,int(n))
+        term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dftfidf_filt,n)
     else:
         print(fixed_phrases)
         print(len(fixed_phrases))

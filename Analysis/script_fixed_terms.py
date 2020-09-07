@@ -11,8 +11,8 @@ dfoverall = pd.read_pickle(sys.argv[1])
 dfbyparty = pd.read_pickle(sys.argv[2])
 pp = pd.read_pickle(sys.argv[3])
 indiv=sys.argv[4]
-n=sys.argv[5]
-N = sys.argv[6]
+n=int(sys.argv[5])
+N = int(sys.argv[6])
 
 #%%
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
@@ -30,7 +30,7 @@ if N is not None:
     dfbyparty_filt = dfbyparty_filt[dfbyparty_filt.Phrase.isin(parties4[0:N])]
 #%%
 if indiv ==1:
-    term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',int(n))
+    term1_tf, term1topN_tf = m.compute_tf_idf_new(dfbyparty_filt,'Speaker Party',n)
 else:
     dfoverall = dfbyparty_filt.groupby('Phrase').sum()
     term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dfbyparty_filt,500)
