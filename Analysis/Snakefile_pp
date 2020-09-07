@@ -60,7 +60,7 @@ rule prepare_data_P4_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
@@ -80,7 +80,7 @@ rule prepare_data_P4_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_fixed_P4_i:
@@ -98,7 +98,7 @@ rule prepare_fixed_P4_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {params} {input.data}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_if:
@@ -117,7 +117,7 @@ rule prepare_data_P4_if:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_fixed_P4_o:
@@ -127,6 +127,7 @@ rule prepare_fixed_P4_o:
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         indiv = 0,
+        n=500,
         N = 4
     output:
         files = expand(root + "Data/fixed/noref/noref_fixed_phrases_P4_{iKey}",iT = ['df.pkl','top500.csv'])
@@ -134,7 +135,7 @@ rule prepare_fixed_P4_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {params} {input.data}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_of:
@@ -153,7 +154,7 @@ rule prepare_data_P4_of:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
@@ -178,7 +179,7 @@ rule prepare_data_P2_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
@@ -198,7 +199,7 @@ rule prepare_data_P2_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_fixed_P2_i:
@@ -216,7 +217,7 @@ rule prepare_fixed_P2_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {params} {input.data}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_if:
@@ -235,7 +236,7 @@ rule prepare_data_P2_if:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_fixed_P2_o:
@@ -253,7 +254,7 @@ rule prepare_fixed_P2_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_of:
@@ -272,7 +273,7 @@ rule prepare_data_P2_of:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
@@ -297,7 +298,7 @@ rule prepare_data_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
@@ -317,7 +318,7 @@ rule prepare_data_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_fixed_i:
@@ -335,7 +336,7 @@ rule prepare_fixed_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {params} {input.data}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_if:
@@ -354,7 +355,7 @@ rule prepare_data_if:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_fixed_o:
@@ -372,7 +373,7 @@ rule prepare_fixed_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_of:
@@ -391,7 +392,7 @@ rule prepare_data_of:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.pp} {input.fp} {params} {input.data}  \
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data}  \
         {output.files} > {log} {logAll}"
 
 
