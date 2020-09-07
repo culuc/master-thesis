@@ -36,13 +36,14 @@ for i in range(1,l_in):
     # dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
     dftfidf_filt = dftfidf[dftfidf.Phrase.isin(pp1).apply(lambda x: not x)]
     #%%
-    if (indiv==1 and len(fixed_phrases) > 8):
+    if (indiv==1 and len(fixed_phrases) < 8):
         print(fixed_phrases)
         term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,'Speaker Party',n)
-    elif len(fixed_phrases) >8:
+    elif len(fixed_phrases) < 8:
         dfoverall = dftfidf_filt.groupby('Phrase').sum()
         term1_tf, term1topN_tf = m.compute_tf_idf(dfoverall,dftfidf_filt,n)
     else:
+        print(fixed_phrases)
         term1topN_tf = pd.read_csv(fixed_phrases)
     #%%
     if N==4:
