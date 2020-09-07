@@ -305,7 +305,7 @@ rule prepare_data_o:
     input:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
         fp = None
     params:
         indiv = 0,
