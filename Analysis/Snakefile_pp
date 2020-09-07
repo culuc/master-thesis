@@ -98,7 +98,7 @@ rule prepare_fixed_P4_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.data} {input.pp} {params.indiv} {params.n} {params.N}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_if:
@@ -135,7 +135,7 @@ rule prepare_fixed_P4_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.data} {input.pp} {params.indiv} {params.n} {params.N}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_of:
@@ -217,7 +217,7 @@ rule prepare_fixed_P2_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.data} {input.pp} {params.indiv} {params.n} {params.N}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_if:
@@ -254,7 +254,7 @@ rule prepare_fixed_P2_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.data} {input.pp} {params.indiv} {params.n} {params.N}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_of:
@@ -336,7 +336,7 @@ rule prepare_fixed_i:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.data} {input.pp} {params.indiv} {params.n} {params.N}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_if:
@@ -373,7 +373,7 @@ rule prepare_fixed_o:
     log:
         "logs/prepare_term_noref_speaker_party.log"
     shell:
-     "python {input.script} {input.data} {input.pp} {params.indiv} {params.n} {params.N}  \
+     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_of:
