@@ -11,10 +11,11 @@ print(len(sys.argv))
 print(l_in)
 # dfoverall = pd.read_pickle(sys.argv[1])
 pp = sys.argv[1]
-indiv=sys.argv[2]
-n = sys.argv[3]
-N = sys.argv[4]
-fixed_phrases = sys.argv[5]
+fixed_phrases = sys.argv[2]
+indiv=sys.argv[3]
+n = sys.argv[4]
+N = sys.argv[5]
+
 print(pp)
 #%%
 pp1 = pd.read_pickle(pp)
