@@ -819,7 +819,7 @@ rule glm_fixed_indiv_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500each_scaled.csv",
+        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/glm_P2/individal_fixed_top500each_P2.Rds",
@@ -1239,7 +1239,7 @@ rule rf_fixed_indiv_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500each_scaled.csv",
+        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500each_scaled_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/individual_fixed_top500each_P2.Rds",
