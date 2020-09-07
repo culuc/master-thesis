@@ -13,11 +13,8 @@ print(l_in)
 pp = sys.argv[1]
 fixed_phrases = sys.argv[2]
 indiv=sys.argv[3]
-n = int(sys.argv[4])
-N = sys.argv[5]
-
-if not N is None:
-    N = int(N)
+n = ast.literal_eval(sys.argv[4])
+N = ast.literal_eval(sys.argv[5])
 
 print(pp)
 #%%

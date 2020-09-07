@@ -1,5 +1,6 @@
 #%%
 import sys
+import ast
 sys.path.append('../Modules')
 #%%
 import modules as m
@@ -8,10 +9,8 @@ import pandas as pd
 #%% snakemake.input[0]
 pp = pd.read_pickle(sys.argv[1])
 indiv=sys.argv[2]
-n=int(sys.argv[3])
-N = sys.argv[4]
-if not N is None:
-    N = int(N)
+n=ast.literal_eval(sys.argv[3])
+N = ast.literal_eval(sys.argv[4])
 
 #%%
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
