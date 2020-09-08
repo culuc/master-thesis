@@ -25,23 +25,23 @@ files = ["cutoff_10","cutoff_10_consec","cutoff_10_a001","cutoff_10_consec_a001"
 files2 = ["cutoff_10","cutoff_10_consec"]
 partysubs = ["","_P4","_P2"]
 
-rule cutoff:
-    input:
-        data = expand("out/accuracy/elasticnet/{iKey}.csv", iKey = files)
-
-rule cutoff_P2:
-    input:
-        data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey = files)
-
-
-rule cutoff_P4:
-    input:
-        data = expand("out/accuracy/elasticnet_P4/{iKey}.csv", iKey=files)
-
-rule cutoff_regLogistic:
-    input:
-        data = expand("out/accuracy/regLogistic{subs}/{iKey}.csv", subs=partysubs, iKey=files2)
-
+# rule cutoff:
+#     input:
+#         data = expand("out/accuracy/elasticnet/{iKey}.csv", iKey = files)
+#
+# rule cutoff_P2:
+#     input:
+#         data = expand("out/accuracy/elasticnet_P2/{iKey}.csv", iKey = files)
+#
+#
+# rule cutoff_P4:
+#     input:
+#         data = expand("out/accuracy/elasticnet_P4/{iKey}.csv", iKey=files)
+#
+# rule cutoff_regLogistic:
+#     input:
+#         data = expand("out/accuracy/regLogistic{subs}/{iKey}.csv", subs=partysubs, iKey=files2)
+#
 
 
 # ---------------------------- PREPARE DATA ------------------------------------
