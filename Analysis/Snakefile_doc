@@ -58,9 +58,9 @@ root = "../"
 
 
 
-rule run_tfidf_indiv:
-    input:
-        data = expand(root + "Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_normal_P4.csv", iKey = terms)
+# rule run_tfidf_indiv:
+#     input:
+#         data = expand(root + "Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_normal_P4.csv", iKey = terms)
 
 # '../../interim/t1_byPartySpeaker.pkl'
 rule prepare_data_speech:
