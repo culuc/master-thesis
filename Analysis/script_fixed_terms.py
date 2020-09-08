@@ -8,7 +8,7 @@ import pandas as pd
 
 #%% snakemake.input[0]
 pp = pd.read_pickle(sys.argv[1])
-indiv=sys.argv[2]
+indiv=ast.literal_eval(sys.argv[2])
 n=ast.literal_eval(sys.argv[3])
 N = ast.literal_eval(sys.argv[4])
 

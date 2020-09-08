@@ -12,7 +12,7 @@ print(l_in)
 # dfoverall = pd.read_pickle(sys.argv[1])
 pp = sys.argv[1]
 fixed_phrases = sys.argv[2]
-indiv=sys.argv[3]
+indiv=ast.literal_eval(sys.argv[3])
 n = ast.literal_eval(sys.argv[4])
 N = ast.literal_eval(sys.argv[5])
 
