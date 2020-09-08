@@ -13,7 +13,7 @@ print(l_in)
 level = sys.argv[1]
 print(level)
 #%%
-pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl')
+pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases.pkl')
 p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
 p2 = 'Schweizerische Volkspartei (SVP)'
 p3 = 'FDP.Die Liberalen (FDP-Liberale)'
