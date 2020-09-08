@@ -83,6 +83,7 @@ for (i in 1:5){
       Speaker.Party ~ .,
       df,
       method = method,
+      preProcess=c("scale", "center"),
       tuneGrid = tuneGrid,
       trControl = trainControl(
           method = "cv",
