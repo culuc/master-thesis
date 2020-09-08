@@ -40,8 +40,8 @@ for i in range(1,l_in):
         print(fixed_phrases)
         term1_tf, term1topN_tf = m.compute_tf_idf_new(dftfidf_filt,'Speaker Party',n)
     elif len(fixed_phrases) <= 8:
-        dfoverall = dftfidf_filt.groupby('Phrase').sum()
-        term1_tf, term1topN_tf = m.compute_tf_idf_old(dfoverall,dftfidf_filt,n)
+        # dfoverall = dftfidf_filt.groupby('Phrase').sum()
+        term1_tf, term1topN_tf = m.compute_tf_idf_old(None,dftfidf_filt,n)
     else:
         print(fixed_phrases)
         print(len(fixed_phrases))
@@ -55,10 +55,9 @@ for i in range(1,l_in):
         term1topN_tf=term1topN_tf[term1topN_tf['Speaker Party'].isin(parties2)]
         dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties2)]
     # %%
-    if indiv==1:
-        term1_topN_bySpeakerParty, topN = m.select_phrases_from_df2(dfbypartyspeaker,term1topN_tf,['Speaker Party','Speaker'])
-    else:
-        term1_topN_bySpeakerParty, topN = m.select_phrases_from_df(dfbypartyspeaker,term1topN_tf,['Speaker Party','Speaker'])
+    term1_topN_bySpeakerParty, topN = m.select_phrases_from_df2(dfbypartyspeaker,term1topN_tf,['Speaker Party','Speaker'])
+    # else:
+    #     term1_topN_bySpeakerParty, topN = m.select_phrases_from_df2(dfbypartyspeaker,term1topN_tf,['Speaker Party','Speaker'])
     # %% tfidf top 500
     term1_topN_bySpeakerParty_scaled = m.make_share(term1_topN_bySpeakerParty)
     term1_topN_bySpeakerParty_share = m.make_share(term1_topN_bySpeakerParty, scale=False)
