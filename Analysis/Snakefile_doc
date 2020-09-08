@@ -113,7 +113,7 @@ rule elasticnet_P4_rl_speech:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speechlevel_{iKey}_top250each_scaled_P4.csv",
+        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speechlevel_{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/doc_regLogistic_P4/speech-level_top250each_P4.Rds",
@@ -129,7 +129,7 @@ rule elasticnet_P4_rl_speaker:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speakerlevel_{iKey}_top250each_scaled_P4.csv",
+        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/speakerlevel_{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/doc_regLogistic_P4/speaker-level_top250each_P4.Rds",
@@ -146,7 +146,7 @@ rule elasticnet_P4_rl_party:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/partylevel_{iKey}_top250each_scaled_P4.csv",
+        data = expand("../Data/{iKey}/doc_tfidf_indiv/P4/partylevel_{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/doc_regLogistic_P4/party-level_top250each_P4.Rds",
@@ -247,7 +247,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet.json",
-#         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet/cutoff_10.Rds",
@@ -264,7 +264,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet.json",
-#         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P4/cutoff_10.Rds",
@@ -280,7 +280,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet.json",
-#         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P2/cutoff_10.Rds",
@@ -296,7 +296,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet/cutoff_10_consec.Rds",
@@ -312,7 +312,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P4/cutoff_10_consec.Rds",
@@ -328,7 +328,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P2/cutoff_10_consec.Rds",
@@ -344,7 +344,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet_fixed.json",
-#         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet/cutoff_10_a001.Rds",
@@ -361,7 +361,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet_fixed.json",
-#         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P4/cutoff_10_a001.Rds",
@@ -377,7 +377,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet_fixed.json",
-#         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P2/cutoff_10_a001.Rds",
@@ -394,7 +394,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet_fixed.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet/cutoff_10_consec_a001.Rds",
@@ -410,7 +410,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet_fixed.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P4/cutoff_10_consec_a001.Rds",
@@ -426,7 +426,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_elasticnet_fixed.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/elasticnet_P2/cutoff_10_consec_a001.Rds",
@@ -447,7 +447,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_regLogistic.json",
-#         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/regLogistic/cutoff_10.Rds",
@@ -464,7 +464,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_regLogistic.json",
-#         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/regLogistic_P4/cutoff_10.Rds",
@@ -480,7 +480,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_regLogistic.json",
-#         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/regLogistic_P2/cutoff_10.Rds",
@@ -496,7 +496,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_regLogistic.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/regLogistic/cutoff_10_consec.Rds",
@@ -512,7 +512,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_regLogistic.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/regLogistic_P4/cutoff_10_consec.Rds",
@@ -528,7 +528,7 @@ rule sum_accuracy:
 #     input:
 #         script = "script.R",
 #         model  = "Models/model_regLogistic.json",
-#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
+#         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_share.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/regLogistic_P2/cutoff_10_consec.Rds",
