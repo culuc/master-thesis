@@ -50,7 +50,62 @@ Feature selection based on tf-idf score is done at the following two levels:
 - Parties: _Overall_ vs. _Individual Party-wise_
 - Time: _Individual Term-wise_ vs. _Fixed_
 
-### Results for Restricted Analysis: SP & SVP
+### All vs. Stricter stopwords and no Party References
+
+#### Results for Restricted Analysis: SP & SVP
+<!-- Multinom | regLogistic | randomForest
+:--:|:--:|:--:
+![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_P2_summary.png) |![](Results/plots/noref_ext_multinom_P2_summary.png) |
+|regLogistic   |![](Results/plots/all_speakers_regLogistic_P2_summary.png)|![](Results/plots/noref_ext_regLogistic_P2_summary.png)
+|randomForest|![](Results/plots/all_speakers_randomForest_P2_summary.png)|![](Results/plots/noref_ext_randomForest_P2_summary.png)
+
+
+<!-- |glmnet| ![](Results/plots/cutoff_elasticnet_P2_summary.png)|  |   | -->
+<!--
+#### Some Summary Stats About the _individual_fixed_ Analysis
+For each party, the 500 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
+These stats examine the resulting distribution over the five terms from this method.
+
+Distribution of Phrases  | Distribution of Speakers
+:--:|:--:
+ ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P2.png)
+ -->
+
+#### Results for Restricted Analysis: SP, CVP, FDP & SVP
+<!-- Multinom | regLogistic | randomForest
+:--:|:--:|:--:
+![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png) -->
+
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_P4_summary.png)| ![](Results/plots/noref_ext_multinom_P4_summary.png)
+|regLogistic   | ![](Results/plots/all_speakers_regLogistic_P4_summary.png) | ![](Results/plots/noref_ext_regLogistic_P4_summary.png)
+|randomForest| ![](Results/plots/all_speakers_randomForest_P4_summary.png)| ![](Results/plots/noref_ext_randomForest_P4_summary.png)
+<!-- |glmnet| ![](Results/plots/cutoff_elasticnet_P4_summary.png)|  |   | -->
+<!--
+#### Some Summary Stats About the _individual_fixed_ Analysis
+For each party, the 250 most significant phrases are selected from the entire speech catalog and kept fixed for the analysis over each term.
+
+Distribution of Phrases  | Distribution of Speakers
+:--:|:--:
+![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4.png)
+ -->
+
+#### Results for Analysis With All Parties
+<!-- Multinom | regLogistic | randomForest
+:--:|:--:|:--:
+![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png) -->
+Model | All Speakers | Consecutive Speakers
+:--:|:--:|:--:
+|Multinom   | ![](Results/plots/all_speakers_multinom_summary.png) |![](Results/plots/noref_ext_multinom_summary.png)
+|regLogistic| ![](Results/plots/all_speakers_regLogistic_summary.png) | ![](Results/plots/noref_ext_regLogistic_summary.png)
+|randomForest| ![](Results/plots/all_speakers_randomForest_summary.png) |![](Results/plots/noref_ext_randomForest_summary.png)
+
+### All vs. Consecutive
+#### Results for Restricted Analysis: SP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
@@ -72,7 +127,7 @@ Distribution of Phrases  | Distribution of Speakers
  ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P2.png)
  -->
 
-## Results for Restricted Analysis: SP, CVP, FDP & SVP
+#### Results for Restricted Analysis: SP, CVP, FDP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png) -->
@@ -92,7 +147,7 @@ Distribution of Phrases  | Distribution of Speakers
 ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4.png)
  -->
 
-## Results for Analysis With All Parties
+#### Results for Analysis With All Parties
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png) -->
