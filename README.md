@@ -56,7 +56,7 @@ Feature selection based on tf-idf score is done at the following two levels:
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
-Model | All Speakers | Consecutive Speakers
+Model | All Speakers | NoRef & Ext. Stopwords
 :--:|:--:|:--:
 |Multinom   | ![](Results/plots/all_speakers_multinom_P2_summary.png) |![](Results/plots/noref_ext_multinom_P2_summary.png) |
 |regLogistic   |![](Results/plots/all_speakers_regLogistic_P2_summary.png)|![](Results/plots/noref_ext_regLogistic_P2_summary.png)
@@ -79,7 +79,7 @@ Distribution of Phrases  | Distribution of Speakers
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png) -->
 
-Model | All Speakers | Consecutive Speakers
+Model | All Speakers | NoRef & Ext. Stopwords
 :--:|:--:|:--:
 |Multinom   | ![](Results/plots/all_speakers_multinom_P4_summary.png)| ![](Results/plots/noref_ext_multinom_P4_summary.png)
 |regLogistic   | ![](Results/plots/all_speakers_regLogistic_P4_summary.png) | ![](Results/plots/noref_ext_regLogistic_P4_summary.png)
@@ -98,7 +98,7 @@ Distribution of Phrases  | Distribution of Speakers
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png) -->
-Model | All Speakers | Consecutive Speakers
+Model | All Speakers | NoRef & Ext. Stopwords
 :--:|:--:|:--:
 |Multinom   | ![](Results/plots/all_speakers_multinom_summary.png) |![](Results/plots/noref_ext_multinom_summary.png)
 |regLogistic| ![](Results/plots/all_speakers_regLogistic_summary.png) | ![](Results/plots/noref_ext_regLogistic_summary.png)
