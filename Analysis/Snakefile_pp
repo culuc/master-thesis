@@ -709,7 +709,7 @@ rule multinom_top500_P2:
 
 # ------------------------- QUI SQRD
 
-files_i = ['byPartySpeaker']
+files_i = ['byParty','byPartySpeaker']
 files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
 
 
