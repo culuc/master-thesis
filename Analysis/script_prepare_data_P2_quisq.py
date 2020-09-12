@@ -8,6 +8,7 @@ import pandas as pd
 #%%
 # dfoverall = pd.read_pickle(sys.argv[1])
 #%%
+print(sys.argv)
 dfbyparty = pd.read_pickle(sys.argv[1])
 #%%
 pp1 = pd.read_pickle('../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl')
