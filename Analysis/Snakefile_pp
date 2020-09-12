@@ -705,12 +705,159 @@ rule multinom_top500_P2:
      "{runR} {input.script} {input.model} {input.data} \
         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
 
+
+
+# ------------------------- QUI SQRD
+
+files_i_fixed = ['byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
+
+
+rule run_all_quisq:
+    input:
+        data = expand(root + "Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_normal_P2.csv", iKey = terms)
+
+rule prepare_term_1_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisq_top1000_{iKey}", iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1000_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+## fixed
+
+files_i_fixed = ['byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv']
+phrases_qui = root + "Data/lookup_files/phrases_quisq_top1k.csv"
+
+rule run_all_fixed_quisq:
+    input:
+        data = expand(root + "Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_normal_P2.csv", iKey = terms)
+
+rule prepare_term_1_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisq_top1000_fixed_{iKey}", iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases}\
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1000_fixed_{iKey}", iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
 # -- QUI SQRD
 rule multinom_quisq_top1000_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
+        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/overall_top1k_quisq_P2.Rds",
@@ -727,7 +874,7 @@ rule multinom_quisq_top1000_P2_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
+        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -1016,7 +1163,7 @@ rule regLogistic_quisq_top1000_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
+        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/overall_top1k_quisq_P2.Rds",
@@ -1033,7 +1180,7 @@ rule regLogistic_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
+        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -1252,7 +1399,7 @@ rule rf_quisq_top1000_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
+        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/overall_top1k_quisq_P2.Rds",
@@ -1269,7 +1416,7 @@ rule rf_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
+        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/overall_fixed_top1k_quisq_P2.Rds",
