@@ -722,7 +722,7 @@ rule prepare_term_1_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisq_top1000_{iKey}", iKey = files_o),
+        files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisqtop1k_noref_ext_{iKey}", iKey = files_o),
     log:
         "logs/prepare_term_1_quisq.log"
     shell:
@@ -734,7 +734,7 @@ rule prepare_term_2_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisqtop1k_noref_ext_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term_2_quisq.log"
     shell:
@@ -746,7 +746,7 @@ rule prepare_term_3_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisqtop1k_noref_ext_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term_3_quisq.log"
     shell:
@@ -758,7 +758,7 @@ rule prepare_term_4_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1k_noref_ext_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term_4_quisq.log"
     shell:
@@ -770,7 +770,7 @@ rule prepare_term_5_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1k_noref_ext_{iKey}", iKey = files_o)
     log:
         "logs/prepare_term_5_quisq.log"
     shell:
