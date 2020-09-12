@@ -709,7 +709,7 @@ rule multinom_top500_P2:
 
 # ------------------------- QUI SQRD
 
-files_i_fixed = ['byPartySpeaker']
+files_i = ['byPartySpeaker']
 files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
 
 
@@ -724,7 +724,7 @@ rule prepare_term_1_quisq:
     output:
         files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisq_top1000_{iKey}", iKey = files_o),
     log:
-        "logs/prepare_term1_fixed.log"
+        "logs/prepare_term_1_quisq.log"
     shell:
      "python {input.script} {input.data} \
         {output.files} > {log} {logAll}"
@@ -736,7 +736,7 @@ rule prepare_term_2_quisq:
     output:
         files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisq_top1000_{iKey}", iKey = files_o)
     log:
-        "logs/prepare_term2.log"
+        "logs/prepare_term_2_quisq.log"
     shell:
      "python {input.script} {input.data} \
         {output.files} > {log} {logAll}"
@@ -748,7 +748,7 @@ rule prepare_term_3_quisq:
     output:
         files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisq_top1000_{iKey}", iKey = files_o)
     log:
-        "logs/prepare_term3.log"
+        "logs/prepare_term_3_quisq.log"
     shell:
      "python {input.script} {input.data} \
         {output.files} > {log} {logAll}"
@@ -760,7 +760,7 @@ rule prepare_term_4_quisq:
     output:
         files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1000_{iKey}", iKey = files_o)
     log:
-        "logs/prepare_term4.log"
+        "logs/prepare_term_4_quisq.log"
     shell:
      "python {input.script} {input.data} \
         {output.files} > {log} {logAll}"
@@ -772,7 +772,7 @@ rule prepare_term_5_quisq:
     output:
         files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1000_{iKey}", iKey = files_o)
     log:
-        "logs/prepare_term5.log"
+        "logs/prepare_term_5_quisq.log"
     shell:
      "python {input.script} {input.data} \
         {output.files} > {log} {logAll}"
