@@ -781,7 +781,7 @@ rule prepare_term_5_quisq:
 
 files_i_fixed = ['byPartySpeaker']
 files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv']
-phrases_qui = root + "Data/lookup_files/phrases_quisq_top1k.csv"
+phrases_qui = root + "Data/lookup_files/phrases_quisq_top1k_noref_ext.csv"
 
 rule run_all_fixed_quisq:
     input:
