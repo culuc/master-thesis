@@ -1,6 +1,6 @@
 #%%
 import sys
-sys.path.append('../../Modules')
+sys.path.append('../Modules')
 #%%
 import modules as m
 import pandas as pd
