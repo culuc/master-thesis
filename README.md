@@ -50,7 +50,9 @@ Feature selection based on tf-idf score is done at the following two levels:
 - Parties: _Overall_ vs. _Individual Party-wise_
 - Time: _Individual Term-wise_ vs. _Fixed_
 
-### All vs. Stricter stopwords and no Party References
+### All vs. Broader Definition of Stopwords and No Party References
+Remove all bigrams that include the word 'fraktion' (parliamentary group in engl.) and any party references. Also any bigrams where the first word is either 'herr' or 'frau' to exclude references to members. Along the same lines, any bigrams including ['kolleg', 'kollegin', 'standerat', 'standeratin', 'nationalrat', 'nationalratin', 'bundesrat', 'bundesratin', 'conseil', 'koleginn'].
+Furthermore bigrams including 'artikel', 'absatz' or 'ziffer' are removed to exclude common occurring references to part of a law under discussion.
 
 #### Results for Restricted Analysis: SP & SVP
 <!-- Multinom | regLogistic | randomForest
