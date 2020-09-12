@@ -181,6 +181,6 @@ Distribution of Phrases  | Distribution of Speakers
 
 ## Compare definitions of *documents* (four main parties)
 
-Define *documents* by the level of _party_ (the specification of the previous analysis), _speaker_ and _speech_. Then select for each of the four main parties the 250 phrases with highest tf-idf score.
+Define *documents* by the level of _party_ (the specification of the previous analysis), _speaker_ and _speech_. Then, aggregate the phrases' tf-idf scores to party-level and select for each of the four main parties the 250 phrases with highest tf-idf score.
 
-![](Results/plots/def_doc_doc_regLogistic_P4_test_summary.png)
+![](Results/plots/def_doc_doc_regLogistic_P4_summary.png)
