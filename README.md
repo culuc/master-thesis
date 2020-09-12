@@ -28,9 +28,11 @@ For SP, CVP, FDP & SVP, the results are very similar, apart from the fact that t
 
 Overall, the cutoff analysis seems to reveal similar trends as the tf-idf analysis.
 
-SP & SVP | SP, CVP, FDP & SVP
-:--:|:--:
-![](Results/plots/cutoff_elasticnet_P2_summary.png) | ![](Results/plots/cutoff_elasticnet_P4_summary.png)
+Excluding Phrases | SP & SVP | SP, CVP, FDP & SVP
+:--|:--:|:--:
+Normal |![](Results/plots/cutoff_elasticnet_P2_summary.png) | ![](Results/plots/cutoff_elasticnet_P4_summary.png)
+NoRef & Ext. Stopwords  | ![](Results/plots/noref_elasticnet_P2_summary.png) | ![](Results/plots/noref_elasticnet_P4_summary.png)
+
 
 *Update: I made a mistake. Now the results between glmnet and regLogistic are comparable.*
 
@@ -40,7 +42,9 @@ The other models fit for each term the specification between L1 and L2 that fits
 
 ### Random Forest
 However, with randomForest the results are gain comparable to tfidf, although the peak is more pronounced at the 47th term.
-![](Results/plots/cutoff_rf_cutoff_summary.png)
+Normal | NoRef & Ext. Stopwords
+:--:|:--:
+![](Results/plots/cutoff_rf_cutoff_summary.png) | ![](Results/plots/noref_ext_cutoff_rf_noref_ext_summary.png)
 
 
 ## Tf-Idf (& a bit of Qui-Squared)
