@@ -359,7 +359,7 @@ rule prepare_data_if:
 
 rule prepare_fixed_o:
     input:
-        script = "script_fixed_terms.py",
+        script = "script_fixed_terms2.py",
         data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top500_topN.csv",iT = terms, nameKey=name)
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
