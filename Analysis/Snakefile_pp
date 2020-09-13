@@ -84,7 +84,7 @@ rule prepare_fixed_P4_i:
         script = "script_fixed_terms.py",
         data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
-    params:
+
         indiv = 1,
         n= 250,
         N = 4
@@ -102,7 +102,8 @@ rule prepare_data_P4_if:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/P4/noref_fixed_phrases_top250each_P4.csv"
+        # fp = root + "Data/fixed/noref/P4/noref_fixed_phrases_top250each_P4.csv"
+        fp = root + "Data/fixed2/noref/P4/noref_fixed_top75eacheach_P4.csv"
     params:
         indiv = 1,
         n = 250,
@@ -221,7 +222,8 @@ rule prepare_data_P2_if:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/P2/noref_fixed_phrases_top500each_P2.csv"
+        # fp = root + "Data/fixed/noref/P2/noref_fixed_phrases_top500each_P2.csv"
+        fp = root + "Data/fixed2/noref/P2/noref_fixed_top175eacheach_P2.csv"
     params:
         indiv = 1,
         n = 500,
@@ -340,7 +342,8 @@ rule prepare_data_if:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/noref_fixed_phrases_top100each.csv"
+        # fp = root + "Data/fixed/noref/noref_fixed_phrases_top100each.csv"
+        fp = root + "Data/fixed2/noref/noref_fixed_top40eacheach.csv"
     params:
         indiv = 1,
         n = 100,
