@@ -252,7 +252,7 @@ rule prepare_fixed_P2_o:
     log:
         "logs/prepare_fixed_P2_o.log"
     shell:
-     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_of:
