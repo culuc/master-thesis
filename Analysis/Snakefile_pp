@@ -244,7 +244,7 @@ rule prepare_fixed_P2_o:
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 0,
-        n = 500
+        n = None
         # N = 2
     output:
         files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500_P2.csv",nameKey=name)
