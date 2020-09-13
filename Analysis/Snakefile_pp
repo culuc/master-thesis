@@ -20,7 +20,7 @@ p3 = 'FDP.Die Liberalen (FDP-Liberale)'
 p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
 parties2 = [p1,p2]
 parties4 = [p1,p2,p3,p4]
-
+name = ["noref"]
 
 # ---------------------------- PREPARE DATA ------------------------------------
 
@@ -51,7 +51,7 @@ rule prepare_data_P4_i:
         n = 250,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_top250each_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top250each_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P4_i.log"
@@ -71,7 +71,7 @@ rule prepare_data_P4_o:
         n = 500,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P4_o.log"
@@ -81,20 +81,20 @@ rule prepare_data_P4_o:
 
 rule prepare_fixed_P4_i:
     input:
-        script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top250each_topN_P4.csv", nameKey=name, iT = terms),
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
-        indiv = 1,
-        n= 250,
-        N = 4
+        # indiv = 1,
+        n= 50,
+        # N = 4
     output:
-        files = expand(root + "Data/fixed/noref/P4/noref_fixed_phrases_{iKey}",iKey = ['df_P4.pkl','top250each_P4.csv'])
+        files = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500eacheach_P4.csv", nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P4_i.log"
     shell:
-     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_if:
@@ -103,13 +103,13 @@ rule prepare_data_P4_if:
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
         # fp = root + "Data/fixed/noref/P4/noref_fixed_phrases_top250each_P4.csv"
-        fp = root + "Data/fixed2/noref/P4/noref_fixed_top75eacheach_P4.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500eacheach_P4.csv", nameKey=name)
     params:
         indiv = 1,
         n = 250,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_fixed_top250each_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_fixed_top250each_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P4_if.log"
@@ -119,20 +119,20 @@ rule prepare_data_P4_if:
 
 rule prepare_fixed_P4_o:
     input:
-        script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top500_topN_P4.csv", nameKey = name, iT = terms),
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
-        indiv = 0,
-        n=500,
-        N = 4
+        # indiv = 0,
+        n=None,
+        # N = 4
     output:
-        files = expand(root + "Data/fixed/noref/P4/noref_fixed_phrases_{iKey}",iKey = ['df_P4.pkl','top500_P4.csv'])
+        files = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500_P4.csv",nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P4_o.log"
     shell:
-     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_of:
@@ -140,13 +140,13 @@ rule prepare_data_P4_of:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/P4/noref_fixed_phrases_top500_P4.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500_P4.csv", nameKey=name)
     params:
         indiv = 0,
         n = 500,
         N = 4
     output:
-        files = expand(root + "Data/{iT}/noref/P4/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P4)
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_fixed_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P4_of.log"
@@ -171,7 +171,7 @@ rule prepare_data_P2_i:
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_top500each_{iKey}",iT = terms, iKey = files_o_P2)
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500each_{iKey}",nameKey=name, iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P2_i.log"
@@ -191,7 +191,7 @@ rule prepare_data_P2_o:
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o_P2)
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500_{iKey}",nameKey=name, iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P2_o.log"
@@ -201,20 +201,20 @@ rule prepare_data_P2_o:
 
 rule prepare_fixed_P2_i:
     input:
-        script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500each_topN_P2.csv",nameKey=name, iT = terms)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
-        indiv = 1,
-        n = 500,
-        N = 2
+        # indiv = 1,
+        n = 100,
+        # N = 2
     output:
-        files = expand(root + "Data/fixed/noref/P2/noref_fixed_phrases_{iKey}",iKey = ['df_P2.pkl','top500each_P2.csv'])
+        files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P2_i.log"
     shell:
-     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_if:
@@ -222,14 +222,14 @@ rule prepare_data_P2_if:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        # fp = root + "Data/fixed/noref/P2/noref_fixed_phrases_top500each_P2.csv"
-        fp = root + "Data/fixed2/noref/P2/noref_fixed_top175eacheach_P2.csv"
+        # fp = root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500each_P2.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
     params:
         indiv = 1,
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_fixed_top500each_{iKey}",iT = terms, iKey = files_o_P2)
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_fixed_top500each_{iKey}", nameKey=name, iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P2_if.log"
@@ -239,15 +239,15 @@ rule prepare_data_P2_if:
 
 rule prepare_fixed_P2_o:
     input:
-        script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500_topN_P2.csv", iT = terms, nameKey=name)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
-        indiv = 0,
-        n = 500,
-        N = 2
+        # indiv = 0,
+        n = 500
+        # N = 2
     output:
-        files = expand(root + "Data/fixed/noref/P2/noref_fixed_phrases_{iKey}",iKey = ['df_P2.pkl','top500_P2.csv'])
+        files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500_P2.csv",nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P2_o.log"
@@ -260,13 +260,13 @@ rule prepare_data_P2_of:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/P2/noref_fixed_phrases_top500_P2.csv"
+        fp =  expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500_P2.csv",nameKey=name)
     params:
         indiv = 0,
         n = 500,
         N = 2
     output:
-        files = expand(root + "Data/{iT}/noref/P2/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o_P2)
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_fixed_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o_P2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_P2_of.log"
@@ -291,7 +291,7 @@ rule prepare_data_i:
         n = 100,
         N = None
     output:
-        files = expand(root + "Data/{iT}/noref/noref_{iT}_top100each_{iKey}",iT = terms, iKey = files_o)
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_{iKey}", nameKey=name, iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_i.log"
@@ -311,7 +311,7 @@ rule prepare_data_o:
         n = 500,
         N = None
     output:
-        files = expand(root + "Data/{iT}/noref/noref_{iT}_top500_{iKey}",iT = terms, iKey = files_o)
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_o.log"
@@ -321,20 +321,20 @@ rule prepare_data_o:
 
 rule prepare_fixed_i:
     input:
-        script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_topN.csv",iT = terms, nameKey=name)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
-        indiv = 1,
-        n = 100,
-        N = None
+        # indiv = 1,
+        n = 20
+        # N = None
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top100each.csv'])
+        files = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top100each.csv", nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_i.log"
     shell:
-     "python {input.script} {input.pp} {params.indiv} {params.n} {params.N} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_if:
@@ -343,13 +343,13 @@ rule prepare_data_if:
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
         # fp = root + "Data/fixed/noref/noref_fixed_phrases_top100each.csv"
-        fp = root + "Data/fixed2/noref/noref_fixed_top40eacheach.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top100each.csv", nameKey=name)
     params:
         indiv = 1,
         n = 100,
         N = None
     output:
-        files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top100each_{iKey}",iT = terms, iKey = files_o)
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_fixed_top100each_{iKey}", nameKey=name, iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_if.log"
@@ -360,14 +360,14 @@ rule prepare_data_if:
 rule prepare_fixed_o:
     input:
         script = "script_fixed_terms.py",
-        data   = expand(root+"../interim/all_{iKey}.pkl", iKey = ['byParty','byPartySpeaker']),
-        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top500_topN.csv",iT = terms, nameKey=name)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
-        indiv = 0,
-        n = 500,
-        N = None
+        # indiv = 0,
+        n = None
+        # N = None
     output:
-        files = expand(root + "Data/fixed/noref/noref_fixed_phrases_{iKey}",iKey = ['df.pkl','top500.csv'])
+        files = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top500.csv", nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_o.log"
@@ -380,13 +380,13 @@ rule prepare_data_of:
         script = "script_prepare_data_pp.py",
         data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
         pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
-        fp = root + "Data/fixed/noref/noref_fixed_phrases_top500.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top500.csv", nameKey=name)
     params:
         indiv = 0,
         n = 500,
         N = None
     output:
-        files = expand(root + "Data/{iT}/noref/noref_{iT}_fixed_top500_{iKey}",iT = terms, iKey = files_o)
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_fixed_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_data_of.log"
@@ -561,8 +561,7 @@ rule multinom_top500:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_top500_share.csv",
-                                iKey = terms),
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name, iKey = terms),
     output:
         models = "out_ext/models/multinom/overall_top500.Rds",
         accuracy = "out_ext/accuracy/multinom/overall_top500.Rds",
@@ -579,8 +578,7 @@ rule multinom_top100each:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_top100each_share.csv",
-                                iKey = terms)
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name, iKey = terms)
     output:
         models = "out_ext/models/multinom/individual_top100each.Rds",
         accuracy = "out_ext/accuracy/multinom/individual_top100each.Rds",
@@ -595,7 +593,7 @@ rule multinom_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom/overall_fixed_top500.Rds",
@@ -611,7 +609,7 @@ rule multinom_fixed_indiv:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top100each_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom/individual_fixed_top100each.Rds",
@@ -631,7 +629,7 @@ rule multinom_fixed_indiv_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/individual_fixed_top500each_P2.Rds",
@@ -647,7 +645,7 @@ rule multinom_fixed_overall_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/overall_fixed_top500_P2.Rds",
@@ -664,7 +662,7 @@ rule multinom_top500each_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/individual_top500each_P2.Rds",
@@ -696,7 +694,7 @@ rule multinom_top500_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/overall_top500_P2.Rds",
@@ -718,14 +716,14 @@ files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.c
 
 rule run_all_quisq:
     input:
-        data = expand(root + "Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_normal_P2.csv", iKey = terms)
+        data = expand(root + "Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_normal_P2.csv", nameKey=name, iKey = terms)
 
 rule prepare_term_1_quisq:
     input:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisq_top1000_{iKey}", iKey = files_o),
+        files = expand(root + "Data/term1/{nameKey}/qui_sqrd/term1_quisq_top1000_{iKey}", nameKey=name, iKey = files_o),
     log:
         "logs/prepare_term_1_quisq.log"
     shell:
@@ -737,7 +735,7 @@ rule prepare_term_2_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term2/{nameKey}/qui_sqrd/term2_quisq_top1000_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term_2_quisq.log"
     shell:
@@ -749,7 +747,7 @@ rule prepare_term_3_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term3/{nameKey}/qui_sqrd/term3_quisq_top1000_{iKey}", nameKey=name,iKey = files_o)
     log:
         "logs/prepare_term_3_quisq.log"
     shell:
@@ -761,7 +759,7 @@ rule prepare_term_4_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term4/{nameKey}/qui_sqrd/term4_quisq_top1000_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term_4_quisq.log"
     shell:
@@ -773,7 +771,7 @@ rule prepare_term_5_quisq:
         script = "script_prepare_data_P2_quisq.py",
         data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i),
     output:
-        files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1000_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term5/{nameKey}/qui_sqrd/term5_quisq_top1000_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term_5_quisq.log"
     shell:
@@ -788,7 +786,7 @@ phrases_qui = root + "Data/lookup_files/phrases_quisq_top1k_noref_ext.csv"
 
 rule run_all_fixed_quisq:
     input:
-        data = expand(root + "Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_normal_P2.csv", iKey = terms)
+        data = expand(root + "Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_normal_P2.csv", nameKey=name, iKey = terms)
 
 rule prepare_term_1_fixed_quisq:
     input:
@@ -796,7 +794,7 @@ rule prepare_term_1_fixed_quisq:
         data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases_qui
     output:
-        files = expand(root + "Data/term1/noref/qui_sqrd/term1_quisq_top1000_fixed_{iKey}", iKey = files_o),
+        files = expand(root + "Data/term1/{nameKey}/qui_sqrd/term1_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o),
     log:
         "logs/prepare_term1_fixed.log"
     shell:
@@ -809,7 +807,7 @@ rule prepare_term_2_fixed_quisq:
         data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases_qui
     output:
-        files = expand(root + "Data/term2/noref/qui_sqrd/term2_quisq_top1000_fixed_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term2/{nameKey}/qui_sqrd/term2_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term2.log"
     shell:
@@ -822,7 +820,7 @@ rule prepare_term_3_fixed_quisq:
         data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases_qui
     output:
-        files = expand(root + "Data/term3/noref/qui_sqrd/term3_quisq_top1000_fixed_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term3/{nameKey}/qui_sqrd/term3_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term3.log"
     shell:
@@ -835,7 +833,7 @@ rule prepare_term_4_fixed_quisq:
         data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases_qui
     output:
-        files = expand(root + "Data/term4/noref/qui_sqrd/term4_quisq_top1000_fixed_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term4/{nameKey}/qui_sqrd/term4_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term4.log"
     shell:
@@ -848,7 +846,7 @@ rule prepare_term_5_fixed_quisq:
         data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i_fixed),
         phrases = phrases_qui
     output:
-        files = expand(root + "Data/term5/noref/qui_sqrd/term5_quisq_top1000_fixed_{iKey}", iKey = files_o)
+        files = expand(root + "Data/term5/{nameKey}/qui_sqrd/term5_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
     log:
         "logs/prepare_term5.log"
     shell:
@@ -860,7 +858,7 @@ rule multinom_quisq_top1000_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/overall_top1k_quisq_P2.Rds",
@@ -877,7 +875,7 @@ rule multinom_quisq_top1000_P2_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -896,7 +894,7 @@ rule multinom_fixed_indiv_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_fixed_top250each_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P4/individual_fixed_top250each_P4.Rds",
@@ -912,7 +910,7 @@ rule multinom_fixed_overall_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_fixed_top500_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P4/overall_fixed_top500_P4.Rds",
@@ -929,7 +927,7 @@ rule multinom_top250each_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top250each_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P4/individual_top250each_P4.Rds",
@@ -945,7 +943,7 @@ rule multinom_top500_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top500_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/multinom_P4/overall_top500_P4.Rds",
@@ -965,7 +963,7 @@ rule glm_fixed_indiv_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/glm_P2/individal_fixed_top500each_P2.Rds",
@@ -981,7 +979,7 @@ rule glm_fixed_overall_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/glm_P2/overall_fixed_top500_P2.Rds",
@@ -998,7 +996,7 @@ rule glm_top500each_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/glm_P2/individual_top500each_P2.Rds",
@@ -1014,7 +1012,7 @@ rule glm_top500_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/glm_P2/overall_top500_P2.Rds",
@@ -1032,7 +1030,7 @@ rule regLogistic_fixed_indiv:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top100each_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic/individual_fixed_top100each.Rds",
@@ -1048,7 +1046,7 @@ rule regLogistic_fixed_overall:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic/overall_fixed_top500.Rds",
@@ -1065,7 +1063,7 @@ rule regLogistic_top500:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic/overall_top500.Rds",
@@ -1081,7 +1079,7 @@ rule regLogistic_top100each:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_top100each_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic/individual_top100each.Rds",
@@ -1100,7 +1098,7 @@ rule regLogistic_fixed_indiv_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/individual_fixed_top500each_P2.Rds",
@@ -1116,7 +1114,7 @@ rule regLogistic_fixed_overall_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/overall_fixed_top500_P2.Rds",
@@ -1133,7 +1131,7 @@ rule regLogistic_top500each_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/individual_top500each_P2.Rds",
@@ -1149,7 +1147,7 @@ rule regLogistic_top500_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/overall_top500_P2.Rds",
@@ -1166,7 +1164,7 @@ rule regLogistic_quisq_top1000_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/overall_top1k_quisq_P2.Rds",
@@ -1183,7 +1181,7 @@ rule regLogistic_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -1202,7 +1200,7 @@ rule regLogistic_fixed_indiv_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_fixed_top250each_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P4/individual_fixed_top250each_P4.Rds",
@@ -1218,7 +1216,7 @@ rule regLogistic_fixed_overall_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_fixed_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P4/overall_fixed_top500_P4.Rds",
@@ -1235,7 +1233,7 @@ rule regLogistic_top250each_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top250each_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P4/individual_top250each_P4.Rds",
@@ -1251,7 +1249,7 @@ rule regLogistic_top500_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top500_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/regLogistic_P4/overall_top500_P4.Rds",
@@ -1270,7 +1268,7 @@ rule rf_top500:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest/overall_top500.Rds",
@@ -1286,7 +1284,7 @@ rule rf_indiv:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_top100each_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest/individual_top100each.Rds",
@@ -1302,7 +1300,7 @@ rule rf_fixed:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top500_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest/overall_fixed_top500.Rds",
@@ -1318,7 +1316,7 @@ rule rf_fixed_indiv:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/noref_{iKey}_fixed_top100each_share.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest/individual_fixed_top100each.Rds",
@@ -1337,7 +1335,7 @@ rule rf_top500_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/overall_top500_P2.Rds",
@@ -1353,7 +1351,7 @@ rule rf_indiv_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/individual_top500each_P2.Rds",
@@ -1369,7 +1367,7 @@ rule rf_fixed_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/overall_fixed_top500_P2.Rds",
@@ -1385,7 +1383,7 @@ rule rf_fixed_indiv_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P2/noref_{iKey}_fixed_top500each_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/individual_fixed_top500each_P2.Rds",
@@ -1402,7 +1400,7 @@ rule rf_quisq_top1000_P2:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/overall_top1k_quisq_P2.Rds",
@@ -1419,7 +1417,7 @@ rule rf_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -1439,7 +1437,7 @@ rule rf_top500_P4:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top500_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P4/overall_top500_P4.Rds",
@@ -1455,7 +1453,7 @@ rule rf_indiv_P4:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top250each_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P4/individual_top250each_P4.Rds",
@@ -1471,7 +1469,7 @@ rule rf_fixed_P4:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_fixed_top500_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P4/overall_fixed_top500_P4.Rds",
@@ -1487,7 +1485,7 @@ rule rf_fixed_indiv_P4:
     input:
         script = "script.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/noref/P4/noref_{iKey}_fixed_top250each_share_P4.csv",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
     output:
         models = "out_ext/models/randomForest_P4/individual_fixed_top250each_P4.Rds",
