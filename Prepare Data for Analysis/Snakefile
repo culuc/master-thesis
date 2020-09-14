@@ -236,7 +236,7 @@ rule prepare_phrases_all_terms_fixed:
     log:
         "logs/prepare_fixed.log"
     shell:
-     "python {input.script} {input.data} {params.n}\
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_phrases_all_terms_fixed_old:
@@ -251,7 +251,7 @@ rule prepare_phrases_all_terms_fixed_old:
     log:
         "logs/prepare_fixed.log"
     shell:
-     "python {input.script} {input.data} {params.n} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 
@@ -272,7 +272,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2:
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {input.data} {params.n}\
+     "python {input.script} {params.n} {input.data}\
          {output.files} > {log} {logAll}"
 
 
@@ -296,7 +296,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2_old:
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {input.data} {params.n}\
+     "python {input.script} {params.n} {input.data}\
          {output.files} > {log} {logAll}"
 
 
@@ -319,7 +319,7 @@ rule prepare_phrases_all_terms_fixed_restr_P4:
     log:
         "logs/prepare_fixed_restr_P4.log"
     shell:
-     "python {input.script} {input.data} {params.n}\
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 
@@ -342,7 +342,7 @@ rule prepare_phrases_all_terms_fixed_restr_P4_old:
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {input.data} {params.n}\
+     "python {input.script} {params.n} {input.data} \
          {output.files} > {log} {logAll}"
 
 
