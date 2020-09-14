@@ -65,15 +65,37 @@ dfbypartyspeaker = pd.read_pickle('../../../interim/all_byPartySpeakerTerm.pkl')
 dfbypartyspeaker.Speaker.describe()
 
 dfbypartyspeaker.Phrase.describe()
+
+dfbypartyspeaker['TotalCounts'] = dfbypartyspeaker.groupby(['Term','Phrase']).Counts.transform('sum')
+
+all = dfbypartyspeaker[['Term','Phrase','TotalCounts']]
+uniq = dfbypartyspeaker[['Term','Phrase','TotalCounts']].drop_duplicates()
+all.groupby('Term').describe(include='all').dropna(axis=1)
+
+uniqq = uniq.groupby('Term').describe()
+uniqq.T
+uniqqq = uniqq.T.apply(lambda x: round(x,1))
+
 summary_stats = dfbypartyspeaker.groupby('Term').describe(include='all')
 
 summary_stats2 = summary_stats.dropna(axis=1)
 
 summary_stats3 = summary_stats2.drop([('Speaker','count'),('Speaker Party','count')],axis=1)
 
+import numpy as np
+tmp = summary_stats3.select_dtypes(include=[np.number])
+summary_stats3.loc[:, tmp.columns] = np.round(tmp,1)
+
+summary_stats4 = summary_stats3.T.drop('TotalCounts')
+summary_stats4=summary_stats4.append(uniqqq)
+
+
+
+
 summary_stats2.to_csv('./summary_stats.csv')
 summary_stats3.to_csv('./summary_stats_new.csv')
 
+summary_stats4.to_csv('./summary_stats2.csv')
 
 
 summary_stats2.to_html('summary_stats.html')
@@ -163,3 +185,24 @@ sumry_phraseALL.get_figure().savefig('./summary_fixed_indiv_phrase_plot_ALL.png'
 sumry_speakerALL = sumryALL[('Speaker','unique')].reset_index().pivot(columns='Term',index = 'Speaker Party', values=('Speaker', 'unique')).plot.bar(stacked=True)
 sumry_speakerALL.set_ylabel('# Speakers')
 sumry_speakerALL.get_figure().savefig('./summary_fixed_indiv_speaker_plot_ALL.png', dpi=600,bbox_inches='tight')
+
+
+
+
+
+
+proc_phr = pd.read_csv('../../Data/lookup_files/procedural_phrases.csv',index_col=0)
+
+ppdf = pd.DataFrame.from_dict(set(proc_phr.index))
+
+
+dfs = []
+for i in range(6):
+    pp = ppdf.iloc[61*i:61*(i+1)].reset_index(drop=True)
+    pp.columns = ['row' + str(i+1)]
+    dfs.append(pp)
+
+pp_table = pd.concat(dfs,ignore_index=False,axis=1)
+
+
+pp_table.to_csv('proceduarl_phrases_table.csv',index=False)
