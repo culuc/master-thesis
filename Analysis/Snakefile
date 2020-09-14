@@ -81,7 +81,7 @@ rule multinom_top500:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_share.csv",
                                 iKey = terms),
     output:
         models = "out/models/multinom/overall_top500.Rds",
@@ -99,7 +99,7 @@ rule multinom_top100each:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/individual_top100each.Rds",
@@ -115,7 +115,7 @@ rule multinom_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/overall_fixed_top500.Rds",
@@ -131,7 +131,7 @@ rule multinom_fixed_indiv:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom/individual_fixed_top100each.Rds",
@@ -151,7 +151,7 @@ rule multinom_fixed_indiv_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/individual_fixed_top500each_P2.Rds",
@@ -167,7 +167,7 @@ rule multinom_fixed_overall_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/overall_fixed_top500_P2.Rds",
@@ -184,7 +184,7 @@ rule multinom_top500each_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/individual_top500each_P2.Rds",
@@ -200,7 +200,7 @@ rule multinom_top500each_P2:
 #     input:
 #         script = "script_multinom.R",
 #         model  = "Models/model_multinom.json",
-#         data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_scaled_P2.csv",
+#         data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_share_P2.csv",
 #                                 iKey = terms)
 #     output:
 #         models = "out/models/multinom_P2/top500each_P2_dist.Rds",
@@ -216,7 +216,7 @@ rule multinom_top500_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/overall_top500_P2.Rds",
@@ -233,7 +233,7 @@ rule multinom_quisq_top1000_P2:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/overall_top1k_quisq_P2.Rds",
@@ -250,7 +250,7 @@ rule multinom_quisq_top1000_P2_fixed:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -269,7 +269,7 @@ rule multinom_fixed_indiv_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P4/individual_fixed_top250each_P4.Rds",
@@ -285,7 +285,7 @@ rule multinom_fixed_overall_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P4/overall_fixed_top500_P4.Rds",
@@ -302,7 +302,7 @@ rule multinom_top250each_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_scaled_P4.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P4/individual_top250each_P4.Rds",
@@ -318,7 +318,7 @@ rule multinom_top500_P4:
     input:
         script = "script_multinom.R",
         model  = "Models/model_multinom.json",
-        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_scaled_P4.csv",
+        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/multinom_P4/overall_top500_P4.Rds",
@@ -338,7 +338,7 @@ rule glm_fixed_indiv_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/glm_P2/individal_fixed_top500each_P2.Rds",
@@ -354,7 +354,7 @@ rule glm_fixed_overall_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/glm_P2/overall_fixed_top500_P2.Rds",
@@ -371,7 +371,7 @@ rule glm_top500each_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/glm_P2/individual_top500each_P2.Rds",
@@ -387,7 +387,7 @@ rule glm_top500_P2:
     input:
         script = "script_glm.R",
         model  = "Models/model_glm.json",
-        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/glm_P2/overall_top500_P2.Rds",
@@ -405,7 +405,7 @@ rule regLogistic_fixed_indiv:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic/individual_fixed_top100each.Rds",
@@ -421,7 +421,7 @@ rule regLogistic_fixed_overall:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic/overall_fixed_top500.Rds",
@@ -438,7 +438,7 @@ rule regLogistic_top500:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic/overall_top500.Rds",
@@ -454,7 +454,7 @@ rule regLogistic_top100each:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic/individual_top100each.Rds",
@@ -473,7 +473,7 @@ rule regLogistic_fixed_indiv_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P2/individual_fixed_top500each_P2.Rds",
@@ -489,7 +489,7 @@ rule regLogistic_fixed_overall_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P2/overall_fixed_top500_P2.Rds",
@@ -506,7 +506,7 @@ rule regLogistic_top500each_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P2/individual_top500each_P2.Rds",
@@ -522,7 +522,7 @@ rule regLogistic_top500_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P2/overall_top500_P2.Rds",
@@ -539,7 +539,7 @@ rule regLogistic_quisq_top1000_P2:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P2/overall_top1k_quisq_P2.Rds",
@@ -556,7 +556,7 @@ rule regLogistic_quisq_top1000_P2_fixed:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -575,7 +575,7 @@ rule regLogistic_fixed_indiv_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P4/individual_fixed_top250each_P4.Rds",
@@ -591,7 +591,7 @@ rule regLogistic_fixed_overall_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P4/overall_fixed_top500_P4.Rds",
@@ -608,7 +608,7 @@ rule regLogistic_top250each_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_scaled_P4.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P4/individual_top250each_P4.Rds",
@@ -624,7 +624,7 @@ rule regLogistic_top500_P4:
     input:
         script = "script.R",
         model  = "Models/model_regLogistic.json",
-        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_scaled_P4.csv",
+        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/regLogistic_P4/overall_top500_P4.Rds",
@@ -641,9 +641,9 @@ rule regLogistic_top500_P4:
 
 rule rf_top500:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest/overall_top500.Rds",
@@ -657,9 +657,9 @@ rule rf_top500:
 
 rule rf_indiv:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_scaled.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest/individual_top100each.Rds",
@@ -673,9 +673,9 @@ rule rf_indiv:
 
 rule rf_fixed:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest/overall_fixed_top500.Rds",
@@ -689,9 +689,9 @@ rule rf_fixed:
 
 rule rf_fixed_indiv:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest/individual_fixed_top100each.Rds",
@@ -708,9 +708,9 @@ rule rf_fixed_indiv:
 
 rule rf_top500_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf/P2/{iKey}_top500_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P2/overall_top500_P2.Rds",
@@ -724,9 +724,9 @@ rule rf_top500_P2:
 
 rule rf_indiv_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P2/{iKey}_top500each_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P2/individual_top500each_P2.Rds",
@@ -740,9 +740,9 @@ rule rf_indiv_P2:
 
 rule rf_fixed_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P2/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P2/overall_fixed_top500_P2.Rds",
@@ -756,9 +756,9 @@ rule rf_fixed_P2:
 
 rule rf_fixed_indiv_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P2/{iKey}_top500each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P2/individual_fixed_top500each_P2.Rds",
@@ -773,9 +773,9 @@ rule rf_fixed_indiv_P2:
 # -- QUI SQRD
 rule rf_quisq_top1000_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P2/overall_top1k_quisq_P2.Rds",
@@ -790,9 +790,9 @@ rule rf_quisq_top1000_P2:
 
 rule rf_quisq_top1000_P2_fixed:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_scaled_P2.csv",
+        data   = expand("../Data/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P2/overall_fixed_top1k_quisq_P2.Rds",
@@ -810,9 +810,9 @@ rule rf_quisq_top1000_P2_fixed:
 
 rule rf_top500_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_scaled_P4.csv",
+        data   = expand("../Data/{iKey}/tfidf/P4/{iKey}_top500_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P4/overall_top500_P4.Rds",
@@ -826,9 +826,9 @@ rule rf_top500_P4:
 
 rule rf_indiv_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_scaled_P4.csv",
+        data   = expand("../Data/{iKey}/tfidf_indiv/P4/{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P4/individual_top250each_P4.Rds",
@@ -842,9 +842,9 @@ rule rf_indiv_P4:
 
 rule rf_fixed_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed/P4/{iKey}_top500_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P4/overall_fixed_top500_P4.Rds",
@@ -858,9 +858,9 @@ rule rf_fixed_P4:
 
 rule rf_fixed_indiv_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
-        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_scaled.csv",
+        data   = expand("../Data/{iKey}/fixed_indiv/P4/{iKey}_top250each_share.csv",
                                 iKey = terms)
     output:
         models = "out/models/randomForest_P4/individual_fixed_top250each_P4.Rds",

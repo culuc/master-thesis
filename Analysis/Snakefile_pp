@@ -1,0 +1,1655 @@
+# rule test:
+#     input: "README.md"
+#     output: "testytest.txt"
+#     script: "python lower() {input} > {output}"
+# --- Variable Declarations ---- #
+runR = "Rscript --no-save --no-restore --verbose"
+logAll = "2>&1"
+
+# --- Dictionaries --- #
+import glob
+
+terms_short = ["t1","t2","t3","t4","t5"]
+terms = ["term1","term2","term3","term4","term5"]
+types = ["normal","scaled","share"]
+
+
+p1 = 'Sozialdemokratische Partei der Schweiz (SP)'
+p2 = 'Schweizerische Volkspartei (SVP)'
+p3 = 'FDP.Die Liberalen (FDP-Liberale)'
+p4 = 'Christlichdemokratische Volkspartei der Schweiz (CVP)'
+parties2 = [p1,p2]
+parties4 = [p1,p2,p3,p4]
+name = ["noref"]
+
+# ---------------------------- PREPARE DATA ------------------------------------
+
+terms = ["term1","term2","term3","term4","term5"]
+terms_short = ["t1","t2","t3","t4","t5"]
+
+
+files_i = ['byPartySpeaker']
+files_o_P4 = ['normal_P4.csv','scaled_P4.csv','share_P4.csv','df_P4.pkl','topN_P4.csv']
+files_o_P2 = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
+files_o = ['normal.csv','scaled.csv','share.csv','df.pkl','topN.csv']
+files_i_fixed = ['overall','byParty']
+
+root = "../"
+
+
+
+# '../../interim/t1_byPartySpeaker.pkl'
+
+rule prepare_data_P4_i:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = "none.csv"
+    params:
+        indiv = 1,
+        n = 250,
+        N = 4
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top250each_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P4_i.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+rule prepare_data_P4_o:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = "none.csv"
+    params:
+        indiv = 0,
+        n = 500,
+        N = 4
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P4_o.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_fixed_P4_i:
+    input:
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top250each_topN_P4.csv", nameKey=name, iT = terms),
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+    params:
+        # indiv = 1,
+        n= 50,
+        # N = 4
+    output:
+        files = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500eacheach_P4.csv", nameKey=name)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_fixed_P4_i.log"
+    shell:
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_data_P4_if:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        # fp = root + "Data/fixed/noref/P4/noref_fixed_phrases_top250each_P4.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500eacheach_P4.csv", nameKey=name)
+    params:
+        indiv = 1,
+        n = 250,
+        N = 4
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_fixed_top250each_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P4_if.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_fixed_P4_o:
+    input:
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top500_topN_P4.csv", nameKey = name, iT = terms),
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+    params:
+        # indiv = 0,
+        n=None,
+        # N = 4
+    output:
+        files = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500_P4.csv",nameKey=name)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_fixed_P4_o.log"
+    shell:
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_data_P4_of:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500_P4.csv", nameKey=name)
+    params:
+        indiv = 0,
+        n = 500,
+        N = 4
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_fixed_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o_P4)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P4_of.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+
+#---------------------------PREP----P2-------------------------------------------
+
+
+
+rule prepare_data_P2_i:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = "none.csv"
+    params:
+        indiv = 1,
+        n = 500,
+        N = 2
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500each_{iKey}",nameKey=name, iT = terms, iKey = files_o_P2)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P2_i.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+rule prepare_data_P2_o:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = "none.csv"
+    params:
+        indiv = 0,
+        n = 500,
+        N = 2
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500_{iKey}",nameKey=name, iT = terms, iKey = files_o_P2)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P2_o.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_fixed_P2_i:
+    input:
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500each_topN_P2.csv",nameKey=name, iT = terms)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+    params:
+        # indiv = 1,
+        n = 100,
+        # N = 2
+    output:
+        files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_fixed_P2_i.log"
+    shell:
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_data_P2_if:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        # fp = root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500each_P2.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
+    params:
+        indiv = 1,
+        n = 500,
+        N = 2
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_fixed_top500each_{iKey}", nameKey=name, iT = terms, iKey = files_o_P2)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P2_if.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_fixed_P2_o:
+    input:
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500_topN_P2.csv", iT = terms, nameKey=name)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+    params:
+        # indiv = 0,
+        n = None
+        # N = 2
+    output:
+        files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500_P2.csv",nameKey=name)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_fixed_P2_o.log"
+    shell:
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_data_P2_of:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp =  expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500_P2.csv",nameKey=name)
+    params:
+        indiv = 0,
+        n = 500,
+        N = 2
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_fixed_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o_P2)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_P2_of.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+
+#---------------------------PREP----ALL-----------------------------------------
+
+
+
+rule prepare_data_i:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = "none.csv"
+    params:
+        indiv = 1,
+        n = 100,
+        N = None
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_{iKey}", nameKey=name, iT = terms, iKey = files_o)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_i.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+rule prepare_data_o:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = "none.csv"
+    params:
+        indiv = 0,
+        n = 500,
+        N = None
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_o.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_fixed_i:
+    input:
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_topN.csv",iT = terms, nameKey=name)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+    params:
+        # indiv = 1,
+        n = 20
+        # N = None
+    output:
+        files = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top100each.csv", nameKey=name)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_fixed_i.log"
+    shell:
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_data_if:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        # fp = root + "Data/fixed/noref/noref_fixed_phrases_top100each.csv"
+        fp = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top100each.csv", nameKey=name)
+    params:
+        indiv = 1,
+        n = 100,
+        N = None
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_fixed_top100each_{iKey}", nameKey=name, iT = terms, iKey = files_o)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_if.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_fixed_o:
+    input:
+        script = "script_fixed_terms2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top500_topN.csv",iT = terms, nameKey=name)
+        # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
+    params:
+        # indiv = 0,
+        n = None
+        # N = None
+    output:
+        files = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top500.csv", nameKey=name)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_fixed_o.log"
+    shell:
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_data_of:
+    input:
+        script = "script_prepare_data_pp.py",
+        data   = expand(root+"../interim/{iT}_{iKey}.pkl", iT = terms_short, iKey = ['byParty','byPartySpeaker']),
+        pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl",
+        fp = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top500.csv", nameKey=name)
+    params:
+        indiv = 0,
+        n = 500,
+        N = None
+    output:
+        files = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_fixed_top500_{iKey}", nameKey=name, iT = terms, iKey = files_o)
+        # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
+    log:
+        "logs/prepare_data_of.log"
+    shell:
+     "python {input.script} {input.pp} {input.fp} {params.indiv} {params.n} {params.N} {input.data} \
+        {output.files} > {log} {logAll}"
+
+
+
+
+#-------------------------Analysis---P4-----------------------------------------
+
+# rule noref_P4_rl:
+#     input:
+#         script = "script.R",
+#         model  = "Models/model_regLogistic.json",
+#         data = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top250each_share_P4.csv",
+#                                 iKey = terms)
+#     output:
+#         models = "out_ext/models/noref_P4/noref_regLogistic_top250each_P4.Rds",
+#         accuracy = "out_ext/accuracy/noref_P4/noref_regLogistic_top250each_P4.Rds",
+#         accuracy2 = "out_ext/accuracy/noref_P4/noref_regLogistic_top250each_P4.csv"
+#     log:
+#         "logs/noref_regLogistic_top250each_P4.txt"
+#     shell:
+#      "{runR} {input.script} {input.model} {input.data} \
+#         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+#
+#
+# rule noref_P4_multi:
+#     input:
+#         script = "script_multinom.R",
+#         model  = "Models/model_multinom.json",
+#         data = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top250each_share_P4.csv",
+#                                 iKey = terms)
+#     output:
+#         models = "out_ext/models/noref_P4/noref_multinom_top250each_P4.Rds",
+#         accuracy = "out_ext/accuracy/noref_P4/noref_multinom_top250each_P4.Rds",
+#         accuracy2 = "out_ext/accuracy/noref_P4/noref_multinom_top250each_P4.csv"
+#     log:
+#         "logs/noref_multinom_top250each_P4.txt"
+#     shell:
+#      "{runR} {input.script} {input.model} {input.data} \
+#         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+#
+# rule noref_P4_rf:
+#     input:
+#         script = "script.R",
+#         model  = "Models/model_rf.json",
+#         data = expand("../Data/{iKey}/noref/P4/noref_{iKey}_top250each_share_P4.csv",
+#                                 iKey = terms)
+#     output:
+#         models = "out_ext/models/noref_P4/noref_rf_top250each_P4.Rds",
+#         accuracy = "out_ext/accuracy/noref_P4/noref_rf_top250each_P4.Rds",
+#         accuracy2 = "out_ext/accuracy/noref_P4/noref_rf_top250each_P4.csv"
+#     log:
+#         "logs/noref_rf_top250each_P4.txt"
+#     shell:
+#      "{runR} {input.script} {input.model} {input.data} \
+#         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+#
+# rule sum_accuracy:
+#     input:
+#         script = "script_sum.R",
+#         files = glob.glob('out_ext/accuracy/noref_P4/*.csv')
+#         # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+#                             # iKey = files)
+#     output:
+#         summary = "out_ext/accuracy/noref_P4/summary.csv"
+#     log:
+#         "logs/noref.Rout"
+#     shell:
+#         "{runR} {input.script} {input.files} \
+#            {output.summary} > {log} {logAll}"
+#
+
+
+
+# ------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#- -----------------------------------------------------------------------------
+
+
+
+
+
+terms = ["term1","term2","term3","term4","term5"]
+files = ["top500","top100each","fixed_top500","fixed_top100each"]
+files_P2 = ["top500","top500each","fixed_top500","fixed_top500each"]
+files_P4= ["top500","top250each","fixed_top500","fixed_top250each"]
+files_n = ["overall_top500","individual_top100each","overall_fixed_top500","individual_fixed_top100each"]
+files_P2n = ["overall_top500_P2","individual_top500each_P2","overall_fixed_top500_P2","individual_fixed_top500each_P2"]
+files_P4n = ["overall_top500_P4","individual_top250each_P4","overall_fixed_top500_P4","individual_fixed_top250each_P4"]
+
+files_quisq = ['overall_top1k_quisq','overall_fixed_top1k_quisq']
+
+# terms = ["term2","term3"]
+rule multinom:
+    input:
+        data = expand("out_ext/accuracy/multinom/{iKey}.csv", iKey = files_n)
+
+rule multinom_P2:
+    input:
+        data = expand("out_ext/accuracy/multinom_P2/{iKey}.csv", iKey = files_P2n)
+
+rule multinom_quisq_P2:
+    input:
+        data = expand("out_ext/accuracy/multinom_P2/{iKey}_P2.csv", iKey = files_quisq)
+
+
+rule multinom_P4:
+    input:
+        data = expand("out_ext/accuracy/multinom_P4/{iKey}.csv", iKey = files_P4n)
+
+rule regLogistic:
+    input:
+        data = expand("out_ext/accuracy/regLogistic/{iKey}.csv", iKey = files_n)
+
+rule regLogistic_P2:
+    input:
+        data = expand("out_ext/accuracy/regLogistic_P2/{iKey}.csv", iKey = files_P2n)
+
+rule regLogistic_quisq_P2:
+    input:
+        data = expand("out_ext/accuracy/regLogistic_P2/{iKey}_P2.csv", iKey = files_quisq)
+
+rule regLogistic_P4:
+    input:
+        data = expand("out_ext/accuracy/regLogistic_P4/{iKey}.csv", iKey = files_P4n)
+
+
+rule randomForest:
+    input:
+        data = expand("out_ext/accuracy/randomForest/{iKey}.csv", iKey = files_n)
+
+rule randomForest_P2:
+    input:
+        data = expand("out_ext/accuracy/randomForest_P2/{iKey}.csv", iKey = files_P2n)
+
+rule randomForest_quisq_P2:
+    input:
+        data = expand("out_ext/accuracy/randomForest_P2/{iKey}_P2.csv", iKey = files_quisq)
+
+rule randomForest_P4:
+    input:
+        data = expand("out_ext/accuracy/randomForest_P4/{iKey}.csv", iKey = files_P4n)
+
+rule glm_P2:
+    input:
+        data = expand("out_ext/accuracy/glm_P2/{iKey}.csv", iKey = files_P2n)
+
+
+
+# ---------------------------- MULTINOM ---------------------------------
+rule multinom_top500:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name, iKey = terms),
+    output:
+        models = "out_ext/models/multinom/overall_top500.Rds",
+        accuracy = "out_ext/accuracy/multinom/overall_top500.Rds",
+        accuracy2 = "out_ext/accuracy/multinom/overall_top500.csv"
+    log:
+        "logs/multinom_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+rule multinom_top100each:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name, iKey = terms)
+    output:
+        models = "out_ext/models/multinom/individual_top100each.Rds",
+        accuracy = "out_ext/accuracy/multinom/individual_top100each.Rds",
+        accuracy2 = "out_ext/accuracy/multinom/individual_top100each.csv"
+    log:
+        "logs/multinom_top100each.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule multinom_fixed:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom/overall_fixed_top500.Rds",
+        accuracy = "out_ext/accuracy/multinom/overall_fixed_top500.Rds",
+        accuracy2 = "out_ext/accuracy/multinom/overall_fixed_top500.csv"
+    log:
+        "logs/multinom_fixed_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule multinom_fixed_indiv:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom/individual_fixed_top100each.Rds",
+        accuracy = "out_ext/accuracy/multinom/individual_fixed_top100each.Rds",
+        accuracy2 = "out_ext/accuracy/multinom/individual_fixed_top100each.csv"
+    log:
+        "logs/multinom_fixed_top100each.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+#-----------------  P2
+
+rule multinom_fixed_indiv_P2:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P2/individual_fixed_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/multinom_P2/individual_fixed_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P2/individual_fixed_top500each_P2.csv"
+    log:
+        "logs/multinom_fixed_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule multinom_fixed_overall_P2:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P2/overall_fixed_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/multinom_P2/overall_fixed_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P2/overall_fixed_top500_P2.csv"
+    log:
+        "logs/multinom_fixed_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule multinom_top500each_P2:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P2/individual_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/multinom_P2/individual_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P2/individual_top500each_P2.csv"
+    log:
+        "logs/multinom_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+# rule multinom_top500each_P2_dist:
+#     input:
+#         script = "script_multinom.R",
+#         model  = "Models/model_multinom.json",
+#         data   = expand("../Data/{iKey}/tfidf_indiv/P2_dist/{iKey}_top500each_share_P2.csv",
+#                                 iKey = terms)
+#     output:
+#         models = "out_ext/models/multinom_P2/top500each_P2_dist.Rds",
+#         accuracy = "out_ext/accuracy/multinom_P2/top500each_P2_dist.Rds",
+#         accuracy2 = "out_ext/accuracy/multinom_P2/top500each_P2_dist.csv"
+#     log:
+#         "logs/multinom_top500each_P2_dist.Rout"
+#     shell:
+#      "{runR} {input.script} {input.model} {input.data} \
+#         {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule multinom_top500_P2:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P2/overall_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/multinom_P2/overall_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P2/overall_top500_P2.csv"
+    log:
+        "logs/multinom_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+# ------------------------- QUI SQRD
+
+files_i = ['byParty','byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv','df_P2.pkl','topN_P2.csv']
+
+
+rule run_all_quisq:
+    input:
+        data = expand(root + "Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_normal_P2.csv", nameKey=name, iKey = terms)
+
+rule prepare_term_1_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term1/{nameKey}/qui_sqrd/term1_quisq_top1000_{iKey}", nameKey=name, iKey = files_o),
+    log:
+        "logs/prepare_term_1_quisq.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term2/{nameKey}/qui_sqrd/term2_quisq_top1000_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term_2_quisq.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term3/{nameKey}/qui_sqrd/term3_quisq_top1000_{iKey}", nameKey=name,iKey = files_o)
+    log:
+        "logs/prepare_term_3_quisq.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term4/{nameKey}/qui_sqrd/term4_quisq_top1000_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term_4_quisq.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_quisq:
+    input:
+        script = "script_prepare_data_P2_quisq.py",
+        data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i),
+    output:
+        files = expand(root + "Data/term5/{nameKey}/qui_sqrd/term5_quisq_top1000_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term_5_quisq.log"
+    shell:
+     "python {input.script} {input.data} \
+        {output.files} > {log} {logAll}"
+
+## fixed
+
+files_i_fixed = ['byPartySpeaker']
+files_o = ['normal_P2.csv','scaled_P2.csv','share_P2.csv']
+phrases_qui = root + "Data/lookup_files/phrases_quisq_top1k_noref_ext.csv"
+
+rule run_all_fixed_quisq:
+    input:
+        data = expand(root + "Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_normal_P2.csv", nameKey=name, iKey = terms)
+
+rule prepare_term_1_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t1_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term1/{nameKey}/qui_sqrd/term1_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o),
+    log:
+        "logs/prepare_term1_fixed.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_2_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t2_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term2/{nameKey}/qui_sqrd/term2_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term2.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_3_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t3_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term3/{nameKey}/qui_sqrd/term3_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term3.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases}\
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_4_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t4_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term4/{nameKey}/qui_sqrd/term4_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term4.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+rule prepare_term_5_fixed_quisq:
+    input:
+        script = "script_prepare_data_P2_fixed_quisq.py",
+        data   = expand(root + "../interim/t5_{iKey}.pkl", iKey = files_i_fixed),
+        phrases = phrases_qui
+    output:
+        files = expand(root + "Data/term5/{nameKey}/qui_sqrd/term5_quisq_top1000_fixed_{iKey}", nameKey=name, iKey = files_o)
+    log:
+        "logs/prepare_term5.log"
+    shell:
+     "python {input.script} {input.data} {input.phrases} \
+        {output.files} > {log} {logAll}"
+
+# -- QUI SQRD
+rule multinom_quisq_top1000_P2:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P2/overall_top1k_quisq_P2.Rds",
+        accuracy = "out_ext/accuracy/multinom_P2/overall_top1k_quisq_P2.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P2/overall_top1k_quisq_P2.csv"
+    log:
+        "logs/multinom_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule multinom_quisq_top1000_P2_fixed:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy = "out_ext/accuracy/multinom_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P2/overall_fixed_top1k_quisq_P2.csv"
+    log:
+        "logs/multinom_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+#----------------- P4
+
+rule multinom_fixed_indiv_P4:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P4/individual_fixed_top250each_P4.Rds",
+        accuracy = "out_ext/accuracy/multinom_P4/individual_fixed_top250each_P4.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P4/individual_fixed_top250each_P4.csv"
+    log:
+        "logs/multinom_fixed_top250each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule multinom_fixed_overall_P4:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P4/overall_fixed_top500_P4.Rds",
+        accuracy = "out_ext/accuracy/multinom_P4/overall_fixed_top500_P4.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P4/overall_fixed_top500_P4.csv"
+    log:
+        "logs/multinom_fixed_top500_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule multinom_top250each_P4:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P4/individual_top250each_P4.Rds",
+        accuracy = "out_ext/accuracy/multinom_P4/individual_top250each_P4.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P4/individual_top250each_P4.csv"
+    log:
+        "logs/multinom_top250each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule multinom_top500_P4:
+    input:
+        script = "script_multinom.R",
+        model  = "Models/model_multinom.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/multinom_P4/overall_top500_P4.Rds",
+        accuracy = "out_ext/accuracy/multinom_P4/overall_top500_P4.Rds",
+        accuracy2 = "out_ext/accuracy/multinom_P4/overall_top500_P4.csv"
+    log:
+        "logs/multinom_top500_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+
+#------------------------ P2 glm ----------------------------------------
+rule glm_fixed_indiv_P2:
+    input:
+        script = "script_glm.R",
+        model  = "Models/model_glm.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/glm_P2/individal_fixed_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/glm_P2/individal_fixed_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/glm_P2/individal_fixed_top500each_P2.csv"
+    log:
+        "logs/glm_fixed_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule glm_fixed_overall_P2:
+    input:
+        script = "script_glm.R",
+        model  = "Models/model_glm.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/glm_P2/overall_fixed_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/glm_P2/overall_fixed_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/glm_P2/overall_fixed_top500_P2.csv"
+    log:
+        "logs/glm_fixed_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule glm_top500each_P2:
+    input:
+        script = "script_glm.R",
+        model  = "Models/model_glm.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/glm_P2/individual_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/glm_P2/individual_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/glm_P2/individual_top500each_P2.csv"
+    log:
+        "logs/glm_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule glm_top500_P2:
+    input:
+        script = "script_glm.R",
+        model  = "Models/model_glm.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/glm_P2/overall_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/glm_P2/overall_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/glm_P2/overall_top500_P2.csv"
+    log:
+        "logs/glm_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+#--------------------------- REGLOGISTIC -------------------------------
+rule regLogistic_fixed_indiv:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic/individual_fixed_top100each.Rds",
+        accuracy = "out_ext/accuracy/regLogistic/individual_fixed_top100each.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic/individual_fixed_top100each.csv"
+    log:
+        "logs/regLogistic_noreg.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_fixed_overall:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic/overall_fixed_top500.Rds",
+        accuracy = "out_ext/accuracy/regLogistic/overall_fixed_top500.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic/overall_fixed_top500.csv"
+    log:
+        "logs/regLogistic_noreg.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule regLogistic_top500:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic/overall_top500.Rds",
+        accuracy = "out_ext/accuracy/regLogistic/overall_top500.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic/overall_top500.csv"
+    log:
+        "logs/regLogistic_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_top100each:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic/individual_top100each.Rds",
+        accuracy = "out_ext/accuracy/regLogistic/individual_top100each.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic/individual_top100each.csv"
+    log:
+        "logs/regLogistic_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+#_______________P2 regLogistic
+
+rule regLogistic_fixed_indiv_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P2/individual_fixed_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P2/individual_fixed_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P2/individual_fixed_top500each_P2.csv"
+    log:
+        "logs/regLogistic_fixed_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_fixed_overall_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P2/overall_fixed_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P2/overall_fixed_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P2/overall_fixed_top500_P2.csv"
+    log:
+        "logs/regLogistic_fixed_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule regLogistic_top500each_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P2/individual_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P2/individual_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P2/individual_top500each_P2.csv"
+    log:
+        "logs/regLogistic_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_top500_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P2/overall_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P2/overall_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P2/overall_top500_P2.csv"
+    log:
+        "logs/regLogistic_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+# -- QUI SQRD
+rule regLogistic_quisq_top1000_P2:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P2/overall_top1k_quisq_P2.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P2/overall_top1k_quisq_P2.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P2/overall_top1k_quisq_P2.csv"
+    log:
+        "logs/regLogistic_quisq_top1000_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule regLogistic_quisq_top1000_P2_fixed:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P2/overall_fixed_top1k_quisq_P2.csv"
+    log:
+        "logs/regLogistic_quisq_top1000_P2_fixed.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+#__________P4 regLogistic
+
+rule regLogistic_fixed_indiv_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P4/individual_fixed_top250each_P4.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P4/individual_fixed_top250each_P4.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P4/individual_fixed_top250each_P4.csv"
+    log:
+        "logs/regLogistic_fixed_top250each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_fixed_overall_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P4/overall_fixed_top500_P4.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P4/overall_fixed_top500_P4.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P4/overall_fixed_top500_P4.csv"
+    log:
+        "logs/regLogistic_fixed_top500_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule regLogistic_top250each_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P4/individual_top250each_P4.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P4/individual_top250each_P4.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P4/individual_top250each_P4.csv"
+    log:
+        "logs/regLogistic_top250each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+rule regLogistic_top500_P4:
+    input:
+        script = "script.R",
+        model  = "Models/model_regLogistic.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/regLogistic_P4/overall_top500_P4.Rds",
+        accuracy = "out_ext/accuracy/regLogistic_P4/overall_top500_P4.Rds",
+        accuracy2 = "out_ext/accuracy/regLogistic_P4/overall_top500_P4.csv"
+    log:
+        "logs/regLogistic_top500_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+#---------------------------- randomForest ------------------------------
+
+rule rf_top500:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest/overall_top500.Rds",
+        accuracy = "out_ext/accuracy/randomForest/overall_top500.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest/overall_top500.csv"
+    log:
+        "logs/rf_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_indiv:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest/individual_top100each.Rds",
+        accuracy = "out_ext/accuracy/randomForest/individual_top100each.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest/individual_top100each.csv"
+    log:
+        "logs/rf_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest/overall_fixed_top500.Rds",
+        accuracy = "out_ext/accuracy/randomForest/overall_fixed_top500.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest/overall_fixed_top500.csv"
+    log:
+        "logs/rf_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_indiv:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest/individual_fixed_top100each.Rds",
+        accuracy = "out_ext/accuracy/randomForest/individual_fixed_top100each.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest/individual_fixed_top100each.csv"
+    log:
+        "logs/rf_top500.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+
+# ---------- P2 ---------
+
+rule rf_top500_P2:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P2/overall_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P2/overall_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P2/overall_top500_P2.csv"
+    log:
+        "logs/rf_top500_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_indiv_P2:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P2/individual_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P2/individual_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P2/individual_top500each_P2.csv"
+    log:
+        "logs/rf_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_P2:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P2/overall_fixed_top500_P2.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P2/overall_fixed_top500_P2.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P2/overall_fixed_top500_P2.csv"
+    log:
+        "logs/rf_top500_fixed_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_indiv_P2:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P2/individual_fixed_top500each_P2.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P2/individual_fixed_top500each_P2.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P2/individual_fixed_top500each_P2.csv"
+    log:
+        "logs/rf_top500each_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+# -- QUI SQRD
+rule rf_quisq_top1000_P2:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P2/overall_top1k_quisq_P2.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P2/overall_top1k_quisq_P2.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P2/overall_top1k_quisq_P2.csv"
+    log:
+        "logs/rf_quisq_top1000_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+rule rf_quisq_top1000_P2_fixed:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P2/overall_fixed_top1k_quisq_P2.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P2/overall_fixed_top1k_quisq_P2.csv"
+    log:
+        "logs/rf_quisq_top1000_P2.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+
+
+
+#---------- P4 ---------
+
+rule rf_top500_P4:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P4/overall_top500_P4.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P4/overall_top500_P4.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P4/overall_top500_P4.csv"
+    log:
+        "logs/rf_top500_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_indiv_P4:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P4/individual_top250each_P4.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P4/individual_top250each_P4.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P4/individual_top250each_P4.csv"
+    log:
+        "logs/rf_top500each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_P4:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P4/overall_fixed_top500_P4.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P4/overall_fixed_top500_P4.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P4/overall_fixed_top500_P4.csv"
+    log:
+        "logs/rf_top500_fixed_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+
+rule rf_fixed_indiv_P4:
+    input:
+        script = "script_rf.R",
+        model  = "Models/model_rf.json",
+        data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
+                                iKey = terms)
+    output:
+        models = "out_ext/models/randomForest_P4/individual_fixed_top250each_P4.Rds",
+        accuracy = "out_ext/accuracy/randomForest_P4/individual_fixed_top250each_P4.Rds",
+        accuracy2 = "out_ext/accuracy/randomForest_P4/individual_fixed_top250each_P4.csv"
+    log:
+        "logs/rf_top250each_P4.Rout"
+    shell:
+     "{runR} {input.script} {input.model} {input.data} \
+        {output.models} {output.accuracy} {output.accuracy2}> {log} {logAll}"
+# -----------------------------------------------------------------------
+
+rule sum_accuracy_multinom:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/multinom/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/multinom/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_multinom_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/multinom_P2/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/multinom_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_multinom_P4:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/multinom_P4/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/multinom_P4/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+
+rule sum_accuracy_rf:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/randomForest/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/randomForest/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_rf_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/randomForest_P2/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/randomForest_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_rf_P4:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/randomForest_P4/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/randomForest_P4/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+
+rule sum_accuracy_glm:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/glm/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/glm/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_glm_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/glm_P2/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/glm_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_regLogistic:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/regLogistic/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/regLogistic/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_regLogistic_P4:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/regLogistic_P4/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/regLogistic_P4/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"
+
+rule sum_accuracy_regLogistic_P2:
+    input:
+        script = "script_sum.R",
+        files = glob.glob('out_ext/accuracy/regLogistic_P2/*.csv')
+        # data = expand("out_ext/accuracy/regLogistic/{iKey}.csv",
+                            # iKey = files)
+    output:
+        summary = "out_ext/accuracy/regLogistic_P2/summary.csv"
+    log:
+        "logs/sum.Rout"
+    shell:
+        "{runR} {input.script} {input.files} \
+           {output.summary} > {log} {logAll}"

@@ -73,6 +73,7 @@ caret_1 <- train(
   Speaker.Party ~ .,
   df1,
   method = method,
+  preProcess = c('scale', 'center'),
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
@@ -85,6 +86,7 @@ caret_2 <- train(
   Speaker.Party ~ .,
   df2,
   method = method,
+  preProcess = c('scale', 'center'),
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
@@ -97,6 +99,7 @@ caret_3 <- train(
   Speaker.Party ~ .,
   df3,
   method = method,
+  preProcess = c('scale', 'center'),
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
@@ -109,6 +112,7 @@ caret_4 <- train(
   Speaker.Party ~ .,
   df4,
   method = method,
+  preProcess = c('scale', 'center'),
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
@@ -121,6 +125,7 @@ caret_5 <- train(
   Speaker.Party ~ .,
   df5,
   method = method,
+  preProcess = c('scale', 'center'),
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(

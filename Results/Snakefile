@@ -99,5 +99,75 @@ rule def_doc:
 
 
 
+
+input_files_cutoff_5gram_10 = glob.glob('cutoff_5-gram_10/*/summary.csv')
+df_cutoff_5gram_10 = pd.DataFrame(input_files_cutoff_5gram_10,columns=['names'])
+df_cutoff_5gram_10.names = df_cutoff_5gram_10.names.str.replace('/','_')
+df_cutoff_5gram_10.names = 'plots/' + df_cutoff_5gram_10.names.str.replace('csv','png')
+
+output_files_cutoff_5gram_10=df_cutoff_5gram_10.names
+
+
+rule cutoff_5gram_10:
+    input:
+        script = "plot_results.R",
+        data = input_files_cutoff_5gram_10
+
+    output:
+        plot = output_files_cutoff_5gram_10
+    log:
+        "logs/plotlog_cutoff_5gram_10.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
+
+
+
+input_files_noref = glob.glob('noref/*/summary.csv')
+df_noref = pd.DataFrame(input_files_noref,columns=['names'])
+df_noref.names = df_noref.names.str.replace('/','_')
+df_noref.names = 'plots/' + df_noref.names.str.replace('csv','png')
+
+output_files_noref=df_noref.names
+
+
+rule noref:
+    input:
+        script = "plot_results.R",
+        data = input_files_noref
+
+    output:
+        plot = output_files_noref
+    log:
+        "logs/plotlog_noref.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
+input_files_noref_ext = glob.glob('noref_ext/*/summary.csv')
+df_noref_ext = pd.DataFrame(input_files_noref_ext,columns=['names'])
+df_noref_ext.names = df_noref_ext.names.str.replace('/','_')
+df_noref_ext.names = 'plots/' + df_noref_ext.names.str.replace('csv','png')
+
+output_files_noref_ext=df_noref_ext.names
+
+
+rule noref_ext:
+    input:
+        script = "plot_results.R",
+        data = input_files_noref_ext
+
+    output:
+        plot = output_files_noref_ext
+    log:
+        "logs/plotlog_noref_ext.txt"
+    shell:
+     "{runR} {input.script} {input.data} \
+        {output.plot}  > {log} {logAll}"
+
+
 # data   = expand("Data/{iKey}/tfidf/{iKey}_top500_scaled.csv",
 #                         iKey = terms),

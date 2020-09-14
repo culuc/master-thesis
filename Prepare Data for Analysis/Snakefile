@@ -209,123 +209,141 @@ rule agg_data_byPartySpeaker2:
         > {log} {logAll}"
 
 
+# files_i_fixed = ['overall','byParty']
+#
+# files_fixed = ['phrases_all_terms_tfidf.pkl','phrases_all_terms_tfidf_top100each.csv']
+#
+# files_fixed_old = ['phrases_all_terms_tfidf.pkl','phrases_all_terms_tfidf_top500.csv']
+
 files_i_fixed = ['overall','byParty']
 
-files_fixed = ['phrases_all_terms_tfidf.pkl','phrases_all_terms_tfidf_top100each.csv']
+files_fixed = ['phrases_all_terms_tfidf_top100each.csv']
 
-files_fixed_old = ['phrases_all_terms_tfidf.pkl','phrases_all_terms_tfidf_top500.csv']
+files_fixed_old = ['phrases_all_terms_tfidf_top500.csv']
 
+terms_short = ['1','2','3','4','5']
 
 
 rule prepare_phrases_all_terms_fixed:
     input:
-        script = "script_fixed_terms.py",
-        data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
+        script = "script_fixed_terms_new.py",
+        data   = expand("../Data/term{t}/tfidf_indiv/term{t}_top100each_topN.csv", t = terms_short)
+    params:
+        n = 20
     output:
         files = expand("../../interim/fixed/{iKey}", iKey = files_fixed)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed.log"
     shell:
-     "python {input.script} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_phrases_all_terms_fixed_old:
     input:
-        script = "script_fixed_terms2.py",
-        data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
+        script = "script_fixed_terms_new.py",
+        data   =  expand("../Data/term{t}/tfidf/term{t}_top500_topN.csv", t = terms_short)
+    params:
+        n = None
     output:
         files = expand("../../interim/fixed_old/{iKey}", iKey = files_fixed_old)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed.log"
     shell:
-     "python {input.script} {input.data} \
+     "python {input.script} {params.n} {input.data} \
         {output.files} > {log} {logAll}"
 
 
-files_fixed_restr = ['phrases_all_terms_tfidf_P2.pkl','phrases_all_terms_tfidf_top500each_P2.csv']
-
+# files_fixed_restr = ['phrases_all_terms_tfidf_P2.pkl','phrases_all_terms_tfidf_top500each_P2.csv']
+files_fixed_restr = ['phrases_all_terms_tfidf_top500each_P2.csv']
 
 rule prepare_phrases_all_terms_fixed_restr_P2:
     input:
-        script = "script_fixed_terms_restr.py",
-        data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
+        script = "script_fixed_terms_new.py",
+        data   =  expand("../Data/term{t}/tfidf_indiv/P2/term{t}_top500each_topN_P2.csv", t = terms_short)
     params:
-        parties = 2,
-        topN = 500
+        n = 100
+        # parties = 2,
+        # topN = 500
     output:
         files = expand("../../interim/fixd_P2/{iKey}", iKey = files_fixed_restr)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {input.data} {params.parties}\
-        {params.topN} {output.files} > {log} {logAll}"
+     "python {input.script} {params.n} {input.data}\
+         {output.files} > {log} {logAll}"
 
 
 
-files_i_fixed = ['overall','byParty']
-files_fixed_restr2 = ['phrases_all_terms_tfidf_P2.pkl','phrases_all_terms_tfidf_top500_P2.csv']
+# files_i_fixed = ['overall','byParty']
+# files_fixed_restr2 = ['phrases_all_terms_tfidf_P2.pkl','phrases_all_terms_tfidf_top500_P2.csv']
+files_fixed_restr2 = ['phrases_all_terms_tfidf_top500_P2.csv']
 
 
 rule prepare_phrases_all_terms_fixed_restr_P2_old:
     input:
-        script = "script_fixed_terms_restr2.py",
-        data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
+        script = "script_fixed_terms_new.py",
+        data   =  expand("../Data/term{t}/tfidf/P2/term{t}_top500_topN_P2.csv", t = terms_short)
     params:
-        parties = 2,
-        topN = 500
+        n = None
+        # parties = 2,
+        # topN = 500
     output:
         files = expand("../../interim/fixd_P2_old/{iKey}", iKey = files_fixed_restr2)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {input.data} {params.parties}\
-        {params.topN} {output.files} > {log} {logAll}"
+     "python {input.script} {params.n} {input.data}\
+         {output.files} > {log} {logAll}"
 
 
 
-files_fixed_restr_4 = ['phrases_all_terms_tfidf_P4.pkl','phrases_all_terms_tfidf_top250each_P4.csv']
+# files_fixed_restr_4 = ['phrases_all_terms_tfidf_P4.pkl','phrases_all_terms_tfidf_top250each_P4.csv']
+files_fixed_restr_4 = ['phrases_all_terms_tfidf_top250each_P4.csv']
 
 
 rule prepare_phrases_all_terms_fixed_restr_P4:
     input:
-        script = "script_fixed_terms_restr.py",
-        data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
+        script = "script_fixed_terms_new.py",
+        data   = expand("../Data/term{t}/tfidf_indiv/P4/term{t}_top250each_topN_P4.csv", t = terms_short)
     params:
-        parties = 4,
-        topN = 250
+        n = 50
+        # parties = 4,
+        # topN = 250
     output:
         files = expand("../../interim/fixd_P4/{iKey}", iKey = files_fixed_restr_4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_restr_P4.log"
     shell:
-     "python {input.script} {input.data} {params.parties}\
-        {params.topN} {output.files} > {log} {logAll}"
+     "python {input.script} {params.n} {input.data} \
+        {output.files} > {log} {logAll}"
 
 
 
-files_fixed_restr2_4 = ['phrases_all_terms_tfidf_P4.pkl','phrases_all_terms_tfidf_top500_P4.csv']
+# files_fixed_restr2_4 = ['phrases_all_terms_tfidf_P4.pkl','phrases_all_terms_tfidf_top500_P4.csv']
+files_fixed_restr2_4 = ['phrases_all_terms_tfidf_top500_P4.csv']
 
 
 rule prepare_phrases_all_terms_fixed_restr_P4_old:
     input:
-        script = "script_fixed_terms_restr2.py",
-        data   = expand("../../interim/all_{iKey}.pkl", iKey = files_i_fixed)
+        script = "script_fixed_terms_new.py",
+        data   = expand("../Data/term{t}/tfidf_indiv/P4/term{t}_top250each_topN_P4.csv", t = terms_short)
     params:
-        parties = 4,
-        topN = 500
+        n = None
+        # parties = 4,
+        # topN = 500
     output:
         files = expand("../../interim/fixd_P4_old/{iKey}", iKey = files_fixed_restr2_4)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {input.data} {params.parties}\
-        {params.topN} {output.files} > {log} {logAll}"
+     "python {input.script} {params.n} {input.data} \
+         {output.files} > {log} {logAll}"
 
 
 files_i_fixed = ['byPartySpeaker']

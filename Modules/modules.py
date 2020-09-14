@@ -91,6 +91,51 @@ def preprocess_speech(speech):
 
     return countdict
 
+#%% compute bi-grams from speech
+def preprocess_speech2(speech,N=5):
+
+    # remove non-spoken part of speeches
+    speech = re.sub('((\[VS\]|\[GZ\])(.|\n)*)', '', speech)
+    # remove words in brackets and parentheses
+    speech = re.sub('\[.*\]', '', speech)
+    speech = re.sub('\(.*\)', '', speech)
+
+    # lemma
+    # doc = nlp(speech)
+    # word_list = [token.lemma_ for token in doc]
+
+    # stanfordnlp
+    # doc = nlpstdf(speech)
+    # word_list = [word.lemma for sent in doc.sentences for word in sent.words]
+
+    # split string into words
+    word_list = nltk.tokenize.word_tokenize(speech)
+
+    # remove punctuations
+    table = str.maketrans('', '', string.punctuation)
+    word_list = [w.translate(table) for w in word_list]
+
+    # remove remaining non-alphabetic tokens and make lowercase
+    words = [word for word in word_list if word.isalpha()]
+
+    # remove stopwords
+    stop_words = set(stopwords.words('german'))
+    clean_words = [w for w in words if not w.lower() in stop_words]
+
+    # # reduce words to stem
+    # porter = PorterStemmer()
+    # stemmer = SnowballStemmer("german")
+    # stemmer = GermanStemmer()
+    # stemmer = Cistem()
+    stmd_words = [stemmer.stem(word) for word in clean_words]
+
+    # bigrams
+    ngrams = nltk.ngrams(stmd_words,N)
+
+    # count and sort most common words
+    countdict = Counter(dict(Counter(ngrams).most_common()))
+
+    return countdict
 
 
 #%% collect dict-counts
@@ -118,6 +163,13 @@ def preprocess_data(alldata, filtervar, criterion, lang='DE'):
 
     data = alldata[(alldata.Language == lang) & (alldata[filtervar] == criterion)]
     data['Speech'] = data['Speech'].map(preprocess_speech)
+
+    return data
+
+def preprocess_data2(alldata, filtervar, criterion, lang='DE',N=5):
+
+    data = alldata[(alldata.Language == lang) & (alldata[filtervar] == criterion)]
+    data['Speech'] = data['Speech'].map(lambda x: preprocess_speech2(x,N))
 
     return data
 
@@ -253,7 +305,7 @@ def compute_tf_idf_new(dfbyparty,level,topn):
     new.set_index(['Speaker Party','Phrase'],inplace=True)
 
     # select phrases with n-largest tf-idf metric
-    #newtopN = new.groupby(['Speaker Party','Phrase'])['tf_idf'].sum().to_frame()
+    new = new.groupby(['Speaker Party','Phrase'])['tf_idf'].sum().to_frame()
     newtopN=new.groupby(['Speaker Party'])['tf_idf'].nlargest(topn).to_frame()
     # somehow speaker party is contained twice in index, drop one and reset index
     newtopN = newtopN.reset_index(level=0,drop=True).reset_index()
