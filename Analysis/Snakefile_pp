@@ -1266,7 +1266,7 @@ rule regLogistic_top500_P4:
 
 rule rf_top500:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top500_share.csv", nameKey=name,
                                 iKey = terms)
@@ -1282,7 +1282,7 @@ rule rf_top500:
 
 rule rf_indiv:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_top100each_share.csv", nameKey=name,
                                 iKey = terms)
@@ -1298,7 +1298,7 @@ rule rf_indiv:
 
 rule rf_fixed:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top500_share.csv", nameKey=name,
                                 iKey = terms)
@@ -1314,7 +1314,7 @@ rule rf_fixed:
 
 rule rf_fixed_indiv:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/{nameKey}_{iKey}_fixed_top100each_share.csv", nameKey=name,
                                 iKey = terms)
@@ -1333,7 +1333,7 @@ rule rf_fixed_indiv:
 
 rule rf_top500_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
@@ -1349,7 +1349,7 @@ rule rf_top500_P2:
 
 rule rf_indiv_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
@@ -1365,7 +1365,7 @@ rule rf_indiv_P2:
 
 rule rf_fixed_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500_share_P2.csv", nameKey=name,
                                 iKey = terms)
@@ -1381,7 +1381,7 @@ rule rf_fixed_P2:
 
 rule rf_fixed_indiv_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P2/{nameKey}_{iKey}_fixed_top500each_share_P2.csv", nameKey=name,
                                 iKey = terms)
@@ -1398,7 +1398,7 @@ rule rf_fixed_indiv_P2:
 # -- QUI SQRD
 rule rf_quisq_top1000_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv", nameKey=name,
                                 iKey = terms)
@@ -1415,7 +1415,7 @@ rule rf_quisq_top1000_P2:
 
 rule rf_quisq_top1000_P2_fixed:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv", nameKey=name,
                                 iKey = terms)
@@ -1435,7 +1435,7 @@ rule rf_quisq_top1000_P2_fixed:
 
 rule rf_top500_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
@@ -1451,7 +1451,7 @@ rule rf_top500_P4:
 
 rule rf_indiv_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)
@@ -1467,7 +1467,7 @@ rule rf_indiv_P4:
 
 rule rf_fixed_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top500_share_P4.csv", nameKey=name,
                                 iKey = terms)
@@ -1483,7 +1483,7 @@ rule rf_fixed_P4:
 
 rule rf_fixed_indiv_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/{iKey}/{nameKey}/P4/{nameKey}_{iKey}_fixed_top250each_share_P4.csv", nameKey=name,
                                 iKey = terms)

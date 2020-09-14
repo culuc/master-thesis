@@ -642,7 +642,7 @@ rule regLogistic_top500_P4:
 
 rule rf_top500:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/tfidf/{iKey}_top500_share.csv",
                                 iKey = terms)
@@ -658,7 +658,7 @@ rule rf_top500:
 
 rule rf_indiv:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/tfidf_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
@@ -674,7 +674,7 @@ rule rf_indiv:
 
 rule rf_fixed:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/fixed/{iKey}_top500_share.csv",
                                 iKey = terms)
@@ -690,7 +690,7 @@ rule rf_fixed:
 
 rule rf_fixed_indiv:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/fixed_indiv/{iKey}_top100each_share.csv",
                                 iKey = terms)
@@ -709,7 +709,7 @@ rule rf_fixed_indiv:
 
 rule rf_top500_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/tfidf/P2/{iKey}_top500_share_P2.csv",
                                 iKey = terms)
@@ -725,7 +725,7 @@ rule rf_top500_P2:
 
 rule rf_indiv_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/tfidf_indiv/P2/{iKey}_top500each_share_P2.csv",
                                 iKey = terms)
@@ -741,7 +741,7 @@ rule rf_indiv_P2:
 
 rule rf_fixed_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/fixed/P2/{iKey}_top500_share.csv",
                                 iKey = terms)
@@ -757,7 +757,7 @@ rule rf_fixed_P2:
 
 rule rf_fixed_indiv_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/fixed_indiv/P2/{iKey}_top500each_share.csv",
                                 iKey = terms)
@@ -774,7 +774,7 @@ rule rf_fixed_indiv_P2:
 # -- QUI SQRD
 rule rf_quisq_top1000_P2:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_share_P2.csv",
                                 iKey = terms)
@@ -791,7 +791,7 @@ rule rf_quisq_top1000_P2:
 
 rule rf_quisq_top1000_P2_fixed:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/qui_sqrd/{iKey}_quisq_top1000_fixed_share_P2.csv",
                                 iKey = terms)
@@ -811,7 +811,7 @@ rule rf_quisq_top1000_P2_fixed:
 
 rule rf_top500_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/tfidf/P4/{iKey}_top500_share_P4.csv",
                                 iKey = terms)
@@ -827,7 +827,7 @@ rule rf_top500_P4:
 
 rule rf_indiv_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/tfidf_indiv/P4/{iKey}_top250each_share_P4.csv",
                                 iKey = terms)
@@ -843,7 +843,7 @@ rule rf_indiv_P4:
 
 rule rf_fixed_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/fixed/P4/{iKey}_top500_share.csv",
                                 iKey = terms)
@@ -859,7 +859,7 @@ rule rf_fixed_P4:
 
 rule rf_fixed_indiv_P4:
     input:
-        script = "script.R",
+        script = "script_rf.R",
         model  = "Models/model_rf.json",
         data   = expand("../Data/consecutive_speakers/{iKey}/fixed_indiv/P4/{iKey}_top250each_share.csv",
                                 iKey = terms)
