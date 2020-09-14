@@ -155,6 +155,7 @@ for (i in 1:5){
 }
 
 
+
 b_de.mean.sorted
 q <- matrix(NaN,5,2)
 q[1,]
@@ -163,13 +164,30 @@ for (i in 1:5){
 }
 
 q
+
+
+q2<- b_de.mean.sorted[,c(5,95)]
+
+q2
+q2
+
+n <- rep(NaN,5)
+for (i in 1:5){
+    n[i]<-dim(m[[i]]$trainingData)[1]
+    }
+q2
+q2<-q2*sqrt(50)/sqrt(n)
+
+qt2<-tibble('lb'=q2[,1],'ub'=q2[,2])
+
+qt2
 qt<-tibble('q05'=q[,1],'q95'=q[,2])
 q<-quantile(b_de.mean.sorted, c(0.05,0.95))
 q[[1]]
 q[[2]]
 q
-q[[2]]*sqrt(50)/sqrt(dim(m$model5$trainingDat)[1])
-q[[1]]*sqrt(50)/sqrt(dim(m$model5$trainingDat)[1])
+q2[[5,1]]*sqrt(50)/sqrt(dim(m$model5$trainingDat)[1])
+q2[[1]]*sqrt(50)/sqrt(dim(m$model5$trainingDat)[1])
 
 
 #
@@ -193,7 +211,7 @@ acc2
 # acc3 <- cbind(acc2,tibble('q95'=q[[2]]))
 # acc3 <- cbind(acc3,tibble('q05'=q[[1]]))
 # acc3 <- cbind(acc3,tibble('b_mean'=b_mean))
-acc3 <- cbind(acc2,qt)
+acc3 <- cbind(acc2,qt2)
 acc3<-acc3%>%add_column('terms'=rownames(acc3))
 acc3
 
@@ -201,7 +219,7 @@ acc3
 ggplot(acc3, aes(x=terms, y=res,group=1)) +
       geom_line(alpha=0.5) +
       # geom_point()+
-      geom_errorbar(aes(ymin=res-q95, ymax=res-q05), width=.1,
+      geom_errorbar(aes(ymin=res-ub, ymax=res-lb), width=.1,
                      position=position_dodge(0.05),alpha=0.25)+
      theme_tufte(base_family='ArialMT')+
      # scale_color_few()+
