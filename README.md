@@ -33,7 +33,7 @@ RandomForest |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_indi
 Feature Selection | Multinom |RegLogistic | RandomForest
 :--|:--:|:---:|:---:
 Individual |  ![](Results/plots_sd/multinom/all_speakers_multinom_P4_individual_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_P4_individual_top250each_P4.png) | ![](Results/plots_sd/randomForest/all_speakers_randomForest_P4_individual_top250each_P4.png)
-Individual Fixed |  ![](Results/plots_sd/multinom/all_speakers_multinom_P4_individual_fixed_top250each_P4.png)  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_P4_individual_fixed_top250each_P4.png) |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_P4_individual_fixed_top250each_P4.png)
+Individual Fixed |  ![](Results/plots_sd/multinom/all_speakers_multinom_P4_individual_fixed_top250each_P4.png) | ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_P4_individual_fixed_top250each_P4.png) |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_P4_individual_fixed_top250each_P4.png)
 Individual No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P4_individual_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P4_individual_top250each_P4.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P4_individual_top250each_P4.png)
 Individual Fixed No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P4_individual_fixed_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P4_individual_fixed_top250each_P4.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P4_individual_fixed_top250each_P4.png)
 
