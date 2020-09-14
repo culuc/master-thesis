@@ -94,9 +94,23 @@ m <- readRDS("models/no_ref_ext/multinom_P4/individual_top250each_P4.Rds")
 
 m <- readRDS("multinom_P4/individual_top250each_P4.Rds")
 m <- readRDS("models/regLogistic_P4/individual_top250each_P4.Rds")
-m <- readRDS("models/no_ref_ext/regLogistic/individual_top100each.Rds")
+m <- readRDS("models/noref_ext/models/regLogistic/individual_top100each.Rds")
 
 
+
+m$model5$results
+m <- readRDS("models/all_speakers/models/multinom_P2/individual_top500each_P2.Rds")
+
+
+
+m1 <- readRDS("models/all_speakers/models/randomForest/individual_top100each.Rds")
+m1 <- readRDS("models/noref_ext/models/randomForest/individual_top100each.Rds")
+
+varImp(m1$model5)
+
+max(m$model1$results$Accuracy)
+
+max(mean(m$model1$resample$Accuracy))
 coef(m$model5$finalModel)
 predict(m$model5$preProcess,m$model5$trainingData)
 m$model1$preProcess
@@ -104,7 +118,7 @@ m2$preProcess
 
 
 
-dim(m$model5$trainingData)
+dim(m$model5$trainingData)[1]
 231/10
 m$model1$finalModel
 
