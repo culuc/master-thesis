@@ -19,6 +19,32 @@
 [Results for Regularized Logistic](Results/old/summary_result_terms_regLogistic_scaled.csv)
 
 [Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
+# Confidence Intervals
+## All Parties
+
+Model | Feature Selection --- Individual Top 100 each |Feature Selection --- Individual Fixed Top 20 Each Party and Term
+:--|:--:|:---:
+Multinom |  ![](Results/plots_sd/multinom/all_speakers_multinom_individual_top100each.png) |  ![](Results/plots_sd/multinom/all_speakers_multinom_individual_fixed_top100each.png)
+RegLogistic |  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_individual_top100each.png) | ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_individual_fixed_top100each.png)
+RandomForest |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_individual_top100each.png) |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_individual_fixed_top100each.png)
+
+## SP, CVP, FDP & SVP
+
+Feature Selection | Multinom |RegLogistic | RandomForest
+:--|:--:|:---:|:---:
+Individual |  ![](Results/plots_sd/multinom/all_speakers_multinom_P4_individual_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_P4_individual_top250each_P4.png) | ![](Results/plots_sd/randomForest/all_speakers_randomForest_P4_individual_top250each_P4.png)
+Individual Fixed |  ![](Results/plots_sd/multinom/all_speakers_multinom_P4_individual_fixed_top250each_P4.png)  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_P4_individual_fixed_top250each_P4.png) |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_P4_individual_fixed_top250each_P4.png)
+Individual No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P4_individual_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P4_individual_top250each_P4.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P4_individual_top250each_P4.png)
+Individual Fixed No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P4_individual_fixed_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P4_individual_fixed_top250each_P4.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P4_individual_fixed_top250each_P4.png)
+
+<!-- # SP & SVP
+
+Model | Feature Selection --- Individual Top 100 each |Feature Selection --- Individual Fixed Top 20 Each Party and Term
+:--|:--:|:---:
+Multinom |  ![](Results/plots_sd/multinom/all_speakers_multinom_individual_top100each.png) |  ![](Results/plots_sd/multinom/all_speakers_multinom_individual_fixed_top100each.png)
+RegLogistic |  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_individual_top100each.png) | ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_individual_fixed_top100each.png)
+RandomForest |  ![](Results/plots_sd/randomForest/all_speakers_randomForest_individual_top100each.png) |  ![](RResults/plots_sd/randomForest/all_speakers_randomForest_individual_fixed_top100each.png) -->
+
 ## Cutoff > 10
 ### Regularized Logisitc
 
