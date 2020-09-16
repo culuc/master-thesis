@@ -86,7 +86,7 @@ rule prepare_fixed_P4_i:
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n= 50,
+        n= 75,
         # N = 4
     output:
         files = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500eacheach_P4.csv", nameKey=name)
@@ -206,7 +206,7 @@ rule prepare_fixed_P2_i:
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n = 100,
+        n = 175,
         # N = 2
     output:
         files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
@@ -326,7 +326,7 @@ rule prepare_fixed_i:
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n = 20
+        n = 25
         # N = None
     output:
         files = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top100each.csv", nameKey=name)
