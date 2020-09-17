@@ -85,10 +85,10 @@ for (i in 1:5){
       method = method,
       tuneGrid = tuneGrid,
       trControl = trainControl(
-          method = "none"
-          # method = "cv",
-          # number = 10,
-          # verboseIter = TRUE
+          # method = "none"
+          method = "cv",
+          number = 2,
+          verboseIter = TRUE
         )
     )
 }
