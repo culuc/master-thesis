@@ -85,9 +85,10 @@ for (i in 1:5){
       method = method,
       tuneGrid = tuneGrid,
       trControl = trainControl(
-          method = "cv",
-          number = 10,
-          verboseIter = TRUE
+          method = "none"
+          # method = "cv",
+          # number = 10,
+          # verboseIter = TRUE
         )
     )
 }
@@ -153,13 +154,13 @@ for (i in 1:5){
 
 
 # pack it into a list #
-# model_list <- list(
-#                    model1    = caret_model[[1]],
-#                    model2    = caret_model[[2]],
-#                    model3    = caret_model[[3]],
-#                    model4    = caret_model[[4]],
-#                    model5    = caret_model[[5]]
-#                    )
+model_list <- list(
+                   model1    = caret_model[[1]]$finalModel,
+                   model2    = caret_model[[2]]$finalModel,
+                   model3    = caret_model[[3]]$finalModel,
+                   model4    = caret_model[[4]]$finalModel,
+                   model5    = caret_model[[5]]$finalModel
+                   )
 
 acc_list <- list(
                   term1    = mean(caret_model[[1]]$resample$Accuracy),
@@ -170,6 +171,6 @@ acc_list <- list(
                   )
 
 # Save Output #
-# list.save(model_list, out_models)
+list.save(model_list, out_models)
 list.save(acc_list, out_acc)
 write_csv(data.frame(acc_list), out_acc2)
