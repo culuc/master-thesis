@@ -157,7 +157,7 @@ for (i in 1:1){
 
 # pack it into a list #
 model_list <- list(
-                   model1    = caret_model[[1]]$finalModel#,
+                   model1    = caret_model[[1]]#,
                    # model2    = caret_model[[2]]$finalModel,
                    # model3    = caret_model[[3]]$finalModel,
                    # model4    = caret_model[[4]]$finalModel,
