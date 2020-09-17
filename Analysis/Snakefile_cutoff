@@ -513,7 +513,7 @@ rule rf_P2:
         "logs/rf_cutoff_10_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.models} {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule rf_consec:
