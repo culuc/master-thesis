@@ -77,8 +77,9 @@ caret_1 <- train(
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
-      method = "cv",
+      method = "repeatedcv",
       number = 10,
+      repeats = 10,
       verboseIter = TRUE
     )
 )
@@ -90,9 +91,10 @@ caret_2 <- train(
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
-    method = "cv",
-    number = 10,
-    verboseIter = TRUE
+      method = "repeatedcv",
+      number = 10,
+      repeats = 10,
+      verboseIter = TRUE
   )
 )
 caret_3 <- train(
@@ -103,9 +105,10 @@ caret_3 <- train(
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
-    method = "cv",
-    number = 10,
-    verboseIter = TRUE
+      method = "repeatedcv",
+      number = 10,
+      repeats = 10,
+      verboseIter = TRUE
   )
 )
 caret_4 <- train(
@@ -116,9 +119,10 @@ caret_4 <- train(
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
-    method = "cv",
-    number = 10,
-    verboseIter = TRUE
+      method = "repeatedcv",
+      number = 10,
+      repeats = 10,
+      verboseIter = TRUE
   )
 )
 caret_5 <- train(
@@ -129,9 +133,10 @@ caret_5 <- train(
   tuneGrid = tuneGrid,
   MaxNWts = 10000000,
   trControl = trainControl(
-    method = "cv",
-    number = 10,
-    verboseIter = TRUE
+      method = "repeatedcv",
+      number = 10,
+      repeats = 10,
+      verboseIter = TRUE
   )
 )
 # summary(caret_1)

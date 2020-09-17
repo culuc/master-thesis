@@ -229,7 +229,7 @@ rule prepare_phrases_all_terms_fixed:
         script = "script_fixed_terms_new.py",
         data   = expand("../Data/term{t}/tfidf_indiv/term{t}_top100each_topN.csv", t = terms_short)
     params:
-        n = 20
+        n = 25
     output:
         files = expand("../../interim/fixed/{iKey}", iKey = files_fixed)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
@@ -263,7 +263,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2:
         script = "script_fixed_terms_new.py",
         data   =  expand("../Data/term{t}/tfidf_indiv/P2/term{t}_top500each_topN_P2.csv", t = terms_short)
     params:
-        n = 100
+        n = 175
         # parties = 2,
         # topN = 500
     output:
@@ -310,7 +310,7 @@ rule prepare_phrases_all_terms_fixed_restr_P4:
         script = "script_fixed_terms_new.py",
         data   = expand("../Data/term{t}/tfidf_indiv/P4/term{t}_top250each_topN_P4.csv", t = terms_short)
     params:
-        n = 50
+        n = 75
         # parties = 4,
         # topN = 250
     output:

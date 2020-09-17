@@ -87,8 +87,9 @@ for (i in 1:5){
       tuneGrid = tuneGrid,
       importance = 'impurity',
       trControl = trainControl(
-          method = "cv",
+          method = "repeatedcv",
           number = 10,
+          repeats = 10,
           verboseIter = TRUE
         )
     )
