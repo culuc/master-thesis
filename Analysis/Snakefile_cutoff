@@ -468,7 +468,7 @@ rule elasticnet_consec_P2_rl:
 #-------------------------------- RANDOMFOREST ---------------------------------
 rule rf:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -485,7 +485,7 @@ rule rf:
 
 rule rf_P4:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -501,7 +501,7 @@ rule rf_P4:
 
 rule rf_P2:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -518,7 +518,7 @@ rule rf_P2:
 
 rule rf_consec:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -534,7 +534,7 @@ rule rf_consec:
 
 rule rf_consec_P4:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P4/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)
@@ -550,7 +550,7 @@ rule rf_consec_P4:
 
 rule rf_consec_P2:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/cutoff/P2/{iKey}_cutoff_10_scaled.csv",
                                 iKey = terms)

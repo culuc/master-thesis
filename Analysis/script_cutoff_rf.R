@@ -85,6 +85,7 @@ for (i in 1:5){
       Speaker.Party ~ .,
       df,
       method = method,
+      importance= 'impurity',
       tuneGrid = tuneGrid,
       trControl = trainControl(
           # method = "none"
