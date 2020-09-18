@@ -84,6 +84,7 @@ for (i in 1:5){
     caret_model[[i]] <- train(
       Speaker.Party ~ .,
       df,
+      preProcess = c('scale', 'center'),
       method = method,
       tuneGrid = tuneGrid,
       trControl = trainControl(
