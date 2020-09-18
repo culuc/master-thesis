@@ -73,7 +73,7 @@ print('Estimating Models')
 
 caret_model <- vector(mode="list", length=5)
 
-for (i in 1:5){
+for (i in 1:1){
     print(paste('Model ',i,'...'))
 
     df         <- read_csv(in_data[i])%>%select(-c('X1','Speaker'))
@@ -91,7 +91,7 @@ for (i in 1:5){
       trControl = trainControl(
           # method = "none"
           method = "cv",
-          number = 10,
+          number = 2,
           verboseIter = TRUE
         )
     )
@@ -159,19 +159,19 @@ for (i in 1:5){
 
 # pack it into a list #
 model_list <- list(
-                   model1    = caret_model[[1]]$finalModel,
-                   model2    = caret_model[[2]]$finalModel,
-                   model3    = caret_model[[3]]$finalModel,
-                   model4    = caret_model[[4]]$finalModel,
-                   model5    = caret_model[[5]]$finalModel
+                   model1    = caret_model[[1]]#,
+                   # model2    = caret_model[[2]]$finalModel,
+                   # model3    = caret_model[[3]]$finalModel,
+                   # model4    = caret_model[[4]]$finalModel,
+                   # model5    = caret_model[[5]]$finalModel
                    )
 
 acc_list <- list(
-                  term1    = mean(caret_model[[1]]$resample$Accuracy),
-                  term2    = mean(caret_model[[2]]$resample$Accuracy),
-                  term3    = mean(caret_model[[3]]$resample$Accuracy),
-                  term4    = mean(caret_model[[4]]$resample$Accuracy),
-                  term5    = mean(caret_model[[5]]$resample$Accuracy)
+                  term1    = mean(caret_model[[1]]$resample$Accuracy)#,
+                  # term2    = mean(caret_model[[2]]$resample$Accuracy),
+                  # term3    = mean(caret_model[[3]]$resample$Accuracy),
+                  # term4    = mean(caret_model[[4]]$resample$Accuracy),
+                  # term5    = mean(caret_model[[5]]$resample$Accuracy)
                   )
 
 # Save Output #
