@@ -171,14 +171,14 @@ rule elasticnet:
         data = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet/glmnet_noref_ext.Rds",
+        models = "out_noref_ext/models/elasticnet/glmnet_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet/glmnet_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet/glmnet_noref_ext.csv"
     log:
         "logs/elastic_net.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule elasticnet_P4:
@@ -195,7 +195,7 @@ rule elasticnet_P4:
         "logs/glmnet_noref_ext_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_P2:
     input:
@@ -204,14 +204,14 @@ rule elasticnet_P2:
         data = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P2/glmnet_noref_ext.Rds",
+        models = "out_noref_ext/models/elasticnet_P2/glmnet_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/glmnet_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P2/glmnet_noref_ext.csv"
     log:
         "logs/glmnet_noref_ext_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec:
     input:
@@ -220,14 +220,14 @@ rule elasticnet_consec:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet/glmnet_noref_ext_consec.Rds",
+        models = "out_noref_ext/models/elasticnet/glmnet_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet/glmnet_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet/glmnet_noref_ext_consec.csv"
     log:
         "logs/glmnet_noref_ext_consec.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_P4:
     input:
@@ -236,14 +236,14 @@ rule elasticnet_consec_P4:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P4/glmnet_noref_ext_consec.Rds",
+        models = "out_noref_ext/models/elasticnet_P4/glmnet_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/glmnet_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P4/glmnet_noref_ext_consec.csv"
     log:
         "logs/noref_ext_consec_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_P2:
     input:
@@ -252,14 +252,14 @@ rule elasticnet_consec_P2:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P2/glmnet_noref_ext_consec.Rds",
+        models = "out_noref_ext/models/elasticnet_P2/glmnet_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/glmnet_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P2/glmnet_noref_ext_consec.csv"
     log:
         "logs/noref_ext_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_a001:
     input:
@@ -268,14 +268,14 @@ rule elasticnet_a001:
         data = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet/glmnet_a001_noref_ext.Rds",
+        models  = "out_noref_ext/models/elasticnet/glmnet_a001_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet/glmnet_a001_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet/glmnet_a001_noref_ext.csv"
     log:
         "logs/elastic_net__noref_ext_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule elasticnet_P4_a001:
@@ -285,14 +285,14 @@ rule elasticnet_P4_a001:
         data = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P4/glmnet_a001_noref_ext.Rds",
+        models = "out_noref_ext/models/elasticnet_P4/glmnet_a001_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/glmnet_a001_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P4/glmnet_a001_noref_ext.csv"
     log:
         "logs/elasticNet__noref_ext_P4_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_P2_a001:
     input:
@@ -301,14 +301,14 @@ rule elasticnet_P2_a001:
         data = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P2/glmnet_a001_noref_ext.Rds",
+        models = "out_noref_ext/models/elasticnet_P2/glmnet_a001_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/glmnet_a001_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P2/glmnet_a001_noref_ext.csv"
     log:
         "logs/elasticNet__noref_ext_P2_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule elasticnet_consec_a001:
@@ -318,14 +318,14 @@ rule elasticnet_consec_a001:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet/glmnet_a001noref_ext_consec.Rds",
+        models = "out_noref_ext/models/elasticnet/glmnet_a001noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet/glmnet_a001_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnetglmnet_a001_/noref_ext_consec.csv"
     log:
         "logs/elastic_net_consec_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_P4_a001:
     input:
@@ -334,14 +334,14 @@ rule elasticnet_consec_P4_a001:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P4/glmnet_a001_noref_ext_consec.Rds",
+        models = "out_noref_ext/models/elasticnet_P4/glmnet_a001_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/glmnet_a001_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P4/glmnet_a001_noref_ext_consec.csv"
     log:
         "logs/noref_ext_consec_P4_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_P2_a001:
     input:
@@ -350,14 +350,14 @@ rule elasticnet_consec_P2_a001:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P2/glmnet_a001_noref_ext_consec.Rds",
+        models = "out_noref_ext/models/elasticnet_P2/glmnet_a001_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/glmnet_a001_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P2/glmnet_a001_noref_ext_consec.csv"
     log:
         "logs/noref_ext_consec_P2_a001.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 
@@ -371,14 +371,14 @@ rule elasticnet_rl:
         data = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/elasticnet/regLogistic_noref_ext.Rds",
+        models ="out_noref_ext/models/elasticnet/regLogistic_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet/regLogistic_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet/regLogistic_noref_ext.csv"
     log:
         "logs/regLogistic_noref_ext.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule elasticnet_P4_rl:
@@ -388,14 +388,14 @@ rule elasticnet_P4_rl:
         data = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/elasticnet_P4/regLogistic_noref_ext.Rds",
+        models ="out_noref_ext/models/elasticnet_P4/regLogistic_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/regLogistic_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P4/regLogistic_noref_ext.csv"
     log:
         "logs/regLogistic_noref_ext_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_P2_rl:
     input:
@@ -404,14 +404,14 @@ rule elasticnet_P2_rl:
         data = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/elasticnet_P2/regLogistic_noref_ext.Rds",
+        models ="out_noref_ext/models/elasticnet_P2/regLogistic_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/regLogistic_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P2/regLogistic_noref_ext.csv"
     log:
         "logs/regLogistic_noref_ext_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_rl:
     input:
@@ -420,14 +420,14 @@ rule elasticnet_consec_rl:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/elasticnet/regLogistic_noref_ext_consec.Rds",
+        models ="out_noref_ext/models/elasticnet/regLogistic_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet/regLogistic_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet/regLogistic_noref_ext_consec.csv"
     log:
         "logs/regLogistic_noref_ext_consec.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_P4_rl:
     input:
@@ -436,14 +436,14 @@ rule elasticnet_consec_P4_rl:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/elasticnet_P4/regLogistic_noref_ext_consec.Rds",
+        models ="out_noref_ext/models/elasticnet_P4/regLogistic_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/regLogistic_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P4/regLogistic_noref_ext_consec.csv"
     log:
         "logs/regLogistic_noref_extnoref_ext_consec_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule elasticnet_consec_P2_rl:
     input:
@@ -452,14 +452,14 @@ rule elasticnet_consec_P2_rl:
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/elasticnet_P2/regLogistic_noref_ext_consec.Rds",
+        models ="out_noref_ext/models/elasticnet_P2/regLogistic_noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/regLogistic_noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P2/regLogistic_noref_ext_consec.csv"
     log:
         "logs/regLogistic_noref_ext_noref_ext_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 
@@ -468,101 +468,101 @@ rule elasticnet_consec_P2_rl:
 #-------------------------------- RANDOMFOREST ---------------------------------
 rule rf:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/rf_noref_ext/noref_ext.Rds",
+        models ="out_noref_ext/models/rf_noref_ext/noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/rf_noref_ext/noref_ext.csv"
     log:
         "logs/rf_noref_ext.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule rf_P4:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/rf_noref_ext/noref_ext_P4.Rds",
+        models ="out_noref_ext/models/rf_noref_ext/noref_ext_P4.Rds",
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P4.Rds",
         accuracy2 = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P4.csv"
     log:
         "logs/rf_noref_ext_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule rf_P2:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/rf_noref_ext/noref_ext_P2.Rds",
+        models ="out_noref_ext/models/rf_noref_ext/noref_ext_P2.Rds",
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P2.Rds",
         accuracy2 = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P2.csv"
     log:
         "logs/rf_noref_ext_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 
 rule rf_consec:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/rf_noref_ext/noref_ext_consec.Rds",
+        models ="out_noref_ext/models/rf_noref_ext/noref_ext_consec.Rds",
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_consec.Rds",
         accuracy2 = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_consec.csv"
     log:
         "logs/rf_noref_ext_consec.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule rf_consec_P4:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/rf_noref_ext/noref_ext_consec_P4.Rds",
+        models ="out_noref_ext/models/rf_noref_ext/noref_ext_consec_P4.Rds",
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_consec_P4.Rds",
         accuracy2 = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_consec_P4.csv"
     log:
         "logs/rf_noref_ext_consec_P4.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 rule rf_consec_P2:
     input:
-        script = "script_cutoff.R",
+        script = "script_cutoff_rf.R",
         model  = "Models/model_rf.json",
         data = expand("../Data/consecutive_speakers/{iKey}/noref_ext/P2/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models ="out_noref_ext/models/rf_noref_ext/noref_ext_consec_P2.Rds",
+        models ="out_noref_ext/models/rf_noref_ext/noref_ext_consec_P2.Rds",
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_consec_P2.Rds",
         accuracy2 = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_consec_P2.csv"
     log:
         "logs/rf_noref_ext_consec_P2.txt"
     shell:
      "{runR} {input.script} {input.model} {input.data} \
-        {output.accuracy} {output.accuracy2} > {log} {logAll}"
+        {output.accuracy} {output.accuracy2} {output.models} > {log} {logAll}"
 
 # -----------------------------------------------------------------------
 
