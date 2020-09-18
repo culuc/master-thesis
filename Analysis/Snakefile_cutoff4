@@ -34,12 +34,12 @@ models = ["glmnet","glmnet_a001","regLogistic"]
 files2 = ["noref_ext","noref_ext_consec"]
 partysubs = ["","_P4","_P2"]
 
-rule all:
-    input:
-        data = expand("out_noref_ext/accuracy/{folder}/summary.csv",folder = ["elasticnet_P2","elasticnet_P4","rf_cutoff"])
-rule cutoff:
-    input:
-        data = expand("out_noref_ext/accuracy/elasticnet/{m}_{iKey}.csv", m=models, iKey = files)
+# rule all:
+#     input:
+#         data = expand("out_noref_ext/accuracy/{folder}/summary.csv",folder = ["elasticnet_P2","elasticnet_P4","rf_cutoff"])
+# rule cutoff:
+#     input:
+#         data = expand("out_noref_ext/accuracy/elasticnet/{m}_{iKey}.csv", m=models, iKey = files)
 
 rule noref_ext_P2:
     input:
