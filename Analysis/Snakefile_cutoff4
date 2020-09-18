@@ -188,7 +188,7 @@ rule elasticnet_P4:
         data = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_scaled.csv",
                                 iKey = terms)
     output:
-        # models = "out_noref_ext/models/elasticnet_P4/glmnet_noref_ext.Rds",
+        models = "out_noref_ext/models/elasticnet_P4/glmnet_noref_ext.Rds",
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/glmnet_noref_ext.Rds",
         accuracy2 = "out_noref_ext/accuracy/elasticnet_P4/glmnet_noref_ext.csv"
     log:
