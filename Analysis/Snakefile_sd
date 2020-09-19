@@ -25,15 +25,17 @@ rule rl_P4:
     input:
         script = "script_calc_sd.R",
         data = input_files,
+        model = 'out/models/elasticnet_P4/regLogistic_cutoff_10.Rds'
         data2 = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
                                 iKey = terms)
+
     output:
         plot = names1,
         df = names2
     log:
         "logs/plotlogsd.txt"
     shell:
-     "{runR} {input.script} {input.data} {input.data2}\
+     "{runR} {input.script} {input.data} {input.model} {input.data2} \
         {output.plot} {output.df}  > {log} {logAll}"
 
 

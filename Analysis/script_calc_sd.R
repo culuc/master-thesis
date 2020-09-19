@@ -22,7 +22,8 @@ in_data <- rep(NaN,l2)
 out_data <- rep(NaN,2)
 
 model <- args[1]
-for (i in 2:l2){
+macc <- args[2]
+for (i in 3:l2){
     in_data[i] <- args[i]
  }
 for (i in l2+1:l){
@@ -32,16 +33,18 @@ print(in_data)
 print(out_data)
 
 
-calc_sd_df <- function(df,data){
+calc_sd_df <- function(df,data,dfacc){
     m <- readRDS(df)
-
+    macc <- readRDS(dfacc)
     # print(dim(m$model5$trainingData))
 
     b <- matrix(NaN,5,100)
+    n <- rep(NaN,5)
 
     for (i in 1:5){
-        d <- readr::read_csv(data[i])
+        d <- readr::read_csv(data[i])%>%select(-c('X1','Speaker'))
         colnames(d) <- make.names(colnames(d))
+        n[i]<-dim(d)[1]
         prePr = preProcess(d, c("center","scale"))
         for (j in 1:100){
             s<-d%>%
@@ -68,10 +71,7 @@ calc_sd_df <- function(df,data){
 
     q2<- b_de.mean.sorted[,c(5,95)]
 
-    n <- rep(NaN,5)
-    for (i in 1:5){
-        n[i]<-dim(m[[i]]$trainingData)[1]
-        }
+
 
     q2<-q2*sqrt(50)/sqrt(n)
 
@@ -80,7 +80,7 @@ calc_sd_df <- function(df,data){
     acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy'=rep(NaN,5))
 
     for (i in 1:5){
-        acc[i,2] <- max(m[[i]]$result$Accuracy)
+        acc[i,2] <- macc[[i]]
         }
 
     acc2 <- cbind(acc,qt2)
@@ -216,7 +216,7 @@ plot_res <- function(df,out_plot,out_data){
 # 3,5
 # 4,6
 
-df_new <- calc_sd_df(model, in_data[2:6])
+df_new <- calc_sd_df(model, in_data[2:6], macc)
 print(in_data)
 # print(out_data[i+l2])
 # print(out_data[i+l2+2])
