@@ -70,7 +70,7 @@ calc_sd_df <- function(df,data,dfacc){
             levels(test2) <- levs
             cm <- confusionMatrix(pr2,test2)$overall
             if (i==1){
-                cms <- t(data.frame(cm)
+                cms <- t(data.frame(cm))
             } else {
                 cms <- rbind(cms,t(data.frame(cm)))
             }
@@ -92,7 +92,7 @@ calc_sd_df <- function(df,data,dfacc){
 
     qt2<-tibble('lb'=q2[,1],'ub'=q2[,2])
 
-    acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy'=rep(NaN,5))
+    acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy1'=rep(NaN,5))
 
     for (i in 1:5){
         acc[i,2] <- m.acc[[i]]
@@ -202,16 +202,16 @@ x = c("1","2","3","4","5")
 
 plot_res <- function(df,out_plot,out_data){
 
-    ggplot(df, aes(x=Term, y=Accuracy,group=1)) +
-          geom_line(alpha=0.5) +
-          # geom_point()+
-          geom_errorbar(aes(ymin=Accuracy-ub, ymax=Accuracy-lb), width=.1,
-                         position=position_dodge(0.05),alpha=0.25)+
-         theme_tufte(base_family='ArialMT')+
-         # scale_color_few()+
-         labs(x="Terms", y="Prediction Accuracy", col="Feature Selection")+
-         scale_x_discrete(labels=labels)+
-         theme(axis.title=element_text(size=12),
+    ggplot(df, aes(x=Term, y=Accuracy1,group=1)) +
+        geom_line(alpha=0.5) +
+        # geom_point()+
+        geom_errorbar(aes(ymin=Accuracy1-ub, ymax=Accuracy1-lb), width=.1,position=position_dodge(0.05),alpha=0.25)+
+        geom_line(aes(y=AccuracyNull),linetype='dotted',alpha=0.5) +
+        theme_tufte(base_family='ArialMT')+
+        # scale_color_few()+
+        labs(x="Terms", y="Prediction Accuracy", col="Feature Selection")+
+        scale_x_discrete(labels=labels)+
+        theme(axis.title=element_text(size=12),
                  axis.text = element_text(size=12))
 
     ggsave(out_plot,height=5, width=10, units="in",dpi=400)
