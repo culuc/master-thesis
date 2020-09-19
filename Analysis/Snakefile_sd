@@ -274,7 +274,7 @@ rule rf_noref_P4:
     input:
         script = "script_calc_sd.R",
         data = input_files,
-        accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P2.Rds",
+        accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P4.Rds",
         data2 = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_share.csv",
                                 iKey = terms)
 
@@ -283,6 +283,95 @@ rule rf_noref_P4:
         df = names2
     log:
         "logs/plotlogsd_rf_noref_P2.txt"
+    shell:
+     "{runR} {input.script} {input.data} {input.accuracy} {input.data2} \
+        {output.plot} {output.df}  > {log} {logAll}"
+
+
+# Analysis/out_noref_ext/models/elasticnet_P4/regLogistic_noref_ext.Rds
+
+
+
+input_files = ['out_noref_ext/models/elasticnet/regLogistic_noref_ext.Rds']
+df = pd.DataFrame(input_files,columns=['names'])
+df.names = df.names.str.replace('/','_')
+df.names = df.names.str.replace('models_','')
+names1 = 'plots_sd/regLog_noref/' + df.names.str.replace('Rds','png')
+names2 = 'plots_sd/regLog_noref/' + df.names.str.replace('Rds','csv')
+
+print(names1,names2)
+# output_files=[df.names,d
+
+rule rl_noref:
+    input:
+        script = "script_calc_sd.R",
+        data = input_files,
+        accuracy = "out_noref_ext/accuracy/elasticnet/regLogistic_noref_ext.Rds",
+        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv",
+                                iKey = terms)
+
+    output:
+        plot = names1,
+        df = names2
+    log:
+        "logs/plotlogsd_rl_noref.txt"
+    shell:
+     "{runR} {input.script} {input.data} {input.accuracy} {input.data2} \
+        {output.plot} {output.df}  > {log} {logAll}"
+
+
+input_files = ['out_noref_ext/models/elasticnet_P2/regLogistic_noref_ext.Rds']
+df = pd.DataFrame(input_files,columns=['names'])
+df.names = df.names.str.replace('/','_')
+df.names = df.names.str.replace('models_','')
+names1 = 'plots_sd/regLog_noref/' + df.names.str.replace('Rds','png')
+names2 = 'plots_sd/regLog_noref/' + df.names.str.replace('Rds','csv')
+
+print(names1,names2)
+# output_files=[df.names,d
+
+rule rl_noref_P2:
+    input:
+        script = "script_calc_sd.R",
+        data = input_files,
+        accuracy = "out_noref_ext/accuracy/elasticnet_P2/regLogistic_noref_ext.Rds",
+        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv",
+                                iKey = terms)
+
+    output:
+        plot = names1,
+        df = names2
+    log:
+        "logs/plotlogsd_rl_noref_P2.txt"
+    shell:
+     "{runR} {input.script} {input.data} {input.accuracy} {input.data2} \
+        {output.plot} {output.df}  > {log} {logAll}"
+
+
+
+input_files = ['out_noref_ext/models/elasticnet_P4/regLogistic_noref_ext.Rds']
+df = pd.DataFrame(input_files,columns=['names'])
+df.names = df.names.str.replace('/','_')
+df.names = df.names.str.replace('models_','')
+names1 = 'plots_sd/regLog_noref/' + df.names.str.replace('Rds','png')
+names2 = 'plots_sd/regLog_noref/' + df.names.str.replace('Rds','csv')
+
+print(names1,names2)
+# output_files=[df.names,d
+
+rule rl_noref_P4:
+    input:
+        script = "script_calc_sd.R",
+        data = input_files,
+        accuracy = "out_noref_ext/accuracy/elasticnet_P4/regLogistic_noref_ext.Rds",
+        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv",
+                                iKey = terms)
+
+    output:
+        plot = names1,
+        df = names2
+    log:
+        "logs/plotlogsd_rl_noref.txt"
     shell:
      "{runR} {input.script} {input.data} {input.accuracy} {input.data2} \
         {output.plot} {output.df}  > {log} {logAll}"
