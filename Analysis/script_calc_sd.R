@@ -22,8 +22,8 @@ in_data <- rep(NaN,l2)
 out_data <- rep(NaN,2)
 
 model <- args[1]
-m.acc <- args[2]
-print(macc)
+dfacc <- args[2]
+print(dfacc)
 for (i in 3:l2){
     in_data[i] <- args[i]
  }
@@ -218,7 +218,7 @@ plot_res <- function(df,out_plot,out_data){
 # 3,5
 # 4,6
 
-df_new <- calc_sd_df(model, in_data[3:7], macc)
+df_new <- calc_sd_df(model, in_data[3:7], dfacc)
 print(in_data)
 # print(out_data[i+l2])
 # print(out_data[i+l2+2])
