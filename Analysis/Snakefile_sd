@@ -25,7 +25,7 @@ rule rl_P4:
     input:
         script = "script_calc_sd.R",
         data = input_files,
-        model = 'out/models/elasticnet_P4/regLogistic_cutoff_10.Rds'
+        model = 'out/models/elasticnet_P4/regLogistic_cutoff_10.Rds',
         data2 = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
                                 iKey = terms)
 
