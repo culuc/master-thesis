@@ -73,7 +73,7 @@ print('Estimating Models')
 
 caret_model <- vector(mode="list", length=5)
 
-for (i in 1:1){
+for (i in 1:5){
     print(paste('Model ',i,'...'))
 
     df         <- read_csv(in_data[i])%>%select(-c('X1','Speaker'))
@@ -91,7 +91,7 @@ for (i in 1:1){
       trControl = trainControl(
           # method = "none"
           method = "cv",
-          number = 2,
+          number = 10,
           verboseIter = TRUE
         )
     )
