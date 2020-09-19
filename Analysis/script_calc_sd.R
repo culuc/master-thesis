@@ -75,7 +75,7 @@ calc_sd_df <- function(df,data,dfacc){
                 cms <- rbind(cms,t(data.frame(cm)))
             }
         }
-
+    }
     b_mean <-rowMeans(b)
     print(b)
     b_de.mean <- b - b_mean
