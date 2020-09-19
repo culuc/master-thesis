@@ -214,7 +214,7 @@ plot_res <- function(df,out_plot,out_data){
 # 3,5
 # 4,6
 
-df_new <- calc_sd_df(model, in_data)
+df_new <- calc_sd_df(model, in_data[2:6])
 print(in_data)
 # print(out_data[i+l2])
 # print(out_data[i+l2+2])
