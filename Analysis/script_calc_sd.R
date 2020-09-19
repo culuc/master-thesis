@@ -58,12 +58,12 @@ calc_sd_df <- function(df,data,dfacc){
             pr<- predict(m[[i]],s%>%select(-c(Speaker.Party)))
             test <- s$Speaker.Party
 
-            table.res <- table(factor(pr$prediction),factor(test))
+            table.res <- table(factor(pr$predictions),factor(test))
             #
             b[i,j] <- sum(diag(table.res))/sum(table.res)
 
             test2 <- factor(test)
-            pr2 <- factor(pr)
+            pr2 <- factor(pr$predictions)
 
             levs <- union(levels(test2),levels(pr2))
             levels(pr2) <- levs
