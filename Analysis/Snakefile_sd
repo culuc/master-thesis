@@ -212,13 +212,12 @@ names2 = 'plots_sd/rf_cutoff_noref/' + df.names.str.replace('Rds','csv')
 print(names1,names2)
 # output_files=[df.names,d
 
-
 rule rf_noref:
     input:
         script = "script_calc_sd.R",
         data = input_files,
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext.Rds",
-        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv.csv",
+        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv",
                                 iKey = terms)
 
     output:
@@ -247,7 +246,7 @@ rule rf_noref_P2:
         script = "script_calc_sd.R",
         data = input_files,
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P2.Rds",
-        data2 = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_share.csv.csv",
+        data2 = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_share.csv",
                                 iKey = terms)
 
     output:
@@ -276,7 +275,7 @@ rule rf_noref_P4:
         script = "script_calc_sd.R",
         data = input_files,
         accuracy = "out_noref_ext/accuracy/rf_noref_ext/noref_ext_P2.Rds",
-        data2 = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_share.csv.csv",
+        data2 = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_share.csv",
                                 iKey = terms)
 
     output:
