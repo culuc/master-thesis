@@ -204,12 +204,19 @@ plot_res <- function(df,out_plot,out_data){
 }
 
 
-for (i in 1:l2){
-    df_new <- calc_sd_df(in_data[i])
-    print(in_data[i])
-    print(out_data[i+l2])
-    print(out_data[i+l2+2])
-    plot_res(df_new,out_data[i+l2],out_data[i+l2+2])
- }
+# for (i in 1:l2){
+#     df_new <- calc_sd_df(in_data[i])
+#     print(in_data[i])
+#     print(out_data[i+l2])
+#     print(out_data[i+l2+2])
+#     plot_res(df_new,out_data[i+l2],out_data[i+l2+2])
+#  }
 # 3,5
 # 4,6
+
+df_new <- calc_sd_df(model, in_data)
+print(in_data)
+# print(out_data[i+l2])
+# print(out_data[i+l2+2])
+plot_res(df_new,out_data[l2+1],out_data[l2+2])
+}
