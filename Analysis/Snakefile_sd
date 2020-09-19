@@ -22,7 +22,7 @@ print(names1,names2)
 rule rf_P4:
     input:
         script = "script_calc_sd.R",
-        data = input_files
+        data = input_files,
         data2 = expand("../Data/{iKey}/cutoff/P4/{iKey}_cutoff_10_share.csv",
                                 iKey = terms)
     output:
