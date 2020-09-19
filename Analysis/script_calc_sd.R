@@ -64,7 +64,7 @@ calc_sd_df <- function(df,data,dfacc){
         }
 
     b_mean <-rowMeans(b)
-
+    print(b)
     b_de.mean <- b - b_mean
     b_de.mean.sorted <- b_de.mean
     for (i in 1:5){
