@@ -32,7 +32,7 @@ rule rf_P4:
     log:
         "logs/plotlogsd.txt"
     shell:
-     "{runR} {input.script} {input.data} {inout.data2}\
+     "{runR} {input.script} {input.data} {input.data2}\
         {output.plot} {output.df}  > {log} {logAll}"
 
 
