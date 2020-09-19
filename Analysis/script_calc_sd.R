@@ -33,14 +33,6 @@ for (i in l2+1:l){
 print(in_data)
 print(out_data)
 
-prednull <- function(m){
-    res <- rep(NaN,5)
-    for (i in 1:5){
-        st <-m[[i]]$trainingData %>% group_by(.outcome) %>% summarise(count=n())
-        res[i] <- max(st$count)/sum(st$count)
-    }
-    return(res)
-}
 
 calc_sd_df <- function(df,data,dfacc){
     m <- readRDS(df)
