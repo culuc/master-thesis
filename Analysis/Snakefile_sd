@@ -5,6 +5,7 @@ logAll = "2>&1"
 import glob
 import pandas as pd
 
+terms = ["term1","term2","term3","term4","term5"]
 
 # files =
 # input_files = glob.glob('models/all_speakers/models/multinom/individual_*')
