@@ -9,7 +9,7 @@ terms = ["term1","term2","term3","term4","term5"]
 
 # files =
 # input_files = glob.glob('models/all_speakers/models/multinom/individual_*')
-input_files = ['Analysis/out/models/rf_cutoff/cutoff_10_P4.Rds']
+input_files = ['out/models/rf_cutoff/cutoff_10_P4.Rds']
 df = pd.DataFrame(input_files,columns=['names'])
 df.names = df.names.str.replace('/','_')
 df.names = df.names.str.replace('models_','')
