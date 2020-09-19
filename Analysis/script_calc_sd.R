@@ -43,6 +43,7 @@ calc_sd_df <- function(df,data,dfacc){
     b <- matrix(NaN,5,100)
     n <- rep(NaN,5)
 
+
     for (i in 1:5){
         d <- readr::read_csv(data[i])%>%select(-c('X1','Speaker'))
         colnames(d) <- make.names(colnames(d))
@@ -60,6 +61,18 @@ calc_sd_df <- function(df,data,dfacc){
             table.res <- table(factor(pr$prediction),factor(test))
             #
             b[i,j] <- sum(diag(table.res))/sum(table.res)
+
+            test2 <- factor(test)
+            pr2 <- factor(pr)
+
+            levs <- union(levels(test2),levels(pr2))
+            levels(pr2) <- levs
+            levels(test2) <- levs
+            cm <- confusionMatrix(pr2,test2)$overall
+            if (i==1){
+                cms <- t(data.frame(cm)
+            } else {
+                cms <- rbind(cms,t(data.frame(cm)))
             }
         }
 
@@ -85,7 +98,7 @@ calc_sd_df <- function(df,data,dfacc){
         acc[i,2] <- m.acc[[i]]
         }
 
-    acc2 <- cbind(acc,qt2)
+    acc2 <- cbind(acc,qt2,cms)
 
  return(acc2)
 }
