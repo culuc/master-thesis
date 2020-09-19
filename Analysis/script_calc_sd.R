@@ -33,6 +33,14 @@ for (i in l2+1:l){
 print(in_data)
 print(out_data)
 
+prednull <- function(m){
+    res <- rep(NaN,5)
+    for (i in 1:5){
+        st <-m[[i]]$trainingData %>% group_by(.outcome) %>% summarise(count=n())
+        res[i] <- max(st$count)/sum(st$count)
+    }
+    return(res)
+}
 
 calc_sd_df <- function(df,data,dfacc){
     m <- readRDS(df)
@@ -42,12 +50,14 @@ calc_sd_df <- function(df,data,dfacc){
 
     b <- matrix(NaN,5,100)
     n <- rep(NaN,5)
-
+    accnull <- rep(NaN,5)
 
     for (i in 1:5){
         d <- readr::read_csv(data[i])%>%select(-c('X1','Speaker'))
         colnames(d) <- make.names(colnames(d))
         n[i]<-dim(d)[1]
+        pc <- d %>% group_by(Speaker.Party) %>% summarise(count=n())
+        accnull[i] <- max(pc$count)/sum(pc$count)
         prePr = preProcess(d, c("center","scale"))
         for (j in 1:100){
             s<-d%>%
@@ -62,18 +72,18 @@ calc_sd_df <- function(df,data,dfacc){
             #
             b[i,j] <- sum(diag(table.res))/sum(table.res)
 
-            test2 <- factor(test)
-            pr2 <- factor(pr$predictions)
-
-            levs <- union(levels(test2),levels(pr2))
-            levels(pr2) <- levs
-            levels(test2) <- levs
-            cm <- confusionMatrix(pr2,test2)$overall
-            if (i==1){
-                cms <- t(data.frame(cm))
-            } else {
-                cms <- rbind(cms,t(data.frame(cm)))
-            }
+            # test2 <- factor(test)
+            # pr2 <- factor(pr$predictions)
+            #
+            # levs <- union(levels(test2),levels(pr2))
+            # levels(pr2) <- levs
+            # levels(test2) <- levs
+            # cm <- confusionMatrix(pr2,test2)$overall
+            # if (i==1){
+            #     cms <- t(data.frame(cm))
+            # } else {
+            #     cms <- rbind(cms,t(data.frame(cm)))
+            # }
         }
     }
     b_mean <-rowMeans(b)
@@ -90,15 +100,15 @@ calc_sd_df <- function(df,data,dfacc){
 
     q2<-q2*sqrt(50)/sqrt(n)
 
-    qt2<-tibble('lb'=q2[,1],'ub'=q2[,2])
+    qt2<-tibble('lb'=q2[,1],'ub'=q2[,2],'AccuracyNull'=accnull)
 
-    acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy1'=rep(NaN,5))
+    acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy'=rep(NaN,5))
 
     for (i in 1:5){
         acc[i,2] <- m.acc[[i]]
         }
 
-    acc2 <- cbind(acc,qt2,cms)
+    acc2 <- cbind(acc,qt2)
 
  return(acc2)
 }
@@ -202,11 +212,11 @@ x = c("1","2","3","4","5")
 
 plot_res <- function(df,out_plot,out_data){
 
-    ggplot(df, aes(x=Term, y=Accuracy1,group=1)) +
+    ggplot(df, aes(x=Term, y=Accuracy,group=1)) +
         geom_line(alpha=0.5) +
         # geom_point()+
-        geom_errorbar(aes(ymin=Accuracy1-ub, ymax=Accuracy1-lb), width=.1,position=position_dodge(0.05),alpha=0.25)+
-        geom_line(aes(y=AccuracyNull),linetype='dotted',alpha=0.5) +
+        geom_errorbar(aes(ymin=Accuracy-ub, ymax=Accuracy-lb), width=.1,position=position_dodge(0.05),alpha=0.25)+
+        # geom_line(aes(y=AccuracyNull),linetype='dotted',alpha=0.5) +
         theme_tufte(base_family='ArialMT')+
         # scale_color_few()+
         labs(x="Terms", y="Prediction Accuracy", col="Feature Selection")+
