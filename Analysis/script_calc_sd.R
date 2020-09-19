@@ -22,7 +22,8 @@ in_data <- rep(NaN,l2)
 out_data <- rep(NaN,2)
 
 model <- args[1]
-macc <- args[2]
+m.acc <- args[2]
+print(macc)
 for (i in 3:l2){
     in_data[i] <- args[i]
  }
@@ -35,7 +36,8 @@ print(out_data)
 
 calc_sd_df <- function(df,data,dfacc){
     m <- readRDS(df)
-    macc <- readRDS(dfacc)
+    m.acc <- readRDS(dfacc)
+    print(m.acc)
     # print(dim(m$model5$trainingData))
 
     b <- matrix(NaN,5,100)
@@ -80,7 +82,7 @@ calc_sd_df <- function(df,data,dfacc){
     acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy'=rep(NaN,5))
 
     for (i in 1:5){
-        acc[i,2] <- macc[[i]]
+        acc[i,2] <- m.acc[[i]]
         }
 
     acc2 <- cbind(acc,qt2)
