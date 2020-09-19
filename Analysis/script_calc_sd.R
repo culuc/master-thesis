@@ -223,4 +223,3 @@ print(in_data)
 # print(out_data[i+l2])
 # print(out_data[i+l2+2])
 plot_res(df_new,out_data[l2+1],out_data[l2+2])
-}
