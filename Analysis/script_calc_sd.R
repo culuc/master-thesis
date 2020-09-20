@@ -64,7 +64,7 @@ calc_sd_df <- function(df,data,dfacc){
             table.res <- table(factor(pr$predictions),factor(test))
             #
             b[i,j] <- sum(diag(table.res))/sum(table.res)
-            b2[i,j] <- confusionMatrix(factor(pr$predictions),factor(test))$Overall[['Accuracy']]
+            b2[i,j] <- confusionMatrix(factor(pr$predictions),factor(test))$overall[['Accuracy']]
             # test2 <- factor(test)
             # pr2 <- factor(pr$predictions)
             #
