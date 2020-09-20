@@ -335,7 +335,7 @@ rule rl_noref_P2:
         script = "script_calc_sd.R",
         data = input_files,
         accuracy = "out_noref_ext/accuracy/elasticnet_P2/regLogistic_noref_ext.Rds",
-        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv",
+        data2 = expand("../Data/{iKey}/noref_ext/P2/{iKey}_noref_ext_share.csv",
                                 iKey = terms)
 
     output:
@@ -364,7 +364,7 @@ rule rl_noref_P4:
         script = "script_calc_sd.R",
         data = input_files,
         accuracy = "out_noref_ext/accuracy/elasticnet_P4/regLogistic_noref_ext.Rds",
-        data2 = expand("../Data/{iKey}/noref_ext/{iKey}_noref_ext_share.csv",
+        data2 = expand("../Data/{iKey}/noref_ext/P4/{iKey}_noref_ext_share.csv",
                                 iKey = terms)
 
     output:
