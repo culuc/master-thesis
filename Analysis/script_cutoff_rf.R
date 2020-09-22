@@ -86,6 +86,7 @@ for (i in 1:5){
       df,
       preProcess = c('scale', 'center'),
       method = method,
+      importance= 'impurity',
       tuneGrid = tuneGrid,
       trControl = trainControl(
           # method = "none"
