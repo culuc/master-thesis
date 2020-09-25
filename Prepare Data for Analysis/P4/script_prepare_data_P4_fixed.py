@@ -25,7 +25,7 @@ parties4 = [p1,p2,p3,p4]
 #%%
 dfbypartyspeaker=dfbypartyspeaker[dfbypartyspeaker['Speaker Party'].isin(parties4)]
 # %%
-term_topN_bySpeakerParty, topN = m.select_phrases_from_df2(dfbypartyspeaker,termtopN_tf,['Speaker Party','Speaker'])
+term_topN_bySpeakerParty, topN = m.select_phrases_from_df(dfbypartyspeaker,termtopN_tf,['Speaker Party','Speaker'])
 
 
 # %% tfidf top 500
