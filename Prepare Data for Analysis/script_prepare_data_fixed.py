@@ -14,7 +14,7 @@ termtopN_tf = pd.read_csv(sys.argv[2],index_col=0)
 #%%
 termtopN_tf.Phrase = termtopN_tf.Phrase.map(ast.literal_eval)
 # %%
-term_topN_bySpeakerParty, topN = m.select_phrases_from_df(dfbypartyspeaker,termtopN_tf,['Speaker Party','Speaker'])
+term_topN_bySpeakerParty, topN = m.select_phrases_from_df2(dfbypartyspeaker,termtopN_tf,['Speaker Party','Speaker'])
 
 # %% tfidf top 500
 term_topN_bySpeakerParty_scaled = m.make_share(term_topN_bySpeakerParty)

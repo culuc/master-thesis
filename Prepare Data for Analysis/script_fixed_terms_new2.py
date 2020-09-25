@@ -21,4 +21,5 @@ for i in range(2,7):
 print(len(allphr))
 allphr = pd.Series(list(allphr))
 allphr = pd.DataFrame(allphr, columns = ['Phrase'])
+allphr['Speaker Party'] = 0
 allphr.to_csv(sys.argv[7])
