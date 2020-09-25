@@ -31,5 +31,5 @@ for i in range(3,8):
 print(len(allphr))
 allphr = pd.Series(list(allphr))
 allphr = pd.DataFrame(allphr, columns = ['Phrase'])
-allphr['Speaker Party'] = 0
+allphr['Speaker Party'] = 'Sozialdemokratische Partei der Schweiz (SP)'
 allphr.to_csv(sys.argv[8])
