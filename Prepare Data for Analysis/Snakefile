@@ -264,7 +264,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2:
         script = "script_fixed_terms_new2.py",
         data   =  expand("../Data/term{t}/tfidf_indiv/P2/term{t}_top500each_df_P2.pkl", t = terms_short)
     params:
-        n = 2500,
+        n = 5000,
         parties = 2
         # topN = 500
     output:
@@ -311,7 +311,7 @@ rule prepare_phrases_all_terms_fixed_restr_P4:
         script = "script_fixed_terms_new2.py",
         data   = expand("../Data/term{t}/tfidf_indiv/P4/term{t}_top250each_df_P4.pkl", t = terms_short)
     params:
-        n = 2000,
+        n = 3000,
         parties = 4
         # topN = 250
     output:
