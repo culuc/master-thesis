@@ -24,7 +24,7 @@ for i in range(3,8):
         df = df[df['Speaker Party'].isin(parties4[:n])]
     if N is not None:
         df = df.groupby('Speaker Party')['tf_idf'].nlargest(N).reset_index(level=0,drop=True).reset_index()
-    if i == 2:
+    if i == 3:
         allphr = set(df.Phrase)
     allphr.intersection_update(set(df.Phrase))
 

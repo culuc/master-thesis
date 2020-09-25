@@ -289,7 +289,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2_old:
         data   =  expand("../Data/term{t}/tfidf/P2/term{t}_top500_topN_P2.csv", t = terms_short)
     params:
         n = None,
-        parties = 2
+        # parties = 2
         # topN = 500
     output:
         files = expand("../../interim/fixd_P2_old/{iKey}", iKey = files_fixed_restr2)
@@ -297,7 +297,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2_old:
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {params.n} {params.parties} {input.data}\
+     "python {input.script} {params.n} {input.data}\
          {output.files} > {log} {logAll}"
 
 
