@@ -86,9 +86,9 @@ for (i in 1:5){
       preProcess = c('scale', 'center'),
       tuneGrid = tuneGrid,
       trControl = trainControl(
-          method = "repeatedcv",
+          method = "cv",
           number = 10,
-          repeats = 10,
+          # repeats = 10,
           verboseIter = TRUE
         )
     )
