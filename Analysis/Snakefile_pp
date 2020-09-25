@@ -206,7 +206,7 @@ rule prepare_fixed_P2_i:
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n = 5500,
+        n = 8000,
         N = 2
     output:
         files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
@@ -322,7 +322,7 @@ rule prepare_data_o:
 rule prepare_fixed_i:
     input:
         script = "script_fixed_terms_new2.py",
-        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_topN.csv",iT = terms, nameKey=name)
+        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_df.pkl",iT = terms, nameKey=name)
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
