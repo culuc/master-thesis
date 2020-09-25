@@ -20,5 +20,5 @@ for i in range(2,7):
 
 print(len(allphr))
 allphr = pd.Series(list(allphr))
-allphr = pd.Series(allphr, columns = ['Phrase'])
+allphr = pd.DataFrame(allphr, columns = ['Phrase'])
 allphr.to_csv(sys.argv[7])
