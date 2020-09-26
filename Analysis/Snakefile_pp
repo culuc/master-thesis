@@ -81,20 +81,20 @@ rule prepare_data_P4_o:
 
 rule prepare_fixed_P4_i:
     input:
-        script = "script_fixed_terms2.py",
-        data   = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top250each_topN_P4.csv", nameKey=name, iT = terms),
+        script = "script_fixed_terms_new2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P4/{nameKey}_{iT}_top250each_df_P4.pkl", nameKey=name, iT = terms),
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n= 75,
-        # N = 4
+        n= 3200,
+        N = 4
     output:
         files = expand(root + "Data/fixed/{nameKey}/P4/{nameKey}_fixed_phrases_top500eacheach_P4.csv", nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P4_i.log"
     shell:
-     "python {input.script} {params.n} {input.data} \
+     "python {input.script} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P4_if:
@@ -201,20 +201,20 @@ rule prepare_data_P2_o:
 
 rule prepare_fixed_P2_i:
     input:
-        script = "script_fixed_terms2.py",
-        data   = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500each_topN_P2.csv",nameKey=name, iT = terms)
+        script = "script_fixed_terms_new2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/P2/{nameKey}_{iT}_top500each_df_P2.pkl",nameKey=name, iT = terms)
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n = 175,
-        # N = 2
+        n = 11000,
+        N = 2
     output:
         files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top100eacheach_P2.csv",nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P2_i.log"
     shell:
-     "python {input.script} {params.n} {input.data} \
+     "python {input.script} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_if:
@@ -244,15 +244,15 @@ rule prepare_fixed_P2_o:
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 0,
-        n = None
-        # N = 2
+        n = None,
+        N = 2
     output:
         files = expand(root + "Data/fixed/{nameKey}/P2/{nameKey}_fixed_phrases_top500_P2.csv",nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_P2_o.log"
     shell:
-     "python {input.script} {params.n} {input.data} \
+     "python {input.script} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_P2_of:
@@ -321,20 +321,20 @@ rule prepare_data_o:
 
 rule prepare_fixed_i:
     input:
-        script = "script_fixed_terms2.py",
-        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_topN.csv",iT = terms, nameKey=name)
+        script = "script_fixed_terms_new2.py",
+        data   = expand(root + "Data/{iT}/{nameKey}/{nameKey}_{iT}_top100each_df.pkl",iT = terms, nameKey=name)
         # pp = "../Data/lookup_files/procedural_phrases_noref_ext_stopwords.pkl"
     params:
         # indiv = 1,
-        n = 25
-        # N = None
+        n = 4000,
+        N = None
     output:
         files = expand(root + "Data/fixed/{nameKey}/{nameKey}_fixed_phrases_top100each.csv", nameKey=name)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed_i.log"
     shell:
-     "python {input.script} {params.n} {input.data} \
+     "python {input.script} {params.n} {params.N} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_data_if:

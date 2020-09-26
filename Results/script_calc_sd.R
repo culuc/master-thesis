@@ -39,7 +39,7 @@ calc_sd_df <- function(df){
     for (i in 1:5){
         for (j in 1:100){
             s<-m[[i]]$trainingData%>%
-                sample_n(50,replace=T)
+                sample_n(50,replace=F)
 
             s<-predict(m[[i]]$preProcess,s)
 
@@ -61,15 +61,20 @@ calc_sd_df <- function(df){
         }
 
     q2<- b_de.mean.sorted[,c(5,95)]
-
+    q <- matrix(NaN,5,2)
+    print(q[1,])
+    for (i in 1:5){
+        q[i,]<-quantile(b_de.mean.sorted[i,], c(0.05,0.95))
+    }
     n <- rep(NaN,5)
     for (i in 1:5){
         n[i]<-dim(m[[i]]$trainingData)[1]
         }
+    print(q)
+    print(q2)
+    q<-q*sqrt(50)/sqrt(n)
 
-    q2<-q2*sqrt(50)/sqrt(n)
-
-    qt2<-tibble('lb'=q2[,1],'ub'=q2[,2])
+    qt2<-tibble('lb'=q[,1],'ub'=q[,2])
 
     acc<- tibble('Term'=c('Term1','Term2','Term3','Term4','Term5'),'Accuracy'=rep(NaN,5))
 

@@ -226,17 +226,18 @@ terms_short = ['1','2','3','4','5']
 
 rule prepare_phrases_all_terms_fixed:
     input:
-        script = "script_fixed_terms_new.py",
-        data   = expand("../Data/term{t}/tfidf_indiv/term{t}_top100each_topN.csv", t = terms_short)
+        script = "script_fixed_terms_new2.py",
+        data   = expand("../Data/term{t}/tfidf_indiv/term{t}_top100each_df.pkl", t = terms_short)
     params:
-        n = 25
+        n = 3000,
+        parties = None
     output:
         files = expand("../../interim/fixed/{iKey}", iKey = files_fixed)
         # interim = ['term1_tfidf.pkl','term1topN_tfidf.csv']
     log:
         "logs/prepare_fixed.log"
     shell:
-     "python {input.script} {params.n} {input.data} \
+     "python {input.script} {params.n} {params.parties} {input.data} \
         {output.files} > {log} {logAll}"
 
 rule prepare_phrases_all_terms_fixed_old:
@@ -260,11 +261,11 @@ files_fixed_restr = ['phrases_all_terms_tfidf_top500each_P2.csv']
 
 rule prepare_phrases_all_terms_fixed_restr_P2:
     input:
-        script = "script_fixed_terms_new.py",
-        data   =  expand("../Data/term{t}/tfidf_indiv/P2/term{t}_top500each_topN_P2.csv", t = terms_short)
+        script = "script_fixed_terms_new2.py",
+        data   =  expand("../Data/term{t}/tfidf_indiv/P2/term{t}_top500each_df_P2.pkl", t = terms_short)
     params:
-        n = 175
-        # parties = 2,
+        n = 4500,
+        parties = 2
         # topN = 500
     output:
         files = expand("../../interim/fixd_P2/{iKey}", iKey = files_fixed_restr)
@@ -272,7 +273,7 @@ rule prepare_phrases_all_terms_fixed_restr_P2:
     log:
         "logs/prepare_fixed_restr.log"
     shell:
-     "python {input.script} {params.n} {input.data}\
+     "python {input.script} {params.n} {params.parties} {input.data}\
          {output.files} > {log} {logAll}"
 
 
@@ -287,8 +288,8 @@ rule prepare_phrases_all_terms_fixed_restr_P2_old:
         script = "script_fixed_terms_new.py",
         data   =  expand("../Data/term{t}/tfidf/P2/term{t}_top500_topN_P2.csv", t = terms_short)
     params:
-        n = None
-        # parties = 2,
+        n = None,
+        # parties = 2
         # topN = 500
     output:
         files = expand("../../interim/fixd_P2_old/{iKey}", iKey = files_fixed_restr2)
@@ -307,11 +308,11 @@ files_fixed_restr_4 = ['phrases_all_terms_tfidf_top250each_P4.csv']
 
 rule prepare_phrases_all_terms_fixed_restr_P4:
     input:
-        script = "script_fixed_terms_new.py",
-        data   = expand("../Data/term{t}/tfidf_indiv/P4/term{t}_top250each_topN_P4.csv", t = terms_short)
+        script = "script_fixed_terms_new2.py",
+        data   = expand("../Data/term{t}/tfidf_indiv/P4/term{t}_top250each_df_P4.pkl", t = terms_short)
     params:
-        n = 75
-        # parties = 4,
+        n = 2200,
+        parties = 4
         # topN = 250
     output:
         files = expand("../../interim/fixd_P4/{iKey}", iKey = files_fixed_restr_4)
@@ -319,7 +320,7 @@ rule prepare_phrases_all_terms_fixed_restr_P4:
     log:
         "logs/prepare_fixed_restr_P4.log"
     shell:
-     "python {input.script} {params.n} {input.data} \
+     "python {input.script} {params.n} {params.parties} {input.data} \
         {output.files} > {log} {logAll}"
 
 
