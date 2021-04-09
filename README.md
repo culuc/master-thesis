@@ -1,6 +1,5 @@
 # Master's Thesis
-## Trends in Swiss Parliamentary Speech
-### A Speech-Analysis of Party Polarization over the Last Five Legislative Periods
+## Trends in Swiss Parliamentary Speech: A Speech-Analysis of Party Polarization over the Last Five Legislative Periods
 
 ## Abstract
 Political polarization is one of the defining trends of the 21st century. It entrenches
