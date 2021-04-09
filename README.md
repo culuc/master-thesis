@@ -1,4 +1,18 @@
-# master-thesis
+# Master's Thesis
+## Trends in Swiss Parliamentary Speech
+### A Speech-Analysis of Party Polarization over the Last Five Legislative Periods
+
+## Abstract
+Political polarization is one of the defining trends of the 21st century. It entrenches
+the opposing political camps, reduces the common ground, and ultimately results
+in legislative gridlock. The thesis examines the level of polarization in the Swiss
+parliament over the last two decades. By exploiting changing patterns in speeches,
+the severity of the divide between left and right is evaluated using machine learning
+classifiers. The trend in polarization is thus assessed by the period-wise accuracy
+of affiliating speakers to their parties. The results point to two surges in polarization. Both the 47th (2003–2007) and the 49th (2011–2015) legislative periods are
+attributed to higher polarization than the adjacent periods. The most recent legislative period (2015–2019) is no more polarized than the period at the beginning of the
+century (1999-2003). The overall trend of the last two decades is either stagnant or
+even in decline.
 
 ## Summary Stats of the Dataset
 |    |Speaker Party|Speaker Party                                        |Speaker Party|Speaker|Speaker                |Speaker|Phrase |Phrase |Phrase               |Phrase|Counts   |Counts            |Counts            |Counts|Counts|Counts|Counts|Counts|
@@ -11,6 +25,10 @@
 |4   |12           |Sozialdemokratische Partei der Schweiz (SP)          |733029       |236    |Simonetta Sommaruga    |151986 |3427431|2096203|('artikel', 'absatz')|204   |3427431.0|1.160670192922921 |1.3422703360246826|1.0   |1.0   |1.0   |1.0   |568.0 |
 |5   |15           |Sozialdemokratische Partei der Schweiz (SP)          |735257       |237    |Simonetta Sommaruga    |169380 |3149257|1941602|('million', 'frank') |204   |3149257.0|1.156980837067283 |1.244432181289119 |1.0   |1.0   |1.0   |1.0   |567.0 |
 
+### Overview of (non-)consecutive speakers
+
+![](Data/lookup_files/speaker_servetime_all_color.png)
+
 
 <!-- Previous Results: Prediction accuracy determined with 10-fold cross-validation:
 
@@ -19,8 +37,9 @@
 [Results for Regularized Logistic](Results/old/summary_result_terms_regLogistic_scaled.csv)
 
 [Results for Random Forest](Results/old/summary_result_terms_randomForest_scaled_best.csv) -->
-# Confidence Intervals
-## All Parties
+## Classification Accuracy Results
+### Confidence Intervals
+#### All Parties
 
 <!-- Model | Feature Selection --- Individual Top 100 each |Feature Selection --- Individual Fixed Top 20 Each Party and Term
 :--|:--:|:---:
@@ -38,7 +57,7 @@ Individual Fixed No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_
 
 
 
-## SP, CVP, FDP & SVP
+#### SP, CVP, FDP & SVP
 
 Feature Selection | Multinom |RegLogistic | RandomForest
 :--|:--:|:---:|:---:
@@ -47,7 +66,7 @@ Individual Fixed |  ![](Results/plots_sd/multinom/all_speakers_multinom_P4_indiv
 Individual No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P4_individual_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P4_individual_top250each_P4.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P4_individual_top250each_P4.png)
 Individual Fixed No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P4_individual_fixed_top250each_P4.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P4_individual_fixed_top250each_P4.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P4_individual_fixed_top250each_P4.png)
 
-# SP & SVP
+#### SP & SVP
 Feature Selection | Multinom |RegLogistic | RandomForest
 :--|:--:|:---:|:---:
 Individual |  ![](Results/plots_sd/multinom/all_speakers_multinom_P2_individual_top500each_P2.png) |  ![](Results/plots_sd/regLogistic/all_speakers_regLogistic_P2_individual_top500each_P2.png) | ![](Results/plots_sd/randomForest/all_speakers_randomForest_P2_individual_top500each_P2.png)
@@ -56,8 +75,9 @@ Individual No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_mu
 Individual Fixed No-ref & Ext. Stopwords |  ![](Results/plots_sd/multinom/noref_ext_multinom_P2_individual_fixed_top500each_P2.png) |  ![](Results/plots_sd/regLogistic/noref_ext_regLogistic_P2_individual_fixed_top500each_P2.png) | ![](Results/plots_sd/randomForest/noref_ext_randomForest_P2_individual_fixed_top500each_P2.png)
 
 
-## Cutoff > 10
-### Regularized Logisitc
+### Exploring Effect of Different Selection of Phrases
+#### Cutoff > 10
+##### Regularized Logisitc
 
 For SP & SVP, the results are more mixed, with some indicating an increase --- and not a clear trough as with most of tf-idf --- at the 48th term.
 
@@ -77,21 +97,21 @@ NoRef & Ext. Stopwords  | ![](Results/plots/noref_ext_cutoff_elasticnet_P2_summa
 
 The other models fit for each term the specification between L1 and L2 that fits best.
 
-### Random Forest
+##### Random Forest
 However, with randomForest the results are gain comparable to tfidf, although the peak is more pronounced at the 47th term.
 Normal | NoRef & Ext. Stopwords
 :--:|:--:
 ![](Results/plots/cutoff_rf_cutoff_summary.png) | ![](Results/plots/noref_ext_cutoff_rf_noref_ext_summary.png)
 
 
-## Tf-Idf (& a bit of Qui-Squared)
+#### Tf-Idf (& a bit of Qui-Squared)
 
 Feature selection based on tf-idf score is done at the following two levels:
 
 - Parties: _Overall_ vs. _Individual Party-wise_
 - Time: _Individual Term-wise_ vs. _Fixed_
 
-### All vs. Broader Definition of Stopwords and No Party References
+#### All vs. Broader Definition of Stopwords and No Party References
 Remove all bigrams that include the word 'fraktion' (parliamentary group in engl.) and any party references. Also any bigrams where the first word is either 'herr' or 'frau' to exclude references to members. Along the same lines, any bigrams including ['kolleg', 'kollegin', 'standerat', 'standeratin', 'nationalrat', 'nationalratin', 'bundesrat', 'bundesratin', 'conseil', 'koleginn'].
 Furthermore bigrams including 'artikel', 'absatz' or 'ziffer' are removed to exclude common occurring references to part of a law under discussion.
 
@@ -147,8 +167,8 @@ Model | All Speakers | NoRef & Ext. Stopwords
 |regLogistic| ![](Results/plots/all_speakers_regLogistic_summary.png) | ![](Results/plots/noref_ext_regLogistic_summary.png)
 |randomForest| ![](Results/plots/all_speakers_randomForest_summary.png) |![](Results/plots/noref_ext_randomForest_summary.png)
 
-### All vs. Consecutive
-#### Results for Restricted Analysis: SP & SVP
+#### All vs. Consecutive
+##### Results for Restricted Analysis: SP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P2.png)|![](Analysis/Graphs/summary_plot_P2_rl.png)|![](Analysis/Graphs/summary_plot_P2_rf.png) -->
@@ -170,7 +190,7 @@ Distribution of Phrases  | Distribution of Speakers
  ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P2.png) | ![results P2](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P2.png)
  -->
 
-#### Results for Restricted Analysis: SP, CVP, FDP & SVP
+##### Results for Restricted Analysis: SP, CVP, FDP & SVP
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_P4.png)|![](Analysis/Graphs/summary_plot_P4_rl.png)|![](Analysis/Graphs/summary_plot_P4_rf.png) -->
@@ -190,7 +210,7 @@ Distribution of Phrases  | Distribution of Speakers
 ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_P4.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_P4.png)
  -->
 
-#### Results for Analysis With All Parties
+##### Results for Analysis With All Parties
 <!-- Multinom | regLogistic | randomForest
 :--:|:--:|:--:
 ![](Analysis/Graphs/summary_plot_ALL.png)|![](Analysis/Graphs/summary_plot_ALL_rl.png)|![](Analysis/Graphs/summary_plot_ALL_rf.png) -->
@@ -208,9 +228,6 @@ Distribution of Phrases  | Distribution of Speakers
 ![](Analysis/Graphs/summary_fixed_indiv_phrase_plot_ALL.png) | ![](Analysis/Graphs/summary_fixed_indiv_speaker_plot_ALL.png)
  -->
 
-## Overview of (non-)consecutive speakers
-
-![](Data/lookup_files/speaker_servetime_all_color.png)
 
 
 <!-- | data         | term1.rf.best      | term2.rf.best      | term3.rf.best      | term4.rf.best      | term5.rf.best      |
@@ -220,7 +237,7 @@ Distribution of Phrases  | Distribution of Speakers
 | cap 100      | 0.7071229457041814 | 0.6554663090532655 | 0.6446982872200263 | 0.6828379446640316 | 0.618729907773386  |
 | cap 20       | 0.697914747342665  | 0.6758493318275927 | 0.6525179023874677 | 0.699111424807077  | 0.6835641025641026 | -->
 
-## Compare definitions of *documents* (four main parties)
+##### Compare definitions of *documents* (four main parties)
 
 Define *documents* by the level of _party_ (the specification of the previous analysis), _speaker_ and _speech_. Then, aggregate the phrases' tf-idf scores to party-level and select for each of the four main parties the 250 phrases with highest tf-idf score.
 
